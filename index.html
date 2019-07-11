@@ -407,7 +407,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-11 10:35:22" itemprop="dateModified" datetime="2019-07-11T10:35:22+08:00">2019-07-11</time>
+                <time title="修改时间：2019-07-11 17:27:57" itemprop="dateModified" datetime="2019-07-11T17:27:57+08:00">2019-07-11</time>
               </span>
             
           
@@ -468,7 +468,9 @@
 <ol start="2">
 <li><p>检查要求的组件是否都安装好了:</p>
 <p>以管理员身份打开cmd命令行界面，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+
 
 
 </li>
@@ -489,7 +491,7 @@
 <ol start="2">
 <li><p>检查要求的组件是否都安装好了:</p>
 <p>以管理员身份打开cmd命令行界面，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
 
 <p>如果结果如下图所示，则说明安装正确，可以进行下一步了，如果不正确，则需要回头检查自己的安装过程</p>
 <p><img src="https://s2.ax1x.com/2019/07/11/Z2kFW4.png" alt></p>
@@ -526,60 +528,60 @@
 <p>代码库正确创建以后，GitHub账户的配置就完成了</p>
 <hr>
 <h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>首先打开cmd命令行,，原本应该是直接使用npm这个包管理器来安装，但因为国内镜像源的速度很慢，所以先利用npm来安装cnpm，也就是淘宝的源，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.prg</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.prg</span><br></pre></td></tr></table></figure>
 
 <p>安装好以后输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm -v</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm -v</span><br></pre></td></tr></table></figure>
 
 <p>若结果如图，则说明安装没问题</p>
 <p><img src="https://s2.ax1x.com/2019/07/11/Z2koc9.png" alt></p>
 <p>然后使用cnpm全局安装hexo，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 
 <p>然后你将会看到：</p>
 <p><img src="https://s2.ax1x.com/2019/07/11/Z2kTXR.png" alt></p>
 <p>可能你会看到一个WARN，但是不用担心，这不会影响你的正常使用。 然后来验证一下，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
 
 <p>结果如图，则说明没有问题</p>
 <p><img src="https://s2.ax1x.com/2019/07/11/Z2kq76.png" alt></p>
 <p>接着建立一个空的文件夹来存博客，我是在C:/Users/morcihina下建立了一个叫blog的文件夹来存放，接下来就可以真正的使用hexo来生成我们的博客</p>
 <p>首先进入blog文件夹, 因为我的路径为C:/Users/morcihina/blog，所以在cmd命令行下输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd blog</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd blog</span><br></pre></td></tr></table></figure>
 
 <p>然后来初始化我们的博客，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
 
 <p>这个过程会需要一点时间，耐心等待即可，安装完成以后，便可启动我们的博客，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 
 <p>会出现如下结果</p>
 <p><img src="https://s2.ax1x.com/2019/07/11/Z2kOAK.png" alt></p>
 <p>在浏览器中打开<a href="http://localhost:4000/，你将会看到" target="_blank" rel="noopener">http://localhost:4000/，你将会看到</a></p>
 <p><img src="https://s2.ax1x.com/2019/07/11/Z2AScd.png" alt></p>
 <p>想要再新建文章的话，可以在命令行输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n &quot;博客名&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">"博客名"</span></span><br></pre></td></tr></table></figure>
 
 <p>便会在C:/Users/morcihina/blog/source/_posts目录下创建一篇新文章，再输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
 
 <p>文件生成好以后，再输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 
 <p>在浏览器中打开<a href="http://localhost:4000/，便会看到新文章加入了博客中" target="_blank" rel="noopener">http://localhost:4000/，便会看到新文章加入了博客中</a></p>
 <p>到目前为止，Hexo在本地的配置已经全都结束了</p>
 <p>下面会讲解怎样将本地的博客部署到GitHub上</p>
 <hr>
 <h3 id="下面会讲解怎样将Hexo与github-page-联系起来"><a href="#下面会讲解怎样将Hexo与github-page-联系起来" class="headerlink" title="下面会讲解怎样将Hexo与github page 联系起来"></a>下面会讲解怎样将Hexo与github page 联系起来</h3><p>首先安装一个GitHub部署的插件，在cmd命令行中输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
 <p>耐心等待安装就好，安装好以后，需要配置一个文件，打开blog文件夹内的_config.yml文件，用记事本打开即可，如果用记事本打开的话格式太乱，那可以用sublime或NotePad++之类的文本编辑器打开，找到Deployment，然后按照如下修改:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:yourname/yourname.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:yourname/yourname.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 
 <p>注意冒号后面要跟一个空格，repo后面的一串地址，实际上就是之前创建的代码库的HTTPS地址，直接复制过来就行，yourname就是你的GitHub账户名，如图：</p>
 <p><img src="https://s2.ax1x.com/2019/07/11/Z2AkAf.png" alt></p>
 <p>将修改保存以后，在命令行当中进入blog文件夹，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
 <p>就会自动开始部署，这时候会让你输入GitHub的账号和密码，正确输入以后，等一会部署就会完成，然后刷新之前创建的代码库，便会发现仓库里多了些东西，如图：</p>
 <p><img src="https://s2.ax1x.com/2019/07/11/Z2AZ9g.png" alt></p>
@@ -597,27 +599,27 @@
 <h4 id="配置Git个人信息"><a href="#配置Git个人信息" class="headerlink" title="配置Git个人信息"></a>配置Git个人信息</h4><p>如果你之前已经配置好git个人信息，请跳过该步骤</p>
 <p>设置Git的user name和email：(如果是第一次的话)</p>
 <p>在命令行中输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;morichina&quot;</span><br><span class="line">git config --global user.email &quot;moric_deng@qq.com&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="keyword">global</span> user.name <span class="string">"morichina"</span></span><br><span class="line">git config --<span class="keyword">global</span> user.email <span class="string">"moric_deng@qq.com"</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h4><p>在cmd命令行中输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;moric_deng@qq.com&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"moric_deng@qq.com"</span></span><br></pre></td></tr></table></figure>
 
 <p>然后按三个回车，设置密码为空</p>
 <p>最后你的C:\Users\admin\.ssh路径下会生成两个文件：id_rsa和id_rsa.pub</p>
 <h4 id="将密钥添加到GitHub上"><a href="#将密钥添加到GitHub上" class="headerlink" title="将密钥添加到GitHub上"></a>将密钥添加到GitHub上</h4><p>在github上添加ssh密钥，这要添加的是“id_rsa.pub”里面的公钥，用记事本打开id_rsa.pub文件，复制内容，在github.com的网站上到ssh密钥管理页面，添加新公钥，随便取个名字，内容粘贴刚才复制的内容</p>
 <p><img src="https://s2.ax1x.com/2019/07/11/Z2Anjs.png" alt></p>
 <p>接着可以来测试一下，打开命令行中，进入blog文件夹，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh git@github.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh git@github.com</span><br></pre></td></tr></table></figure>
 
 <p>结果如图，则添加密钥成功</p>
 <p><img src="https://s2.ax1x.com/2019/07/11/Z2AKun.png" alt></p>
 <h4 id="配置Deployment"><a href="#配置Deployment" class="headerlink" title="配置Deployment"></a>配置Deployment</h4><p>同样在_config.yml文件中，找到Deployment，然后按照如下修改：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:yourname/yourname.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:yourname/yourname.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 
 <p>注意冒号后面要跟一个空格，repo后面的一串地址，实际上就是之前创建的代码库的SSH地址，直接复制过来就行，yourname就是你的GitHub账户名，如图：</p>
 <p><img src="https://s2.ax1x.com/2019/07/11/Z2A1EV.png" alt></p>
 <p>然后命令行中进入blog文件夹，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
 <p>至此我才部署成功</p>
 <hr>
@@ -633,26 +635,26 @@
 <p>为了描述方便，在以下说明中，将前者称为 <strong>站点配置文件</strong>， 后者称为 <strong>主题配置文件</strong></p>
 <p>比如我的电脑下的 C:/Users/morcihina/blog 目录下的成为 站点配置文件，C:/Users/morcihina/blog\themes\next 目录下的成为主题配置文件</p>
 <h5 id="安装next"><a href="#安装next" class="headerlink" title="安装next"></a>安装next</h5><p>命令行下进入blog文件夹，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-next/hexo-theme-next.git thems/next</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-next/hexo-theme-next.git thems/next</span><br></pre></td></tr></table></figure>
 
-<p>意思就是把next主题的文件克隆到你的themes目录里的next文件夹中，<a href="https://github.com/theme-next/hexo-theme-next是next主题的GitHub地址，为了防止网址丢失，可以将其设为star，如图" target="_blank" rel="noopener">https://github.com/theme-next/hexo-theme-next是next主题的GitHub地址，为了防止网址丢失，可以将其设为star，如图</a></p>
+<p>意思就是把next主题的文件克隆到你的themes目录里的next文件夹中，<a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">https://github.com/theme-next/hexo-theme-next</a>, 是next主题的GitHub地址，为了防止网址丢失，可以将其设为star，如图</p>
 <p><img src="https://s2.ax1x.com/2019/07/11/Z2AY34.png" alt></p>
 <h5 id="设置博客主题为next"><a href="#设置博客主题为next" class="headerlink" title="设置博客主题为next"></a>设置博客主题为next</h5><p>与所有 Hexo 主题启用的模式一样，当克隆/下载完成后，打开站点配置文件，找到 theme 字段，并将其值更改为 next</p>
 <p>启用 Next 主题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
 
 <p>到此，NexT 主题安装完成。下一步我们将验证主题是否正确启用。在切换主题之后、验证之前， 我们最好使用 hexo clean 来清除 Hexo 的缓存</p>
 <h5 id="验证主题"><a href="#验证主题" class="headerlink" title="验证主题"></a>验证主题</h5><p>在命令行中进入blog文件夹，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 
 <p>然后使用浏览器访问 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000</a> ，检查站点是否正确运行。</p>
 <p>当你看到站点的外观与下图所示类似时即说明你已成功安装 NexT 主题。这是 NexT 默认的 Scheme —— Muse</p>
 <p><img src="https://s2.ax1x.com/2019/07/11/Z2AdD1.png" alt></p>
 <p>之后在命令行中进入blog文件夹输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
 
 <p>文件生成以后输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
 <p>部署好以后，便可进入yourname.github.io，验证远端部署的博客主题是否改变，若未改变，等待一会刷新即可</p>
 <p>至此，便已成功安装并启用了 Next主题，可以开始写自己的个人博客了</p>
@@ -1266,6 +1268,47 @@
   
 
   
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      const selection = document.getSelection();
+      const selected = selection.rangeCount > 0 ? selection.getRangeAt(0) : false;
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+      if (selected) {
+        selection.removeAllRanges();
+        selection.addRange(selected);
+      }
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
 
   
 
