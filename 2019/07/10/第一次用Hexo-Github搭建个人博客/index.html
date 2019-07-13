@@ -124,7 +124,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/11/Z2A3NT.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/11/Z2AY34.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/11/Z2AdD1.png">
-<meta property="og:updated_time" content="2019-07-11T09:27:57.772Z">
+<meta property="og:updated_time" content="2019-07-13T03:39:04.389Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一次用Hexo+Github搭建个人博客">
 <meta name="twitter:description" content="转自手把手教你用Hexo+Github 搭建属于自己的博客和手把手教你从0开始搭建自己的个人博客 |无坑版视频教程| hexo，我的博客基本上是照着这两个教程搭建出来的，不过在搭建过程中遇到了一个坑，搞了很久才解决。所以第一篇博客就写这些来记录我的个人博客是如何搭建，遇到了什么坑以及主题怎么设置的，当然也是为了练手，MarkDown的语法是在这学的，MarkDown基本语法，如何用Next主题来优">
@@ -365,6 +365,8 @@
   
 
   
+    <div class="reading-progress-bar"></div>
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -414,6 +416,8 @@
                 
               
 
+              
+
               <time title="创建时间：2019-07-10 10:12:35" itemprop="dateCreated datePublished" datetime="2019-07-10T10:12:35+08:00">2019-07-10</time>
             </span>
           
@@ -429,7 +433,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-11 17:27:57" itemprop="dateModified" datetime="2019-07-11T17:27:57+08:00">2019-07-11</time>
+                <time title="修改时间：2019-07-13 11:39:04" itemprop="dateModified" datetime="2019-07-13T11:39:04+08:00">2019-07-13</time>
               </span>
             
           
@@ -448,7 +452,27 @@
 
           <br>
           
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">4.9k</span>
+            </span>
+          
 
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">4 分钟</span>
+            </span>
           
 
           
@@ -467,6 +491,8 @@
 
       
         <p>转自<a href="https://blog.csdn.net/gdutxiaoxu/article/details/53576018" target="_blank" rel="noopener">手把手教你用Hexo+Github 搭建属于自己的博客</a>和<a href="https://www.bilibili.com/video/av44544186?t=1615" target="_blank" rel="noopener">手把手教你从0开始搭建自己的个人博客 |无坑版视频教程| hexo</a>，我的博客基本上是照着这两个教程搭建出来的，不过在搭建过程中遇到了一个坑，搞了很久才解决。所以第一篇博客就写这些来记录我的个人博客是如何搭建，遇到了什么坑以及主题怎么设置的，当然也是为了练手，MarkDown的语法是在这学的，<a href="https://www.jianshu.com/p/191d1e21f7ed" target="_blank" rel="noopener">MarkDown基本语法</a>，如何用Next主题来优化界面是在这学的，<a href="https://blog.csdn.net/nightmare_dimple/article/details/86661502" target="_blank" rel="noopener">Hexo博客优化之Next主题美化</a>，用来写博客的软件是<a href="https://www.typora.io/" target="_blank" rel="noopener">Typora</a>，个人认为挺好用的</p>
+<a id="more"></a>
+
 <h2 id="搭建环境准备"><a href="#搭建环境准备" class="headerlink" title="搭建环境准备"></a>搭建环境准备</h2><p>主要是三方面的准备</p>
 <ul>
 <li><p>Node.js的安装和准备</p>
@@ -547,7 +573,7 @@
 <p><img src="https://s2.ax1x.com/2019/07/11/Z2k5p4.png" alt></p>
 <p>代码库正确创建以后，GitHub账户的配置就完成了</p>
 <hr>
-<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>首先打开cmd命令行,，原本应该是直接使用npm这个包管理器来安装，但因为国内镜像源的速度很慢，所以先利用npm来安装cnpm，也就是淘宝的源，输入</p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>首先打开cmd命令行,，原本应该是直接使用npm这个包管理器来安装，但因为国内镜像源的速度很慢，所以先利用npm来安装cnpm，也就是淘宝的源，输入</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.prg</span><br></pre></td></tr></table></figure>
 
 <p>安装好以后输入</p>
@@ -592,7 +618,7 @@
 <p>到目前为止，Hexo在本地的配置已经全都结束了</p>
 <p>下面会讲解怎样将本地的博客部署到GitHub上</p>
 <hr>
-<h3 id="下面会讲解怎样将Hexo与github-page-联系起来"><a href="#下面会讲解怎样将Hexo与github-page-联系起来" class="headerlink" title="下面会讲解怎样将Hexo与github page 联系起来"></a>下面会讲解怎样将Hexo与github page 联系起来</h3><p>首先安装一个GitHub部署的插件，在cmd命令行中输入</p>
+<h2 id="下面会讲解怎样将Hexo与github-page-联系起来"><a href="#下面会讲解怎样将Hexo与github-page-联系起来" class="headerlink" title="下面会讲解怎样将Hexo与github page 联系起来"></a>下面会讲解怎样将Hexo与github page 联系起来</h2><p>首先安装一个GitHub部署的插件，在cmd命令行中输入</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
 <p>耐心等待安装就好，安装好以后，需要配置一个文件，打开blog文件夹内的_config.yml文件，用记事本打开即可，如果用记事本打开的话格式太乱，那可以用sublime或NotePad++之类的文本编辑器打开，找到Deployment，然后按照如下修改:</p>
@@ -608,7 +634,7 @@
 <p>然后可以去访问yourname.github.io，便可以看到里面有你的博客</p>
 <p>至此，个人博客便成功搭建并部署到GitHub上了</p>
 <hr>
-<h3 id="关于我踩到的坑"><a href="#关于我踩到的坑" class="headerlink" title="关于我踩到的坑"></a>关于我踩到的坑</h3><p>我自己搭建博客时，使用hexo d命令来将本地的博客部署到GitHub上时，上面一直不会让我输入GitHub的账号和密码，本地的博客无法部署过去，一直刷新代码仓库也不会有什么变化，在网上也并没有查到这方面的解决方法，于是后面就采取了另外一种办法来将博客部署到GitHub上，使用的是Git SSH Key的方法</p>
+<h2 id="关于我踩到的坑"><a href="#关于我踩到的坑" class="headerlink" title="关于我踩到的坑"></a>关于我踩到的坑</h2><p>我自己搭建博客时，使用hexo d命令来将本地的博客部署到GitHub上时，上面一直不会让我输入GitHub的账号和密码，本地的博客无法部署过去，一直刷新代码仓库也不会有什么变化，在网上也并没有查到这方面的解决方法，于是后面就采取了另外一种办法来将博客部署到GitHub上，使用的是Git SSH Key的方法</p>
 <p>大概分为以下几步</p>
 <ul>
 <li>配置Git个人信息</li>
@@ -616,24 +642,24 @@
 <li>将密钥添加到GitHub上</li>
 <li>配置Deployment</li>
 </ul>
-<h4 id="配置Git个人信息"><a href="#配置Git个人信息" class="headerlink" title="配置Git个人信息"></a>配置Git个人信息</h4><p>如果你之前已经配置好git个人信息，请跳过该步骤</p>
+<h3 id="配置Git个人信息"><a href="#配置Git个人信息" class="headerlink" title="配置Git个人信息"></a>配置Git个人信息</h3><p>如果你之前已经配置好git个人信息，请跳过该步骤</p>
 <p>设置Git的user name和email：(如果是第一次的话)</p>
 <p>在命令行中输入</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="keyword">global</span> user.name <span class="string">"morichina"</span></span><br><span class="line">git config --<span class="keyword">global</span> user.email <span class="string">"moric_deng@qq.com"</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h4><p>在cmd命令行中输入</p>
+<h3 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h3><p>在cmd命令行中输入</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"moric_deng@qq.com"</span></span><br></pre></td></tr></table></figure>
 
 <p>然后按三个回车，设置密码为空</p>
 <p>最后你的C:\Users\admin\.ssh路径下会生成两个文件：id_rsa和id_rsa.pub</p>
-<h4 id="将密钥添加到GitHub上"><a href="#将密钥添加到GitHub上" class="headerlink" title="将密钥添加到GitHub上"></a>将密钥添加到GitHub上</h4><p>在github上添加ssh密钥，这要添加的是“id_rsa.pub”里面的公钥，用记事本打开id_rsa.pub文件，复制内容，在github.com的网站上到ssh密钥管理页面，添加新公钥，随便取个名字，内容粘贴刚才复制的内容</p>
+<h3 id="将密钥添加到GitHub上"><a href="#将密钥添加到GitHub上" class="headerlink" title="将密钥添加到GitHub上"></a>将密钥添加到GitHub上</h3><p>在github上添加ssh密钥，这要添加的是“id_rsa.pub”里面的公钥，用记事本打开id_rsa.pub文件，复制内容，在github.com的网站上到ssh密钥管理页面，添加新公钥，随便取个名字，内容粘贴刚才复制的内容</p>
 <p><img src="https://s2.ax1x.com/2019/07/11/Z2Anjs.png" alt></p>
 <p>接着可以来测试一下，打开命令行中，进入blog文件夹，输入</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh git@github.com</span><br></pre></td></tr></table></figure>
 
 <p>结果如图，则添加密钥成功</p>
 <p><img src="https://s2.ax1x.com/2019/07/11/Z2AKun.png" alt></p>
-<h4 id="配置Deployment"><a href="#配置Deployment" class="headerlink" title="配置Deployment"></a>配置Deployment</h4><p>同样在_config.yml文件中，找到Deployment，然后按照如下修改：</p>
+<h3 id="配置Deployment"><a href="#配置Deployment" class="headerlink" title="配置Deployment"></a>配置Deployment</h3><p>同样在_config.yml文件中，找到Deployment，然后按照如下修改：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:yourname/yourname.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 
 <p>注意冒号后面要跟一个空格，repo后面的一串地址，实际上就是之前创建的代码库的SSH地址，直接复制过来就行，yourname就是你的GitHub账户名，如图：</p>
@@ -643,28 +669,26 @@
 
 <p>至此我才部署成功</p>
 <hr>
-<h3 id="主题推荐"><a href="#主题推荐" class="headerlink" title="主题推荐"></a>主题推荐</h3><p>每个不同的主题会需要不同的配置，主题配置文件在themes目录下的_config.yml。有两个比较好的主题推荐给大家。</p>
-<p><strong>Yilia</strong></p>
-<p>Yilia 是为 hexo 2.4+制作的主题<br>崇尚简约优雅，以及极致的性能</p>
+<h2 id="主题推荐"><a href="#主题推荐" class="headerlink" title="主题推荐"></a>主题推荐</h2><p>每个不同的主题会需要不同的配置，主题配置文件在themes目录下的_config.yml。有两个比较好的主题推荐给大家。</p>
+<h3 id="Yilia"><a href="#Yilia" class="headerlink" title="Yilia"></a>Yilia</h3><p>Yilia 是为 hexo 2.4+制作的主题<br>崇尚简约优雅，以及极致的性能</p>
 <p><img src="https://s2.ax1x.com/2019/07/11/Z2A3NT.png" alt></p>
 <p><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">Yilia地址</a></p>
-<p><strong>NexT</strong></p>
-<p>我的博客就是采用这个主题，简洁美观<br>目前Github上Star最高的Hexo主题，支持几种不同的风格<br>作者提供了非常完善的配置说明</p>
+<h3 id="NexT"><a href="#NexT" class="headerlink" title="NexT"></a>NexT</h3><p>我的博客就是采用这个主题，简洁美观<br>目前Github上Star最高的Hexo主题，支持几种不同的风格<br>作者提供了非常完善的配置说明</p>
 <p><a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">Next地址</a></p>
-<h4 id="Next主题的配置"><a href="#Next主题的配置" class="headerlink" title="Next主题的配置"></a>Next主题的配置</h4><p>在 Hexo 中有两份主要的配置文件，其名称都是 _config.yml。 其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项</p>
+<h3 id="Next主题的配置"><a href="#Next主题的配置" class="headerlink" title="Next主题的配置"></a>Next主题的配置</h3><p>在 Hexo 中有两份主要的配置文件，其名称都是 _config.yml。 其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项</p>
 <p>为了描述方便，在以下说明中，将前者称为 <strong>站点配置文件</strong>， 后者称为 <strong>主题配置文件</strong></p>
 <p>比如我的电脑下的 C:/Users/morcihina/blog 目录下的成为 站点配置文件，C:/Users/morcihina/blog\themes\next 目录下的成为主题配置文件</p>
-<h5 id="安装next"><a href="#安装next" class="headerlink" title="安装next"></a>安装next</h5><p>命令行下进入blog文件夹，输入</p>
+<h4 id="安装next"><a href="#安装next" class="headerlink" title="安装next"></a>安装next</h4><p>命令行下进入blog文件夹，输入</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-next/hexo-theme-next.git thems/next</span><br></pre></td></tr></table></figure>
 
 <p>意思就是把next主题的文件克隆到你的themes目录里的next文件夹中，<a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">https://github.com/theme-next/hexo-theme-next</a>, 是next主题的GitHub地址，为了防止网址丢失，可以将其设为star，如图</p>
 <p><img src="https://s2.ax1x.com/2019/07/11/Z2AY34.png" alt></p>
-<h5 id="设置博客主题为next"><a href="#设置博客主题为next" class="headerlink" title="设置博客主题为next"></a>设置博客主题为next</h5><p>与所有 Hexo 主题启用的模式一样，当克隆/下载完成后，打开站点配置文件，找到 theme 字段，并将其值更改为 next</p>
+<h4 id="设置博客主题为next"><a href="#设置博客主题为next" class="headerlink" title="设置博客主题为next"></a>设置博客主题为next</h4><p>与所有 Hexo 主题启用的模式一样，当克隆/下载完成后，打开站点配置文件，找到 theme 字段，并将其值更改为 next</p>
 <p>启用 Next 主题</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
 
 <p>到此，NexT 主题安装完成。下一步我们将验证主题是否正确启用。在切换主题之后、验证之前， 我们最好使用 hexo clean 来清除 Hexo 的缓存</p>
-<h5 id="验证主题"><a href="#验证主题" class="headerlink" title="验证主题"></a>验证主题</h5><p>在命令行中进入blog文件夹，输入</p>
+<h4 id="验证主题"><a href="#验证主题" class="headerlink" title="验证主题"></a>验证主题</h4><p>在命令行中进入blog文件夹，输入</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 
 <p>然后使用浏览器访问 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000</a> ，检查站点是否正确运行。</p>
@@ -823,6 +847,17 @@
                   <a href="https://github.com/morichina" title="GitHub &rarr; https://github.com/morichina" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
                 </span>
               
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:morichina00@gmail.com" title="E-Mail &rarr; mailto:morichina00@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
             </div>
           
 
@@ -850,7 +885,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建环境准备"><span class="nav-text">搭建环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-js的安装和准备"><span class="nav-text">Node.js的安装和准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git的安装和准备"><span class="nav-text">Git的安装和准备:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Github的账户的配置"><span class="nav-text">Github的账户的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo"><span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下面会讲解怎样将Hexo与github-page-联系起来"><span class="nav-text">下面会讲解怎样将Hexo与github page 联系起来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于我踩到的坑"><span class="nav-text">关于我踩到的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置Git个人信息"><span class="nav-text">配置Git个人信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成密钥"><span class="nav-text">生成密钥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将密钥添加到GitHub上"><span class="nav-text">将密钥添加到GitHub上</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置Deployment"><span class="nav-text">配置Deployment</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主题推荐"><span class="nav-text">主题推荐</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Next主题的配置"><span class="nav-text">Next主题的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装next"><span class="nav-text">安装next</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#设置博客主题为next"><span class="nav-text">设置博客主题为next</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#验证主题"><span class="nav-text">验证主题</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建环境准备"><span class="nav-number">1.</span> <span class="nav-text">搭建环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-js的安装和准备"><span class="nav-number">1.1.</span> <span class="nav-text">Node.js的安装和准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git的安装和准备"><span class="nav-number">1.2.</span> <span class="nav-text">Git的安装和准备:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Github的账户的配置"><span class="nav-number">1.3.</span> <span class="nav-text">Github的账户的配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo"><span class="nav-number">2.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下面会讲解怎样将Hexo与github-page-联系起来"><span class="nav-number">3.</span> <span class="nav-text">下面会讲解怎样将Hexo与github page 联系起来</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于我踩到的坑"><span class="nav-number">4.</span> <span class="nav-text">关于我踩到的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Git个人信息"><span class="nav-number">4.1.</span> <span class="nav-text">配置Git个人信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成密钥"><span class="nav-number">4.2.</span> <span class="nav-text">生成密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将密钥添加到GitHub上"><span class="nav-number">4.3.</span> <span class="nav-text">将密钥添加到GitHub上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Deployment"><span class="nav-number">4.4.</span> <span class="nav-text">配置Deployment</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题推荐"><span class="nav-number">5.</span> <span class="nav-text">主题推荐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Yilia"><span class="nav-number">5.1.</span> <span class="nav-text">Yilia</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NexT"><span class="nav-number">5.2.</span> <span class="nav-text">NexT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Next主题的配置"><span class="nav-number">5.3.</span> <span class="nav-text">Next主题的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装next"><span class="nav-number">5.3.1.</span> <span class="nav-text">安装next</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置博客主题为next"><span class="nav-number">5.3.2.</span> <span class="nav-text">设置博客主题为next</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#验证主题"><span class="nav-number">5.3.3.</span> <span class="nav-text">验证主题</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -878,7 +913,21 @@
   <span class="author" itemprop="copyrightHolder">邓星鹏</span>
 
   
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">8k</span>
+  
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">7 分钟</span>
   
 </div>
 
@@ -954,6 +1003,8 @@
 
 
 
+  
+
 
 
   
@@ -964,6 +1015,9 @@
 
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/reading_progress/reading_progress.js"></script>
 
 
   
@@ -1083,6 +1137,10 @@
   
 
   
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/clicklove.js"></script>
 
 </body>
 </html>
