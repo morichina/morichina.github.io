@@ -94,17 +94,20 @@
 
 
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+  <meta name="description" content="最近在网课中学习了Python的文件操作，所以把老师上课讲的都记录了下来，作为笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/07/07/hello-world/index.html">
+<meta property="og:title" content="Python文化操作实战">
+<meta property="og:url" content="http://yoursite.com/2019/07/18/Python文件操作/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="最近在网课中学习了Python的文件操作，所以把老师上课讲的都记录了下来，作为笔记">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-13T03:39:51.041Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/18/ZOO1eg.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/18/ZOO4mD.png">
+<meta property="og:updated_time" content="2019-07-18T03:39:47.812Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="twitter:title" content="Python文化操作实战">
+<meta name="twitter:description" content="最近在网课中学习了Python的文件操作，所以把老师上课讲的都记录了下来，作为笔记">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/07/18/ZOO1eg.png">
 
 
 
@@ -112,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/07/hello-world/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/18/Python文件操作/">
 
 
 
@@ -122,7 +125,7 @@
   };
 </script>
 
-  <title>Hello World | Morichina</title>
+  <title>Python文化操作实战 | Morichina</title>
   
 
 
@@ -349,7 +352,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/07/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/18/Python文件操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -366,7 +369,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World
+          <h1 class="post-title" itemprop="name headline">Python文化操作实战
 
               
             
@@ -392,23 +395,13 @@
                 
               
 
-              <time title="创建时间：2019-07-07 22:18:16" itemprop="dateCreated datePublished" datetime="2019-07-07T22:18:16+08:00">2019-07-07</time>
+              <time title="创建时间：2019-07-18 10:35:31 / 修改时间：11:39:47" itemprop="dateCreated datePublished" datetime="2019-07-18T10:35:31+08:00">2019-07-18</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-13 11:39:51" itemprop="dateModified" datetime="2019-07-13T11:39:51+08:00">2019-07-13</time>
-              </span>
             
           
 
@@ -433,7 +426,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">432</span>
+              <span title="本文字数">1.6k</span>
             </span>
           
 
@@ -464,21 +457,55 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+        <p>最近在网课中学习了Python的文件操作，所以把老师上课讲的都记录了下来，作为笔记</p>
 <a id="more"></a>
 
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><p>可直接使用open函数，使用形式为</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open(文件地址，操作形式)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>操作形式有以下几个</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">r 只读模式</span><br><span class="line">w 覆盖写模式</span><br><span class="line">x 创建写模式</span><br><span class="line">a 追加写模式</span><br><span class="line">b 二进制文件模式</span><br><span class="line">t 文本文件模式</span><br><span class="line">+ 与r/w/x/a一同使用，在原功能基础上增加读写功能</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>当操作形式参数为空时，默认为只读模式与文本文件模式</p>
+<p>还有几个可选参数，例如encoding，可设置编码格式</p>
+<p>看下面这个例子</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fh = open(<span class="string">"D:/blog/文本1.txt"</span>, <span class="string">"rt"</span>, encoding = <span class="string">"utf-8"</span>)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>这个语句就是以只读文本文件的模式，编码格式为”utf-8”，打开文本1</p>
+<p><strong>注意：第一个参数中的文件地址，”\&quot;要以”/“或”\\“来表示</strong></p>
+<h3 id="关闭文件"><a href="#关闭文件" class="headerlink" title="关闭文件"></a>关闭文件</h3><p>用close函数即可</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fh.close()</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p><strong>注意：文件打开后一定要关闭，否则容易出问题</strong></p>
+<h3 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h3><p>有这几个函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a.read(size = <span class="number">-1</span>) 读入全部内容，如果给出参数，读入前size长度</span><br><span class="line">a.readline(size = <span class="number">-1</span>) 读入一行内容，如果给出参数，读入该行前size长度</span><br><span class="line">a.readlines(hint = <span class="number">-1</span>) 读入文件所有行，以每行为元素形成列表，如果给出参数，读入前hint行</span><br></pre></td></tr></table></figure>
+
+<p>看下面一个例子</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fh = open(<span class="string">"D:/blog/文本1.txt"</span>, <span class="string">"rt"</span>, encoding = <span class="string">"utf-8"</span>)</span><br><span class="line">x = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">	line = fh.readline()</span><br><span class="line">	<span class="keyword">if</span>(len(line) == <span class="number">0</span> <span class="keyword">and</span> x &gt;= <span class="number">10</span>):</span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">	print(line)</span><br><span class="line">	x += <span class="number">1</span></span><br><span class="line">fh.close()</span><br></pre></td></tr></table></figure>
+
+<p>这段代码的作用便是一行行的读取文本文件，并将每行输出，当读到第十行以后的空行时，停止读取</p>
+<h3 id="文件的写入"><a href="#文件的写入" class="headerlink" title="文件的写入"></a>文件的写入</h3><p>有这几个函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fh.write(s) 向文件写入一个字符串或字节流</span><br><span class="line">fh.writelines(lines) 将一个元素全为字符串的列表写入文件(拼接以后写入到一行当中)</span><br></pre></td></tr></table></figure>
+
+<p>看一个例子</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data = <span class="string">"一起学python"</span></span><br><span class="line">fh = open(<span class="string">"D:/blog/文本1.txt"</span>, <span class="string">"w"</span>)</span><br><span class="line">fh.write(data)</span><br><span class="line">fh.close()</span><br><span class="line">data2 = <span class="string">"学好python"</span></span><br><span class="line">fh2 = open(<span class="string">"D:/blog/文本1.txt"</span>, <span class="string">"w"</span>)</span><br><span class="line">fh2.write(data2)</span><br><span class="line">fh2.close()</span><br></pre></td></tr></table></figure>
+
+<p>运行以后打开文件，会发现结果是这样的</p>
+<p><img src="https://s2.ax1x.com/2019/07/18/ZOO1eg.png" alt></p>
+<p>因为以“w”模式打开文件，会将原内容覆盖</p>
+<p>想要正确读写文件，只需改变文件打开模式为”a“或”a+“</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data = <span class="string">"一起学python"</span></span><br><span class="line">fh = open(<span class="string">"D:/blog/文本1.txt"</span>, <span class="string">"w"</span>)</span><br><span class="line">fh.write(data)</span><br><span class="line">fh.close()</span><br><span class="line">data2 = <span class="string">"学好python"</span></span><br><span class="line">fh2 = open(<span class="string">"D:/blog/文本1.txt"</span>, <span class="string">"a+"</span>)</span><br><span class="line">fh2.write(data2)</span><br><span class="line">fh2.close()</span><br></pre></td></tr></table></figure>
+
+<p>结果是这样</p>
+<p><img src="https://s2.ax1x.com/2019/07/18/ZOO4mD.png" alt></p>
+<p><strong>注意：打开文件后一定要关闭文件，否则文件内容无法更新</strong></p>
+<h3 id="改变文件操作指针位置"><a href="#改变文件操作指针位置" class="headerlink" title="改变文件操作指针位置"></a>改变文件操作指针位置</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fh.seek(offset) 改变当前文件操作指针的位置,offset含义:<span class="number">0</span>-文件开头 <span class="number">1</span>-当前位置 <span class="number">2</span>-文件结尾</span><br></pre></td></tr></table></figure>
+
+<p>看一个例子</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fh = open(<span class="string">"D:/blog/output.txt"</span>, <span class="string">"w+"</span>)</span><br><span class="line">ls = [<span class="string">"中国"</span>, <span class="string">"法国"</span>, <span class="string">"美国"</span>]</span><br><span class="line">fh.writelines(ls)</span><br><span class="line">fh.seek(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> fh:</span><br><span class="line">    print(line)</span><br><span class="line">fh.close()</span><br></pre></td></tr></table></figure>
+
+<p>代码作用是将写入文件的内容输出</p>
+<p><strong>注意：fh.seek(0)一定要添加，否则什么都输出不了，因为没有改变位置</strong></p>
 
       
     </div>
@@ -509,15 +536,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/07/15/浅谈赋值-浅复制与深复制的区别/" rel="next" title="浅谈赋值, 浅复制与深复制的区别">
+                <i class="fa fa-chevron-left"></i> 浅谈赋值, 浅复制与深复制的区别
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/10/第一次用Hexo-Github搭建个人博客/" rel="prev" title="第一次用Hexo+Github搭建个人博客">
-                第一次用Hexo+Github搭建个人博客 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -656,7 +683,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开文件"><span class="nav-number">1.</span> <span class="nav-text">打开文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭文件"><span class="nav-number">2.</span> <span class="nav-text">关闭文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件读取"><span class="nav-number">3.</span> <span class="nav-text">文件读取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件的写入"><span class="nav-number">4.</span> <span class="nav-text">文件的写入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变文件操作指针位置"><span class="nav-number">5.</span> <span class="nav-text">改变文件操作指针位置</span></a></li></ol></div>
             
 
           </div>
