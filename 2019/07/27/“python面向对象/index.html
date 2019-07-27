@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="通过几个实例来了解python怎么面向对象编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“Python面向对象">
+<meta property="og:url" content="http://yoursite.com/2019/07/27/“python面向对象/index.html">
+<meta property="og:site_name" content="Morichina">
+<meta property="og:description" content="通过几个实例来了解python怎么面向对象编程">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-27T10:34:57.001Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="“Python面向对象">
+<meta name="twitter:description" content="通过几个实例来了解python怎么面向对象编程">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/07/27/“python面向对象/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>“Python面向对象 | Morichina</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Morichina</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">记录自己的学习历程</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">0</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">0</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">14</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/27/“python面向对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="邓星鹏">
+      <meta itemprop="description" content="一个成长中的菜鸡">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Morichina">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">“Python面向对象
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-27 16:04:37 / 修改时间：18:34:57" itemprop="dateCreated datePublished" datetime="2019-07-27T16:04:37+08:00">2019-07-27</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">5.2k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">5 分钟</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>通过几个实例来了解python怎么面向对象编程</p>
+<a id="more"></a>
+
+<p>面向对象最重要的概念就是类（Class）和实例（Instance），必须牢记类是抽象的模板，比如Student类，而实例是根据类创建出来的一个个具体的“对象”，每个对象都拥有相同的方法，但各自的数据可能不同</p>
+<h2 id="定义一个类"><a href="#定义一个类" class="headerlink" title="定义一个类"></a>定义一个类</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>假如我们想定义一个名为Student的类，定义类要通过class关键字</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<p>class后面紧接着是类名，类名通常首字母要大写，然后是(object)，表示该类是从哪个类继承下来的，如果没有合适的继承类，用object类就行，它是python中一切类的基类</p>
+<h3 id="类的实例化"><a href="#类的实例化" class="headerlink" title="类的实例化"></a>类的实例化</h3><p>类可以看作是一个模板，对象便是类的实例，类的实例化可以使用类名+()，例如</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">student = Student()</span><br></pre></td></tr></table></figure>
+
+<p>这样就完成了类的实例化，student对象便是Student类的一个实例，我们可以自由给它添加一些相应的属性，例如</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">student.name = <span class="string">"Lisa"</span></span><br></pre></td></tr></table></figure>
+
+<p>由于类可以起到模板的作用，我们可以在创建实例时，把一些我们认为必须绑定的属性强制填写进去，以Student类为例，通过定义一个特殊的__init__方法，可以将name与grade等属性绑定</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, grade)</span>:</span></span><br><span class="line">		self.name = name</span><br><span class="line">		self,grade = grade</span><br></pre></td></tr></table></figure>
+
+<p>这时候再使用student = Student()便会报错</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: __init__() missing <span class="number">2</span> required positional arguments: <span class="string">'name'</span> <span class="keyword">and</span> <span class="string">'grade'</span></span><br></pre></td></tr></table></figure>
+
+<p>必须在实例化时将name与grade参数传入</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, grade)</span>:</span></span><br><span class="line">		self.name = name</span><br><span class="line">		self.grade = grade</span><br><span class="line"></span><br><span class="line">student = Student(<span class="string">"Lisa"</span>, <span class="number">90</span>)</span><br><span class="line">print(student.name)</span><br><span class="line">print(student.grade)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果为</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Lisa</span><br><span class="line"><span class="number">90</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：__init__方法两边各有两个下划线，方法的第一个参数必须为self，代表这个实例本身，因此在__init__方法内部，可以将各种属性绑定到self上</strong></p>
+<h3 id="定义类的方法"><a href="#定义类的方法" class="headerlink" title="定义类的方法"></a>定义类的方法</h3><p>除了特殊的__init__方法外，也可以定义其他函数，以Student类为例，可以定义一个打印出自身成绩的函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, grade)</span>:</span></span><br><span class="line">		self.name = name</span><br><span class="line">		self.grade = grade</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">print_score</span><span class="params">(self)</span>:</span></span><br><span class="line">		print(<span class="string">"%s的成绩为%d"</span> % (self.name, self.grade))</span><br><span class="line"></span><br><span class="line">student = Student(<span class="string">"Lisa"</span>, <span class="number">90</span>)</span><br><span class="line">student.print_score()</span><br></pre></td></tr></table></figure>
+
+<p>可以看到我们在类的内部定义了一个print_score函数，用于打印自身成绩，该函数有一个参数self，该参数是类内部的每个函数都需要添加的，代表该实例本身，不过实际调用类内部函数时self这个参数不需要传入</p>
+<p>运行结果为</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Lisa的成绩为<span class="number">90</span></span><br></pre></td></tr></table></figure>
+
+<p>在类内部定义的函数与其他函数仅有一点区别，就是第一个参数永远是实例变量self，并且，在调用时不需要传入该参数，除此之外，类的方法和普通函数没有什么区别，所以，你仍然可以用默认参数、可变参数、可选参数等</p>
+<hr>
+<h2 id="封装、继承与多态"><a href="#封装、继承与多态" class="headerlink" title="封装、继承与多态"></a>封装、继承与多态</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>封装就是将类内部的信息对外界隐藏起来，从外部无法看见，最典型的一点就是将类的属性设置为私有，在属性名前面加两个下划线便代表将改属性设置为私有，从外面无法直接调用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, grade)</span>:</span></span><br><span class="line">		self.__name = name</span><br><span class="line">		self.__grade = grade</span><br></pre></td></tr></table></figure>
+
+<p>这时候再输出__name属性与__grade属性</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">student = Student(<span class="string">"Lisa"</span>, <span class="number">90</span>)</span><br><span class="line">print(student.__name)</span><br><span class="line">print(student.__grade)</span><br></pre></td></tr></table></figure>
+
+<p>可以看见出现错误</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AttributeError: <span class="string">'Student'</span> object has no attribute <span class="string">'__name'</span></span><br></pre></td></tr></table></figure>
+
+<p>值得注意的一点是在外部为类添加属性，是无法设置为私有的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">student = Student(<span class="string">"Lisa"</span>, <span class="number">90</span>)</span><br><span class="line">student.__age = <span class="number">12</span></span><br><span class="line">print(student.__age)</span><br></pre></td></tr></table></figure>
+
+<p>结果仍然会直接输出该属性</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">12</span></span><br></pre></td></tr></table></figure>
+
+<p>将属性设置为私有后，还需要定义set和get方法，来得到或修改类的属性</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, grade)</span>:</span></span><br><span class="line">		self.__name = name</span><br><span class="line">		self.__grade = grade</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">get_name</span><span class="params">(self)</span>:</span></span><br><span class="line">		<span class="keyword">return</span> self.__name</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">get_grade</span><span class="params">(self)</span>:</span></span><br><span class="line">		<span class="keyword">return</span> self.__grade</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">set_name</span><span class="params">(self, name)</span>:</span></span><br><span class="line">		self.__name = name</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">set_grade</span><span class="params">(self, grade)</span>:</span></span><br><span class="line">		self.__grade = grade</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">print_score</span><span class="params">(self)</span>:</span></span><br><span class="line">		print(<span class="string">"%s的成绩为%d"</span> % (self.__name, self.__grage))</span><br></pre></td></tr></table></figure>
+
+<p>这样便实现了类的封装</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>继承通俗的来说，就比如A类继承自B类，则A是B的子类，B是A的父类，子类会获得父类的全部属性和方法，即A获得了B的全部属性和方法</p>
+<p>继承又分为单继承与多继承，多继承就是一个子类继承自多个父类，会获得多个父类的属性和方法</p>
+<p>想使用继承，只需在定义类时，类名后的括号内填入继承的父类即可</p>
+<p>下面以一个家庭为例，一个家庭中有一个父亲，一个母亲，一个儿子与一个女儿，父亲可以说话，母亲可以写作，假设儿子继承自父亲，女儿继承自母亲，那么可以这样定义</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 父亲类(基类)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">speak</span><span class="params">(self)</span>:</span></span><br><span class="line">		print(<span class="string">"I can speak!"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 母亲类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mother</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">write</span><span class="params">(self)</span>:</span></span><br><span class="line">		print(<span class="string">"I can write!"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 单继承: class 子类(父类)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span><span class="params">(Father)</span>:</span></span><br><span class="line">	<span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 多继承: class 女儿类(父类，母亲类)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Daughter</span><span class="params">(Father, Mother)</span>:</span></span><br><span class="line">	<span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">son = Son()</span><br><span class="line">daughter = Daughter()</span><br><span class="line">son.speak()</span><br><span class="line">daughter.speak()</span><br><span class="line">daughter.write()</span><br></pre></td></tr></table></figure>
+
+<p>可以看到son和daughet可以直接调用他们父类的方法，结果为</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">I can speak!</span><br><span class="line">I can speak!</span><br><span class="line">I can write!</span><br></pre></td></tr></table></figure>
+
+<p>我们可以再做下修改，在Son这个类中定义自己的speak方法，看看输出结果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 父亲类(基类)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">speak</span><span class="params">(self)</span>:</span></span><br><span class="line">		print(<span class="string">"I can speak!"</span>)</span><br><span class="line">		</span><br><span class="line"><span class="comment"># 单继承: class 子类(父类)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span><span class="params">(Father)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">speak</span><span class="params">(self)</span>:</span></span><br><span class="line">		print(<span class="string">"I can speak2!"</span>)</span><br><span class="line"></span><br><span class="line">son = Son()</span><br><span class="line">son.speak()</span><br></pre></td></tr></table></figure>
+
+<p>结果为</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">I can speak2!</span><br></pre></td></tr></table></figure>
+
+<p>从结果可以看出，当子类和父类都拥有speak方法时，子类的speak方法覆盖了父类的speak方法，在代码运行的时候，总是会调用子类的speak()，这样就引出了多态</p>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>要理解什么是多态，我们首先要对数据类型再作一点说明。当我们定义一个class的时候，我们实际上就定义了一种数据类型，判断一个变量是否是某种类型可以用isinstance()判断</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">son = Son()</span><br><span class="line">daughter = Daughter()</span><br><span class="line">print(isinstance(son, Son))</span><br><span class="line">print(isinstance(daughter, Daughter))</span><br></pre></td></tr></table></figure>
+
+<p>结果为</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<p>看来son，daughter分别对应着Son，Daughter这两种类型</p>
+<p>但是再试一试</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">son = Son()</span><br><span class="line">daughter = Daughter()</span><br><span class="line">print(isinstance(son, Father))</span><br><span class="line">print(isinstance(daughter, Father))</span><br><span class="line">print(isinstance(daughter, Mother))</span><br></pre></td></tr></table></figure>
+
+<p>结果为</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<p>看来son还是Father类型，daughter还是Father与Mother类型</p>
+<p>所以，在继承关系中，如果一个实例的数据类型是某个子类，那它的数据类型也可以被看做是父类。但是，反过来就不行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">father = Father()</span><br><span class="line">print(isinstance(father, Father))</span><br></pre></td></tr></table></figure>
+
+<p>结果为</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<p>Son可以看作Father，但Father不可以看作Son</p>
+<p>要理解多态的好处，我们还需要再编写一个函数，这个函数接受一个Father类型的变量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">say</span><span class="params">(father)</span>:</span></span><br><span class="line">	father.speak()</span><br></pre></td></tr></table></figure>
+
+<p>当我们传入Father的实例时</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">father = Father()</span><br><span class="line">say(father)</span><br></pre></td></tr></table></figure>
+
+<p>say()就打印出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">I can speak!</span><br></pre></td></tr></table></figure>
+
+<p>当我们传入Son的实例时</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">son = Son()</span><br><span class="line">say(son)</span><br></pre></td></tr></table></figure>
+
+<p>say()就打印出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">I can speak2!</span><br></pre></td></tr></table></figure>
+
+<p>看上去没啥意思，但是仔细想想，现在，如果我们再定义一个Son2类型，也从Father派生：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son2</span><span class="params">(Father)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">speak</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"I can speak3!"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>当我们调用say()时，传入Son2的实例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">son2 = Son2()</span><br><span class="line">say(son2)</span><br></pre></td></tr></table></figure>
+
+<p>say()就打印出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">I can speak3!</span><br></pre></td></tr></table></figure>
+
+<p>你会发现，新增一个Father的子类，不必对say()做任何修改，实际上，任何依赖Father作为参数的函数或者方法都可以不加修改地正常运行，原因就在于多态</p>
+<p>多态的好处就是，当我们需要传入Son、Son2、Daughter……时，我们只需要接收Father类型就可以了，因为Son、Son2、Daughter……都是Father类型，然后，按照Father类型进行操作即可。由于Father类型有speak()方法，因此，传入的任意类型，只要是Father类或者子类，就会自动调用实际类型的say()方法，这就是多态的意思：</p>
+<p>对于一个变量，我们只需要知道它是Father类型，无需确切地知道它的子类型，就可以放心地调用speak()方法，而具体调用的speak()方法是作用在哪个对象上，由运行时该对象的确切类型决定，这就是多态真正的威力：调用方只管调用，不管细节，而当我们新增一种Father的子类时，只要确保speak()方法编写正确，不用管原来的代码是如何调用的。这就是著名的“开闭”原则：</p>
+<p>对扩展开放：允许新增Father子类；</p>
+<p>对修改封闭：不需要修改依赖Father类型的say()等函数</p>
+<h4 id="静态语言-vs-动态语言"><a href="#静态语言-vs-动态语言" class="headerlink" title="静态语言 vs 动态语言"></a>静态语言 vs 动态语言</h4><p>对于静态语言（例如Java）来说，如果需要传入Father类型，则传入的对象必须是Father类型或者它的子类，否则，将无法调用say()方法。</p>
+<p>对于Python这样的动态语言来说，则不一定需要传入Father类型。我们只需要保证传入的对象有一个say()方法就可以了：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Timer</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">say</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'dida...'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>这就是动态语言的“鸭子类型”，它并不要求严格的继承体系，一个对象只要“看起来像鸭子，走起路来像鸭子”，那它就可以被看做是鸭子</p>
+<p>Python的“file-like object“就是一种鸭子类型。对真正的文件对象，它有一个read()方法，返回其内容。但是，许多对象，只要有read()方法，都被视为“file-like object“。许多函数接收的参数就是“file-like object“，你不一定要传入真正的文件对象，完全可以传入任何实现了read()方法的对象</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/24/Python网路爬虫模拟浏览器访问的三种方法/" rel="next" title="Python网路爬虫模拟浏览器访问的三种方法">
+                <i class="fa fa-chevron-left"></i> Python网路爬虫模拟浏览器访问的三种方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/author.png" alt="邓星鹏">
+            
+              <p class="site-author-name" itemprop="name">邓星鹏</p>
+              <div class="site-description motion-element" itemprop="description">一个成长中的菜鸡</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/morichina" title="GitHub &rarr; https://github.com/morichina" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:morichina00@gmail.com" title="E-Mail &rarr; mailto:morichina00@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义一个类"><span class="nav-number">1.</span> <span class="nav-text">定义一个类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类的实例化"><span class="nav-number">1.2.</span> <span class="nav-text">类的实例化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义类的方法"><span class="nav-number">1.3.</span> <span class="nav-text">定义类的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#封装、继承与多态"><span class="nav-number">2.</span> <span class="nav-text">封装、继承与多态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#封装"><span class="nav-number">2.1.</span> <span class="nav-text">封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">2.2.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多态"><span class="nav-number">2.3.</span> <span class="nav-text">多态</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#静态语言-vs-动态语言"><span class="nav-number">2.3.1.</span> <span class="nav-text">静态语言 vs 动态语言</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">邓星鹏</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">26k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">24 分钟</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/reading_progress/reading_progress.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      const selection = document.getSelection();
+      const selected = selection.rangeCount > 0 ? selection.getRangeAt(0) : false;
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+      if (selected) {
+        selection.removeAllRanges();
+        selection.addRange(selected);
+      }
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/clicklove.js"></script>
+
+</body>
+</html>
