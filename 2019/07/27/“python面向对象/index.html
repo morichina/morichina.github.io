@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="Morichina">
 <meta property="og:description" content="通过几个实例来了解python怎么面向对象编程">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-27T10:34:57.001Z">
+<meta property="og:updated_time" content="2019-07-30T08:05:00.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="“Python面向对象">
 <meta name="twitter:description" content="通过几个实例来了解python怎么面向对象编程">
@@ -295,7 +295,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">14</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">15</span></a>
 
   </li>
 
@@ -392,13 +392,23 @@
                 
               
 
-              <time title="创建时间：2019-07-27 16:04:37 / 修改时间：18:34:57" itemprop="dateCreated datePublished" datetime="2019-07-27T16:04:37+08:00">2019-07-27</time>
+              <time title="创建时间：2019-07-27 16:04:37" itemprop="dateCreated datePublished" datetime="2019-07-27T16:04:37+08:00">2019-07-27</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-30 16:05:00" itemprop="dateModified" datetime="2019-07-30T16:05:00+08:00">2019-07-30</time>
+              </span>
             
           
 
@@ -423,7 +433,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">5.2k</span>
+              <span title="本文字数">4.8k</span>
             </span>
           
 
@@ -435,7 +445,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">5 分钟</span>
+              <span title="阅读时长">4 分钟</span>
             </span>
           
 
@@ -468,21 +478,21 @@
 <p>这样就完成了类的实例化，student对象便是Student类的一个实例，我们可以自由给它添加一些相应的属性，例如</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">student.name = <span class="string">"Lisa"</span></span><br></pre></td></tr></table></figure>
 
-<p>由于类可以起到模板的作用，我们可以在创建实例时，把一些我们认为必须绑定的属性强制填写进去，以Student类为例，通过定义一个特殊的__init__方法，可以将name与grade等属性绑定</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, grade)</span>:</span></span><br><span class="line">		self.name = name</span><br><span class="line">		self,grade = grade</span><br></pre></td></tr></table></figure>
+<p>由于类可以起到模板的作用，我们可以在创建实例时，把一些我们认为必须绑定的属性强制填写进去，以Student类为例，通过定义一个特殊的__init__方法，可以将name与score等属性绑定</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, score)</span>:</span></span><br><span class="line">		self.name = name</span><br><span class="line">		self,score = score</span><br></pre></td></tr></table></figure>
 
 <p>这时候再使用student = Student()便会报错</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: __init__() missing <span class="number">2</span> required positional arguments: <span class="string">'name'</span> <span class="keyword">and</span> <span class="string">'grade'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: __init__() missing <span class="number">2</span> required positional arguments: <span class="string">'name'</span> <span class="keyword">and</span> <span class="string">'score'</span></span><br></pre></td></tr></table></figure>
 
 <p>必须在实例化时将name与grade参数传入</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, grade)</span>:</span></span><br><span class="line">		self.name = name</span><br><span class="line">		self.grade = grade</span><br><span class="line"></span><br><span class="line">student = Student(<span class="string">"Lisa"</span>, <span class="number">90</span>)</span><br><span class="line">print(student.name)</span><br><span class="line">print(student.grade)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, score)</span>:</span></span><br><span class="line">		self.name = name</span><br><span class="line">		self.score = score</span><br><span class="line"></span><br><span class="line">student = Student(<span class="string">"Lisa"</span>, <span class="number">90</span>)</span><br><span class="line">print(student.name)</span><br><span class="line">print(student.score)</span><br></pre></td></tr></table></figure>
 
 <p>运行结果为</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Lisa</span><br><span class="line"><span class="number">90</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>注意：__init__方法两边各有两个下划线，方法的第一个参数必须为self，代表这个实例本身，因此在__init__方法内部，可以将各种属性绑定到self上</strong></p>
 <h3 id="定义类的方法"><a href="#定义类的方法" class="headerlink" title="定义类的方法"></a>定义类的方法</h3><p>除了特殊的__init__方法外，也可以定义其他函数，以Student类为例，可以定义一个打印出自身成绩的函数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, grade)</span>:</span></span><br><span class="line">		self.name = name</span><br><span class="line">		self.grade = grade</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">print_score</span><span class="params">(self)</span>:</span></span><br><span class="line">		print(<span class="string">"%s的成绩为%d"</span> % (self.name, self.grade))</span><br><span class="line"></span><br><span class="line">student = Student(<span class="string">"Lisa"</span>, <span class="number">90</span>)</span><br><span class="line">student.print_score()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, score)</span>:</span></span><br><span class="line">		self.name = name</span><br><span class="line">		self.score = score</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">print_score</span><span class="params">(self)</span>:</span></span><br><span class="line">		print(<span class="string">"%s的成绩为%d"</span> % (self.name, self.score))</span><br><span class="line"></span><br><span class="line">student = Student(<span class="string">"Lisa"</span>, <span class="number">90</span>)</span><br><span class="line">student.print_score()</span><br></pre></td></tr></table></figure>
 
 <p>可以看到我们在类的内部定义了一个print_score函数，用于打印自身成绩，该函数有一个参数self，该参数是类内部的每个函数都需要添加的，代表该实例本身，不过实际调用类内部函数时self这个参数不需要传入</p>
 <p>运行结果为</p>
@@ -491,10 +501,10 @@
 <p>在类内部定义的函数与其他函数仅有一点区别，就是第一个参数永远是实例变量self，并且，在调用时不需要传入该参数，除此之外，类的方法和普通函数没有什么区别，所以，你仍然可以用默认参数、可变参数、可选参数等</p>
 <hr>
 <h2 id="封装、继承与多态"><a href="#封装、继承与多态" class="headerlink" title="封装、继承与多态"></a>封装、继承与多态</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>封装就是将类内部的信息对外界隐藏起来，从外部无法看见，最典型的一点就是将类的属性设置为私有，在属性名前面加两个下划线便代表将改属性设置为私有，从外面无法直接调用</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, grade)</span>:</span></span><br><span class="line">		self.__name = name</span><br><span class="line">		self.__grade = grade</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, score)</span>:</span></span><br><span class="line">		self.__name = name</span><br><span class="line">		self.__score = score</span><br></pre></td></tr></table></figure>
 
 <p>这时候再输出__name属性与__grade属性</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">student = Student(<span class="string">"Lisa"</span>, <span class="number">90</span>)</span><br><span class="line">print(student.__name)</span><br><span class="line">print(student.__grade)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">student = Student(<span class="string">"Lisa"</span>, <span class="number">90</span>)</span><br><span class="line">print(student.__name)</span><br><span class="line">print(student.__score)</span><br></pre></td></tr></table></figure>
 
 <p>可以看见出现错误</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AttributeError: <span class="string">'Student'</span> object has no attribute <span class="string">'__name'</span></span><br></pre></td></tr></table></figure>
@@ -505,10 +515,6 @@
 <p>结果仍然会直接输出该属性</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">12</span></span><br></pre></td></tr></table></figure>
 
-<p>将属性设置为私有后，还需要定义set和get方法，来得到或修改类的属性</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, grade)</span>:</span></span><br><span class="line">		self.__name = name</span><br><span class="line">		self.__grade = grade</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">get_name</span><span class="params">(self)</span>:</span></span><br><span class="line">		<span class="keyword">return</span> self.__name</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">get_grade</span><span class="params">(self)</span>:</span></span><br><span class="line">		<span class="keyword">return</span> self.__grade</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">set_name</span><span class="params">(self, name)</span>:</span></span><br><span class="line">		self.__name = name</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">set_grade</span><span class="params">(self, grade)</span>:</span></span><br><span class="line">		self.__grade = grade</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">print_score</span><span class="params">(self)</span>:</span></span><br><span class="line">		print(<span class="string">"%s的成绩为%d"</span> % (self.__name, self.__grage))</span><br></pre></td></tr></table></figure>
-
-<p>这样便实现了类的封装</p>
 <h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>继承通俗的来说，就比如A类继承自B类，则A是B的子类，B是A的父类，子类会获得父类的全部属性和方法，即A获得了B的全部属性和方法</p>
 <p>继承又分为单继承与多继承，多继承就是一个子类继承自多个父类，会获得多个父类的属性和方法</p>
 <p>想使用继承，只需在定义类时，类名后的括号内填入继承的父类即可</p>
@@ -611,8 +617,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/24/Python网路爬虫模拟浏览器访问的三种方法/" rel="next" title="Python网路爬虫模拟浏览器访问的三种方法">
-                <i class="fa fa-chevron-left"></i> Python网路爬虫模拟浏览器访问的三种方法
+              <a href="/2019/07/24/Python网路爬虫模拟浏览器访问的三种方法/" rel="next" title="Python网络爬虫模拟浏览器访问的三种方法">
+                <i class="fa fa-chevron-left"></i> Python网络爬虫模拟浏览器访问的三种方法
               </a>
             
           </div>
@@ -620,6 +626,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/30/Python的类中设置私有变量的实质/" rel="prev" title="Python的类中设置私有变量的实质">
+                Python的类中设置私有变量的实质 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -690,7 +700,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
