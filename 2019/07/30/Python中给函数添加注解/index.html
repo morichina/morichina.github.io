@@ -94,17 +94,20 @@
 
 
 
-  <meta name="description" content="继上一篇博客">
+  <meta name="description" content="转自Python3新特性：类型注解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python的类中设置私有变量的实质">
-<meta property="og:url" content="http://yoursite.com/2019/07/30/Python的类中设置私有变量的实质/index.html">
+<meta property="og:title" content="Python中给函数添加注解">
+<meta property="og:url" content="http://yoursite.com/2019/07/30/Python中给函数添加注解/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="继上一篇博客">
+<meta property="og:description" content="转自Python3新特性：类型注解">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-30T08:30:51.224Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/30/eJkXJx.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/30/eJVlR0.png">
+<meta property="og:updated_time" content="2019-07-30T09:04:11.761Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python的类中设置私有变量的实质">
-<meta name="twitter:description" content="继上一篇博客">
+<meta name="twitter:title" content="Python中给函数添加注解">
+<meta name="twitter:description" content="转自Python3新特性：类型注解">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/07/30/eJkXJx.png">
 
 
 
@@ -112,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/30/Python的类中设置私有变量的实质/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/30/Python中给函数添加注解/">
 
 
 
@@ -122,7 +125,7 @@
   };
 </script>
 
-  <title>Python的类中设置私有变量的实质 | Morichina</title>
+  <title>Python中给函数添加注解 | Morichina</title>
   
 
 
@@ -349,7 +352,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/30/Python的类中设置私有变量的实质/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/30/Python中给函数添加注解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -366,7 +369,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python的类中设置私有变量的实质
+          <h1 class="post-title" itemprop="name headline">Python中给函数添加注解
 
               
             
@@ -392,7 +395,7 @@
                 
               
 
-              <time title="创建时间：2019-07-30 15:56:09 / 修改时间：16:30:51" itemprop="dateCreated datePublished" datetime="2019-07-30T15:56:09+08:00">2019-07-30</time>
+              <time title="创建时间：2019-07-30 16:32:22 / 修改时间：17:04:11" itemprop="dateCreated datePublished" datetime="2019-07-30T16:32:22+08:00">2019-07-30</time>
             </span>
           
 
@@ -423,7 +426,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">6</span>
+              <span title="本文字数">1.6k</span>
             </span>
           
 
@@ -454,37 +457,55 @@
       
 
       
-        <p>继上一篇博客<a href="[https://morichina.github.io/2019/07/27/%E2%80%9Cpython%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/#more](https://morichina.github.io/2019/07/27/" python面向对象 #more)">Python面向对象</a></p>
+        <p>转自<a href="https://zhuanlan.zhihu.com/p/37239021" target="_blank" rel="noopener">Python3新特性：类型注解</a></p>
 <a id="more"></a>
 
-<p>在上一篇博客中提到了Python中定义类的过程中，变量名前面加两个下划线，可以将该属性设置为私有，外部无法直接调用，但是在后面学习的过程中发现这只是一种伪私有，Python中并不能实现真正的私有，将这些在博客中记录一下</p>
-<hr>
-<p>首先还是定义一个Student类，并初始化一个stu对象</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, score)</span>:</span></span><br><span class="line">		super( Student, self).__init__()</span><br><span class="line">		self.__name = name <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line">		self.__score = score <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line"></span><br><span class="line">stu = Student(<span class="string">"lisa"</span>, <span class="number">90</span>)</span><br></pre></td></tr></table></figure>
+<p>这几天在看别人的算法源码时，发现有这样的代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> sys.version_info &gt;= (<span class="number">3</span>, <span class="number">6</span>):</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, days: float = ..., seconds: float = ..., microseconds: float = ...,</span></span></span><br><span class="line"><span class="function"><span class="params">                 milliseconds: float = ..., minutes: float = ..., hours: float = ...,</span></span></span><br><span class="line"><span class="function"><span class="params">                 weeks: float = ..., *, fold: int = ...)</span> -&gt; <span class="keyword">None</span>:</span> ...</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, days: float = ..., seconds: float = ..., microseconds: float = ...,</span></span></span><br><span class="line"><span class="function"><span class="params">                 milliseconds: float = ..., minutes: float = ..., hours: float = ...,</span></span></span><br><span class="line"><span class="function"><span class="params">                 weeks: float = ...)</span> -&gt; <span class="keyword">None</span>:</span> ...</span><br></pre></td></tr></table></figure>
 
-<p>接下来我们输出的stu自带的__dict__属性，这个属性会将stu拥有的各个属性与属性名以字典的形式返回</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(stu.__dict__)</span><br></pre></td></tr></table></figure>
+<p>一开始不知道参数后面的float=…是什么意思，后来查找资料才知道这是函数注解</p>
+<p>我们都知道Python是一种动态语言，变量以及函数的参数是不区分类型的，这样的好处是有极大的灵活性，但坏处就是对于别人的代码，无法一眼判断出参数的类型，IDE也无法给出正确的提示</p>
+<p>于是Python3中引入了新的特性：函数注解</p>
+<p>就是类似这样的代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x: int, y: int)</span> -&gt; int:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br></pre></td></tr></table></figure>
 
-<p>可以看到结果</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">'_Student__name'</span>: <span class="string">'lisa'</span>, <span class="string">'_Student__score'</span>: <span class="number">90</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>用 : 指定参数类型，用 -&gt; 指定函数返回值的类型</p>
+<p>不过特别要强调的是，Python 解释器并不会因为这些注解而提供额外的校验，没有任何的类型检查工作，也就是说，这些类型注解加不加，对你的代码来说没有任何影响</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x: int, y: int)</span> -&gt; int:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line"></span><br><span class="line">print(add(<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">print(add(<span class="number">3.5</span>, <span class="number">4.3</span>))</span><br><span class="line">print(add(<span class="string">"py"</span>, <span class="string">"thon"</span>))</span><br></pre></td></tr></table></figure>
 
-<p>看看我们发现了什么，之前在类中定义的私有属性的名字都发生了改变，于是猜测python的类中将属性设置为私有只是改变下属性名呢，为了证实我们的猜测，再来试一下，这次添加一个age属性，但是不设置为私有，然后将对象实例化后输出__dict__属性</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, score, age)</span>:</span></span><br><span class="line">        super( Student, self).__init__()</span><br><span class="line">        self.__name = name <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line">        self.__score = score <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line">        self.age = age</span><br><span class="line"></span><br><span class="line">stu = Student(<span class="string">"lisa"</span>, <span class="number">90</span>, <span class="number">12</span>)</span><br><span class="line">print(stu.__dict__)</span><br></pre></td></tr></table></figure>
+<p>输出是</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">7.8</span></span><br><span class="line">python</span><br></pre></td></tr></table></figure>
 
-<p>结果为</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">'_Student__name'</span>: <span class="string">'lisa'</span>, <span class="string">'_Student__score'</span>: <span class="number">90</span>, <span class="string">'age'</span>: <span class="number">12</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>但这么做的好处是：</p>
+<ol>
+<li><p>让别的程序员看得更明白</p>
+</li>
+<li><p>让 IDE 了解类型，从而提供更准确的代码提示、补全和语法检查（包括类型检查，可以看到 str 和 float 类型的参数被高亮提示）</p>
+</li>
+</ol>
+<p><img src="https://s2.ax1x.com/2019/07/30/eJkXJx.png" alt></p>
+<p>在函数的  __annotations__   会有自己设定的注解</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x: int, y: int)</span> -&gt; int:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line"></span><br><span class="line">print(add.__annotations__)</span><br></pre></td></tr></table></figure>
 
-<p>这样我们就更加肯定我们的猜测了，python在类的定义中将属性设置为私有，只是了改变私有属性的名字，是一种伪私有，实际上从外部仍然可以调用，接下来尝试设置和输出私有属性</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, score, age)</span>:</span></span><br><span class="line">        super( Student, self).__init__()</span><br><span class="line">        self.__name = name <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line">        self.__score = score <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line">        self.age = age</span><br><span class="line"></span><br><span class="line">stu = Student(<span class="string">"lisa"</span>, <span class="number">90</span>, <span class="number">12</span>)</span><br><span class="line">print(stu.__dict__)</span><br><span class="line">stu._Student__name = <span class="string">"tom"</span></span><br><span class="line">stu._Student__score = <span class="number">100</span></span><br><span class="line">print(stu._Student__name)</span><br><span class="line">print(stu._Student__score)</span><br><span class="line">print(stu.__dict__)</span><br></pre></td></tr></table></figure>
+<p>输出为</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;'x': &lt;class 'int'&gt;, 'y': &lt;class 'int'&gt;, 'return': &lt;class 'int'&gt;&#125;</span><br></pre></td></tr></table></figure>
 
-<p>可以看到结果为</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">'_Student__name'</span>: <span class="string">'lisa'</span>, <span class="string">'_Student__score'</span>: <span class="number">90</span>, <span class="string">'age'</span>: <span class="number">12</span>&#125;</span><br><span class="line">tom</span><br><span class="line"><span class="number">100</span></span><br><span class="line">&#123;<span class="string">'_Student__name'</span>: <span class="string">'tom'</span>, <span class="string">'_Student__score'</span>: <span class="number">100</span>, <span class="string">'age'</span>: <span class="number">12</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>在Python 3.6中，又引入了对变量类型进行注解的方法:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a: int = <span class="number">123</span></span><br><span class="line">b: str = <span class="string">"python"</span></span><br></pre></td></tr></table></figure>
 
-<p>我们可以在外部通过改变以后的属性名，直接设置或者输出该私有属性，调用形式就是_类名__属性名</p>
-<p>我们也可以通过以下形式从外部调用私有属性</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, score)</span>:</span></span><br><span class="line">        super( Student, self).__init__()</span><br><span class="line">        self.__name = name <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line">        self.__score = score <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line"></span><br><span class="line">stu = Student(<span class="string">"lisa"</span>, <span class="number">90</span>)</span><br><span class="line">print(stu.__dict__.get(<span class="string">"_Student__name"</span>))</span><br><span class="line">print(stu.__dict__.get(<span class="string">"_Student__score"</span>))</span><br></pre></td></tr></table></figure>
+<p>更进一步，如果你需要指明一个全部由整数组成的列表：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> List</span><br><span class="line">l: List[int] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
 
-<p>这个实际上就是利用了字典的get()函数</p>
+<p>但同样，这些仅仅是注解，不会对代码产生任何影响</p>
+<p>不过，你可以通过 mypy 库来检验最终代码是否符合注解</p>
+<p>安装mypy</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install mypy</span><br></pre></td></tr></table></figure>
+
+<p>执行代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mypy test.py</span><br></pre></td></tr></table></figure>
+
+<p>如果类型都符合，则不会有任何输出，否则就会给出类似输出：</p>
+<p><img src="https://s2.ax1x.com/2019/07/30/eJVlR0.png" alt></p>
 
       
     </div>
@@ -515,8 +536,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/27/“python面向对象/" rel="next" title="“Python面向对象">
-                <i class="fa fa-chevron-left"></i> “Python面向对象
+              <a href="/2019/07/30/Python的类中设置私有变量的实质/" rel="next" title="Python的类中设置私有变量的实质">
+                <i class="fa fa-chevron-left"></i> Python的类中设置私有变量的实质
               </a>
             
           </div>
@@ -524,10 +545,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/30/Python中给函数添加注解/" rel="prev" title="Python中给函数添加注解">
-                Python中给函数添加注解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
