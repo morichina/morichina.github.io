@@ -94,17 +94,17 @@
 
 
 
-  <meta name="description" content="简介f-string，亦称为格式化字符串常量（formatted string literals），是Python3.6新引入的一种字符串格式化方法，该方法源于PEP 498 – Literal String Interpolation，主要目的是使格式化字符串的操作更加简便。f-string在形式上是以 f  或 F 修饰符引领的字符串（f&amp;#39;xxx&amp;#39; 或 F&amp;#39;xxx&amp;#3">
+  <meta name="description" content="一种十分方便的python字符串格式化方法：f-string">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python格式化字符串f-string的简单使用">
 <meta property="og:url" content="http://yoursite.com/2019/08/11/Python格式化字符串f-string的简单实用/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="简介f-string，亦称为格式化字符串常量（formatted string literals），是Python3.6新引入的一种字符串格式化方法，该方法源于PEP 498 – Literal String Interpolation，主要目的是使格式化字符串的操作更加简便。f-string在形式上是以 f  或 F 修饰符引领的字符串（f&amp;#39;xxx&amp;#39; 或 F&amp;#39;xxx&amp;#3">
+<meta property="og:description" content="一种十分方便的python字符串格式化方法：f-string">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-02T09:37:35.832Z">
+<meta property="og:updated_time" content="2019-11-06T12:36:30.674Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python格式化字符串f-string的简单使用">
-<meta name="twitter:description" content="简介f-string，亦称为格式化字符串常量（formatted string literals），是Python3.6新引入的一种字符串格式化方法，该方法源于PEP 498 – Literal String Interpolation，主要目的是使格式化字符串的操作更加简便。f-string在形式上是以 f  或 F 修饰符引领的字符串（f&amp;#39;xxx&amp;#39; 或 F&amp;#39;xxx&amp;#3">
+<meta name="twitter:description" content="一种十分方便的python字符串格式化方法：f-string">
 
 
 
@@ -295,7 +295,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">17</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">19</span></a>
 
   </li>
 
@@ -407,7 +407,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-02 17:37:35" itemprop="dateModified" datetime="2019-09-02T17:37:35+08:00">2019-09-02</time>
+                <time title="修改时间：2019-11-06 20:36:30" itemprop="dateModified" datetime="2019-11-06T20:36:30+08:00">2019-11-06</time>
               </span>
             
           
@@ -433,7 +433,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.8k</span>
+              <span title="本文字数">1.9k</span>
             </span>
           
 
@@ -464,7 +464,10 @@
       
 
       
-        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>f-string，亦称为格式化字符串常量（formatted string literals），是Python3.6新引入的一种字符串格式化方法，该方法源于<a href="https://python.org/dev/peps/pep-0498/" target="_blank" rel="noopener">PEP 498 – Literal String Interpolation</a>，主要目的是使格式化字符串的操作更加简便。f-string在形式上是以 f  或 F 修饰符引领的字符串（f&#39;xxx&#39; 或 F&#39;xxx&#39;)，以大括号 {} 标明被替换的字段；f-string在本质上并不是字符串常量，而是一个在运行时运算求值的表达式：</p>
+        <p>一种十分方便的python字符串格式化方法：f-string</p>
+<a id="more"></a>
+
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>f-string，亦称为格式化字符串常量（formatted string literals），是Python3.6新引入的一种字符串格式化方法，该方法源于<a href="https://python.org/dev/peps/pep-0498/" target="_blank" rel="noopener">PEP 498 – Literal String Interpolation</a>，主要目的是使格式化字符串的操作更加简便。f-string在形式上是以 f  或 F 修饰符引领的字符串（f&#39;xxx&#39; 或 F&#39;xxx&#39;)，以大括号 {} 标明被替换的字段；f-string在本质上并不是字符串常量，而是一个在运行时运算求值的表达式：</p>
 <blockquote>
 <p>While other string literals always have a constant value, formatted strings are really expressions evaluated at run time.<br>（与具有恒定值的其它字符串常量不同，格式化字符串实际上是运行时运算求值的表达式。）<br>—— <a href="https://docs.python.org/3/reference/lexical_analysis.html#formatted-string-literals" target="_blank" rel="noopener">Python Documentation</a></p>
 </blockquote>
@@ -530,6 +533,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/06/由通过小白鼠测试毒试剂的面试题联想到汉明码的校验过程/" rel="prev" title="由通过小白鼠测试毒试剂的面试题联想到汉明码的校验过程">
+                由通过小白鼠测试毒试剂的面试题联想到汉明码的校验过程 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -600,7 +607,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -701,7 +708,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">30k</span>
+    <span title="站点总字数">35k</span>
   
 
   
@@ -710,7 +717,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">27 分钟</span>
+    <span title="站点阅读时长">32 分钟</span>
   
 </div>
 
