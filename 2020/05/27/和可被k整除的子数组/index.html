@@ -102,7 +102,7 @@
 <meta property="og:description" content="LeetCode每日一题，974.Subarray Sums Divisible by K">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://s1.ax1x.com/2020/05/27/tEMfjs.png">
-<meta property="og:updated_time" content="2020-05-27T12:45:07.882Z">
+<meta property="og:updated_time" content="2020-05-27T13:06:37.116Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="和可被k整除的子数组">
 <meta name="twitter:description" content="LeetCode每日一题，974.Subarray Sums Divisible by K">
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-05-27 19:31:28 / 修改时间：20:45:07" itemprop="dateCreated datePublished" datetime="2020-05-27T19:31:28+08:00">2020-05-27</time>
+              <time title="创建时间：2020-05-27 19:31:28 / 修改时间：21:06:37" itemprop="dateCreated datePublished" datetime="2020-05-27T19:31:28+08:00">2020-05-27</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.3k</span>
+              <span title="本文字数">1.4k</span>
             </span>
           
 
@@ -462,10 +462,10 @@
 <p>先看题目描述</p>
 <p><img src="https://s1.ax1x.com/2020/05/27/tEMfjs.png" alt></p>
 <p>题目大意是给定一个整数数组，返回其中元素之和可被K整除子数组的数目，其中子数组要求是非空、连续的</p>
-<h3 id="思路和算法"><a href="#思路和算法" class="headerlink" title="思路和算法"></a>思路和算法</h3><p>由于这道题涉及求子数组和，很容易就想到使用前缀和来解决</p>
-<p>我们令<code>P[i] = A[0] + A[1] + ... + A[i]</code>，那么当我们要求一个子数组和<code>sum(i, j) = A[i] + ... + A[j]</code>时，可以用<code>P[j] - P[i -1]</code>表示(其中(0 &lt; i &lt; j)。因此题目中要求的一段子数组和<code>sum(i, j) mod K = 0</code>可以等价为<code>(P[j] - P[i - 1]) mod K = 0</code>,又根据同余定理，<code>(P[j] - P[i - 1]) mod K = 0</code>可以等价为<code>P[j] mod K = P[i - 1] mod K</code></p>
-<p>有了这个思路我们便可以开始做题，我们可以对数组A进行遍历，在遍历的同时进行统计，当遍历到第<code>i</code>个元素时，统计以<code>i</code>结尾的符合条件的子数组个数，遍历的同时进行累加就可得到最终答案，而经过上面的分析我们可以知道<code>sum(i, j) = 0</code>与<code>P[j] mod K = P[i - 1] mod K</code>是等价的，因此以<code>i</code>结尾的符合条件的子数组个数便等于在<code>P[0]</code>到<code>P[i - 1]</code>中mod K的值与<code>P[i] mod K</code>的值相等的元素出现次数。故我们可以定义一个长度为K的<code>record</code>数组，用来记录前缀和mod K的值的出现次数，例：当遍历到第<code>i</code>个元素时，<code>record[m]</code>就表示在<code>P[0]</code>到<code>P[i - 1]</code>中mod K的结果为m的元素的出现次数(其中 0 &lt; m &lt; K)。因此我们只需在遍历到第<code>i</code>个元素时，累加<code>record[P[i] mod K]</code>，遍历完第i个元素时，使<code>record[P[i] mod K] + 1</code>，将数组遍历完以后，累加结果即为最终答案</p>
-<p>注意：考虑到前缀和模<code>K</code>等于0的情况，在初始化<code>record</code>数组时要令<code>record[0] = 1</code>。在用不同语言负数取模的值不一定相同，Java中%是求余，题目中取模应用Math.floorMod</p>
+<h3 id="思路和算法"><a href="#思路和算法" class="headerlink" title="思路和算法"></a>思路和算法</h3><p>由于这道题涉及求子数组和，很容易就想到使用前缀和来解决 ，</p>
+<p>我们令 P[i] = A[0] + A[1] + … + A[i]，那么当我们要求一个子数组和 sum(i, j) = A[i] + … + A[j] 时，可以用 P[j] - P[i -1]  表示(其中(0 &lt; i &lt; j)。因此题目中要求的一段子数组和 sum(i, j) mod K = 0 可以等价为 (P[j] - P[i - 1]) mod K = 0 ,又根据同余定理，(P[j] - P[i - 1]) mod K = 0 可以等价为 P[j] mod K = P[i - 1] mod K </p>
+<p>有了这个思路我们便可以开始做题，我们可以对数组A进行遍历，在遍历的同时进行统计，当遍历到第 i 个元素时，统计以 i 结尾的符合条件的子数组个数，遍历的同时进行累加就可得到最终答案，而经过上面的分析我们可以知道 sum(i, j) = 0 与 P[j] mod K = P[i - 1] mod K 是等价的，因此以 i 结尾的符合条件的子数组个数便等于在 P[0]到P[i - 1] 中mod K的值与 P[i] mod K 的值相等的元素出现次数。故我们可以定义一个长度为K的 record 数组，用来记录前缀和mod K的值的出现次数，例：当遍历到第 i 个元素时，record[m] 就表示在 P[0]到P[i - 1] 中mod K的结果为m的元素的出现次数(其中 0 &lt; m &lt; K)。因此我们只需在遍历到第 i 个元素时，累加 record[P[i] mod K] ，遍历完第i个元素时，使 record[P[i] mod K] + 1，将数组遍历完以后，累加结果即为最终答案</p>
+<p>注意：考虑到前缀和模 K 等于0的情况，在初始化 record 数组时要令 record[0] = 1。在用不同语言负数取模的值不一定相同，Java中%是求余，题目中取模应用Math.floorMod</p>
 <h2 id="实现源码"><a href="#实现源码" class="headerlink" title="实现源码"></a>实现源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">subarraysDivByK</span><span class="params">(<span class="keyword">int</span>[] A, <span class="keyword">int</span> K)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] record = <span class="keyword">new</span> <span class="keyword">int</span>[K];</span><br><span class="line">        record[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> a:A) &#123;</span><br><span class="line">            sum = sum + a;</span><br><span class="line">            <span class="keyword">int</span> mod = Math.floorMod(sum, K);</span><br><span class="line">            count += record[mod];</span><br><span class="line">            record[mod] += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
