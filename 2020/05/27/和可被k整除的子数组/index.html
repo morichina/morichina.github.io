@@ -94,22 +94,19 @@
 
 
 
-  <meta name="description" content="设置User Agent模拟浏览器访问">
+  <meta name="description" content="LeetCode每日一题，974.Subarray Sums Divisible by K">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python网络爬虫模拟浏览器访问的三种方法">
-<meta property="og:url" content="http://yoursite.com/2019/07/24/Python网路爬虫模拟浏览器访问的三种方法/index.html">
+<meta property="og:title" content="和可被k整除的子数组">
+<meta property="og:url" content="http://yoursite.com/2020/05/27/和可被k整除的子数组/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="设置User Agent模拟浏览器访问">
+<meta property="og:description" content="LeetCode每日一题，974.Subarray Sums Divisible by K">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/24/eELubF.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/24/eEL2qS.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/24/eELPEQ.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/24/eELXa4.png">
-<meta property="og:updated_time" content="2019-07-28T09:53:12.125Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/27/tEMfjs.png">
+<meta property="og:updated_time" content="2020-05-27T12:42:33.184Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python网络爬虫模拟浏览器访问的三种方法">
-<meta name="twitter:description" content="设置User Agent模拟浏览器访问">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/07/24/eELubF.png">
+<meta name="twitter:title" content="和可被k整除的子数组">
+<meta name="twitter:description" content="LeetCode每日一题，974.Subarray Sums Divisible by K">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/05/27/tEMfjs.png">
 
 
 
@@ -117,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/24/Python网路爬虫模拟浏览器访问的三种方法/">
+  <link rel="canonical" href="http://yoursite.com/2020/05/27/和可被k整除的子数组/">
 
 
 
@@ -127,7 +124,7 @@
   };
 </script>
 
-  <title>Python网络爬虫模拟浏览器访问的三种方法 | Morichina</title>
+  <title>和可被k整除的子数组 | Morichina</title>
   
 
 
@@ -354,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/24/Python网路爬虫模拟浏览器访问的三种方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/27/和可被k整除的子数组/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -371,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python网络爬虫模拟浏览器访问的三种方法
+          <h1 class="post-title" itemprop="name headline">和可被k整除的子数组
 
               
             
@@ -397,23 +394,13 @@
                 
               
 
-              <time title="创建时间：2019-07-24 15:52:34" itemprop="dateCreated datePublished" datetime="2019-07-24T15:52:34+08:00">2019-07-24</time>
+              <time title="创建时间：2020-05-27 19:31:28 / 修改时间：20:42:33" itemprop="dateCreated datePublished" datetime="2020-05-27T19:31:28+08:00">2020-05-27</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-28 17:53:12" itemprop="dateModified" datetime="2019-07-28T17:53:12+08:00">2019-07-28</time>
-              </span>
             
           
 
@@ -438,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.3k</span>
+              <span title="本文字数">913</span>
             </span>
           
 
@@ -469,26 +456,16 @@
       
 
       
-        <p>设置User Agent模拟浏览器访问</p>
+        <p>LeetCode每日一题，974.Subarray Sums Divisible by K</p>
 <a id="more"></a>
 
-<p>在使用User Agent模拟浏览器访问前，我们需要先知道浏览器中具体的用户代理值，方法十分简单，首先打开任意浏览器，打开任意界面，按下F12，出现如图所示界面</p>
-<p><img src="https://s2.ax1x.com/2019/07/24/eELubF.png" alt></p>
-<p>分别选中Network与All，再进行任意一个例如点击之类的活动，出现如下变化</p>
-<p><img src="https://s2.ax1x.com/2019/07/24/eEL2qS.png" alt></p>
-<p>再点击里面的任意一个，出现一系列内容，选中Headers</p>
-<p><img src="https://s2.ax1x.com/2019/07/24/eELPEQ.png" alt></p>
-<p>在右边找到User Agent，后面的一大串内容即为用户代理值</p>
-<p><img src="https://s2.ax1x.com/2019/07/24/eELXa4.png" alt></p>
-<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>使用urllib.request.build_opener()修改报头来模拟浏览器访问</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line">url = <span class="string">"http://blog.csdn.net"</span></span><br><span class="line"><span class="comment"># 报头格式header=("User-Agent",具体用户代理值)，以元组形式存</span></span><br><span class="line">headers = (<span class="string">"User-Agent"</span>, <span class="string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36"</span>)</span><br><span class="line">opener = urllib.request.build_opener() <span class="comment"># 得到一个opener对象</span></span><br><span class="line">opener.addheaders = [headers] <span class="comment"># 使用opener对象的addheaders属性来添加报头</span></span><br><span class="line">reponse = opener.open(url) <span class="comment"># 注意是open()，不是urlopen()</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>使用add_header()修改报头实现浏览器的模拟</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line">url = <span class="string">"http://blog.csdn.net"</span></span><br><span class="line">req = urllib.request.Request(url)</span><br><span class="line">req.add_header(<span class="string">"User-Agent"</span>, <span class="string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36"</span>)</span><br><span class="line">reponse = urllib.request.urlopen(req)</span><br></pre></td></tr></table></figure>
-
-<h3 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h3><p>构建Request请求时传入headers参数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line">url = <span class="string">"http://blog.csdn.net"</span></span><br><span class="line">head = &#123;&#125;</span><br><span class="line">head[<span class="string">'User-Agent'</span>] = <span class="string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36"</span></span><br><span class="line">req = urllib.request.Request(url, headers = head)</span><br><span class="line">reponse = urllib.request.urlopen(req)</span><br></pre></td></tr></table></figure>
-
+<p>先看题目描述</p>
+<p><img src="https://s1.ax1x.com/2020/05/27/tEMfjs.png" alt></p>
+<p>题目大意是给定一个整数数组，返回其中元素之和可被K整除子数组的数目，其中子数组要求是非空、连续的</p>
+<h3 id="思路和算法"><a href="#思路和算法" class="headerlink" title="思路和算法"></a>思路和算法</h3><p>由于这道题涉及求子数组和，很容易就想到使用前缀和来解决</p>
+<p>我们令<code>P[i] = A[0] + A[1] + ... + A[i]</code>，那么当我们要求一个子数组和<code>sum(i, j) = A[i] + ... + A[j]</code>时，可以用<code>P[j] - P[i -1]</code>表示(其中(0 &lt; i &lt; j)。因此题目中要求的一段子数组和<code>sum(i, j) mod K = 0</code>可以等价为<code>(P[j] - P[i - 1]) mod K = 0</code>,又根据同余定理，<code>(P[j] - P[i - 1]) mod K = 0</code>可以等价为<code>P[j] mod K = P[i - 1] mod K</code></p>
+<p>有了这个思路我们便可以开始做题，我们可以对数组A进行遍历，在遍历的同时进行统计，当遍历到第<code>i</code>个元素时，统计以<code>i</code>结尾的符合条件的子数组个数，遍历的同时进行累加就可得到最终答案，而经过上面的分析我们可以知道<code>sum(i, j) = 0</code>与<code>P[j] mod K = P[i - 1] mod K</code>是等价的，因此以<code>i</code>结尾的符合条件的子数组个数便等于在<code>P[0]</code>到<code>P[i - 1]</code>中mod K的值与<code>P[i] mod K</code>的值相等的元素出现次数。故我们可以定义一个长度为K的<code>record</code>数组，用来记录前缀和mod K的值的出现次数，例：当遍历到第<code>i</code>个元素时，<code>record[m]</code>就表示在<code>P[0]</code>到<code>P[i - 1]</code>中mod K的结果为m的元素的出现次数(其中 0 &lt; m &lt; K)。因此我们只需在遍历到第<code>i</code>个元素时，累加<code>record[P[i] mod K]</code>，遍历完第i个元素时，使<code>record[P[i] mod K] + 1</code>，将数组遍历完以后，累加结果即为最终答案</p>
+<p>注意：考虑到前缀和模<code>K</code>等于0的情况，在初始化<code>record</code>数组时要令<code>record[0] = 1</code>。在用不同语言负数取模的值不一定相同，Java中%是求余，题目中取模应用Math.floorMod</p>
 
       
     </div>
@@ -519,8 +496,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/24/PYTHON3解决-gbk-codec-can-t-encode-character-xXX-in-position-XX/" rel="next" title="Python3解决'gbk' codec can't encode character '\xXX' in position XX">
-                <i class="fa fa-chevron-left"></i> Python3解决'gbk' codec can't encode character '\xXX' in position XX
+              <a href="/2019/11/06/字符串模式匹配的Sunday算法/" rel="next" title="字符串模式匹配的Sunday算法">
+                <i class="fa fa-chevron-left"></i> 字符串模式匹配的Sunday算法
               </a>
             
           </div>
@@ -528,10 +505,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/27/“python面向对象/" rel="prev" title="Python面向对象">
-                Python面向对象 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -670,7 +643,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一"><span class="nav-number">1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二"><span class="nav-number">2.</span> <span class="nav-text">方法二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法三"><span class="nav-number">3.</span> <span class="nav-text">方法三</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路和算法"><span class="nav-number">1.</span> <span class="nav-text">思路和算法</span></a></li></ol></div>
             
 
           </div>
