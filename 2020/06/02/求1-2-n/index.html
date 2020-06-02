@@ -94,21 +94,19 @@
 
 
 
-  <meta name="description" content="转自http中post 和 get 请求方法区别">
+  <meta name="description" content="LeetCode每日一题，面试题64.求 1 + 2 + … + n">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http中post 和 get 请求方法区别">
-<meta property="og:url" content="http://yoursite.com/2019/07/23/http中post-和-get-请求方法区别/index.html">
+<meta property="og:title" content="求1+2+...+n">
+<meta property="og:url" content="http://yoursite.com/2020/06/02/求1-2-n/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="转自http中post 和 get 请求方法区别">
+<meta property="og:description" content="LeetCode每日一题，面试题64.求 1 + 2 + … + n">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/23/ekaGUP.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/23/eka4bR.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/23/ekaLxe.png">
-<meta property="og:updated_time" content="2019-07-23T08:05:27.685Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/02/ttOrZR.png">
+<meta property="og:updated_time" content="2020-06-02T10:14:23.645Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http中post 和 get 请求方法区别">
-<meta name="twitter:description" content="转自http中post 和 get 请求方法区别">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/07/23/ekaGUP.png">
+<meta name="twitter:title" content="求1+2+...+n">
+<meta name="twitter:description" content="LeetCode每日一题，面试题64.求 1 + 2 + … + n">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/02/ttOrZR.png">
 
 
 
@@ -116,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/23/http中post-和-get-请求方法区别/">
+  <link rel="canonical" href="http://yoursite.com/2020/06/02/求1-2-n/">
 
 
 
@@ -126,7 +124,7 @@
   };
 </script>
 
-  <title>http中post 和 get 请求方法区别 | Morichina</title>
+  <title>求1+2+...+n | Morichina</title>
   
 
 
@@ -353,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/23/http中post-和-get-请求方法区别/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/02/求1-2-n/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -370,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">http中post 和 get 请求方法区别
+          <h1 class="post-title" itemprop="name headline">求1+2+...+n
 
               
             
@@ -396,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2019-07-23 15:55:58 / 修改时间：16:05:27" itemprop="dateCreated datePublished" datetime="2019-07-23T15:55:58+08:00">2019-07-23</time>
+              <time title="创建时间：2020-06-02 17:29:09 / 修改时间：18:14:23" itemprop="dateCreated datePublished" datetime="2020-06-02T17:29:09+08:00">2020-06-02</time>
             </span>
           
 
@@ -427,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.6k</span>
+              <span title="本文字数">1.1k</span>
             </span>
           
 
@@ -458,39 +456,40 @@
       
 
       
-        <p>转自<a href="https://blog.csdn.net/wswit/article/details/50776060" target="_blank" rel="noopener">http中post 和 get 请求方法区别</a></p>
+        <p>LeetCode每日一题，面试题64.求 1 + 2 + … + n</p>
 <a id="more"></a>
 
-<h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h2><p>说道GET和POST，就不得不提HTTP协议，因为浏览器和服务器的交互是通过HTTP协议执行的，而GET和POST也是HTTP协议中的两种方法</p>
-<p>HTTP全称为Hyper Text Transfer Protocol，中文翻译为超文本传输协议，目的是保证浏览器与服务器之间的通信。HTTP的工作方式是客户端与服务器之间的请求-应答协议<br> <img src="https://s2.ax1x.com/2019/07/23/ekaGUP.png" alt></p>
-<p>HTTP协议中定义了浏览器和服务器进行交互的不同方法，基本方法有4种，分别是GET，POST，PUT，DELETE。这四种方法可以理解为，对服务器资源的查，改，增，删</p>
-<p>GET：从服务器上获取数据，也就是所谓的查，仅仅是获取服务器资源，不进行修改</p>
-<p>POST：向服务器提交数据，这就涉及到了数据的更新，也就是更改服务器的数据</p>
-<p>PUT：PUT的英文含义是放置，也就是向服务器新添加数据，就是所谓的增</p>
-<p>DELETE：从字面意思也能看出，这种方式就是删除服务器数据的过程</p>
-<hr>
-<h2 id="GET交互"><a href="#GET交互" class="headerlink" title="GET交互"></a>GET交互</h2><p>1、GET交互方式是从服务器上获取数据，而并非修改数据，所以GET交互方式是安全的。就像数据库查询一样，从数据库查询数据，并不会影响数据库的数据信息，对数据库来说，也就是安全的</p>
-<p><img src="https://s2.ax1x.com/2019/07/23/eka4bR.png" alt></p>
-<p>2、GET交互方式是幂等的，幂等是一个数学概念，幂等函数就是可以使用相同参数重复执行，并且能获得相同结果的函数。在GET交互这里就是，对同一个URL的多个请求，得到的结果是相同的。就像数据库查询，不同的数据库连接对同一个数据库表用相同条件查询时，得到的结果也是一样的</p>
-<p><img src="https://s2.ax1x.com/2019/07/23/ekaLxe.png" alt></p>
-<hr>
-<h2 id="POST交互"><a href="#POST交互" class="headerlink" title="POST交互"></a>POST交互</h2><p>  1、POST交互是可以修改服务器数据的一种方式，涉及到信息的修改，就会有安全问题。就像数据库的更新，Update一个数据库表时，如果条件没有写对，就可能把不需要修改的数据给修改了，得到的数据就是错误的了</p>
-<p>2、一般的POST交互是必须要用到表单的，但是表单提交的默认方法是GET，如果改为POST方式，就需要修改表单提交时的Method  </p>
-<hr>
-<h2 id="两者的区别"><a href="#两者的区别" class="headerlink" title="两者的区别"></a>两者的区别</h2><p>  GET方式：</p>
-<p>1、GET方式是以实体的方式得到由请求URL所指定资源的信息，如果请求URL只是一个数据产生过程，那么最终要在响应实体中返回的是处理过程的结果所指向的资源，而不是处理过程的描述。也就是说，GET的到的信息是资源，而不是资源的处理过程</p>
-<p>2、请的求的数据会附加在URL之后，以？分隔URL和传输数据，多个参数用&amp;连接。URL编码格式采用的是ASCII编码，而不是Unicode，即所有的非ASCII字符都要编码之后再传输</p>
-<p>3、因为URL的长度限制，GET方式传输的数据大小有所限制，传送的数据量不超过2KB</p>
-<p>4、GET方式服务器端用Request.QueryString获取变量的值</p>
-<p>5、GET方式传输的参数安全性低，因为传输的数据会显示在请求的URL中</p>
-<p>POST方式：</p>
-<p>1、用来向目的服务器发出请求，要求它接收被附在请求后的实体，并把它当做请求队列中请求URL所指定资源的附加新子项</p>
-<p>2、POST方式将表单内各个字段和内容放置在HTML HEADER中一起传送到Action属性所指定的URL地址，用户是看不到这个过程的</p>
-<p>3、POST方式传送的数据量比较大，一般被默认为没有限制，但是根据IIS的配置，传输量也是不同的</p>
-<p>4、POST方式在服务器端用Request.Form获取提交的数据</p>
-<p>5、POST方式传输的数据安全性较高，因为数据传输不是明显显示的  </p>
-<hr>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>POST和GET方式的安全性是相对的，另外也要看是从哪个角度来看的。从数据传输过程方面来看，POST方式是更加安全的，但是从对服务器数据的操作来看，POST方式的安全性又是比较低的。即使是传输过程用POST来执行，安全性也是相对的，如果了解HTTP协议漏洞，通过拦截发送的数据包，同样可以修改交互数据，所以这里的安全不是绝对的</p>
+<p>先看题目描述</p>
+<p><img src="https://s1.ax1x.com/2020/06/02/ttOrZR.png" alt></p>
+<p>题目描述的很清楚，就不赘述了</p>
+<p>一开始我想的是用平均计算法，用移位运算符代替乘除运算，但发现还是有问题，后来看了题解才知道可以利用短路，用递归运算的方法解决</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>计算 1 + 2 + … + n的计算方法主要有三种：平均计算，迭代，递归</p>
+<p><strong>方法一</strong>：平均计算</p>
+<p><strong>问题</strong>：此计算必须使用乘除法，不可取</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sumNums</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="number">1</span> + n) * n / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法二</strong>：迭代</p>
+<p><strong>问题</strong>：此计算需用到 for，while 等关键字，不可取</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sumNums</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        res += i;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法三</strong>：递归</p>
+<p><strong>问题</strong>：终止递归条件需要使用 if 或 switch等判断语句，不可取</p>
+<p>思考：除了 if 或 switch等判断语句，能不能用其他方法来终止递归</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sumNums</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    n += sumNums(n - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里可以利用逻辑运算符的短路效应来终止递归</p>
+<p>常见的逻辑运算符有三种，即 &amp;&amp;，|| 和 !，而其有重要的短路效应，如下所示：</p>
+<p>A &amp;&amp; B，当 A 为 false 时，则 B 不会执行，直接判断 A &amp;&amp; B 的结果为 false</p>
+<p>A || B，当 A 为 true 时，则 B 不会执行，直接判断 A || B 的结果为 true</p>
+<p>那么我们想实现当 n = 1时，终止递归，n &gt; 1时，递归不终止的需求，可以利用 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n &gt; <span class="number">1</span> &amp;&amp; n += sumNums(n - <span class="number">1</span>) &gt; <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>也可以利用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n == <span class="number">1</span> || n += sumNums(n - <span class="number">1</span>) &gt; <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sumNums</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> x = n &gt; <span class="number">1</span> &amp;&amp; (n += sumNums(n - <span class="number">1</span>)) &gt; <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>用 boolean x = n == 1 || (n += sumNums(n - 1)) &gt; 0 也可以</p>
 
       
     </div>
@@ -521,8 +520,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/19/python网络爬虫之正则表达式/" rel="next" title="python网络爬虫之正则表达式">
-                <i class="fa fa-chevron-left"></i> python网络爬虫之正则表达式
+              <a href="/2020/06/01/拥有最多糖果的孩子/" rel="next" title="拥有最多糖果的孩子">
+                <i class="fa fa-chevron-left"></i> 拥有最多糖果的孩子
               </a>
             
           </div>
@@ -530,10 +529,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/24/PYTHON3解决-gbk-codec-can-t-encode-character-xXX-in-position-XX/" rel="prev" title="Python3解决'gbk' codec can't encode character '\xXX' in position XX">
-                Python3解决'gbk' codec can't encode character '\xXX' in position XX <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -672,7 +667,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP协议"><span class="nav-number">1.</span> <span class="nav-text">HTTP协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GET交互"><span class="nav-number">2.</span> <span class="nav-text">GET交互</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POST交互"><span class="nav-number">3.</span> <span class="nav-text">POST交互</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两者的区别"><span class="nav-number">4.</span> <span class="nav-text">两者的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
