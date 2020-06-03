@@ -94,21 +94,19 @@
 
 
 
-  <meta name="description" content="转自Win10怎么开启超级管理员administrator帐户">
+  <meta name="description" content="LeetCode每日一题，837.House Robber">
 <meta property="og:type" content="article">
-<meta property="og:title" content="win10如何开启超级管理员administrator账户">
-<meta property="og:url" content="http://yoursite.com/2019/07/18/win10如何开启超级管理员administrator账户/index.html">
+<meta property="og:title" content="新21点">
+<meta property="og:url" content="http://yoursite.com/2020/06/03/新21点/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="转自Win10怎么开启超级管理员administrator帐户">
+<meta property="og:description" content="LeetCode每日一题，837.House Robber">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/18/ZX6wB8.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/18/ZXcM2n.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/18/ZXgCoF.png">
-<meta property="og:updated_time" content="2019-07-18T08:45:58.499Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/03/twiWIf.png">
+<meta property="og:updated_time" content="2020-06-03T15:28:13.121Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="win10如何开启超级管理员administrator账户">
-<meta name="twitter:description" content="转自Win10怎么开启超级管理员administrator帐户">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/07/18/ZX6wB8.png">
+<meta name="twitter:title" content="新21点">
+<meta name="twitter:description" content="LeetCode每日一题，837.House Robber">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/03/twiWIf.png">
 
 
 
@@ -116,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/18/win10如何开启超级管理员administrator账户/">
+  <link rel="canonical" href="http://yoursite.com/2020/06/03/新21点/">
 
 
 
@@ -126,7 +124,7 @@
   };
 </script>
 
-  <title>win10如何开启超级管理员administrator账户 | Morichina</title>
+  <title>新21点 | Morichina</title>
   
 
 
@@ -353,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/18/win10如何开启超级管理员administrator账户/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/03/新21点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -370,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">win10如何开启超级管理员administrator账户
+          <h1 class="post-title" itemprop="name headline">新21点
 
               
             
@@ -396,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2019-07-18 16:38:44 / 修改时间：16:45:58" itemprop="dateCreated datePublished" datetime="2019-07-18T16:38:44+08:00">2019-07-18</time>
+              <time title="创建时间：2020-06-03 22:35:39 / 修改时间：23:28:13" itemprop="dateCreated datePublished" datetime="2020-06-03T22:35:39+08:00">2020-06-03</time>
             </span>
           
 
@@ -427,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">269</span>
+              <span title="本文字数">1.2k</span>
             </span>
           
 
@@ -458,23 +456,21 @@
       
 
       
-        <p>转自<a href="https://blog.csdn.net/sinat_38213256/article/details/80268465" target="_blank" rel="noopener">Win10怎么开启超级管理员administrator帐户</a></p>
+        <p>LeetCode每日一题，837.House Robber</p>
 <a id="more"></a>
 
+<p>先看题目描述</p>
+<p><img src="https://s1.ax1x.com/2020/06/03/twiWIf.png" alt></p>
+<p>题目大意是爱丽丝玩个游戏，游戏规则是这样：</p>
 <ol>
-<li><p>在Windows10桌面，右键点击开始菜单，在弹出菜单中选择“命令提示符（管理员）”菜单项</p>
-<p><img src="https://s2.ax1x.com/2019/07/18/ZX6wB8.png" alt></p>
-</li>
-<li><p>在打开的命令提示符窗口中，<strong>输入命令net user administrator /active:yes</strong>，然后按下回车确认键，提示命令成功完成，现在已开启了超级管理员账户了</p>
-<p><img src="https://s2.ax1x.com/2019/07/18/ZXcM2n.png" alt></p>
-</li>
-<li><p>于是乎在账户界面多了一个选项administrator.点进去需要进行配置登录</p>
-<p><img src="https://s2.ax1x.com/2019/07/18/ZXgCoF.png" alt></p>
-</li>
-<li><p>关闭超级管理员账户，只需要<strong>输入命令net user administrator /active:no</strong> 即可</p>
-</li>
+<li>她可以从牌面为[1,W]的牌中选择任意一张，这张牌是可以无限重复的，也就是说无论她取多少次，每次取到2（假如2在[1,W]范围内）的概率都是 1/W</li>
+<li>如果她手上牌的总额小于 K，她就会抽牌，大于等于 K 时，就停止抽牌</li>
+<li>停止抽牌后，她的牌面小于等于 N 时，她就获胜了，求她获胜的概率</li>
 </ol>
-
+<p>这道题一直没有头绪，也有往动态规划那方面想，但一直想不到，后来看了题解才把代码实现，但觉得自己做的话是想不到那个动态规划方程的</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>假设 dp[x] 表示她手上牌面为 x 时，能获胜的概率，那么这个概率应该是：<br>dp[x] = 1/w * (dp[x+1]+dp[x+2]+dp[x+3]…+dp[x+w])<br>因为抽取的牌面机会都是均等的，她能抽取的面值在 [1,W] 之间，所以将概率之和平均一下就是 dp[x] 的概率。<br>x 最多能到 K-1，因为当大于等于 K 时，爱丽丝会停止抽牌，所以当游戏结束时，即爱丽丝停止抽牌时，她可能达到的最大牌面是 K+W-1 ，而一开始她的牌面是 0，所以我们用一个长度为 K+W 的 dp 数组来保存她在所有面值下的胜率。<br>最后返回 dp[0]，也就是最开始爱丽丝还没有抽牌，她的牌面为 0 时的胜率，这个就是我们的答案</p>
+<p>dp 数组可以分为两部分，当下标 i 大于等于 K 时，因为此时不能抽牌，则只需将 i 与 N 比较，若 i &lt;= N，则 dp[i] = 1，否则 dp[i] = 0，当下标 i 小于 K 时，就利用上面的动态规划方程来计算 dp[i]，而为了避免时间超出限制，我们不能每次计算时都累加，可以定义一个变量 s 保存累加结果，计算下一轮时只需减去右边的，加上左边的，更新 s 即可</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">new21Game</span><span class="params">(<span class="keyword">int</span> N, <span class="keyword">int</span> K, <span class="keyword">int</span> W)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span>[] dp = <span class="keyword">new</span> <span class="keyword">double</span>[K + W];</span><br><span class="line">        <span class="keyword">double</span> s = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = K + W - <span class="number">1</span>; i &gt;= K; i--) &#123;</span><br><span class="line">            dp[i] = i &lt;= N ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">            s += dp[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = K - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            dp[i] = s/W;</span><br><span class="line">            s = s + dp[i] - dp[i + W];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -504,8 +500,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/18/手动解决dll文件无法删除的方法/" rel="next" title="手动解决dll文件无法删除的方法">
-                <i class="fa fa-chevron-left"></i> 手动解决dll文件无法删除的方法
+              <a href="/2020/06/02/求1-2-n/" rel="next" title="求1+2+...+n">
+                <i class="fa fa-chevron-left"></i> 求1+2+...+n
               </a>
             
           </div>
@@ -513,10 +509,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/18/Python异常处理/" rel="prev" title="Python异常处理">
-                Python异常处理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -560,8 +552,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -635,6 +636,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
