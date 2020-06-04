@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，面试题64.求 1 + 2 + … + n">
+  <meta name="description" content="LeetCode每日一题，238.Product of Array Except Self">
 <meta property="og:type" content="article">
-<meta property="og:title" content="求1+2+...+n">
-<meta property="og:url" content="http://yoursite.com/2020/06/02/求1-2-n/index.html">
+<meta property="og:title" content="除自身以外数组的乘积">
+<meta property="og:url" content="http://yoursite.com/2020/06/04/除自身以外数组的乘积/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，面试题64.求 1 + 2 + … + n">
+<meta property="og:description" content="LeetCode每日一题，238.Product of Array Except Self">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/06/02/ttOrZR.png">
-<meta property="og:updated_time" content="2020-06-02T10:14:23.645Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/04/tB6wtg.png">
+<meta property="og:updated_time" content="2020-06-04T13:27:24.812Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="求1+2+...+n">
-<meta name="twitter:description" content="LeetCode每日一题，面试题64.求 1 + 2 + … + n">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/02/ttOrZR.png">
+<meta name="twitter:title" content="除自身以外数组的乘积">
+<meta name="twitter:description" content="LeetCode每日一题，238.Product of Array Except Self">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/04/tB6wtg.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/06/02/求1-2-n/">
+  <link rel="canonical" href="http://yoursite.com/2020/06/04/除自身以外数组的乘积/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>求1+2+...+n | Morichina</title>
+  <title>除自身以外数组的乘积 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/02/求1-2-n/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/04/除自身以外数组的乘积/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">求1+2+...+n
+          <h1 class="post-title" itemprop="name headline">除自身以外数组的乘积
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-06-02 17:29:09 / 修改时间：18:14:23" itemprop="dateCreated datePublished" datetime="2020-06-02T17:29:09+08:00">2020-06-02</time>
+              <time title="创建时间：2020-06-04 20:49:43 / 修改时间：21:27:24" itemprop="dateCreated datePublished" datetime="2020-06-04T20:49:43+08:00">2020-06-04</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.1k</span>
+              <span title="本文字数">796</span>
             </span>
           
 
@@ -456,41 +456,14 @@
       
 
       
-        <p>LeetCode每日一题，面试题64.求 1 + 2 + … + n</p>
+        <p>LeetCode每日一题，238.Product of Array Except Self</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/06/02/ttOrZR.png" alt></p>
-<p>题目描述的很清楚，就不赘述了</p>
-<p>一开始我想的是用平均计算法，用移位运算符代替乘除运算，但发现还是有问题，后来看了题解才知道可以利用短路，用递归运算的方法解决</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>计算 1 + 2 + … + n的计算方法主要有三种：平均计算，迭代，递归</p>
-<p><strong>方法一</strong>：平均计算</p>
-<p><strong>问题</strong>：此计算必须使用乘除法，不可取</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sumNums</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="number">1</span> + n) * n / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>方法二</strong>：迭代</p>
-<p><strong>问题</strong>：此计算需用到 for，while 等关键字，不可取</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sumNums</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        res += i;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>方法三</strong>：递归</p>
-<p><strong>问题</strong>：终止递归条件需要使用 if 或 switch等判断语句，不可取</p>
-<p>思考：除了 if 或 switch等判断语句，能不能用其他方法来终止递归</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sumNums</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    n += sumNums(n - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里可以利用逻辑运算符的短路效应来终止递归</p>
-<p>常见的逻辑运算符有三种，即 &amp;&amp;，|| 和 !，而其有重要的短路效应，如下所示：</p>
-<p>A &amp;&amp; B，当 A 为 false 时，则 B 不会执行，直接判断 A &amp;&amp; B 的结果为 false</p>
-<p>A || B，当 A 为 true 时，则 B 不会执行，直接判断 A || B 的结果为 true</p>
-<p>那么我们想实现当 n = 1时，终止递归，n &gt; 1时，递归不终止的需求，可以利用 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n &gt; <span class="number">1</span> &amp;&amp; n += sumNums(n - <span class="number">1</span>) &gt; <span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<p>也可以利用</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n == <span class="number">1</span> || n += sumNums(n - <span class="number">1</span>) &gt; <span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sumNums</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> x = n &gt; <span class="number">1</span> &amp;&amp; (n += sumNums(n - <span class="number">1</span>)) &gt; <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>用 boolean x = n == 1 || (n += sumNums(n - 1)) &gt; 0 也可以</p>
-
+<p><img src="https://s1.ax1x.com/2020/06/04/tB6wtg.png" alt></p>
+<p>题目大意就是给定一个 nums 数组，返回数组 output，其中 output[i] 是 nums 中除 nums[i] 外其余各元素的乘积</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>对于每个 output[i]， 可以看成是两部分相乘的结果，即 nums 数组中 nums[i] 左边元素相乘的乘积与 nums[i] 右边元素相乘的乘积相乘的结果，故我们可以进行两次对 nums 数组的遍历，第一次从左往右遍历，用一个 res 数组记录左半部分相乘的结果，即 res[i] 记录的是 nums[i] 左边元素相乘的乘积，第二次从右往左遍历，用 k 来记录 nums[i]，然后计算 res[i] * k 并更新 res[i]，最终返回 res 数组就得到结果</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] productExceptSelf(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            res[i] = k;</span><br><span class="line">            k *= nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        k = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = nums.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            res[i] *= k;</span><br><span class="line">            k *= nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -520,8 +493,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/01/拥有最多糖果的孩子/" rel="next" title="拥有最多糖果的孩子">
-                <i class="fa fa-chevron-left"></i> 拥有最多糖果的孩子
+              <a href="/2020/06/03/新21点/" rel="next" title="新21点">
+                <i class="fa fa-chevron-left"></i> 新21点
               </a>
             
           </div>
@@ -529,10 +502,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/03/新21点/" rel="prev" title="新21点">
-                新21点 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
