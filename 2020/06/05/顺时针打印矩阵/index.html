@@ -94,17 +94,19 @@
 
 
 
-  <meta name="description" content="使用列表的remove函数时的注意事项">
+  <meta name="description" content="LeetCode每日一题，面试题29.顺时针打印矩阵 LCOF">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python中使用remove函数的注意事项">
-<meta property="og:url" content="http://yoursite.com/2019/07/15/Python中使用remove函数的注意事项/index.html">
+<meta property="og:title" content="顺时针打印矩阵">
+<meta property="og:url" content="http://yoursite.com/2020/06/05/顺时针打印矩阵/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="使用列表的remove函数时的注意事项">
+<meta property="og:description" content="LeetCode每日一题，面试题29.顺时针打印矩阵 LCOF">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-18T08:55:40.344Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/05/tsNL0e.png">
+<meta property="og:updated_time" content="2020-06-05T12:24:39.240Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python中使用remove函数的注意事项">
-<meta name="twitter:description" content="使用列表的remove函数时的注意事项">
+<meta name="twitter:title" content="顺时针打印矩阵">
+<meta name="twitter:description" content="LeetCode每日一题，面试题29.顺时针打印矩阵 LCOF">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/05/tsNL0e.png">
 
 
 
@@ -112,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/15/Python中使用remove函数的注意事项/">
+  <link rel="canonical" href="http://yoursite.com/2020/06/05/顺时针打印矩阵/">
 
 
 
@@ -122,7 +124,7 @@
   };
 </script>
 
-  <title>Python中使用remove函数的注意事项 | Morichina</title>
+  <title>顺时针打印矩阵 | Morichina</title>
   
 
 
@@ -349,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/15/Python中使用remove函数的注意事项/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/05/顺时针打印矩阵/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -366,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python中使用remove函数的注意事项
+          <h1 class="post-title" itemprop="name headline">顺时针打印矩阵
 
               
             
@@ -392,23 +394,13 @@
                 
               
 
-              <time title="创建时间：2019-07-15 18:15:38" itemprop="dateCreated datePublished" datetime="2019-07-15T18:15:38+08:00">2019-07-15</time>
+              <time title="创建时间：2020-06-05 19:30:04 / 修改时间：20:24:39" itemprop="dateCreated datePublished" datetime="2020-06-05T19:30:04+08:00">2020-06-05</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-18 16:55:40" itemprop="dateModified" datetime="2019-07-18T16:55:40+08:00">2019-07-18</time>
-              </span>
             
           
 
@@ -433,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">872</span>
+              <span title="本文字数">2.7k</span>
             </span>
           
 
@@ -445,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -464,26 +456,19 @@
       
 
       
-        <h2 id="使用列表的remove函数时的注意事项"><a href="#使用列表的remove函数时的注意事项" class="headerlink" title="使用列表的remove函数时的注意事项"></a>使用列表的remove函数时的注意事项</h2><a id="more"></a>
+        <p>LeetCode每日一题，面试题29.顺时针打印矩阵 LCOF</p>
+<a id="more"></a>
 
-<p>前几天写寻找最稠密子图问题的算法时，在测试的时候发现了一个bug，那就是删除度数最低的顶点时，也要把有关的边都删除，但是当删除的边在列表中相邻时，只会删除第一条边，最后查找资料，发现还是对python遍历列表的方式没理解透彻</p>
-<p>这里是出现bug部分的代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delMinNode</span><span class="params">(minNode)</span>:</span> <span class="comment"># 删除度数最小的节点，相应的边也会被删除</span></span><br><span class="line">	nodes.remove(minNode)</span><br><span class="line">	<span class="keyword">for</span> edge <span class="keyword">in</span> edges:</span><br><span class="line">		<span class="keyword">if</span> minNode <span class="keyword">in</span> edge:</span><br><span class="line">			edges.remove(edge)</span><br></pre></td></tr></table></figure>
+<p>先看题目描述</p>
+<p><img src="https://s1.ax1x.com/2020/06/05/tsNL0e.png" alt></p>
+<p>题目大意就是给定一个矩阵，然后顺时针把矩阵打印出来</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>就按照从左往右，从上往下，从右往左，从下往上的顺序循环往内打印，定义一个变量 c 来记录打印到了第几层，用 count 来记录打印了多少个数字，res 来记录结果数组，用 len1 表示矩阵宽度，len2 表示矩阵高度，从左往右打印时，横坐标左边界是 c，右边界是 len1 - 1 - c；从上往下打印时，纵坐标左边界是 c，右边界是 len2 - 1 - c；横坐标从右往左打印时，从 len1 - 1 - c 打印到 c；从下往上打印时，纵坐标从 len2 - 1 -c 打印到 c，以上边界均是左开右闭。当 count 与矩阵中元素数目相等时，就表示打印完毕，返回 res 数组</p>
+<p>注意：考虑一种特殊情况，当最后一层只剩下一个元素时，无论哪个方向的打印都不会把这个元素打印出来，故须加上一个判断，当 c = len1 - 1 -c = len2 - 1 - c时，将该元素添加到 res 数组中，再将 res 返回</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] spiralOrder(<span class="keyword">int</span>[][] matrix) &#123;</span><br><span class="line">        <span class="keyword">if</span> (matrix.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> len1 = matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">if</span> (len1 == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> len2 = matrix.length;</span><br><span class="line">        <span class="keyword">int</span> len = len1*len2;</span><br><span class="line">        <span class="keyword">int</span> c = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        <span class="keyword">while</span>(c &lt;= len1 - <span class="number">1</span> - c &amp;&amp; c &lt;= len2 - <span class="number">1</span> - c) &#123;</span><br><span class="line">            <span class="keyword">int</span> a = len1 - <span class="number">1</span> - c;</span><br><span class="line">            <span class="keyword">int</span> b = len2 - <span class="number">1</span> - c;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = c; i &lt; a; i++) &#123;</span><br><span class="line">                res[count] = matrix[c][i];</span><br><span class="line">                <span class="keyword">if</span> (++count == len) <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = c; i &lt; b; i++) &#123;</span><br><span class="line">                res[count] = matrix[i][a];</span><br><span class="line">                <span class="keyword">if</span> (++count == len) <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = a; i &gt; c; i--) &#123;</span><br><span class="line">                res[count] = matrix[b][i];</span><br><span class="line">                <span class="keyword">if</span> (++count == len) <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = b; i &gt; c; i--) &#123;</span><br><span class="line">                res[count] = matrix[i][c];</span><br><span class="line">                <span class="keyword">if</span> (++count == len) <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (a == b &amp; a == c) &#123;</span><br><span class="line">                res[count] = matrix[a][a];</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">            c++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>再看下面的一个例子</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">	<span class="keyword">if</span> i == <span class="number">5</span>:</span><br><span class="line">		a.remove(i)</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
-
-<p>这段代码的目的是将列表中所有的5都删除，然后将列表打印出来,  但是运行结果却是</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br></pre></td></tr></table></figure>
-
-<p>下面来分析原因：</p>
-<p>首先了解下python当中的遍历机制，python中遍历是按照下标来遍历的，即a[0]，a[1], a[2]….. 一个个遍历过去</p>
-<p>再看上面的例子，第一个5是在a[4]的位置，当遍历进行到a[4]时，这个5被删除，这个时候后面的每个元素都要往前进一位，第二个5到了a[4]的位置，6变成a[5]…..于是下一次循环时，会去判断a[5]，也就是6，第二个5遍历时被跳过，没被删除，导致了这样的运行结果</p>
-<p>于是之前的算法中代码可以这样修改</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delMinNode</span><span class="params">(minNode)</span>:</span> <span class="comment"># 删除度数最小的节点，相应的边也会被删除</span></span><br><span class="line">	nodes.remove(minNode)</span><br><span class="line">	newEdges = copy.deepcopy(edges)</span><br><span class="line">	<span class="keyword">for</span> edge <span class="keyword">in</span> newEdges:</span><br><span class="line">		<span class="keyword">if</span> minNode <span class="keyword">in</span> edge:</span><br><span class="line">			edges.remove(edge)</span><br></pre></td></tr></table></figure>
-
-<p>深复制一个与原列表相同的新列表，然后遍历这个新列表，删除时是删原列表中的边，便可避免相邻边无法删除的bug</p>
-
+<p>后来看了题解发现整体思路是差不多的，只是题解的代码中定义了四个变量表示上下左右四个边界，每循环打印一次就将边界收缩，当边界相遇时，就表示打印完毕，则跳出循环，返回结果</p>
+<p>代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] spiralOrder(<span class="keyword">int</span>[][] matrix) &#123;</span><br><span class="line">        <span class="keyword">if</span>(matrix.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">0</span>, r = matrix[<span class="number">0</span>].length - <span class="number">1</span>, t = <span class="number">0</span>, b = matrix.length - <span class="number">1</span>, x = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[(r + <span class="number">1</span>) * (b + <span class="number">1</span>)];</span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = l; i &lt;= r; i++) res[x++] = matrix[t][i]; <span class="comment">// left to right.</span></span><br><span class="line">            <span class="keyword">if</span>(++t &gt; b) <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = t; i &lt;= b; i++) res[x++] = matrix[i][r]; <span class="comment">// top to bottom.</span></span><br><span class="line">            <span class="keyword">if</span>(l &gt; --r) <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = r; i &gt;= l; i--) res[x++] = matrix[b][i]; <span class="comment">// right to left.</span></span><br><span class="line">            <span class="keyword">if</span>(t &gt; --b) <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = b; i &gt;= t; i--) res[x++] = matrix[i][l]; <span class="comment">// bottom to top.</span></span><br><span class="line">            <span class="keyword">if</span>(++l &gt; r) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -513,8 +498,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/12/寻找最稠密子图问题/" rel="next" title="寻找最稠密子图问题">
-                <i class="fa fa-chevron-left"></i> 寻找最稠密子图问题
+              <a href="/2020/06/04/除自身以外数组的乘积/" rel="next" title="除自身以外数组的乘积">
+                <i class="fa fa-chevron-left"></i> 除自身以外数组的乘积
               </a>
             
           </div>
@@ -522,10 +507,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/15/浅谈赋值-浅复制与深复制的区别/" rel="prev" title="浅谈赋值, 浅复制与深复制的区别">
-                浅谈赋值, 浅复制与深复制的区别 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -664,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用列表的remove函数时的注意事项"><span class="nav-number">1.</span> <span class="nav-text">使用列表的remove函数时的注意事项</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
