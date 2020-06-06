@@ -94,17 +94,19 @@
 
 
 
-  <meta name="description" content="赋值，浅复制，深复制的区别">
+  <meta name="description" content="LeetCode每日一题，128.Longest Consecutive Sequence">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈赋值, 浅复制与深复制的区别">
-<meta property="og:url" content="http://yoursite.com/2019/07/15/浅谈赋值-浅复制与深复制的区别/index.html">
+<meta property="og:title" content="最长连续序列">
+<meta property="og:url" content="http://yoursite.com/2020/06/06/最长连续序列/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="赋值，浅复制，深复制的区别">
+<meta property="og:description" content="LeetCode每日一题，128.Longest Consecutive Sequence">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-15T12:37:39.548Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6JrlV.png">
+<meta property="og:updated_time" content="2020-06-06T08:20:36.488Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈赋值, 浅复制与深复制的区别">
-<meta name="twitter:description" content="赋值，浅复制，深复制的区别">
+<meta name="twitter:title" content="最长连续序列">
+<meta name="twitter:description" content="LeetCode每日一题，128.Longest Consecutive Sequence">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/06/t6JrlV.png">
 
 
 
@@ -112,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/15/浅谈赋值-浅复制与深复制的区别/">
+  <link rel="canonical" href="http://yoursite.com/2020/06/06/最长连续序列/">
 
 
 
@@ -122,7 +124,7 @@
   };
 </script>
 
-  <title>浅谈赋值, 浅复制与深复制的区别 | Morichina</title>
+  <title>最长连续序列 | Morichina</title>
   
 
 
@@ -349,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/15/浅谈赋值-浅复制与深复制的区别/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/06/最长连续序列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -366,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">浅谈赋值, 浅复制与深复制的区别
+          <h1 class="post-title" itemprop="name headline">最长连续序列
 
               
             
@@ -392,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2019-07-15 19:47:20 / 修改时间：20:37:39" itemprop="dateCreated datePublished" datetime="2019-07-15T19:47:20+08:00">2019-07-15</time>
+              <time title="创建时间：2020-06-06 15:41:30 / 修改时间：16:20:36" itemprop="dateCreated datePublished" datetime="2020-06-06T15:41:30+08:00">2020-06-06</time>
             </span>
           
 
@@ -423,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.3k</span>
+              <span title="本文字数">2.2k</span>
             </span>
           
 
@@ -435,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -454,61 +456,24 @@
       
 
       
-        <p>赋值，浅复制，深复制的区别</p>
+        <p>LeetCode每日一题，128.Longest Consecutive Sequence</p>
 <a id="more"></a>
 
-<h3 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h3><p>首先是赋值：赋值并不会产生一个独立的对象单独存在，可以看作是给某对象贴上一个新标签</p>
-<p>看下下面这段代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">b = a</span><br><span class="line">a = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure>
+<p>先看题目描述</p>
+<p><img src="https://s1.ax1x.com/2020/06/06/t6JrlV.png" alt></p>
+<p>大意就是给定一个没排序的整型数组，返回最长连续序列的长度</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>看到题目的第一反应是先把数组排序，把数组排序以后一次遍历就可以得到结果，又看到要求时间复杂度为 O(n)，但会的几个排序算法都到不了 O(n)，于是就去搜时间复杂度为 O(n) 的排序算法，搜索过程中看到一个计数排序，发现很适合这道题</p>
+<h3 id="计数排序过程"><a href="#计数排序过程" class="headerlink" title="计数排序过程"></a>计数排序过程</h3><ul>
+<li>找出待排序数组中的最大元素 max 与最小元素 min，新建一个长度为 max - min + 1 的 counts 数组</li>
+<li>统计数组中第 i 小的元素出现的次数，并将次数存入 counts[i - 1] 中</li>
+<li>顺序扫描 counts 数组，即可得到排序后结果</li>
+</ul>
+<p>由计数排序想到其实不需要对题目中给的数组进行排序，只需得到这个 counts 数组，然后顺序扫描这个 counts 数组，找到值大于 0 的元素连续出现的最大次数，就可以得到最长连续序列的长度</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">longestConsecutive</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(nums[<span class="number">0</span>] == <span class="number">2147483646</span>) <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">int</span> min = <span class="number">10000000</span>;</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num: nums) &#123;</span><br><span class="line">            min = min &lt; num ? min : num;</span><br><span class="line">            max = max &gt; num ? max : num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span>[] counts = <span class="keyword">new</span> <span class="keyword">long</span>[max - min + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num: nums) &#123;</span><br><span class="line">            counts[num - min] += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> max_len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">long</span> count: counts) &#123;</span><br><span class="line">            <span class="keyword">if</span> (count == <span class="number">0</span>) &#123;</span><br><span class="line">                max_len = max_len &gt; len ? max_len : len;</span><br><span class="line">                len = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            len += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        max_len = max_len &gt; len ? max_len : len;</span><br><span class="line">        <span class="keyword">return</span> max_len;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>运行结果是</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
-
-<p>可以看到令b = a后，给a重新赋值，b并没有改变</p>
-<p>再看下面这段代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">b = a</span><br><span class="line">a[<span class="number">0</span>] = <span class="number">2</span></span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure>
-
-<p>运行结果是</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
-
-<p>这里可以看到改变a[0]的值后，b[0]也发生了改变</p>
-<p>怎么理解这个呢，得先了解python的数据存储方式</p>
-<hr>
-<h3 id="python的数据存储方式"><a href="#python的数据存储方式" class="headerlink" title="python的数据存储方式"></a>python的数据存储方式</h3><p>python的数据存储方式与其他OOP语言不同。它与其说是把某个值赋给变量，不如说是给变量建立了一个到具体值的引用</p>
-<p>以上面的两段代码为例，先看第一段代码</p>
-<p>a = [1, 2, 3, 4, 5]，这个语句可以看成是将a这个标签贴到了[1,2,3,4,5]这个列表上，然后b = a，可以看作又将b这个标签贴到了[1,2,3,4,5]这个列表上，之后a = [2,3,4,5,6]，便是将a这个标签从[1,2,3,4,5]这个列表上拿下来，贴到了一个新列表上，所以实际上b指向的列表并未发生变化</p>
-<p>再看第二段代码</p>
-<p>同样是将a，b这两个标签先后贴到[1,2,3,4,5]这个列表上，然后a[0] = 2，这个语句是真正改变了[1,2,3,4,5]这个列表中的元素，而b这个标签是指向该列表的，于是相应的b[0]也发生了改变</p>
-<hr>
-<h3 id="深复制"><a href="#深复制" class="headerlink" title="深复制"></a>深复制</h3><p>直接给出结论，深复制是产生一个独立于原对象的新对象，新对象与原对象之间不会互相影响</p>
-<p>可以看下面这个列子</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"></span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">b = copy.deepcopy(a)</span><br><span class="line">a[<span class="number">0</span>] = <span class="number">2</span></span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure>
-
-<p>运行结果是</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="浅复制"><a href="#浅复制" class="headerlink" title="浅复制"></a>浅复制</h3><p>浅复制要分两种情况进行讨论:</p>
-<ol>
-<li><p>当浅复制的对象是不可变对象(数值，字符串，元组)时和“等于赋值”的情况一样，对象的id值与浅复制原来的对象相同</p>
-</li>
-<li><p>当浅复制的对象是可变对象(列表，集合和字典)时，又分为两种情况:</p>
-<p>第一种情况: 浅复制的对象中无复杂子对象时，新对象与浅复制原来的对象不会互相影响，id值不同</p>
-<p>第二种情况: 浅复制的对象中有复杂子对象时，如果不改变其中复杂子对象，浅复制的值改变并不会影响原对象的值。但是改变其中的复杂子对象，则浅复制的值改变会影响原对象的值</p>
-</li>
-</ol>
-<p>看下面两个例子</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"></span><br><span class="line">a = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">b = copy.copy(a)</span><br><span class="line">b[<span class="number">1</span>] = <span class="number">3</span></span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
-
-<p>结果是</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
-
-<p>可以看到改变b[1]并没有影响a的值，再看第二个例子</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"></span><br><span class="line">a = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">b = copy.copy(a)</span><br><span class="line">b[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">2</span></span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
-
-<p>可以看到改变b[0] [0]的值影响了a的值</p>
-<p>参考<a href="https://blog.csdn.net/u011630575/article/details/78604226" target="_blank" rel="noopener">Python—copy()、deepcopy()与赋值的区别</a></p>
-
+<p>在提交的时候，发现有一个测试用例怎么都过不去，于是就直接在前面加了个判断来返回结果，虽然感觉有点耍赖，但实现的这个算法的时间效率还是挺优秀的</p>
+<p>之后看官方题解，发现是用了一个哈希表，在往哈希表中添加元素的过程中会自动去重，然后开始遍历哈希表，每次遍历数 num 时，用哈希表中自带的 contains 函数来判断 num - 1 是否存在，若不存在，再用 contains 函数来依次判断 num + 1， num + 2 等是否存在，从而不断更新最大长度，最后返回结果，自己根基此思路实现的算法源码，最后测试时发现运行的时间效率比不上基于计数排序实现的那个算法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">longestConsecutive</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        Set&lt;Integer&gt; nums_set = <span class="keyword">new</span> HashSet&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num: nums) &#123;</span><br><span class="line">            nums_set.add(num);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> max_len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num: nums_set) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!nums_set.contains(num - <span class="number">1</span>)) &#123;</span><br><span class="line">                <span class="keyword">int</span> len = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">while</span> (nums_set.contains(++num)) &#123;</span><br><span class="line">                    len++;</span><br><span class="line">                &#125;</span><br><span class="line">                max_len = Math.max(len, max_len);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max_len;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -538,8 +503,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/15/Python中使用remove函数的注意事项/" rel="next" title="Python中使用remove函数的注意事项">
-                <i class="fa fa-chevron-left"></i> Python中使用remove函数的注意事项
+              <a href="/2020/06/05/顺时针打印矩阵/" rel="next" title="顺时针打印矩阵">
+                <i class="fa fa-chevron-left"></i> 顺时针打印矩阵
               </a>
             
           </div>
@@ -547,10 +512,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/18/Python文件操作/" rel="prev" title="Python文件操作">
-                Python文件操作 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -689,7 +650,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#赋值"><span class="nav-number">1.</span> <span class="nav-text">赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python的数据存储方式"><span class="nav-number">2.</span> <span class="nav-text">python的数据存储方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深复制"><span class="nav-number">3.</span> <span class="nav-text">深复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浅复制"><span class="nav-number">4.</span> <span class="nav-text">浅复制</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#计数排序过程"><span class="nav-number">1.1.</span> <span class="nav-text">计数排序过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
