@@ -94,21 +94,19 @@
 
 
 
-  <meta name="description" content="转自Win10怎么开启超级管理员administrator帐户">
+  <meta name="description" content="LeetCode每日一题，1300. Sum of Mutated Array Closest to Target">
 <meta property="og:type" content="article">
-<meta property="og:title" content="win10如何开启超级管理员administrator账户">
-<meta property="og:url" content="http://yoursite.com/2019/07/18/win10如何开启超级管理员administrator账户/index.html">
+<meta property="og:title" content="转变数组后最接近目标值的数组和">
+<meta property="og:url" content="http://yoursite.com/2020/06/14/转变数组后最接近目标值的数组和/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="转自Win10怎么开启超级管理员administrator帐户">
+<meta property="og:description" content="LeetCode每日一题，1300. Sum of Mutated Array Closest to Target">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/18/ZX6wB8.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/18/ZXcM2n.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/18/ZXgCoF.png">
-<meta property="og:updated_time" content="2019-07-18T08:45:58.499Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/14/tzuTfJ.png">
+<meta property="og:updated_time" content="2020-06-14T06:16:18.993Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="win10如何开启超级管理员administrator账户">
-<meta name="twitter:description" content="转自Win10怎么开启超级管理员administrator帐户">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/07/18/ZX6wB8.png">
+<meta name="twitter:title" content="转变数组后最接近目标值的数组和">
+<meta name="twitter:description" content="LeetCode每日一题，1300. Sum of Mutated Array Closest to Target">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/14/tzuTfJ.png">
 
 
 
@@ -116,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/18/win10如何开启超级管理员administrator账户/">
+  <link rel="canonical" href="http://yoursite.com/2020/06/14/转变数组后最接近目标值的数组和/">
 
 
 
@@ -126,7 +124,7 @@
   };
 </script>
 
-  <title>win10如何开启超级管理员administrator账户 | Morichina</title>
+  <title>转变数组后最接近目标值的数组和 | Morichina</title>
   
 
 
@@ -353,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/18/win10如何开启超级管理员administrator账户/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/14/转变数组后最接近目标值的数组和/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -370,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">win10如何开启超级管理员administrator账户
+          <h1 class="post-title" itemprop="name headline">转变数组后最接近目标值的数组和
 
               
             
@@ -396,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2019-07-18 16:38:44 / 修改时间：16:45:58" itemprop="dateCreated datePublished" datetime="2019-07-18T16:38:44+08:00">2019-07-18</time>
+              <time title="创建时间：2020-06-14 12:31:00 / 修改时间：14:16:18" itemprop="dateCreated datePublished" datetime="2020-06-14T12:31:00+08:00">2020-06-14</time>
             </span>
           
 
@@ -427,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">269</span>
+              <span title="本文字数">1.8k</span>
             </span>
           
 
@@ -439,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -458,23 +456,29 @@
       
 
       
-        <p>转自<a href="https://blog.csdn.net/sinat_38213256/article/details/80268465" target="_blank" rel="noopener">Win10怎么开启超级管理员administrator帐户</a></p>
+        <p>LeetCode每日一题，1300. Sum of Mutated Array Closest to Target</p>
 <a id="more"></a>
 
-<ol>
-<li><p>在Windows10桌面，右键点击开始菜单，在弹出菜单中选择“命令提示符（管理员）”菜单项</p>
-<p><img src="https://s2.ax1x.com/2019/07/18/ZX6wB8.png" alt></p>
+<p>先看题目描述</p>
+<p><img src="https://s1.ax1x.com/2020/06/14/tzuTfJ.png" alt="qi"></p>
+<p>题目大意就是给定一个整数数组 arr 和一个目标值 target ，返回一个整数 value ，使得将数组中所有大于 value 的值变成 value 后，数组的和最接近  target</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>算法流程qi</p>
+<ul>
+<li><p>先对数组排序并求出数组和，若数组和小于 target，直接返回排序后数组的最后一项</p>
 </li>
-<li><p>在打开的命令提示符窗口中，<strong>输入命令net user administrator /active:yes</strong>，然后按下回车确认键，提示命令成功完成，现在已开启了超级管理员账户了</p>
-<p><img src="https://s2.ax1x.com/2019/07/18/ZXcM2n.png" alt></p>
+<li><p>若数组和大于 target，则先令 value = target / len，然后计算得到将数组中所有大于 value 的值变成 value 后，数组和与 target 之差的绝对值 dif，然后执行循环</p>
+<ul>
+<li><p>令 value = value+ 1，prevDif = dif，计算得到将数组中所有大于 value 的值变成 value 后，数组和与 target 之差的绝对值 dif</p>
 </li>
-<li><p>于是乎在账户界面多了一个选项administrator.点进去需要进行配置登录</p>
-<p><img src="https://s2.ax1x.com/2019/07/18/ZXgCoF.png" alt></p>
+<li><p>重复上述步骤直到 prevDif &lt;= dif，退出循环</p>
 </li>
-<li><p>关闭超级管理员账户，只需要<strong>输入命令net user administrator /active:no</strong> 即可</p>
+</ul>
 </li>
-</ol>
-
+<li><p>返回 value - 1</p>
+</li>
+</ul>
+<p>解释：如果我们以 value 为自变量，将数组中所有大于 value 的值变成 value 后数组之和 F(value)看作因变量，那么 F(value) 就是一个关于 value 的函数，再令 G(value) = F(value) - target 的绝对值，经分析后我们可以得出一个结论，F(value) 是关于 value 的单调递增函数，则G(value) 在整数域上是关于 value的先递减再递增函数，因为F(value) 一定是小于等于 value * len 的，故在 [target / len, +∞) 中一定存在一个 value 值，使得 G(value) 取得最小值，因此我们结合 G(value) 的单调性分析可以得到，当 G(value) &lt; G(value + 1)时，这个 value 就是题目要求的值</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findBestValue</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        Arrays.sort(arr);</span><br><span class="line">        <span class="keyword">int</span> len = arr.length;</span><br><span class="line">        <span class="keyword">int</span>[] prefix = <span class="keyword">new</span> <span class="keyword">int</span>[len + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++) &#123;</span><br><span class="line">            prefix[i] = prefix[i - <span class="number">1</span>] + arr[i - <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (prefix[len] &lt;= target) <span class="keyword">return</span> arr[len - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span> value = target / len;</span><br><span class="line">        <span class="keyword">int</span> border = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[i] &gt;= value) &#123;</span><br><span class="line">                border = i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> cur = prefix[border] + value * (len - border);</span><br><span class="line">        <span class="keyword">int</span> dif = Math.abs(cur - target);</span><br><span class="line">        <span class="keyword">int</span> prevDif;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            prevDif = dif;</span><br><span class="line">            value++;</span><br><span class="line">            <span class="keyword">while</span> (arr[border] &lt; value) border++;</span><br><span class="line">            cur = cur + len - border;</span><br><span class="line">            dif = Math.abs(cur-target);</span><br><span class="line">        &#125; <span class="keyword">while</span> (dif &lt; prevDif);</span><br><span class="line">        <span class="keyword">return</span> value - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -504,8 +508,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/18/手动解决dll文件无法删除的方法/" rel="next" title="手动解决dll文件无法删除的方法">
-                <i class="fa fa-chevron-left"></i> 手动解决dll文件无法删除的方法
+              <a href="/2020/06/13/爬楼梯/" rel="next" title="爬楼梯">
+                <i class="fa fa-chevron-left"></i> 爬楼梯
               </a>
             
           </div>
@@ -513,10 +517,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/18/Python异常处理/" rel="prev" title="Python异常处理">
-                Python异常处理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -560,8 +560,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -635,6 +644,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
