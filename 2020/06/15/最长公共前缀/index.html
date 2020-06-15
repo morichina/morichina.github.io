@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，238.Product of Array Except Self">
+  <meta name="description" content="LeetCode每日一题，14.最长公共前缀">
 <meta property="og:type" content="article">
-<meta property="og:title" content="除自身以外数组的乘积">
-<meta property="og:url" content="http://yoursite.com/2020/06/04/除自身以外数组的乘积/index.html">
+<meta property="og:title" content="最长公共前缀">
+<meta property="og:url" content="http://yoursite.com/2020/06/15/最长公共前缀/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，238.Product of Array Except Self">
+<meta property="og:description" content="LeetCode每日一题，14.最长公共前缀">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/06/04/tB6wtg.png">
-<meta property="og:updated_time" content="2020-06-04T13:27:24.812Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/15/N9ixXT.png">
+<meta property="og:updated_time" content="2020-06-15T04:38:52.577Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="除自身以外数组的乘积">
-<meta name="twitter:description" content="LeetCode每日一题，238.Product of Array Except Self">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/04/tB6wtg.png">
+<meta name="twitter:title" content="最长公共前缀">
+<meta name="twitter:description" content="LeetCode每日一题，14.最长公共前缀">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/15/N9ixXT.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/06/04/除自身以外数组的乘积/">
+  <link rel="canonical" href="http://yoursite.com/2020/06/15/最长公共前缀/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>除自身以外数组的乘积 | Morichina</title>
+  <title>最长公共前缀 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/04/除自身以外数组的乘积/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/15/最长公共前缀/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">除自身以外数组的乘积
+          <h1 class="post-title" itemprop="name headline">最长公共前缀
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-06-04 20:49:43 / 修改时间：21:27:24" itemprop="dateCreated datePublished" datetime="2020-06-04T20:49:43+08:00">2020-06-04</time>
+              <time title="创建时间：2020-06-15 11:35:12 / 修改时间：12:38:52" itemprop="dateCreated datePublished" datetime="2020-06-15T11:35:12+08:00">2020-06-15</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">796</span>
+              <span title="本文字数">950</span>
             </span>
           
 
@@ -456,14 +456,13 @@
       
 
       
-        <p>LeetCode每日一题，238.Product of Array Except Self</p>
+        <p>LeetCode每日一题，14.最长公共前缀</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/06/04/tB6wtg.png" alt></p>
-<p>题目大意就是给定一个 nums 数组，返回数组 output，其中 output[i] 是 nums 中除 nums[i] 外其余各元素的乘积</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>对于每个 output[i]， 可以看成是两部分相乘的结果，即 nums 数组中 nums[i] 左边元素相乘的乘积与 nums[i] 右边元素相乘的乘积相乘的结果，故我们可以进行两次对 nums 数组的遍历，第一次从左往右遍历，用一个 res 数组记录左半部分相乘的结果，即 res[i] 记录的是 nums[i] 左边元素相乘的乘积，第二次从右往左遍历，用 k 来记录 nums[i]，然后计算 res[i] * k 并更新 res[i]，最终返回 res 数组就得到结果</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] productExceptSelf(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            res[i] = k;</span><br><span class="line">            k *= nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        k = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = nums.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            res[i] *= k;</span><br><span class="line">            k *= nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/06/15/N9ixXT.png" alt></p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>思路就是遍历每个字符串，求出这个字符串与下个字符串的公共前缀长度，若小于当前的最长公共前缀长度，就将其更新，就这样一直更新，最后根据最长公共前缀长度返回公共前缀，要注意考虑字符串长度为 0 的情况</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestCommonPrefix</span><span class="params">(String[] strs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (strs.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">if</span> (strs.length == <span class="number">1</span>) <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">10000</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; strs.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            String a = strs[i];</span><br><span class="line">            String b = strs[i + <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">int</span> len = Math.min(a.length(), b.length());</span><br><span class="line">            <span class="keyword">if</span> (len == <span class="number">0</span>) &#123;</span><br><span class="line">                max = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; len; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (a.charAt(j) != b.charAt(j)) &#123;</span><br><span class="line">                    max = Math.min(max, j);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (j == len - <span class="number">1</span>) max = Math.min(max, len);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> strs[<span class="number">0</span>].substring(<span class="number">0</span>, max);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -493,8 +492,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/03/新21点/" rel="next" title="新21点">
-                <i class="fa fa-chevron-left"></i> 新21点
+              <a href="/2020/06/14/转变数组后最接近目标值的数组和/" rel="next" title="转变数组后最接近目标值的数组和">
+                <i class="fa fa-chevron-left"></i> 转变数组后最接近目标值的数组和
               </a>
             
           </div>
@@ -502,10 +501,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/05/顺时针打印矩阵/" rel="prev" title="顺时针打印矩阵">
-                顺时针打印矩阵 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
