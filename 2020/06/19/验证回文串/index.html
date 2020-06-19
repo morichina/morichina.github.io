@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，739.Daily Temperatures">
+  <meta name="description" content="LeetCode每日一题，125.Valid Palindrome">
 <meta property="og:type" content="article">
-<meta property="og:title" content="每日温度">
-<meta property="og:url" content="http://yoursite.com/2020/06/11/每日温度/index.html">
+<meta property="og:title" content="验证回文串">
+<meta property="og:url" content="http://yoursite.com/2020/06/19/验证回文串/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，739.Daily Temperatures">
+<meta property="og:description" content="LeetCode每日一题，125.Valid Palindrome">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/06/11/tHiwM6.png">
-<meta property="og:updated_time" content="2020-06-11T03:01:08.169Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/19/NuWqht.png">
+<meta property="og:updated_time" content="2020-06-19T04:37:38.363Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="每日温度">
-<meta name="twitter:description" content="LeetCode每日一题，739.Daily Temperatures">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/11/tHiwM6.png">
+<meta name="twitter:title" content="验证回文串">
+<meta name="twitter:description" content="LeetCode每日一题，125.Valid Palindrome">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/19/NuWqht.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/06/11/每日温度/">
+  <link rel="canonical" href="http://yoursite.com/2020/06/19/验证回文串/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>每日温度 | Morichina</title>
+  <title>验证回文串 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/11/每日温度/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/19/验证回文串/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">每日温度
+          <h1 class="post-title" itemprop="name headline">验证回文串
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-06-11 10:41:44 / 修改时间：11:01:08" itemprop="dateCreated datePublished" datetime="2020-06-11T10:41:44+08:00">2020-06-11</time>
+              <time title="创建时间：2020-06-19 12:03:59 / 修改时间：12:37:38" itemprop="dateCreated datePublished" datetime="2020-06-19T12:03:59+08:00">2020-06-19</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1k</span>
+              <span title="本文字数">1.4k</span>
             </span>
           
 
@@ -456,33 +456,16 @@
       
 
       
-        <p>LeetCode每日一题，739.Daily Temperatures</p>
+        <p>LeetCode每日一题，125.Valid Palindrome</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/06/11/tHiwM6.png" alt></p>
-<p>大意就是给定一个整型数组表示每天的温度，需要输出一个数组，第 i 项就表示对于第 i 天来说过几天后温度会比 T[i] 高，若第 i 天没有比 T[i] 高的温度，则输出的第 i 项为 0</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这道题和之前做过的柱状图中的最大矩形十分相似，是同一类型的题，用单调栈就可以解决，不过那道题是单调递增栈，这个是递减栈，我们可以将天数一个个添加到栈中，当添加的天数对应温度大于栈顶天数对应温度时，则输出数组里栈顶天数对应的值便可以得到</p>
-<p>算法流程</p>
-<ul>
-<li><p>定义一个 res 数组用来返回结果，定义一个栈 stack 用于辅助计算</p>
-</li>
-<li><p>遍历 T 数组，当遍历到第 i 个元素时</p>
-</li>
-<li><p>若栈为空，则将 i 直接入栈</p>
-</li>
-<li><p>若栈不为空，比较栈顶元素 left 对应温度与 T[i]</p>
-<ul>
-<li>若 T[left] &gt;= T[i]，将 i 直接入栈</li>
-<li>若 T[left] &lt; T[i]，则将 left 出栈，res[left] = i - left</li>
-</ul>
-</li>
-<li><p>重复上述过程直到 T[left] &gt;= T[i]，将 i 入栈</p>
-</li>
-<li><p>遍历完 T 数组以后返回 res 数组</p>
-</li>
-</ul>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] dailyTemperatures(<span class="keyword">int</span>[] T) &#123;</span><br><span class="line">        <span class="keyword">int</span> len = T.length;</span><br><span class="line">        Deque&lt;Integer&gt; stack = <span class="keyword">new</span> ArrayDeque&lt;&gt;(len);</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (!stack.isEmpty() &amp;&amp; T[stack.peek()] &lt; T[i]) &#123;</span><br><span class="line">                <span class="keyword">int</span> left = stack.pop();</span><br><span class="line">                res[left] = i - left;</span><br><span class="line">            &#125;</span><br><span class="line">            stack.push(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/06/19/NuWqht.png" alt></p>
+<p>大概就是判断字符串是回文串，忽略字母大小写，只考虑字母和数字</p>
+<h2 id="算法和源码"><a href="#算法和源码" class="headerlink" title="算法和源码"></a>算法和源码</h2><p>大致思路就是先对字符串进行处理，然后用两个指针，两个指针同时向中间移动，判断字符是否相同，为了省略处理字符串的时间，也可以每次直接将指针移到下一个字母或数字的位置，而不是一次只移动一个，下面是两种实现的源码，第二个的性能要明显更优秀</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        String a = s.replaceAll(<span class="string">"[^\\dA-Za-z]"</span>, <span class="string">""</span>).toLowerCase();</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = a.length() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a.charAt(left) != a.charAt(right)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            left++;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        s = s.toLowerCase();</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = s.length() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right &amp;&amp; !Character.isLetterOrDigit(s.charAt(left))) left++;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right &amp;&amp; !Character.isLetterOrDigit(s.charAt(right))) right--;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s.charAt(left) != s.charAt(right)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            left++;</span><br><span class="line">            right--;</span><br><span class="line">            <span class="keyword">while</span> (left &lt;= right &amp;&amp; !Character.isLetterOrDigit(s.charAt(left))) left++;</span><br><span class="line">            <span class="keyword">while</span> (left &lt;= right &amp;&amp; !Character.isLetterOrDigit(s.charAt(right))) right--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -512,8 +495,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/10/回文数/" rel="next" title="回文数">
-                <i class="fa fa-chevron-left"></i> 回文数
+              <a href="/2020/06/18/从先序遍历还原二叉树/" rel="next" title="从先序遍历还原二叉树">
+                <i class="fa fa-chevron-left"></i> 从先序遍历还原二叉树
               </a>
             
           </div>
@@ -521,10 +504,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/12/三数之和/" rel="prev" title="三数之和">
-                三数之和 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -663,7 +642,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和源码"><span class="nav-number">1.</span> <span class="nav-text">算法和源码</span></a></li></ol></div>
             
 
           </div>
