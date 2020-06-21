@@ -94,20 +94,19 @@
 
 
 
-  <meta name="description" content="最近在网课中学习了Python的文件操作，所以把老师上课讲的都记录了下来，作为笔记">
+  <meta name="description" content="LeetCode每日一题，124.Binary Tree Maximum Path Sum">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python文件操作">
-<meta property="og:url" content="http://yoursite.com/2019/07/18/Python文件操作/index.html">
+<meta property="og:title" content="二叉树中的最大路径和">
+<meta property="og:url" content="http://yoursite.com/2020/06/21/二叉树中的最大路径和/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="最近在网课中学习了Python的文件操作，所以把老师上课讲的都记录了下来，作为笔记">
+<meta property="og:description" content="LeetCode每日一题，124.Binary Tree Maximum Path Sum">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/18/ZOO1eg.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/18/ZOO4mD.png">
-<meta property="og:updated_time" content="2019-07-18T08:54:59.367Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/21/N3eU4x.png">
+<meta property="og:updated_time" content="2020-06-21T05:40:55.968Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python文件操作">
-<meta name="twitter:description" content="最近在网课中学习了Python的文件操作，所以把老师上课讲的都记录了下来，作为笔记">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/07/18/ZOO1eg.png">
+<meta name="twitter:title" content="二叉树中的最大路径和">
+<meta name="twitter:description" content="LeetCode每日一题，124.Binary Tree Maximum Path Sum">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/21/N3eU4x.png">
 
 
 
@@ -115,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/18/Python文件操作/">
+  <link rel="canonical" href="http://yoursite.com/2020/06/21/二叉树中的最大路径和/">
 
 
 
@@ -125,7 +124,7 @@
   };
 </script>
 
-  <title>Python文件操作 | Morichina</title>
+  <title>二叉树中的最大路径和 | Morichina</title>
   
 
 
@@ -352,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/18/Python文件操作/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/21/二叉树中的最大路径和/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -369,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python文件操作
+          <h1 class="post-title" itemprop="name headline">二叉树中的最大路径和
 
               
             
@@ -395,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2019-07-18 10:35:31 / 修改时间：16:54:59" itemprop="dateCreated datePublished" datetime="2019-07-18T10:35:31+08:00">2019-07-18</time>
+              <time title="创建时间：2020-06-21 13:25:30 / 修改时间：13:40:55" itemprop="dateCreated datePublished" datetime="2020-06-21T13:25:30+08:00">2020-06-21</time>
             </span>
           
 
@@ -426,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.6k</span>
+              <span title="本文字数">946</span>
             </span>
           
 
@@ -457,55 +456,14 @@
       
 
       
-        <p>最近在网课中学习了Python的文件操作，所以把老师上课讲的都记录了下来，作为笔记</p>
+        <p>LeetCode每日一题，124.Binary Tree Maximum Path Sum</p>
 <a id="more"></a>
 
-<h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><p>可直接使用open函数，使用形式为</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open(文件地址，操作形式)</span><br></pre></td></tr></table></figure>
+<p>先看题目描述</p>
+<p><img src="https://s1.ax1x.com/2020/06/21/N3eU4x.png" alt></p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这道题是典型的子树递归，用 max 来维护全局最大路径和，每当递归到一个节点时，用 left 来表示递归求得的左边分支最大路径和，right 表示递归求得的右边分支最大路径和，root.val + left + right 与 max 进行比较来维护 max，然后返回经过 root 的单边分支最大值给上游，递归结束后返回 max 即为全局最大路径和</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> max = Integer.MIN_VALUE;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxPathSum</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        dfs(root);</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">dfs</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (root.left != <span class="keyword">null</span>) left = Math.max(dfs(root.left), <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span> (root.right != <span class="keyword">null</span>) right = Math.max(dfs(root.right), <span class="number">0</span>);</span><br><span class="line">        max = Math.max(max, left + right + root.val);</span><br><span class="line">        <span class="keyword">return</span> root.val + Math.max(left, right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>操作形式有以下几个</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">r 只读模式</span><br><span class="line">w 覆盖写模式</span><br><span class="line">x 创建写模式</span><br><span class="line">a 追加写模式</span><br><span class="line">b 二进制文件模式</span><br><span class="line">t 文本文件模式</span><br><span class="line">+ 与r/w/x/a一同使用，在原功能基础上增加读写功能</span><br></pre></td></tr></table></figure>
-
-<p>当操作形式参数为空时，默认为只读模式与文本文件模式</p>
-<p>还有几个可选参数，例如encoding，可设置编码格式</p>
-<p>看下面这个例子</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fh = open(<span class="string">"D:/blog/文本1.txt"</span>, <span class="string">"rt"</span>, encoding = <span class="string">"utf-8"</span>)</span><br></pre></td></tr></table></figure>
-
-<p>这个语句就是以只读文本文件的模式，编码格式为”utf-8”，打开文本1</p>
-<p><strong>注意：第一个参数中的文件地址，”\&quot;要以”/“或”\\“来表示</strong></p>
-<h3 id="关闭文件"><a href="#关闭文件" class="headerlink" title="关闭文件"></a>关闭文件</h3><p>用close函数即可</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fh.close()</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意：文件打开后一定要关闭，否则容易出问题</strong></p>
-<h3 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h3><p>有这几个函数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a.read(size = <span class="number">-1</span>) 读入全部内容，如果给出参数，读入前size长度</span><br><span class="line">a.readline(size = <span class="number">-1</span>) 读入一行内容，如果给出参数，读入该行前size长度</span><br><span class="line">a.readlines(hint = <span class="number">-1</span>) 读入文件所有行，以每行为元素形成列表，如果给出参数，读入前hint行</span><br></pre></td></tr></table></figure>
-
-<p>看下面一个例子</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fh = open(<span class="string">"D:/blog/文本1.txt"</span>, <span class="string">"rt"</span>, encoding = <span class="string">"utf-8"</span>)</span><br><span class="line">x = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">	line = fh.readline()</span><br><span class="line">	<span class="keyword">if</span>(len(line) == <span class="number">0</span> <span class="keyword">and</span> x &gt;= <span class="number">10</span>):</span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">	print(line)</span><br><span class="line">	x += <span class="number">1</span></span><br><span class="line">fh.close()</span><br></pre></td></tr></table></figure>
-
-<p>这段代码的作用便是一行行的读取文本文件，并将每行输出，当读到第十行以后的空行时，停止读取</p>
-<h3 id="文件的写入"><a href="#文件的写入" class="headerlink" title="文件的写入"></a>文件的写入</h3><p>有这几个函数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fh.write(s) 向文件写入一个字符串或字节流</span><br><span class="line">fh.writelines(lines) 将一个元素全为字符串的列表写入文件(拼接以后写入到一行当中)</span><br></pre></td></tr></table></figure>
-
-<p>看一个例子</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data = <span class="string">"一起学python"</span></span><br><span class="line">fh = open(<span class="string">"D:/blog/文本1.txt"</span>, <span class="string">"w"</span>)</span><br><span class="line">fh.write(data)</span><br><span class="line">fh.close()</span><br><span class="line">data2 = <span class="string">"学好python"</span></span><br><span class="line">fh2 = open(<span class="string">"D:/blog/文本1.txt"</span>, <span class="string">"w"</span>)</span><br><span class="line">fh2.write(data2)</span><br><span class="line">fh2.close()</span><br></pre></td></tr></table></figure>
-
-<p>运行以后打开文件，会发现结果是这样的</p>
-<p><img src="https://s2.ax1x.com/2019/07/18/ZOO1eg.png" alt></p>
-<p>因为以“w”模式打开文件，会将原内容覆盖</p>
-<p>想要正确读写文件，只需改变文件打开模式为”a“或”a+“</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data = <span class="string">"一起学python"</span></span><br><span class="line">fh = open(<span class="string">"D:/blog/文本1.txt"</span>, <span class="string">"w"</span>)</span><br><span class="line">fh.write(data)</span><br><span class="line">fh.close()</span><br><span class="line">data2 = <span class="string">"学好python"</span></span><br><span class="line">fh2 = open(<span class="string">"D:/blog/文本1.txt"</span>, <span class="string">"a+"</span>)</span><br><span class="line">fh2.write(data2)</span><br><span class="line">fh2.close()</span><br></pre></td></tr></table></figure>
-
-<p>结果是这样</p>
-<p><img src="https://s2.ax1x.com/2019/07/18/ZOO4mD.png" alt></p>
-<p><strong>注意：打开文件后一定要关闭文件，否则文件内容无法更新</strong></p>
-<h3 id="改变文件操作指针位置"><a href="#改变文件操作指针位置" class="headerlink" title="改变文件操作指针位置"></a>改变文件操作指针位置</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fh.seek(offset) 改变当前文件操作指针的位置,offset含义:<span class="number">0</span>-文件开头 <span class="number">1</span>-当前位置 <span class="number">2</span>-文件结尾</span><br></pre></td></tr></table></figure>
-
-<p>看一个例子</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fh = open(<span class="string">"D:/blog/output.txt"</span>, <span class="string">"w+"</span>)</span><br><span class="line">ls = [<span class="string">"中国"</span>, <span class="string">"法国"</span>, <span class="string">"美国"</span>]</span><br><span class="line">fh.writelines(ls)</span><br><span class="line">fh.seek(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> fh:</span><br><span class="line">    print(line)</span><br><span class="line">fh.close()</span><br></pre></td></tr></table></figure>
-
-<p>代码作用是将写入文件的内容输出</p>
-<p><strong>注意：fh.seek(0)一定要添加，否则什么都输出不了，因为没有改变位置</strong></p>
 
       
     </div>
@@ -536,8 +494,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/15/浅谈赋值-浅复制与深复制的区别/" rel="next" title="浅谈赋值, 浅复制与深复制的区别">
-                <i class="fa fa-chevron-left"></i> 浅谈赋值, 浅复制与深复制的区别
+              <a href="/2020/06/20/正则表达式匹配/" rel="next" title="正则表达式匹配">
+                <i class="fa fa-chevron-left"></i> 正则表达式匹配
               </a>
             
           </div>
@@ -545,10 +503,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/18/手动解决dll文件无法删除的方法/" rel="prev" title="手动解决dll文件无法删除的方法">
-                手动解决dll文件无法删除的方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -687,7 +641,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开文件"><span class="nav-number">1.</span> <span class="nav-text">打开文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭文件"><span class="nav-number">2.</span> <span class="nav-text">关闭文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件读取"><span class="nav-number">3.</span> <span class="nav-text">文件读取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件的写入"><span class="nav-number">4.</span> <span class="nav-text">文件的写入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变文件操作指针位置"><span class="nav-number">5.</span> <span class="nav-text">改变文件操作指针位置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
