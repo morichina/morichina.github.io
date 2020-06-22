@@ -94,20 +94,19 @@
 
 
 
-  <meta name="description" content="转自Python3新特性：类型注解">
+  <meta name="description" content="LeetCode每日一题，面试题16.18.Pattern Matching LCCI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python中给函数添加注解">
-<meta property="og:url" content="http://yoursite.com/2019/07/30/Python中给函数添加注解/index.html">
+<meta property="og:title" content="模式匹配">
+<meta property="og:url" content="http://yoursite.com/2020/06/22/模式匹配/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="转自Python3新特性：类型注解">
+<meta property="og:description" content="LeetCode每日一题，面试题16.18.Pattern Matching LCCI">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/30/eJkXJx.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/30/eJVlR0.png">
-<meta property="og:updated_time" content="2019-07-30T09:04:11.761Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/22/NG8lYF.png">
+<meta property="og:updated_time" content="2020-06-22T05:21:30.304Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python中给函数添加注解">
-<meta name="twitter:description" content="转自Python3新特性：类型注解">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/07/30/eJkXJx.png">
+<meta name="twitter:title" content="模式匹配">
+<meta name="twitter:description" content="LeetCode每日一题，面试题16.18.Pattern Matching LCCI">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/22/NG8lYF.png">
 
 
 
@@ -115,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/30/Python中给函数添加注解/">
+  <link rel="canonical" href="http://yoursite.com/2020/06/22/模式匹配/">
 
 
 
@@ -125,7 +124,7 @@
   };
 </script>
 
-  <title>Python中给函数添加注解 | Morichina</title>
+  <title>模式匹配 | Morichina</title>
   
 
 
@@ -352,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/30/Python中给函数添加注解/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/22/模式匹配/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -369,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python中给函数添加注解
+          <h1 class="post-title" itemprop="name headline">模式匹配
 
               
             
@@ -395,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2019-07-30 16:32:22 / 修改时间：17:04:11" itemprop="dateCreated datePublished" datetime="2019-07-30T16:32:22+08:00">2019-07-30</time>
+              <time title="创建时间：2020-06-22 12:51:03 / 修改时间：13:21:30" itemprop="dateCreated datePublished" datetime="2020-06-22T12:51:03+08:00">2020-06-22</time>
             </span>
           
 
@@ -426,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.6k</span>
+              <span title="本文字数">2.9k</span>
             </span>
           
 
@@ -438,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">3 分钟</span>
             </span>
           
 
@@ -457,55 +456,16 @@
       
 
       
-        <p>转自<a href="https://zhuanlan.zhihu.com/p/37239021" target="_blank" rel="noopener">Python3新特性：类型注解</a></p>
+        <p>LeetCode每日一题，面试题16.18.Pattern Matching LCCI</p>
 <a id="more"></a>
 
-<p>这几天在看别人的算法源码时，发现有这样的代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> sys.version_info &gt;= (<span class="number">3</span>, <span class="number">6</span>):</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, days: float = ..., seconds: float = ..., microseconds: float = ...,</span></span></span><br><span class="line"><span class="function"><span class="params">                 milliseconds: float = ..., minutes: float = ..., hours: float = ...,</span></span></span><br><span class="line"><span class="function"><span class="params">                 weeks: float = ..., *, fold: int = ...)</span> -&gt; <span class="keyword">None</span>:</span> ...</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, days: float = ..., seconds: float = ..., microseconds: float = ...,</span></span></span><br><span class="line"><span class="function"><span class="params">                 milliseconds: float = ..., minutes: float = ..., hours: float = ...,</span></span></span><br><span class="line"><span class="function"><span class="params">                 weeks: float = ...)</span> -&gt; <span class="keyword">None</span>:</span> ...</span><br></pre></td></tr></table></figure>
+<p>先看题目描述</p>
+<p><img src="https://s1.ax1x.com/2020/06/22/NG8lYF.png" alt></p>
+<p>这也是道和模式匹配相关的问题</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这道题想出思路来不难，关键点就在于要想到这道题其实就在于给 a, b 分配合适的长度，将长度分配好以后代入待匹配的字符串中进行匹配，若可以匹配，就返回 true，若遍历了所有的长度可能，均无法匹配，就返回 false，在分配长度时要注意，a 的长度可以决定 b 的长度，故分配长度时遍历一次即可。以 例子 1 为例，pattern 中有 2 个 a，2 个 b，value 的长度为 12，故 a 的可选长度范围为 [0, 6]，遍历[0, 6] 发现 对于每个值均有一个整数值 b 与之对应 ，故 a 长度的可选值列表为 [0, 1, 2, 3, 4, 5, 6]，然后将相应的长度一个个代入看能否有满足题目要求的匹配，发现有就返回 true，没有就返回 false。想到这个思路不难，关键就是实现和一些细节方面的东西，例如边界， pattern 长度和 value 长度为 0 的情况等</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">patternMatching</span><span class="params">(String pattern, String value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (pattern.length() == <span class="number">0</span> &amp;&amp; value.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (pattern.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> m = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c: pattern.toCharArray()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">'a'</span>) m++;</span><br><span class="line">            <span class="keyword">else</span> n++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (m * n != <span class="number">0</span> &amp;&amp; value.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (m == <span class="number">0</span> || n == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> len = Math.max(m, n);</span><br><span class="line">            <span class="keyword">if</span> (value.length() % len != <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            len = value.length() / len;</span><br><span class="line">            String pat = value.substring(<span class="number">0</span>, len);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; Math.max(m, n); i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!pat.equals(value.substring(len * i, len * (i + <span class="number">1</span>)))) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        List&lt;Integer&gt; vals = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= value.length()/m; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> ((value.length() - m * i)%n == <span class="number">0</span>) vals.add(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (vals.size() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> val: vals) &#123;</span><br><span class="line">            <span class="keyword">int</span> val2 = (value.length() - m * val) / n;</span><br><span class="line">            <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">            String pre_a = <span class="keyword">null</span>;</span><br><span class="line">            String pre_b = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">char</span> c : pattern.toCharArray()) &#123;</span><br><span class="line">                <span class="keyword">if</span> (c == <span class="string">'a'</span>) &#123;</span><br><span class="line">                    String pat1;</span><br><span class="line">                    <span class="keyword">if</span> (val &gt; <span class="number">0</span>) pat1 = value.substring(count, count + val);</span><br><span class="line">                    <span class="keyword">else</span> pat1 = <span class="string">""</span>;</span><br><span class="line">                    <span class="keyword">if</span> (pre_a != <span class="keyword">null</span> &amp;&amp; !pat1.equals(pre_a)) &#123;</span><br><span class="line">                        flag = <span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    pre_a = pat1;</span><br><span class="line">                    count += val;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    String pat2;</span><br><span class="line">                    <span class="keyword">if</span> (val2 &gt; <span class="number">0</span>) pat2 = value.substring(count, count + val2);</span><br><span class="line">                    <span class="keyword">else</span> pat2 = <span class="string">""</span>;</span><br><span class="line">                    <span class="keyword">if</span> (pre_b != <span class="keyword">null</span> &amp;&amp; !pat2.equals(pre_b)) &#123;</span><br><span class="line">                        flag = <span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    pre_b = pat2;</span><br><span class="line">                    count += val2;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (flag == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>一开始不知道参数后面的float=…是什么意思，后来查找资料才知道这是函数注解</p>
-<p>我们都知道Python是一种动态语言，变量以及函数的参数是不区分类型的，这样的好处是有极大的灵活性，但坏处就是对于别人的代码，无法一眼判断出参数的类型，IDE也无法给出正确的提示</p>
-<p>于是Python3中引入了新的特性：函数注解</p>
-<p>就是类似这样的代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x: int, y: int)</span> -&gt; int:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br></pre></td></tr></table></figure>
-
-<p>用 : 指定参数类型，用 -&gt; 指定函数返回值的类型</p>
-<p>不过特别要强调的是，Python 解释器并不会因为这些注解而提供额外的校验，没有任何的类型检查工作，也就是说，这些类型注解加不加，对你的代码来说没有任何影响</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x: int, y: int)</span> -&gt; int:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line"></span><br><span class="line">print(add(<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">print(add(<span class="number">3.5</span>, <span class="number">4.3</span>))</span><br><span class="line">print(add(<span class="string">"py"</span>, <span class="string">"thon"</span>))</span><br></pre></td></tr></table></figure>
-
-<p>输出是</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">7.8</span></span><br><span class="line">python</span><br></pre></td></tr></table></figure>
-
-<p>但这么做的好处是：</p>
-<ol>
-<li><p>让别的程序员看得更明白</p>
-</li>
-<li><p>让 IDE 了解类型，从而提供更准确的代码提示、补全和语法检查（包括类型检查，可以看到 str 和 float 类型的参数被高亮提示）</p>
-</li>
-</ol>
-<p><img src="https://s2.ax1x.com/2019/07/30/eJkXJx.png" alt></p>
-<p>在函数的  __annotations__   会有自己设定的注解</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x: int, y: int)</span> -&gt; int:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line"></span><br><span class="line">print(add.__annotations__)</span><br></pre></td></tr></table></figure>
-
-<p>输出为</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;'x': &lt;class 'int'&gt;, 'y': &lt;class 'int'&gt;, 'return': &lt;class 'int'&gt;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在Python 3.6中，又引入了对变量类型进行注解的方法:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a: int = <span class="number">123</span></span><br><span class="line">b: str = <span class="string">"python"</span></span><br></pre></td></tr></table></figure>
-
-<p>更进一步，如果你需要指明一个全部由整数组成的列表：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> List</span><br><span class="line">l: List[int] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
-
-<p>但同样，这些仅仅是注解，不会对代码产生任何影响</p>
-<p>不过，你可以通过 mypy 库来检验最终代码是否符合注解</p>
-<p>安装mypy</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install mypy</span><br></pre></td></tr></table></figure>
-
-<p>执行代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mypy test.py</span><br></pre></td></tr></table></figure>
-
-<p>如果类型都符合，则不会有任何输出，否则就会给出类似输出：</p>
-<p><img src="https://s2.ax1x.com/2019/07/30/eJVlR0.png" alt></p>
+<p>有一个要注意的点是，比较字符串的值要用 equals() 方法，不能用 ==，因为字符串是引用型数据，== 会比较字符串的地址，equals 才是只比较字符串的值，这个需要注意</p>
 
       
     </div>
@@ -536,8 +496,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/30/Python的类中设置私有变量的实质/" rel="next" title="Python的类中设置私有变量的实质">
-                <i class="fa fa-chevron-left"></i> Python的类中设置私有变量的实质
+              <a href="/2020/06/21/二叉树中的最大路径和/" rel="next" title="二叉树中的最大路径和">
+                <i class="fa fa-chevron-left"></i> 二叉树中的最大路径和
               </a>
             
           </div>
@@ -545,10 +505,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/11/Python格式化字符串f-string的简单实用/" rel="prev" title="Python格式化字符串f-string的简单使用">
-                Python格式化字符串f-string的简单使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -592,8 +548,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -667,6 +632,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
