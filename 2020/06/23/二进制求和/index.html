@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，10.Regular Expression Matching">
+  <meta name="description" content="LeetCode每日一题，67.Add Binary">
 <meta property="og:type" content="article">
-<meta property="og:title" content="正则表达式匹配">
-<meta property="og:url" content="http://yoursite.com/2020/06/20/正则表达式匹配/index.html">
+<meta property="og:title" content="二进制求和">
+<meta property="og:url" content="http://yoursite.com/2020/06/23/二进制求和/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，10.Regular Expression Matching">
+<meta property="og:description" content="LeetCode每日一题，67.Add Binary">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/06/20/NQbMfU.png">
-<meta property="og:updated_time" content="2020-06-20T06:02:46.192Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/23/NtjhhF.png">
+<meta property="og:updated_time" content="2020-06-23T04:09:02.989Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="正则表达式匹配">
-<meta name="twitter:description" content="LeetCode每日一题，10.Regular Expression Matching">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/20/NQbMfU.png">
+<meta name="twitter:title" content="二进制求和">
+<meta name="twitter:description" content="LeetCode每日一题，67.Add Binary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/23/NtjhhF.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/06/20/正则表达式匹配/">
+  <link rel="canonical" href="http://yoursite.com/2020/06/23/二进制求和/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>正则表达式匹配 | Morichina</title>
+  <title>二进制求和 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/20/正则表达式匹配/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/23/二进制求和/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">正则表达式匹配
+          <h1 class="post-title" itemprop="name headline">二进制求和
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-06-20 12:43:36 / 修改时间：14:02:46" itemprop="dateCreated datePublished" datetime="2020-06-20T12:43:36+08:00">2020-06-20</time>
+              <time title="创建时间：2020-06-23 11:58:56 / 修改时间：12:09:02" itemprop="dateCreated datePublished" datetime="2020-06-23T11:58:56+08:00">2020-06-23</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.8k</span>
+              <span title="本文字数">2.1k</span>
             </span>
           
 
@@ -456,38 +456,17 @@
       
 
       
-        <p>LeetCode每日一题，10.Regular Expression Matching</p>
+        <p>LeetCode每日一题，67.Add Binary</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/06/20/NQbMfU.png" alt></p>
-<p>大概就是给两个字符串，一个是原字符串，一个是正则表达式，判断是否匹配</p>
-<h2 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h2><p>因为这道题自己一直没想出来，就直接去看了题解，才看明白，下面是那篇题解</p>
-<p>使用的方法是动态规划</p>
-<p><strong>状态</strong></p>
-<p>dp[i][j] 表示 s 的前 i 个字符是否能与 p 的前 j 个匹配</p>
-<p><strong>状态转移方程</strong></p>
-<p>已知 dp[i-1][j-1]，要求 dp[i][j]，根据 s[i]，p[j] 值的不同，要分情况考虑</p>
-<ul>
-<li><p>当 s[i] = p[j] 或 p[j] = “.”时，dp[i][j] = dp[i-1][j-1]</p>
-</li>
-<li><p>当 p[j] = “*”时，因为 * 的含义是匹配零个或多个前面的那个元素，所以要考虑前面的元素 p[j-1]</p>
-<ul>
-<li>当 p[j - 1] != s[i] 时，dp[i][j] = dp[i][j-2]，比如(ab, abc<em>)，遇到 * 往前看两个，发现前面 s[i] 的 ab 和 p[j-2] 的 ab 能匹配，虽然后面有 c</em>，但可以看作 c 重复 0 次，所以也是 true</li>
-<li>当 p[j-1] = s[i] 或 p[j-1] = “.” 时，又有两种情况<ul>
-<li>p[j-1] 重复 0 次，dp[i][j] = dp[i][j-2]</li>
-<li>p[j-1] 重复多次，dp[i][j] = dp[i-1][j]</li>
-<li>两种满足一种就能匹配上</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>实际上看的题解中还有 p[j-1] 重复一次的情况，但是实际上这种情况是多余的，因为检查多个字符匹配的时候也是要落到检查单个字符最后检查 empty，也可以这样理解，重复一次的情况时，dp[i][j] = dp[i][j-1]，由于 p[j-1] 是字母或 “.”，必然可以推到 dp[i][j] = dp[i-1][j-2]，又由于 p[j] 是 “*”，则得到 dp[i][j] = dp[i-1][j]</p>
-<p>找到状态转移方程以后就是一些细节和初始化 dp 的问题了</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isMatch</span><span class="params">(String s, String p)</span> </span>&#123;</span><br><span class="line">        s = <span class="string">" "</span> + s;</span><br><span class="line">        p = <span class="string">" "</span> + p;</span><br><span class="line">        <span class="keyword">int</span> m = s.length();</span><br><span class="line">        <span class="keyword">int</span> n = p.length();</span><br><span class="line">        <span class="keyword">boolean</span>[][] dp = <span class="keyword">new</span> <span class="keyword">boolean</span>[m + <span class="number">1</span>][n + <span class="number">1</span>];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (s.charAt(i - <span class="number">1</span>) == p.charAt(j - <span class="number">1</span>) || p.charAt(j - <span class="number">1</span>) == <span class="string">'.'</span>) &#123;</span><br><span class="line">                    dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(p.charAt(j - <span class="number">1</span>) == <span class="string">'*'</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (p.charAt(j - <span class="number">2</span>) != s.charAt(i - <span class="number">1</span>) &amp;&amp; p.charAt(j - <span class="number">2</span>) != <span class="string">'.'</span>) &#123;</span><br><span class="line">                        dp[i][j] = dp[i][j - <span class="number">2</span>];</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        dp[i][j] = dp[i][j - <span class="number">2</span>] || dp[i - <span class="number">1</span>][j];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/06/23/NtjhhF.png" alt></p>
+<p>大意就是实现二进制加法</p>
+<h2 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h2><p>整体思路是将两个字符串较短的用 00 补齐，使得两个字符串长度一致，然后从末尾进行遍历计算，得到最终结果。还有需要注意的就是要考虑最后是否会多出一位进位</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Deque;</span><br><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addBinary</span><span class="params">(String a, String b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> carry = <span class="keyword">false</span>;</span><br><span class="line">        Deque&lt;Integer&gt; stack = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> len1 = a.length();</span><br><span class="line">        <span class="keyword">int</span> len2 = b.length();</span><br><span class="line">        StringBuffer sb;</span><br><span class="line">        String sa;</span><br><span class="line">        <span class="keyword">if</span> (len1 &gt;= len2) &#123;</span><br><span class="line">            sb = <span class="keyword">new</span> StringBuffer(b);</span><br><span class="line">            sa = a;</span><br><span class="line">            <span class="keyword">while</span> (sb.length() &lt; len1) sb.insert(<span class="number">0</span>, <span class="string">"0"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            sb = <span class="keyword">new</span> StringBuffer(a);</span><br><span class="line">            sa = b;</span><br><span class="line">            <span class="keyword">while</span> (sb.length() &lt; len2) sb.insert(<span class="number">0</span>, <span class="string">"0"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> len = sb.length();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (carry) &#123;</span><br><span class="line">                <span class="keyword">int</span> c = (sa.charAt(len - i) - <span class="string">'0'</span>) + (sb.charAt(len - i) - <span class="string">'0'</span>) - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span> (c &lt; <span class="number">0</span>) carry = <span class="keyword">false</span>;</span><br><span class="line">                stack.push(Math.abs(c));</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">int</span> c = (sa.charAt(len - i) - <span class="string">'0'</span>) + (sb.charAt(len - i) - <span class="string">'0'</span>) - <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">if</span> (c &gt;= <span class="number">0</span>) carry = <span class="keyword">true</span>;</span><br><span class="line">                <span class="keyword">if</span> (c == -<span class="number">2</span>) c = <span class="number">0</span>;</span><br><span class="line">                stack.push(Math.abs(c));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (carry) stack.push(<span class="number">1</span>);</span><br><span class="line">        StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">while</span> (stack.peek() != <span class="keyword">null</span>) res.append(String.valueOf(stack.pop()));</span><br><span class="line">        <span class="keyword">return</span> res.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
+<p>这是一开始自己实现的源码，虽然通过了，整体思路也是一致的，但实现的比较繁琐，下面是看了题解代码后根据此实现的算法源码，代码简洁的多，运行效率也高得多</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addBinary</span><span class="params">(String a, String b)</span> </span>&#123;</span><br><span class="line">        StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = a.length() - <span class="number">1</span>, j = b.length() - <span class="number">1</span>; i &gt;= <span class="number">0</span> || j &gt;= <span class="number">0</span>; i--, j--) &#123;</span><br><span class="line">            <span class="keyword">int</span> sum = carry;</span><br><span class="line">            sum += i &gt;= <span class="number">0</span> ? a.charAt(i) - <span class="string">'0'</span> : <span class="number">0</span>;</span><br><span class="line">            sum += j &gt;= <span class="number">0</span> ? b.charAt(j) - <span class="string">'0'</span> : <span class="number">0</span>;</span><br><span class="line">            res.append(String.valueOf(sum%<span class="number">2</span>));</span><br><span class="line">            carry = sum / <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (carry &gt; <span class="number">0</span>) res.append(<span class="string">"1"</span>);</span><br><span class="line">        <span class="keyword">return</span> res.reverse().toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -517,8 +496,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/19/验证回文串/" rel="next" title="验证回文串">
-                <i class="fa fa-chevron-left"></i> 验证回文串
+              <a href="/2020/06/22/模式匹配/" rel="next" title="模式匹配">
+                <i class="fa fa-chevron-left"></i> 模式匹配
               </a>
             
           </div>
@@ -526,10 +505,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/21/二叉树中的最大路径和/" rel="prev" title="二叉树中的最大路径和">
-                二叉树中的最大路径和 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
