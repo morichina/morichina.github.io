@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，125.Valid Palindrome">
+  <meta name="description" content="LeetCode每日一题，面试题02.01. Remone Duplicate Node LCCI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="验证回文串">
-<meta property="og:url" content="http://yoursite.com/2020/06/19/验证回文串/index.html">
+<meta property="og:title" content="移除重复节点">
+<meta property="og:url" content="http://yoursite.com/2020/06/26/移除重复节点/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，125.Valid Palindrome">
+<meta property="og:description" content="LeetCode每日一题，面试题02.01. Remone Duplicate Node LCCI">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/06/19/NuWqht.png">
-<meta property="og:updated_time" content="2020-06-19T04:37:38.363Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/26/NrCWJe.png">
+<meta property="og:updated_time" content="2020-06-26T02:45:52.043Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="验证回文串">
-<meta name="twitter:description" content="LeetCode每日一题，125.Valid Palindrome">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/19/NuWqht.png">
+<meta name="twitter:title" content="移除重复节点">
+<meta name="twitter:description" content="LeetCode每日一题，面试题02.01. Remone Duplicate Node LCCI">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/26/NrCWJe.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/06/19/验证回文串/">
+  <link rel="canonical" href="http://yoursite.com/2020/06/26/移除重复节点/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>验证回文串 | Morichina</title>
+  <title>移除重复节点 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/19/验证回文串/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/26/移除重复节点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">验证回文串
+          <h1 class="post-title" itemprop="name headline">移除重复节点
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-06-19 12:03:59 / 修改时间：12:37:38" itemprop="dateCreated datePublished" datetime="2020-06-19T12:03:59+08:00">2020-06-19</time>
+              <time title="创建时间：2020-06-26 10:38:39 / 修改时间：10:45:52" itemprop="dateCreated datePublished" datetime="2020-06-26T10:38:39+08:00">2020-06-26</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.4k</span>
+              <span title="本文字数">1.1k</span>
             </span>
           
 
@@ -456,16 +456,16 @@
       
 
       
-        <p>LeetCode每日一题，125.Valid Palindrome</p>
+        <p>LeetCode每日一题，面试题02.01. Remone Duplicate Node LCCI</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/06/19/NuWqht.png" alt></p>
-<p>大概就是判断字符串是回文串，忽略字母大小写，只考虑字母和数字</p>
-<h2 id="算法和源码"><a href="#算法和源码" class="headerlink" title="算法和源码"></a>算法和源码</h2><p>大致思路就是先对字符串进行处理，然后用两个指针，两个指针同时向中间移动，判断字符是否相同，为了省略处理字符串的时间，也可以每次直接将指针移到下一个字母或数字的位置，而不是一次只移动一个，下面是两种实现的源码，第二个的性能要明显更优秀</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        String a = s.replaceAll(<span class="string">"[^\\dA-Za-z]"</span>, <span class="string">""</span>).toLowerCase();</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = a.length() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a.charAt(left) != a.charAt(right)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            left++;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/06/26/NrCWJe.png" alt></p>
+<p>大意就是让我们移除链表中的重复节点，并将根节点返回</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>一开始看到这道题，想到的就是遍历每个节点，遍历过程中记录下节点的值，若出现重复值，就删除节点，然后想到遍历的时间复杂度是 O(n)，想让查询是否出现重复值过程达到 O(1) 时间复杂度，于是想到用哈希表，可用哈希表自带的判断 key 是否存在函数</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">removeDuplicateNodes</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head== <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        HashMap&lt;Integer, Integer&gt; vals = <span class="keyword">new</span> HashMap();</span><br><span class="line">        ListNode node = head;</span><br><span class="line">        ListNode prevNode = head;</span><br><span class="line">        <span class="keyword">while</span> (node != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (vals.containsKey(node.val)) &#123;</span><br><span class="line">                prevNode.next = node.next;</span><br><span class="line">                node.next = <span class="keyword">null</span>;</span><br><span class="line">                node = prevNode.next;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                vals.put(node.val, <span class="number">1</span>);</span><br><span class="line">                prevNode = node;</span><br><span class="line">                node = node.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        s = s.toLowerCase();</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = s.length() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right &amp;&amp; !Character.isLetterOrDigit(s.charAt(left))) left++;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right &amp;&amp; !Character.isLetterOrDigit(s.charAt(right))) right--;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s.charAt(left) != s.charAt(right)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            left++;</span><br><span class="line">            right--;</span><br><span class="line">            <span class="keyword">while</span> (left &lt;= right &amp;&amp; !Character.isLetterOrDigit(s.charAt(left))) left++;</span><br><span class="line">            <span class="keyword">while</span> (left &lt;= right &amp;&amp; !Character.isLetterOrDigit(s.charAt(right))) right--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -495,8 +495,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/18/从先序遍历还原二叉树/" rel="next" title="从先序遍历还原二叉树">
-                <i class="fa fa-chevron-left"></i> 从先序遍历还原二叉树
+              <a href="/2020/06/25/单词拆分/" rel="next" title="单词拆分">
+                <i class="fa fa-chevron-left"></i> 单词拆分
               </a>
             
           </div>
@@ -504,10 +504,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/20/正则表达式匹配/" rel="prev" title="正则表达式匹配">
-                正则表达式匹配 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -646,7 +642,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和源码"><span class="nav-number">1.</span> <span class="nav-text">算法和源码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
