@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，70.Climbing Stiars">
+  <meta name="description" content="LeetCode每日一题，209.Minimun Size Subarray Sum">
 <meta property="og:type" content="article">
-<meta property="og:title" content="爬楼梯">
-<meta property="og:url" content="http://yoursite.com/2020/06/13/爬楼梯/index.html">
+<meta property="og:title" content="长度最小的子数组">
+<meta property="og:url" content="http://yoursite.com/2020/06/28/长度最小的子数组/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，70.Climbing Stiars">
+<meta property="og:description" content="LeetCode每日一题，209.Minimun Size Subarray Sum">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/06/13/txCn6H.png">
-<meta property="og:updated_time" content="2020-06-13T14:48:16.073Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/28/NRl2Y6.png">
+<meta property="og:updated_time" content="2020-06-28T12:57:09.584Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="爬楼梯">
-<meta name="twitter:description" content="LeetCode每日一题，70.Climbing Stiars">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/13/txCn6H.png">
+<meta name="twitter:title" content="长度最小的子数组">
+<meta name="twitter:description" content="LeetCode每日一题，209.Minimun Size Subarray Sum">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/28/NRl2Y6.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/06/13/爬楼梯/">
+  <link rel="canonical" href="http://yoursite.com/2020/06/28/长度最小的子数组/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>爬楼梯 | Morichina</title>
+  <title>长度最小的子数组 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/13/爬楼梯/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/28/长度最小的子数组/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">爬楼梯
+          <h1 class="post-title" itemprop="name headline">长度最小的子数组
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-06-13 21:02:20 / 修改时间：22:48:16" itemprop="dateCreated datePublished" datetime="2020-06-13T21:02:20+08:00">2020-06-13</time>
+              <time title="创建时间：2020-06-28 19:33:32 / 修改时间：20:57:09" itemprop="dateCreated datePublished" datetime="2020-06-28T19:33:32+08:00">2020-06-28</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">900</span>
+              <span title="本文字数">1.4k</span>
             </span>
           
 
@@ -456,22 +456,34 @@
       
 
       
-        <p>LeetCode每日一题，70.Climbing Stiars</p>
+        <p>LeetCode每日一题，209.Minimun Size Subarray Sum</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/06/13/txCn6H.png" alt></p>
-<p>题目大意是给定一个楼梯有 n 级，每次只能爬 1 级或 2 级，问有几种走楼梯方式</p>
-<h2 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h2><p>这道题很简单，是个典型的动态规划类型题目</p>
-<p>动态规划</p>
+<p><img src="https://s1.ax1x.com/2020/06/28/NRl2Y6.png" alt></p>
+<p>大意就是给定一个数组 nums 和一个正整数 s，返回满足元素之和大于 s 的 nums 子数组的最小长度</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>思路就是定义2个指针 end 和 start 来表示子数组的开始和结束位置，即子数组 nums[start, end)，用一个变量 sum 来维护子数组之和，变量 res 来维护满足的最小长度，初始状态 start, end, sum均为 0</p>
+<p>每一轮迭代，将 nums[end] 加到 sum 并将 end 右移直至 sum &gt;= s 或者 end 超出数组长度，如果 sum &lt; s，则直接跳出迭代，返回此时 res，若 sum &gt;= s，则将nums[start] 从 sum 中减去并将 start 右移，直至 sum &lt; s，此时子数组的的长度为 end - start + 1，在此过程中更新子数组的最小长度。多次迭代后 end 超出数组长度时，返回 res</p>
+<p><strong>算法流程</strong></p>
 <ul>
-<li>动态规划方程：dp[i] = dp[i - 1] + dp[i - 2]</li>
-<li>因为走完阶梯时，要么最后走了一步，要么最后走了两步，所以第 n 个阶梯的走完方式是第 n -1 个阶梯的走完方式与第 n - 2 个阶梯的走完方式之和</li>
-<li>最后返回 dp[n - 1]</li>
+<li><p>当 end &lt; nums.length时</p>
+<ul>
+<li>当 sum &lt; s 且 end &lt; nums.length 时<ul>
+<li>将 nums[end] 加到 sum，end 右移</li>
 </ul>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        dp[<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; n; i++) &#123;</span><br><span class="line">            dp[i] = dp[i - <span class="number">1</span>] + dp[i - <span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> b = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">int</span> c = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; n; i++) &#123;</span><br><span class="line">            c = a + b;</span><br><span class="line">            a = b;</span><br><span class="line">            b = c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>若 sum &lt; s，则直接跳出迭代</li>
+<li>当 sum &gt;= s 时<ul>
+<li>将 nums[start] 从 sum 中减去，start 右移</li>
+</ul>
+</li>
+<li>此时子数组长度为 end -start + 1，更新子数组最小长度 res</li>
+</ul>
+</li>
+<li><p>返回 res</p>
+</li>
+</ul>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minSubArrayLen</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> res = Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> end = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (end &lt; nums.length) &#123;</span><br><span class="line">            <span class="keyword">while</span> (sum &lt; s &amp;&amp; end &lt; nums.length) &#123;</span><br><span class="line">                sum += nums[end]; </span><br><span class="line">                end++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (sum &lt; s) <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">while</span> (sum &gt;= s) &#123;</span><br><span class="line">                sum -= nums[start];</span><br><span class="line">                start++;</span><br><span class="line">            &#125;</span><br><span class="line">            res = Math.min(res, end - start + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res == Integer.MAX_VALUE ? <span class="number">0</span> : res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -501,8 +513,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/12/三数之和/" rel="next" title="三数之和">
-                <i class="fa fa-chevron-left"></i> 三数之和
+              <a href="/2020/06/27/缺失的第一个正数/" rel="next" title="缺失的第一个正数">
+                <i class="fa fa-chevron-left"></i> 缺失的第一个正数
               </a>
             
           </div>
@@ -510,10 +522,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/14/转变数组后最接近目标值的数组和/" rel="prev" title="转变数组后最接近目标值的数组和">
-                转变数组后最接近目标值的数组和 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -652,7 +660,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法思路"><span class="nav-number">1.</span> <span class="nav-text">算法思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>

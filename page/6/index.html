@@ -94,19 +94,16 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，70.Climbing Stiars">
-<meta property="og:type" content="article">
-<meta property="og:title" content="爬楼梯">
-<meta property="og:url" content="http://yoursite.com/2020/06/13/爬楼梯/index.html">
+  <meta name="description" content="一个成长中的菜鸡">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Morichina">
+<meta property="og:url" content="http://yoursite.com/page/6/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，70.Climbing Stiars">
+<meta property="og:description" content="一个成长中的菜鸡">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/06/13/txCn6H.png">
-<meta property="og:updated_time" content="2020-06-13T14:48:16.073Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="爬楼梯">
-<meta name="twitter:description" content="LeetCode每日一题，70.Climbing Stiars">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/13/txCn6H.png">
+<meta name="twitter:title" content="Morichina">
+<meta name="twitter:description" content="一个成长中的菜鸡">
 
 
 
@@ -114,7 +111,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/06/13/爬楼梯/">
+  <link rel="canonical" href="http://yoursite.com/page/6/">
 
 
 
@@ -124,7 +121,7 @@
   };
 </script>
 
-  <title>爬楼梯 | Morichina</title>
+  <title>Morichina</title>
   
 
 
@@ -172,7 +169,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -332,9 +330,9 @@
           
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -342,8 +340,6 @@
   
   
 
-  
-    <div class="reading-progress-bar"></div>
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -351,7 +347,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/13/爬楼梯/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/07/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,8 +364,10 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">爬楼梯
-
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/07/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
               
             
           </h1>
@@ -394,13 +392,23 @@
                 
               
 
-              <time title="创建时间：2020-06-13 21:02:20 / 修改时间：22:48:16" itemprop="dateCreated datePublished" datetime="2020-06-13T21:02:20+08:00">2020-06-13</time>
+              <time title="创建时间：2019-07-07 22:18:16" itemprop="dateCreated datePublished" datetime="2019-07-07T22:18:16+08:00">2019-07-07</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-13 11:39:51" itemprop="dateModified" datetime="2019-07-13T11:39:51+08:00">2019-07-13</time>
+              </span>
             
           
 
@@ -425,7 +433,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">900</span>
+              <span title="本文字数">432</span>
             </span>
           
 
@@ -456,22 +464,18 @@
       
 
       
-        <p>LeetCode每日一题，70.Climbing Stiars</p>
-<a id="more"></a>
-
-<p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/06/13/txCn6H.png" alt></p>
-<p>题目大意是给定一个楼梯有 n 级，每次只能爬 1 级或 2 级，问有几种走楼梯方式</p>
-<h2 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h2><p>这道题很简单，是个典型的动态规划类型题目</p>
-<p>动态规划</p>
-<ul>
-<li>动态规划方程：dp[i] = dp[i - 1] + dp[i - 2]</li>
-<li>因为走完阶梯时，要么最后走了一步，要么最后走了两步，所以第 n 个阶梯的走完方式是第 n -1 个阶梯的走完方式与第 n - 2 个阶梯的走完方式之和</li>
-<li>最后返回 dp[n - 1]</li>
-</ul>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        dp[<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; n; i++) &#123;</span><br><span class="line">            dp[i] = dp[i - <span class="number">1</span>] + dp[i - <span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> b = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">int</span> c = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; n; i++) &#123;</span><br><span class="line">            c = a + b;</span><br><span class="line">            a = b;</span><br><span class="line">            b = c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/07/07/hello-world/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
       
     </div>
 
@@ -494,32 +498,12 @@
       
 
       
-      
+
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2020/06/12/三数之和/" rel="next" title="三数之和">
-                <i class="fa fa-chevron-left"></i> 三数之和
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/14/转变数组后最接近目标值的数组和/" rel="prev" title="转变数组后最接近目标值的数组和">
-                转变数组后最接近目标值的数组和 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -529,15 +513,18 @@
   </article>
 
 
-  </div>
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+  </nav>
+
 
 
           </div>
           
-
-  
-
-
 
         </div>
         
@@ -557,17 +544,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -641,23 +619,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法思路"><span class="nav-number">1.</span> <span class="nav-text">算法思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
@@ -814,10 +775,6 @@
 
 
   
-  <script src="/js/scrollspy.js?v=7.2.0"></script>
-<script src="/js/post-details.js?v=7.2.0"></script>
-
-
 
   
 
@@ -833,8 +790,6 @@
 
   
 
-
-  
 
 
   
