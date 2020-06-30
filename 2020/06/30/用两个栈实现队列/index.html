@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，139.Word Break">
+  <meta name="description" content="LeetCode每日一题，剑指offer 09.用两个栈实现队列">
 <meta property="og:type" content="article">
-<meta property="og:title" content="单词拆分">
-<meta property="og:url" content="http://yoursite.com/2020/06/25/单词拆分/index.html">
+<meta property="og:title" content="用两个栈实现队列">
+<meta property="og:url" content="http://yoursite.com/2020/06/30/用两个栈实现队列/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，139.Word Break">
+<meta property="og:description" content="LeetCode每日一题，剑指offer 09.用两个栈实现队列">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/06/25/N0XXwj.png">
-<meta property="og:updated_time" content="2020-06-25T06:02:13.691Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/30/NIaEbn.png">
+<meta property="og:updated_time" content="2020-06-30T12:10:02.973Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="单词拆分">
-<meta name="twitter:description" content="LeetCode每日一题，139.Word Break">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/25/N0XXwj.png">
+<meta name="twitter:title" content="用两个栈实现队列">
+<meta name="twitter:description" content="LeetCode每日一题，剑指offer 09.用两个栈实现队列">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/30/NIaEbn.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/06/25/单词拆分/">
+  <link rel="canonical" href="http://yoursite.com/2020/06/30/用两个栈实现队列/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>单词拆分 | Morichina</title>
+  <title>用两个栈实现队列 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/25/单词拆分/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/30/用两个栈实现队列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">单词拆分
+          <h1 class="post-title" itemprop="name headline">用两个栈实现队列
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-06-25 11:37:00 / 修改时间：14:02:13" itemprop="dateCreated datePublished" datetime="2020-06-25T11:37:00+08:00">2020-06-25</time>
+              <time title="创建时间：2020-06-30 18:39:16 / 修改时间：20:10:02" itemprop="dateCreated datePublished" datetime="2020-06-30T18:39:16+08:00">2020-06-30</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">857</span>
+              <span title="本文字数">1k</span>
             </span>
           
 
@@ -456,17 +456,13 @@
       
 
       
-        <p>LeetCode每日一题，139.Word Break</p>
+        <p>LeetCode每日一题，剑指offer 09.用两个栈实现队列</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/06/25/N0XXwj.png" alt></p>
-<p>大意就是判断能否用 wordDict 里的单词拼接出字符串 s</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>动态规划</p>
-<p>我们定义 dp[i] 表示字符串 s 前 i 个字符组成的字符串 s[0..i-1 是否能被空格拆分成若干个字典中出现的单词</p>
-<p>经分析可得到状态转移方程为: dp[i] = dp[j] &amp;&amp; check(s[j…i - 1])</p>
-<p>根据状态转移方程就可以实现算法源码，为了优化算法，可统计待选字符串中最长字符串的长度，以减少无用访问</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">wordBreak</span><span class="params">(String s, List&lt;String&gt; wordDict)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (String word: wordDict) &#123;</span><br><span class="line">            max = Math.max(max, word.length());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">boolean</span> dp[] = <span class="keyword">new</span> <span class="keyword">boolean</span>[s.length() + <span class="number">1</span>];</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= s.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = Math.max(<span class="number">0</span>, i - max); j &lt; i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (dp[i] = dp[j] &amp;&amp; wordDict.contains(s.substring(j, i))) <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[s.length()];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/06/30/NIaEbn.png" alt></p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>在类中维护两个栈，一个栈用于负责插入元素功能，第二个栈用于负责删除功能。当要插入整数时，就直接往第一个栈中添加元素；当要删除整数时，若两个栈均为空，则直接返回 -1，否则的话就看第二个栈是否为空，为空的话就将第一个栈的元素一个个弹出并插入到第二个栈中，再将第二个栈的栈顶元素弹出并返回，不空的话就直接弹出第二个栈的栈顶元素并返回</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CQueue</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Deque&lt;Integer&gt; addStack = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    <span class="keyword">private</span> Deque&lt;Integer&gt; deleteStack = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CQueue</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">appendTail</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        addStack.push(value);</span><br><span class="line">        size++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">deleteHead</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (size == <span class="number">0</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (deleteStack.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">while</span> (!addStack.isEmpty()) &#123;</span><br><span class="line">                deleteStack.push(addStack.pop());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        size--;</span><br><span class="line">        <span class="keyword">return</span> deleteStack.pop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your CQueue object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * CQueue obj = new CQueue();</span></span><br><span class="line"><span class="comment"> * obj.appendTail(value);</span></span><br><span class="line"><span class="comment"> * int param_2 = obj.deleteHead();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
 
 
       
@@ -498,8 +494,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/24/最接近的三数之和/" rel="next" title="最接近的三数之和">
-                <i class="fa fa-chevron-left"></i> 最接近的三数之和
+              <a href="/2020/06/29/数组中的第K个最大元素/" rel="next" title="数组中的第K个最大元素">
+                <i class="fa fa-chevron-left"></i> 数组中的第K个最大元素
               </a>
             
           </div>
@@ -507,10 +503,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/26/移除重复节点/" rel="prev" title="移除重复节点">
-                移除重复节点 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
