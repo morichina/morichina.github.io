@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，面试题16.18.Pattern Matching LCCI">
+  <meta name="description" content="LeetCode每日一题，378.Kth Smallest Element in a Sorted Matrix">
 <meta property="og:type" content="article">
-<meta property="og:title" content="模式匹配">
-<meta property="og:url" content="http://yoursite.com/2020/06/22/模式匹配/index.html">
+<meta property="og:title" content="有序矩阵中第K小的元素">
+<meta property="og:url" content="http://yoursite.com/2020/07/02/有序矩阵中第K小的元素/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，面试题16.18.Pattern Matching LCCI">
+<meta property="og:description" content="LeetCode每日一题，378.Kth Smallest Element in a Sorted Matrix">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/06/22/NG8lYF.png">
-<meta property="og:updated_time" content="2020-06-22T05:21:30.304Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/02/NbFBng.png">
+<meta property="og:updated_time" content="2020-07-02T03:19:12.059Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="模式匹配">
-<meta name="twitter:description" content="LeetCode每日一题，面试题16.18.Pattern Matching LCCI">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/22/NG8lYF.png">
+<meta name="twitter:title" content="有序矩阵中第K小的元素">
+<meta name="twitter:description" content="LeetCode每日一题，378.Kth Smallest Element in a Sorted Matrix">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/02/NbFBng.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/06/22/模式匹配/">
+  <link rel="canonical" href="http://yoursite.com/2020/07/02/有序矩阵中第K小的元素/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>模式匹配 | Morichina</title>
+  <title>有序矩阵中第K小的元素 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/22/模式匹配/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/02/有序矩阵中第K小的元素/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">模式匹配
+          <h1 class="post-title" itemprop="name headline">有序矩阵中第K小的元素
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-06-22 12:51:03 / 修改时间：13:21:30" itemprop="dateCreated datePublished" datetime="2020-06-22T12:51:03+08:00">2020-06-22</time>
+              <time title="创建时间：2020-07-02 11:06:39 / 修改时间：11:19:12" itemprop="dateCreated datePublished" datetime="2020-07-02T11:06:39+08:00">2020-07-02</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2.9k</span>
+              <span title="本文字数">2.3k</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">3 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -456,16 +456,20 @@
       
 
       
-        <p>LeetCode每日一题，面试题16.18.Pattern Matching LCCI</p>
+        <p>LeetCode每日一题，378.Kth Smallest Element in a Sorted Matrix</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/06/22/NG8lYF.png" alt></p>
-<p>这也是道和模式匹配相关的问题</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这道题想出思路来不难，关键点就在于要想到这道题其实就在于给 a, b 分配合适的长度，将长度分配好以后代入待匹配的字符串中进行匹配，若可以匹配，就返回 true，若遍历了所有的长度可能，均无法匹配，就返回 false，在分配长度时要注意，a 的长度可以决定 b 的长度，故分配长度时遍历一次即可。以 例子 1 为例，pattern 中有 2 个 a，2 个 b，value 的长度为 12，故 a 的可选长度范围为 [0, 6]，遍历[0, 6] 发现 对于每个值均有一个整数值 b 与之对应 ，故 a 长度的可选值列表为 [0, 1, 2, 3, 4, 5, 6]，然后将相应的长度一个个代入看能否有满足题目要求的匹配，发现有就返回 true，没有就返回 false。想到这个思路不难，关键就是实现和一些细节方面的东西，例如边界， pattern 长度和 value 长度为 0 的情况等</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">patternMatching</span><span class="params">(String pattern, String value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (pattern.length() == <span class="number">0</span> &amp;&amp; value.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (pattern.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> m = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c: pattern.toCharArray()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">'a'</span>) m++;</span><br><span class="line">            <span class="keyword">else</span> n++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (m * n != <span class="number">0</span> &amp;&amp; value.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (m == <span class="number">0</span> || n == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> len = Math.max(m, n);</span><br><span class="line">            <span class="keyword">if</span> (value.length() % len != <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            len = value.length() / len;</span><br><span class="line">            String pat = value.substring(<span class="number">0</span>, len);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; Math.max(m, n); i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!pat.equals(value.substring(len * i, len * (i + <span class="number">1</span>)))) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        List&lt;Integer&gt; vals = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= value.length()/m; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> ((value.length() - m * i)%n == <span class="number">0</span>) vals.add(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (vals.size() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> val: vals) &#123;</span><br><span class="line">            <span class="keyword">int</span> val2 = (value.length() - m * val) / n;</span><br><span class="line">            <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">            String pre_a = <span class="keyword">null</span>;</span><br><span class="line">            String pre_b = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">char</span> c : pattern.toCharArray()) &#123;</span><br><span class="line">                <span class="keyword">if</span> (c == <span class="string">'a'</span>) &#123;</span><br><span class="line">                    String pat1;</span><br><span class="line">                    <span class="keyword">if</span> (val &gt; <span class="number">0</span>) pat1 = value.substring(count, count + val);</span><br><span class="line">                    <span class="keyword">else</span> pat1 = <span class="string">""</span>;</span><br><span class="line">                    <span class="keyword">if</span> (pre_a != <span class="keyword">null</span> &amp;&amp; !pat1.equals(pre_a)) &#123;</span><br><span class="line">                        flag = <span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    pre_a = pat1;</span><br><span class="line">                    count += val;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    String pat2;</span><br><span class="line">                    <span class="keyword">if</span> (val2 &gt; <span class="number">0</span>) pat2 = value.substring(count, count + val2);</span><br><span class="line">                    <span class="keyword">else</span> pat2 = <span class="string">""</span>;</span><br><span class="line">                    <span class="keyword">if</span> (pre_b != <span class="keyword">null</span> &amp;&amp; !pat2.equals(pre_b)) &#123;</span><br><span class="line">                        flag = <span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    pre_b = pat2;</span><br><span class="line">                    count += val2;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (flag == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/07/02/NbFBng.png" alt></p>
+<p>大意就是一个矩阵在每行和每列上都有序，返回第 K 小的元素</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这道题一开始只想得到暴力解法，就是变一维数组排序后再输出第 K 小的元素，运行效率十分感人</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">lass Solution &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">kthSmallest</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> rows = matrix.length, columns = matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span>[] sorted = <span class="keyword">new</span> <span class="keyword">int</span>[rows * columns];</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] row : matrix) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> num : row) &#123;</span><br><span class="line">                sorted[index++] = num;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        Arrays.sort(sorted);</span><br><span class="line">        <span class="keyword">return</span> sorted[k - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>有一个要注意的点是，比较字符串的值要用 equals() 方法，不能用 ==，因为字符串是引用型数据，== 会比较字符串的地址，equals 才是只比较字符串的值，这个需要注意</p>
+<p>后来看题解才知道还有归并排序法和二分查找法，尤其是二分查找法十分巧妙，而且运用到了题目中这个矩阵的特殊性质，感觉自己对二分查找法一直不太会用，还是得多学习二分法的用法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">kthSmallest</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        PriorityQueue&lt;<span class="keyword">int</span>[]&gt; pq = <span class="keyword">new</span> PriorityQueue&lt;<span class="keyword">int</span>[]&gt;(<span class="keyword">new</span> Comparator&lt;<span class="keyword">int</span>[]&gt;() &#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span>[] b)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> a[<span class="number">0</span>] - b[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">int</span> n = matrix.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            pq.offer(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;matrix[i][<span class="number">0</span>], i, <span class="number">0</span>&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span>[] now = pq.poll();</span><br><span class="line">            <span class="keyword">if</span> (now[<span class="number">2</span>] != n - <span class="number">1</span>) &#123;</span><br><span class="line">                pq.offer(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;matrix[now[<span class="number">1</span>]][now[<span class="number">2</span>] + <span class="number">1</span>], now[<span class="number">1</span>], now[<span class="number">2</span>] + <span class="number">1</span>&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pq.poll()[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">kthSmallest</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = matrix.length;</span><br><span class="line">        <span class="keyword">int</span> left = matrix[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> right = matrix[n - <span class="number">1</span>][n - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right -left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (check(matrix, k, mid)) &#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> k, <span class="keyword">int</span> mid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = matrix.length;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> i = n - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &gt;= <span class="number">0</span> &amp;&amp; j &lt; n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (matrix[i][j] &gt; mid) &#123;</span><br><span class="line">                i--;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                j++;</span><br><span class="line">                num += i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> num &gt;= k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -496,8 +500,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/21/二叉树中的最大路径和/" rel="next" title="二叉树中的最大路径和">
-                <i class="fa fa-chevron-left"></i> 二叉树中的最大路径和
+              <a href="/2020/07/01/最长重复子数组/" rel="next" title="最长重复子数组">
+                <i class="fa fa-chevron-left"></i> 最长重复子数组
               </a>
             
           </div>
@@ -505,10 +509,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/23/二进制求和/" rel="prev" title="二进制求和">
-                二进制求和 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -647,7 +647,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li></ol></div>
             
 
           </div>
