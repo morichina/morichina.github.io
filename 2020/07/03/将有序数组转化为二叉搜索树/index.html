@@ -102,7 +102,7 @@
 <meta property="og:description" content="LeetCode每日一题，108.Convert Sorted Array to Binary Search Tree">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://s1.ax1x.com/2020/07/03/Nv94lq.png">
-<meta property="og:updated_time" content="2020-07-03T15:37:24.642Z">
+<meta property="og:updated_time" content="2020-07-03T15:40:25.454Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="将有序数组转化为二叉搜索树">
 <meta name="twitter:description" content="LeetCode每日一题，108.Convert Sorted Array to Binary Search Tree">
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-07-03 23:11:09 / 修改时间：23:37:24" itemprop="dateCreated datePublished" datetime="2020-07-03T23:11:09+08:00">2020-07-03</time>
+              <time title="创建时间：2020-07-03 23:11:09 / 修改时间：23:40:25" itemprop="dateCreated datePublished" datetime="2020-07-03T23:11:09+08:00">2020-07-03</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">977</span>
+              <span title="本文字数">1k</span>
             </span>
           
 
@@ -462,7 +462,7 @@
 <p>先看题目描述</p>
 <p><img src="https://s1.ax1x.com/2020/07/03/Nv94lq.png" alt></p>
 <p>大意是根据给定的升序数组，恢复一棵高度平衡的二叉搜索树</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>二叉搜索树的中序遍历是升序的，因此本题等同于根据中序遍历的序列恢复二叉搜索树。因此我们可以以升序序列中的任一个元素作为根节点，以该元素左边的升序序列构建左子树，以该元素右边的升序序列构建右子树，这样得到的树就是一棵二叉搜索树， 又因为本题要求高度平衡，因此我们需要每次选择升序序列的中间元素来作为根节点</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>二叉搜索树的中序遍历是升序的，因此本题等同于根据中序遍历的序列恢复二叉搜索树。因此我们可以以升序序列中的任一个元素作为根节点，以该元素左边的升序序列构建左子树，以该元素右边的升序序列构建右子树，这样得到的树就是一棵二叉搜索树， 又因为本题要求高度平衡，因此我们需要每次选择升序序列的中间元素来作为根节点(个人感觉有点类似于二分法，二分法在算法题中真的很常用)</p>
 <p>注意：给定二叉搜索树的中序遍历，又要求二叉搜索树的高度是平衡的，是否可以唯一地确定二叉搜索树？答案是否定的。故可能的二叉搜索树有多个</p>
 <h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">sortedArrayToBST</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> findRoot(nums, <span class="number">0</span>, nums.length - <span class="number">1</span>);;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">findRoot</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (left &gt; right) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">int</span> mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">        TreeNode root = <span class="keyword">new</span> TreeNode(mid);</span><br><span class="line">        root.left = findRoot(nums, left, mid - <span class="number">1</span>);</span><br><span class="line">        root.right = findRoot(nums, mid + <span class="number">1</span>, right);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
