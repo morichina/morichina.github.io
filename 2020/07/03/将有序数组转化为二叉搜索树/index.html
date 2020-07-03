@@ -94,17 +94,19 @@
 
 
 
-  <meta name="description" content="一种十分方便的python字符串格式化方法：f-string">
+  <meta name="description" content="LeetCode每日一题，108.Convert Sorted Array to Binary Search Tree">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python格式化字符串f-string的简单使用">
-<meta property="og:url" content="http://yoursite.com/2019/08/11/Python格式化字符串f-string的简单实用/index.html">
+<meta property="og:title" content="将有序数组转化为二叉搜索树">
+<meta property="og:url" content="http://yoursite.com/2020/07/03/将有序数组转化为二叉搜索树/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="一种十分方便的python字符串格式化方法：f-string">
+<meta property="og:description" content="LeetCode每日一题，108.Convert Sorted Array to Binary Search Tree">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-06T12:36:30.674Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/03/Nv94lq.png">
+<meta property="og:updated_time" content="2020-07-03T15:37:24.642Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python格式化字符串f-string的简单使用">
-<meta name="twitter:description" content="一种十分方便的python字符串格式化方法：f-string">
+<meta name="twitter:title" content="将有序数组转化为二叉搜索树">
+<meta name="twitter:description" content="LeetCode每日一题，108.Convert Sorted Array to Binary Search Tree">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/03/Nv94lq.png">
 
 
 
@@ -112,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/08/11/Python格式化字符串f-string的简单实用/">
+  <link rel="canonical" href="http://yoursite.com/2020/07/03/将有序数组转化为二叉搜索树/">
 
 
 
@@ -122,7 +124,7 @@
   };
 </script>
 
-  <title>Python格式化字符串f-string的简单使用 | Morichina</title>
+  <title>将有序数组转化为二叉搜索树 | Morichina</title>
   
 
 
@@ -349,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/11/Python格式化字符串f-string的简单实用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/03/将有序数组转化为二叉搜索树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -366,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python格式化字符串f-string的简单使用
+          <h1 class="post-title" itemprop="name headline">将有序数组转化为二叉搜索树
 
               
             
@@ -392,23 +394,13 @@
                 
               
 
-              <time title="创建时间：2019-08-11 10:32:10" itemprop="dateCreated datePublished" datetime="2019-08-11T10:32:10+08:00">2019-08-11</time>
+              <time title="创建时间：2020-07-03 23:11:09 / 修改时间：23:37:24" itemprop="dateCreated datePublished" datetime="2020-07-03T23:11:09+08:00">2020-07-03</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-11-06 20:36:30" itemprop="dateModified" datetime="2019-11-06T20:36:30+08:00">2019-11-06</time>
-              </span>
             
           
 
@@ -433,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.9k</span>
+              <span title="本文字数">977</span>
             </span>
           
 
@@ -445,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">2 分钟</span>
+              <span title="阅读时长">1 分钟</span>
             </span>
           
 
@@ -464,35 +456,15 @@
       
 
       
-        <p>一种十分方便的python字符串格式化方法：f-string</p>
+        <p>LeetCode每日一题，108.Convert Sorted Array to Binary Search Tree</p>
 <a id="more"></a>
 
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>f-string，亦称为格式化字符串常量（formatted string literals），是Python3.6新引入的一种字符串格式化方法，该方法源于<a href="https://python.org/dev/peps/pep-0498/" target="_blank" rel="noopener">PEP 498 – Literal String Interpolation</a>，主要目的是使格式化字符串的操作更加简便。f-string在形式上是以 f  或 F 修饰符引领的字符串（f&#39;xxx&#39; 或 F&#39;xxx&#39;)，以大括号 {} 标明被替换的字段；f-string在本质上并不是字符串常量，而是一个在运行时运算求值的表达式：</p>
-<blockquote>
-<p>While other string literals always have a constant value, formatted strings are really expressions evaluated at run time.<br>（与具有恒定值的其它字符串常量不同，格式化字符串实际上是运行时运算求值的表达式。）<br>—— <a href="https://docs.python.org/3/reference/lexical_analysis.html#formatted-string-literals" target="_blank" rel="noopener">Python Documentation</a></p>
-</blockquote>
-<p>f-string在功能方面不逊于传统的<a href="https://docs.python.org/3/library/stdtypes.html#old-string-formatting" target="_blank" rel="noopener">%-formatting语句</a>和<a href="https://docs.python.org/3/library/stdtypes.html#str.format" target="_blank" rel="noopener">str.format()函数</a>，同时<a href="https://mlln.cn/2018/05/19/python3%20f-string%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/" target="_blank" rel="noopener">性能</a>又优于二者，且使用起来也更加简洁明了，因此对于Python3.6及以后的版本，推荐使用f-string进行字符串格式化</p>
-<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>f-string可以起到类似槽函数的效果，用大括号 {} 表示被替换字段，其中直接填入替换内容，例如</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f"<span class="subst">&#123;a&#125;</span>23"</span></span><br><span class="line"><span class="string">'123'</span></span><br></pre></td></tr></table></figure>
-
-<p>可以看到在字符串前加了f以后，再使用大括号，大括号里的内容就会自动替换，起到类似槽函数的效果，而前面不加f的话，就没有这个效果</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"&#123;a&#125;23"</span></span><br><span class="line"><span class="string">'&#123;a&#125;23'</span></span><br></pre></td></tr></table></figure>
-
-<p>不加f的话，就得使用槽函数，如下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"&#123;&#125;23"</span>.format(a)</span><br><span class="line"><span class="string">'123'</span></span><br></pre></td></tr></table></figure>
-
-<p>可以看到f-string使用起来更加简洁</p>
-<p>f-string的大括号{}也可以填入表达式或调用函数，Python会求出其结果并返回填入的字符串内</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> math</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f"<span class="subst">&#123;<span class="number">1</span>+<span class="number">2</span>*<span class="number">4</span>&#125;</span>"</span></span><br><span class="line"><span class="string">'9'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f"<span class="subst">&#123;math.pow(<span class="number">4</span>, <span class="number">2</span>)&#125;</span>"</span></span><br><span class="line"><span class="string">'16.0'</span></span><br></pre></td></tr></table></figure>
-
-<p>f-string大括号内所用的引号不能和大括号外的引号定界符冲突，可根据情况灵活切换 &#39; 和 &quot; ：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f'I am <span class="subst">&#123;<span class="string">"Eric"</span>&#125;</span>'</span></span><br><span class="line"><span class="string">'I am Eric'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f'I am <span class="subst">&#123;<span class="string">'Eric'</span>&#125;</span>'</span></span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span></span><br><span class="line">    <span class="string">f'I am <span class="subst">&#123;<span class="string">'Eric'</span>&#125;</span>'</span></span><br><span class="line">                ^</span><br><span class="line">SyntaxError: invalid syntax</span><br></pre></td></tr></table></figure>
-
-<p>f-string大括号内不能使用 \ 转义，事实上不仅如此，f-string大括号内根本就不允许出现 \ ,如果确实需要 \ ，则应首先将包含 \  的内容用一个变量表示，再在f-string大括号内填入变量名：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f"newline: <span class="subst">&#123;ord(<span class="string">'\n'</span>)&#125;</span>"</span></span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span></span><br><span class="line">SyntaxError: f-string expression part cannot include a backslash</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>newline = ord(<span class="string">'\n'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f"newline: <span class="subst">&#123;newline&#125;</span>"</span></span><br><span class="line"><span class="string">'newline: 10'</span></span><br></pre></td></tr></table></figure>
-
-<p>f-string大括号外如果需要显示大括号，则应输入连续两个大括号 ：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f'5 <span class="subst">&#123;<span class="string">"&#123;stars&#125;"</span>&#125;</span>'</span></span><br><span class="line"><span class="string">'5 &#123;stars&#125;'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f'<span class="subst">&#123;&#123;<span class="number">5</span>&#125;</span>&#125; <span class="subst">&#123;<span class="string">"stars"</span>&#125;</span>'</span></span><br><span class="line"><span class="string">'&#123;5&#125; stars'</span></span><br></pre></td></tr></table></figure>
+<p>先看题目描述</p>
+<p><img src="https://s1.ax1x.com/2020/07/03/Nv94lq.png" alt></p>
+<p>大意是根据给定的升序数组，恢复一棵高度平衡的二叉搜索树</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>二叉搜索树的中序遍历是升序的，因此本题等同于根据中序遍历的序列恢复二叉搜索树。因此我们可以以升序序列中的任一个元素作为根节点，以该元素左边的升序序列构建左子树，以该元素右边的升序序列构建右子树，这样得到的树就是一棵二叉搜索树， 又因为本题要求高度平衡，因此我们需要每次选择升序序列的中间元素来作为根节点</p>
+<p>注意：给定二叉搜索树的中序遍历，又要求二叉搜索树的高度是平衡的，是否可以唯一地确定二叉搜索树？答案是否定的。故可能的二叉搜索树有多个</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">sortedArrayToBST</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> findRoot(nums, <span class="number">0</span>, nums.length - <span class="number">1</span>);;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">findRoot</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (left &gt; right) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">int</span> mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">        TreeNode root = <span class="keyword">new</span> TreeNode(mid);</span><br><span class="line">        root.left = findRoot(nums, left, mid - <span class="number">1</span>);</span><br><span class="line">        root.right = findRoot(nums, mid + <span class="number">1</span>, right);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -524,8 +496,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/30/Python中给函数添加注解/" rel="next" title="Python中给函数添加注解">
-                <i class="fa fa-chevron-left"></i> Python中给函数添加注解
+              <a href="/2020/07/02/有序矩阵中第K小的元素/" rel="next" title="有序矩阵中第K小的元素">
+                <i class="fa fa-chevron-left"></i> 有序矩阵中第K小的元素
               </a>
             
           </div>
@@ -533,10 +505,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/06/由通过小白鼠测试毒试剂的面试题联想到汉明码的校验过程/" rel="prev" title="由通过小白鼠测试毒试剂的面试题联想到汉明码的校验过程">
-                由通过小白鼠测试毒试剂的面试题联想到汉明码的校验过程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -675,7 +643,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用法"><span class="nav-number">2.</span> <span class="nav-text">用法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
