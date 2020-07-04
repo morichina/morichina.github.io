@@ -94,20 +94,19 @@
 
 
 
-  <meta name="description" content="转自Python3新特性：类型注解">
+  <meta name="description" content="LeetCode每日一题，32.Longest Valid Parentheses">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python中给函数添加注解">
-<meta property="og:url" content="http://yoursite.com/2019/07/30/Python中给函数添加注解/index.html">
+<meta property="og:title" content="最长有效括号">
+<meta property="og:url" content="http://yoursite.com/2020/07/05/最长有效括号/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="转自Python3新特性：类型注解">
+<meta property="og:description" content="LeetCode每日一题，32.Longest Valid Parentheses">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/30/eJkXJx.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/30/eJVlR0.png">
-<meta property="og:updated_time" content="2019-07-30T09:04:11.761Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/05/USpKnP.png">
+<meta property="og:updated_time" content="2020-07-04T17:06:44.721Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python中给函数添加注解">
-<meta name="twitter:description" content="转自Python3新特性：类型注解">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/07/30/eJkXJx.png">
+<meta name="twitter:title" content="最长有效括号">
+<meta name="twitter:description" content="LeetCode每日一题，32.Longest Valid Parentheses">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/05/USpKnP.png">
 
 
 
@@ -115,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/30/Python中给函数添加注解/">
+  <link rel="canonical" href="http://yoursite.com/2020/07/05/最长有效括号/">
 
 
 
@@ -125,7 +124,7 @@
   };
 </script>
 
-  <title>Python中给函数添加注解 | Morichina</title>
+  <title>最长有效括号 | Morichina</title>
   
 
 
@@ -352,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/30/Python中给函数添加注解/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/05/最长有效括号/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -369,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python中给函数添加注解
+          <h1 class="post-title" itemprop="name headline">最长有效括号
 
               
             
@@ -395,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2019-07-30 16:32:22 / 修改时间：17:04:11" itemprop="dateCreated datePublished" datetime="2019-07-30T16:32:22+08:00">2019-07-30</time>
+              <time title="创建时间：2020-07-05 00:46:59 / 修改时间：01:06:44" itemprop="dateCreated datePublished" datetime="2020-07-05T00:46:59+08:00">2020-07-05</time>
             </span>
           
 
@@ -426,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.6k</span>
+              <span title="本文字数">1.3k</span>
             </span>
           
 
@@ -457,55 +456,26 @@
       
 
       
-        <p>转自<a href="https://zhuanlan.zhihu.com/p/37239021" target="_blank" rel="noopener">Python3新特性：类型注解</a></p>
+        <p>LeetCode每日一题，32.Longest Valid Parentheses</p>
 <a id="more"></a>
 
-<p>这几天在看别人的算法源码时，发现有这样的代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> sys.version_info &gt;= (<span class="number">3</span>, <span class="number">6</span>):</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, days: float = ..., seconds: float = ..., microseconds: float = ...,</span></span></span><br><span class="line"><span class="function"><span class="params">                 milliseconds: float = ..., minutes: float = ..., hours: float = ...,</span></span></span><br><span class="line"><span class="function"><span class="params">                 weeks: float = ..., *, fold: int = ...)</span> -&gt; <span class="keyword">None</span>:</span> ...</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, days: float = ..., seconds: float = ..., microseconds: float = ...,</span></span></span><br><span class="line"><span class="function"><span class="params">                 milliseconds: float = ..., minutes: float = ..., hours: float = ...,</span></span></span><br><span class="line"><span class="function"><span class="params">                 weeks: float = ...)</span> -&gt; <span class="keyword">None</span>:</span> ...</span><br></pre></td></tr></table></figure>
-
-<p>一开始不知道参数后面的float=…是什么意思，后来查找资料才知道这是函数注解</p>
-<p>我们都知道Python是一种动态语言，变量以及函数的参数是不区分类型的，这样的好处是有极大的灵活性，但坏处就是对于别人的代码，无法一眼判断出参数的类型，IDE也无法给出正确的提示</p>
-<p>于是Python3中引入了新的特性：函数注解</p>
-<p>就是类似这样的代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x: int, y: int)</span> -&gt; int:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br></pre></td></tr></table></figure>
-
-<p>用 : 指定参数类型，用 -&gt; 指定函数返回值的类型</p>
-<p>不过特别要强调的是，Python 解释器并不会因为这些注解而提供额外的校验，没有任何的类型检查工作，也就是说，这些类型注解加不加，对你的代码来说没有任何影响</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x: int, y: int)</span> -&gt; int:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line"></span><br><span class="line">print(add(<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">print(add(<span class="number">3.5</span>, <span class="number">4.3</span>))</span><br><span class="line">print(add(<span class="string">"py"</span>, <span class="string">"thon"</span>))</span><br></pre></td></tr></table></figure>
-
-<p>输出是</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">7.8</span></span><br><span class="line">python</span><br></pre></td></tr></table></figure>
-
-<p>但这么做的好处是：</p>
-<ol>
-<li><p>让别的程序员看得更明白</p>
+<p>先看题目描述</p>
+<p><img src="https://s1.ax1x.com/2020/07/05/USpKnP.png" alt></p>
+<p>大意就是给定只包括 ( 和 ) 的字符串，返回最长的包括有效括号子串的长度</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>看到涉及括号匹配，第一反应就是用栈，但始终没想出来，后来看了题解才明白</p>
+<p>具体做法是我们始终保持栈底元素为当前已经遍历过的元素中 <strong>最后一个没有被匹配的右括号的下标</strong>，这样的做法主要是考虑了边界条件的处理，栈里其他元素维护左括号的下标：</p>
+<ul>
+<li>对于遇到的每个 { ，我们将它的下标放入栈中</li>
+<li>对于遇到的每个 }，我们先弹出栈顶元素(个人理解：若弹出的栈顶元素代表左括号，栈是不可能为空的，弹出栈顶元素以后栈为空，说明这个右括号前面没有可以和它匹配的左括号)表示匹配了当前右括号：<ul>
+<li>如果栈为空，说明当前的右括号为没有被匹配的右括号，我们将其下标放入栈中来更新我们之前提到的 <strong>最后一个没有被匹配的右括号的下标</strong></li>
+<li>如果栈不为空，当前右括号的下标减去栈顶元素即为 <strong>以该右括号为结尾的最长有效括号的长度</strong></li>
+</ul>
 </li>
-<li><p>让 IDE 了解类型，从而提供更准确的代码提示、补全和语法检查（包括类型检查，可以看到 str 和 float 类型的参数被高亮提示）</p>
-</li>
-</ol>
-<p><img src="https://s2.ax1x.com/2019/07/30/eJkXJx.png" alt></p>
-<p>在函数的  __annotations__   会有自己设定的注解</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x: int, y: int)</span> -&gt; int:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line"></span><br><span class="line">print(add.__annotations__)</span><br></pre></td></tr></table></figure>
+</ul>
+<p>我们从前往后遍历字符串并维护最长有效括号的长度即可</p>
+<p>需要注意的是，如果一开始栈为空，第一个字符为左括号的时候我们会将其放入栈中，这样就不满足提及的<strong>最后一个没有被匹配的右括号的下标</strong>，为了保持统一，我们在一开始的时候往栈底放入一个值为 -1 的元素</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">longestValidParentheses</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = s.length();</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        Deque&lt;Integer&gt; stack = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        stack.push(-<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s.charAt(i) == <span class="string">'('</span>) &#123;</span><br><span class="line">                stack.push(i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                stack.pop();</span><br><span class="line">                <span class="keyword">if</span> (stack.isEmpty()) &#123;</span><br><span class="line">                    stack.push(i);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    res = Math.max(res, i - stack.peek());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>输出为</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;'x': &lt;class 'int'&gt;, 'y': &lt;class 'int'&gt;, 'return': &lt;class 'int'&gt;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在Python 3.6中，又引入了对变量类型进行注解的方法:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a: int = <span class="number">123</span></span><br><span class="line">b: str = <span class="string">"python"</span></span><br></pre></td></tr></table></figure>
-
-<p>更进一步，如果你需要指明一个全部由整数组成的列表：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> List</span><br><span class="line">l: List[int] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
-
-<p>但同样，这些仅仅是注解，不会对代码产生任何影响</p>
-<p>不过，你可以通过 mypy 库来检验最终代码是否符合注解</p>
-<p>安装mypy</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install mypy</span><br></pre></td></tr></table></figure>
-
-<p>执行代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mypy test.py</span><br></pre></td></tr></table></figure>
-
-<p>如果类型都符合，则不会有任何输出，否则就会给出类似输出：</p>
-<p><img src="https://s2.ax1x.com/2019/07/30/eJVlR0.png" alt></p>
 
       
     </div>
@@ -536,8 +506,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/30/Python的类中设置私有变量的实质/" rel="next" title="Python的类中设置私有变量的实质">
-                <i class="fa fa-chevron-left"></i> Python的类中设置私有变量的实质
+              <a href="/2020/07/03/将有序数组转化为二叉搜索树/" rel="next" title="将有序数组转化为二叉搜索树">
+                <i class="fa fa-chevron-left"></i> 将有序数组转化为二叉搜索树
               </a>
             
           </div>
@@ -545,10 +515,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/11/Python格式化字符串f-string的简单实用/" rel="prev" title="Python格式化字符串f-string的简单使用">
-                Python格式化字符串f-string的简单使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -592,8 +558,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -667,6 +642,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
