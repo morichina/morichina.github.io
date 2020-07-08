@@ -94,17 +94,21 @@
 
 
 
-  <meta name="description" content="使用列表的remove函数时的注意事项">
+  <meta name="description" content="LeetCode每日一题，面试题16.11. Diving Board LCCI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python中使用remove函数的注意事项">
-<meta property="og:url" content="http://yoursite.com/2019/07/15/Python中使用remove函数的注意事项/index.html">
+<meta property="og:title" content="跳水板">
+<meta property="og:url" content="http://yoursite.com/2020/07/08/跳水板/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="使用列表的remove函数时的注意事项">
+<meta property="og:description" content="LeetCode每日一题，面试题16.11. Diving Board LCCI">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-18T08:55:40.344Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/08/UETLmq.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/08/UELi8O.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/08/UELQG8.png">
+<meta property="og:updated_time" content="2020-07-08T04:09:17.938Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python中使用remove函数的注意事项">
-<meta name="twitter:description" content="使用列表的remove函数时的注意事项">
+<meta name="twitter:title" content="跳水板">
+<meta name="twitter:description" content="LeetCode每日一题，面试题16.11. Diving Board LCCI">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/08/UETLmq.png">
 
 
 
@@ -112,7 +116,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/15/Python中使用remove函数的注意事项/">
+  <link rel="canonical" href="http://yoursite.com/2020/07/08/跳水板/">
 
 
 
@@ -122,7 +126,7 @@
   };
 </script>
 
-  <title>Python中使用remove函数的注意事项 | Morichina</title>
+  <title>跳水板 | Morichina</title>
   
 
 
@@ -349,7 +353,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/15/Python中使用remove函数的注意事项/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/08/跳水板/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -366,7 +370,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python中使用remove函数的注意事项
+          <h1 class="post-title" itemprop="name headline">跳水板
 
               
             
@@ -392,23 +396,13 @@
                 
               
 
-              <time title="创建时间：2019-07-15 18:15:38" itemprop="dateCreated datePublished" datetime="2019-07-15T18:15:38+08:00">2019-07-15</time>
+              <time title="创建时间：2020-07-08 11:17:40 / 修改时间：12:09:17" itemprop="dateCreated datePublished" datetime="2020-07-08T11:17:40+08:00">2020-07-08</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-18 16:55:40" itemprop="dateModified" datetime="2019-07-18T16:55:40+08:00">2019-07-18</time>
-              </span>
             
           
 
@@ -433,7 +427,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">872</span>
+              <span title="本文字数">1.3k</span>
             </span>
           
 
@@ -464,25 +458,31 @@
       
 
       
-        <h2 id="使用列表的remove函数时的注意事项"><a href="#使用列表的remove函数时的注意事项" class="headerlink" title="使用列表的remove函数时的注意事项"></a>使用列表的remove函数时的注意事项</h2><a id="more"></a>
+        <p>LeetCode每日一题，面试题16.11. Diving Board LCCI</p>
+<a id="more"></a>
 
-<p>前几天写寻找最稠密子图问题的算法时，在测试的时候发现了一个bug，那就是删除度数最低的顶点时，也要把有关的边都删除，但是当删除的边在列表中相邻时，只会删除第一条边，最后查找资料，发现还是对python遍历列表的方式没理解透彻</p>
-<p>这里是出现bug部分的代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delMinNode</span><span class="params">(minNode)</span>:</span> <span class="comment"># 删除度数最小的节点，相应的边也会被删除</span></span><br><span class="line">	nodes.remove(minNode)</span><br><span class="line">	<span class="keyword">for</span> edge <span class="keyword">in</span> edges:</span><br><span class="line">		<span class="keyword">if</span> minNode <span class="keyword">in</span> edge:</span><br><span class="line">			edges.remove(edge)</span><br></pre></td></tr></table></figure>
+<p>先看题目描述</p>
+<p><img src="https://s1.ax1x.com/2020/07/08/UETLmq.png" alt></p>
+<p>大意就是有两种长度的木板，共有 k 块，返回所有的总长度情况</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>很简单的一道数学题，找出规律就可以</p>
+<ul>
+<li>用 res 数组存储答案，因为 shorter 可使用 0 到 k 次，故 res 数组长度为 k + 1</li>
+<li>res[0] = shorter * k</li>
+<li>res[i] = res[i - 1] + longer - shorter</li>
+<li>注意边际情况，k = 0 时，返回空数组，shorter = longer 时，返回 [shorter * k]</li>
+</ul>
+<p>实现也不难，但这道题如何改进效率值得注意</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p>一开始实现的是这个源码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] divingBoard(<span class="keyword">int</span> shorter, <span class="keyword">int</span> longer, <span class="keyword">int</span> k) &#123;</span><br><span class="line">        <span class="keyword">if</span> (k == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">if</span> (shorter == longer) <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;shorter * k&#125;;</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[k + <span class="number">1</span>];</span><br><span class="line">        res[<span class="number">0</span>] = shorter * k;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= k; i++) &#123;</span><br><span class="line">            res[i] = res[i - <span class="number">1</span>] + longer - shorter;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>再看下面的一个例子</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">	<span class="keyword">if</span> i == <span class="number">5</span>:</span><br><span class="line">		a.remove(i)</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+<p>提交结果是这样的</p>
+<p><img src="https://s1.ax1x.com/2020/07/08/UELi8O.png" alt></p>
+<p>于是就想着怎么提升到100%，后来看了题解里面评论，想到可以用临时变量，就不需要重复访问数组了，可以节省时间</p>
+<p>新的实现源码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] divingBoard(<span class="keyword">int</span> shorter, <span class="keyword">int</span> longer, <span class="keyword">int</span> k) &#123;</span><br><span class="line">        <span class="keyword">if</span> (k == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">if</span> (shorter == longer) <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;shorter * k&#125;;</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[k + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span> temp = shorter * k;</span><br><span class="line">        <span class="keyword">int</span> val = longer - shorter;</span><br><span class="line">        res[<span class="number">0</span>] = temp;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= k; i++) &#123;</span><br><span class="line">            temp += val;</span><br><span class="line">            res[i] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>这段代码的目的是将列表中所有的5都删除，然后将列表打印出来,  但是运行结果却是</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br></pre></td></tr></table></figure>
-
-<p>下面来分析原因：</p>
-<p>首先了解下python当中的遍历机制，python中遍历是按照下标来遍历的，即a[0]，a[1], a[2]….. 一个个遍历过去</p>
-<p>再看上面的例子，第一个5是在a[4]的位置，当遍历进行到a[4]时，这个5被删除，这个时候后面的每个元素都要往前进一位，第二个5到了a[4]的位置，6变成a[5]…..于是下一次循环时，会去判断a[5]，也就是6，第二个5遍历时被跳过，没被删除，导致了这样的运行结果</p>
-<p>于是之前的算法中代码可以这样修改</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delMinNode</span><span class="params">(minNode)</span>:</span> <span class="comment"># 删除度数最小的节点，相应的边也会被删除</span></span><br><span class="line">	nodes.remove(minNode)</span><br><span class="line">	newEdges = copy.deepcopy(edges)</span><br><span class="line">	<span class="keyword">for</span> edge <span class="keyword">in</span> newEdges:</span><br><span class="line">		<span class="keyword">if</span> minNode <span class="keyword">in</span> edge:</span><br><span class="line">			edges.remove(edge)</span><br></pre></td></tr></table></figure>
-
-<p>深复制一个与原列表相同的新列表，然后遍历这个新列表，删除时是删原列表中的边，便可避免相邻边无法删除的bug</p>
+<p>提交结果</p>
+<p><img src="https://s1.ax1x.com/2020/07/08/UELQG8.png" alt></p>
 
       
     </div>
@@ -513,8 +513,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/12/寻找最稠密子图问题/" rel="next" title="寻找最稠密子图问题">
-                <i class="fa fa-chevron-left"></i> 寻找最稠密子图问题
+              <a href="/2020/07/07/路径总和/" rel="next" title="路径总和">
+                <i class="fa fa-chevron-left"></i> 路径总和
               </a>
             
           </div>
@@ -522,10 +522,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/15/浅谈赋值-浅复制与深复制的区别/" rel="prev" title="浅谈赋值, 浅复制与深复制的区别">
-                浅谈赋值, 浅复制与深复制的区别 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -664,7 +660,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用列表的remove函数时的注意事项"><span class="nav-number">1.</span> <span class="nav-text">使用列表的remove函数时的注意事项</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
