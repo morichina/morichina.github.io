@@ -94,17 +94,16 @@
 
 
 
-  <meta name="description" content="一种十分方便的python字符串格式化方法：f-string">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Python格式化字符串f-string的简单使用">
-<meta property="og:url" content="http://yoursite.com/2019/08/11/Python格式化字符串f-string的简单实用/index.html">
+  <meta name="description" content="一个成长中的菜鸡">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Morichina">
+<meta property="og:url" content="http://yoursite.com/page/7/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="一种十分方便的python字符串格式化方法：f-string">
+<meta property="og:description" content="一个成长中的菜鸡">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-06T12:36:30.674Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python格式化字符串f-string的简单使用">
-<meta name="twitter:description" content="一种十分方便的python字符串格式化方法：f-string">
+<meta name="twitter:title" content="Morichina">
+<meta name="twitter:description" content="一个成长中的菜鸡">
 
 
 
@@ -112,7 +111,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/08/11/Python格式化字符串f-string的简单实用/">
+  <link rel="canonical" href="http://yoursite.com/page/7/">
 
 
 
@@ -122,7 +121,7 @@
   };
 </script>
 
-  <title>Python格式化字符串f-string的简单使用 | Morichina</title>
+  <title>Morichina</title>
   
 
 
@@ -170,7 +169,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -330,9 +330,9 @@
           
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -340,8 +340,6 @@
   
   
 
-  
-    <div class="reading-progress-bar"></div>
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -349,7 +347,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/11/Python格式化字符串f-string的简单实用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/07/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -366,8 +364,10 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python格式化字符串f-string的简单使用
-
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/07/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
               
             
           </h1>
@@ -392,7 +392,7 @@
                 
               
 
-              <time title="创建时间：2019-08-11 10:32:10" itemprop="dateCreated datePublished" datetime="2019-08-11T10:32:10+08:00">2019-08-11</time>
+              <time title="创建时间：2019-07-07 22:18:16" itemprop="dateCreated datePublished" datetime="2019-07-07T22:18:16+08:00">2019-07-07</time>
             </span>
           
 
@@ -407,7 +407,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-11-06 20:36:30" itemprop="dateModified" datetime="2019-11-06T20:36:30+08:00">2019-11-06</time>
+                <time title="修改时间：2019-07-13 11:39:51" itemprop="dateModified" datetime="2019-07-13T11:39:51+08:00">2019-07-13</time>
               </span>
             
           
@@ -433,7 +433,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.9k</span>
+              <span title="本文字数">432</span>
             </span>
           
 
@@ -445,7 +445,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">2 分钟</span>
+              <span title="阅读时长">1 分钟</span>
             </span>
           
 
@@ -464,37 +464,18 @@
       
 
       
-        <p>一种十分方便的python字符串格式化方法：f-string</p>
-<a id="more"></a>
-
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>f-string，亦称为格式化字符串常量（formatted string literals），是Python3.6新引入的一种字符串格式化方法，该方法源于<a href="https://python.org/dev/peps/pep-0498/" target="_blank" rel="noopener">PEP 498 – Literal String Interpolation</a>，主要目的是使格式化字符串的操作更加简便。f-string在形式上是以 f  或 F 修饰符引领的字符串（f&#39;xxx&#39; 或 F&#39;xxx&#39;)，以大括号 {} 标明被替换的字段；f-string在本质上并不是字符串常量，而是一个在运行时运算求值的表达式：</p>
-<blockquote>
-<p>While other string literals always have a constant value, formatted strings are really expressions evaluated at run time.<br>（与具有恒定值的其它字符串常量不同，格式化字符串实际上是运行时运算求值的表达式。）<br>—— <a href="https://docs.python.org/3/reference/lexical_analysis.html#formatted-string-literals" target="_blank" rel="noopener">Python Documentation</a></p>
-</blockquote>
-<p>f-string在功能方面不逊于传统的<a href="https://docs.python.org/3/library/stdtypes.html#old-string-formatting" target="_blank" rel="noopener">%-formatting语句</a>和<a href="https://docs.python.org/3/library/stdtypes.html#str.format" target="_blank" rel="noopener">str.format()函数</a>，同时<a href="https://mlln.cn/2018/05/19/python3%20f-string%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/" target="_blank" rel="noopener">性能</a>又优于二者，且使用起来也更加简洁明了，因此对于Python3.6及以后的版本，推荐使用f-string进行字符串格式化</p>
-<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>f-string可以起到类似槽函数的效果，用大括号 {} 表示被替换字段，其中直接填入替换内容，例如</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f"<span class="subst">&#123;a&#125;</span>23"</span></span><br><span class="line"><span class="string">'123'</span></span><br></pre></td></tr></table></figure>
-
-<p>可以看到在字符串前加了f以后，再使用大括号，大括号里的内容就会自动替换，起到类似槽函数的效果，而前面不加f的话，就没有这个效果</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"&#123;a&#125;23"</span></span><br><span class="line"><span class="string">'&#123;a&#125;23'</span></span><br></pre></td></tr></table></figure>
-
-<p>不加f的话，就得使用槽函数，如下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"&#123;&#125;23"</span>.format(a)</span><br><span class="line"><span class="string">'123'</span></span><br></pre></td></tr></table></figure>
-
-<p>可以看到f-string使用起来更加简洁</p>
-<p>f-string的大括号{}也可以填入表达式或调用函数，Python会求出其结果并返回填入的字符串内</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> math</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f"<span class="subst">&#123;<span class="number">1</span>+<span class="number">2</span>*<span class="number">4</span>&#125;</span>"</span></span><br><span class="line"><span class="string">'9'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f"<span class="subst">&#123;math.pow(<span class="number">4</span>, <span class="number">2</span>)&#125;</span>"</span></span><br><span class="line"><span class="string">'16.0'</span></span><br></pre></td></tr></table></figure>
-
-<p>f-string大括号内所用的引号不能和大括号外的引号定界符冲突，可根据情况灵活切换 &#39; 和 &quot; ：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f'I am <span class="subst">&#123;<span class="string">"Eric"</span>&#125;</span>'</span></span><br><span class="line"><span class="string">'I am Eric'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f'I am <span class="subst">&#123;<span class="string">'Eric'</span>&#125;</span>'</span></span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span></span><br><span class="line">    <span class="string">f'I am <span class="subst">&#123;<span class="string">'Eric'</span>&#125;</span>'</span></span><br><span class="line">                ^</span><br><span class="line">SyntaxError: invalid syntax</span><br></pre></td></tr></table></figure>
-
-<p>f-string大括号内不能使用 \ 转义，事实上不仅如此，f-string大括号内根本就不允许出现 \ ,如果确实需要 \ ，则应首先将包含 \  的内容用一个变量表示，再在f-string大括号内填入变量名：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f"newline: <span class="subst">&#123;ord(<span class="string">'\n'</span>)&#125;</span>"</span></span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span></span><br><span class="line">SyntaxError: f-string expression part cannot include a backslash</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>newline = ord(<span class="string">'\n'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f"newline: <span class="subst">&#123;newline&#125;</span>"</span></span><br><span class="line"><span class="string">'newline: 10'</span></span><br></pre></td></tr></table></figure>
-
-<p>f-string大括号外如果需要显示大括号，则应输入连续两个大括号 ：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f'5 <span class="subst">&#123;<span class="string">"&#123;stars&#125;"</span>&#125;</span>'</span></span><br><span class="line"><span class="string">'5 &#123;stars&#125;'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f'<span class="subst">&#123;&#123;<span class="number">5</span>&#125;</span>&#125; <span class="subst">&#123;<span class="string">"stars"</span>&#125;</span>'</span></span><br><span class="line"><span class="string">'&#123;5&#125; stars'</span></span><br></pre></td></tr></table></figure>
-
-
+        
+          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/07/07/hello-world/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
       
     </div>
 
@@ -517,32 +498,12 @@
       
 
       
-      
+
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/07/30/Python中给函数添加注解/" rel="next" title="Python中给函数添加注解">
-                <i class="fa fa-chevron-left"></i> Python中给函数添加注解
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/06/由通过小白鼠测试毒试剂的面试题联想到汉明码的校验过程/" rel="prev" title="由通过小白鼠测试毒试剂的面试题联想到汉明码的校验过程">
-                由通过小白鼠测试毒试剂的面试题联想到汉明码的校验过程 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -552,15 +513,18 @@
   </article>
 
 
-  </div>
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span>
+  </nav>
+
 
 
           </div>
           
-
-  
-
-
 
         </div>
         
@@ -580,17 +544,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -664,23 +619,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用法"><span class="nav-number">2.</span> <span class="nav-text">用法</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
@@ -837,10 +775,6 @@
 
 
   
-  <script src="/js/scrollspy.js?v=7.2.0"></script>
-<script src="/js/post-details.js?v=7.2.0"></script>
-
-
 
   
 
@@ -856,8 +790,6 @@
 
   
 
-
-  
 
 
   
