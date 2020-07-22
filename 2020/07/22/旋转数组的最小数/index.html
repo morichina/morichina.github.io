@@ -94,17 +94,19 @@
 
 
 
-  <meta name="description" content="手动解决dll文件无法删除的方法">
+  <meta name="description" content="LeetCode每日一题，剑指 Offer 11.  旋转数组的最小数字">
 <meta property="og:type" content="article">
-<meta property="og:title" content="手动解决dll文件无法删除的方法">
-<meta property="og:url" content="http://yoursite.com/2019/07/18/手动解决dll文件无法删除的方法/index.html">
+<meta property="og:title" content="旋转数组的最小数">
+<meta property="og:url" content="http://yoursite.com/2020/07/22/旋转数组的最小数/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="手动解决dll文件无法删除的方法">
+<meta property="og:description" content="LeetCode每日一题，剑指 Offer 11.  旋转数组的最小数字">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-18T08:31:17.299Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/22/U7WpVS.png">
+<meta property="og:updated_time" content="2020-07-22T04:49:23.142Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="手动解决dll文件无法删除的方法">
-<meta name="twitter:description" content="手动解决dll文件无法删除的方法">
+<meta name="twitter:title" content="旋转数组的最小数">
+<meta name="twitter:description" content="LeetCode每日一题，剑指 Offer 11.  旋转数组的最小数字">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/22/U7WpVS.png">
 
 
 
@@ -112,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/18/手动解决dll文件无法删除的方法/">
+  <link rel="canonical" href="http://yoursite.com/2020/07/22/旋转数组的最小数/">
 
 
 
@@ -122,7 +124,7 @@
   };
 </script>
 
-  <title>手动解决dll文件无法删除的方法 | Morichina</title>
+  <title>旋转数组的最小数 | Morichina</title>
   
 
 
@@ -349,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/18/手动解决dll文件无法删除的方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/22/旋转数组的最小数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -366,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">手动解决dll文件无法删除的方法
+          <h1 class="post-title" itemprop="name headline">旋转数组的最小数
 
               
             
@@ -392,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2019-07-18 15:48:59 / 修改时间：16:31:17" itemprop="dateCreated datePublished" datetime="2019-07-18T15:48:59+08:00">2019-07-18</time>
+              <time title="创建时间：2020-07-22 11:47:50 / 修改时间：12:49:23" itemprop="dateCreated datePublished" datetime="2020-07-22T11:47:50+08:00">2020-07-22</time>
             </span>
           
 
@@ -423,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.3k</span>
+              <span title="本文字数">953</span>
             </span>
           
 
@@ -454,23 +456,24 @@
       
 
       
-        <p><strong>手动解决dll文件无法删除的方法</strong></p>
+        <p>LeetCode每日一题，剑指 Offer 11.  旋转数组的最小数字</p>
 <a id="more"></a>
 
-<p>转自<a href="https://blog.csdn.net/wangyineng/article/details/12614747" target="_blank" rel="noopener">手动解决dll文件无法删除的终极方法</a></p>
-<p>相信大家都遇见过：在删除一些软件的时候弹出某某文件正在运行或磁盘写保护不能删除这样的报错提示吧。而常常删除不掉的都一些后缀为.dll的文件。到底这个dll文件是什么文件，如何才能知道是哪些程序在调用这个dll文件呢？</p>
-<p><strong>[基础理论]</strong><br>dll文件英文名称为<strong>Dynamic Linking Library</strong>，以下简称dll，中文名字”<strong>动态链接程序库</strong>“文件。在Windows中，许多应用程序并不是一个完整的可执行文件，它们被分割成一些相对独立的动态链接库，即dll文件，放置于系统中。当我们执行某一个程序时，相应的dll文件就会被调用。一个应用程序可有多个dll文件，一个dll文件也可能被几个应用程序所共用。比如，假设系统中有一dll具备了与远端系统进行网络联接的功能，我们假设其名称为Network.dll，如果有另外一个应用程序想使用该功能，则这个程序只需在执行时与Network.dll进行动态链接(Dynamic Linking)，就可以运用Network.dll的网络联接功能来实现远端联接系统。简单地说，dll的特性是:</p>
-<p>1、dll本身无法自行执行，必须靠其他程序调用。</p>
-<p>2、dll文件都具有一定的功能。</p>
-<p>3、在系统刚建立时 (如刚装好Windows时)，系统中即存在有一定数量的dll，而某些应用程序亦会将自已所需的dll添至系统中，导致dll的数量随应用程序的增加而增加。</p>
-<p>既然知道了dll文件的概念和特性，那么怎么才能解决删除难这个问题呢？</p>
-<p>虽然解决这个问题的方法有很多种，如用软件<strong>unlocker</strong>来删除。</p>
-<p><strong>这里介绍的是手工删除方法dll文件的方法：</strong></p>
-<p>因为dll文件的特性注定了它可能被多个软件调用，这也是dll文件为什么删除不掉的原因——正在使用的文件是当然不可能给你删除的。那么到底是哪个程序在调用这个dll文件呢？如何才能删除这个dll文件呢？下面就手动删除dll文件的方法。</p>
-<p><strong>Step 1</strong>.在运行里输入cmd进入命令提示符。</p>
-<p><strong>step 2</strong>.然后输入命令<strong>tasklist /m&gt;c:\listdll.txt</strong>回车后，在C盘下会出现一个listdll.txt文本文件，这个文件里所示<strong>列出了目前运行的各个程序正在调用的dll文件</strong>。在用CTRL+F弹出查找框，输入自己要删除的的dll文件，查找出是哪个程序在调用这个dll文件。</p>
-<p><strong>step 3</strong>.CTRL+ALT+DEL打开Windows资源管理器，结束占用需要删除dll文件的程序或着进程，这时再去删除这个dll文件就很轻松了。</p>
-<p><strong>step 4</strong>.如果查出来的占用dll文件的进程是svhost.exe文件/进程，这个进程一般系统有7、8个至多，到底是哪个<strong>svhost.exe</strong>进程占用了这个dll文件呢？这是可以在命令提示符下输入<strong>tasklist /svc</strong>，当然，你也可以把它输出为文本文件tasklist /svc&gt;C:\listsvc.txt。这时listsvc.txt文件里的svhost.exe会跟出所示的<strong>各个进程的PID号</strong>。这时就可以具体的根据PID号来结束进程，达到删除dll文件的目的。</p>
+<p>先看题目描述</p>
+<p><img src="https://s1.ax1x.com/2020/07/22/U7WpVS.png" alt></p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>循环二分法</strong></p>
+<ul>
+<li>初始化三个指针 low = 0，high = numbers.length - 1，mid = （low + high) / 2</li>
+<li>开始循环二分<ul>
+<li>若 numbers[mid] &gt; numbers[high]，说明最小值在 mid 右边，即 [mid + 1, high] 区间，令 low = mid + 1</li>
+<li>若 numbers[mid] &lt; numbers[high]，说明最小值在 mid 左边，即 [low, mid] 区间，令 high = mid</li>
+<li>若 numbers[mid] = numbers[high]，则无法判断最小值在 mid 左边还是右边，则令 high = high - 1 缩小搜索范围</li>
+</ul>
+</li>
+<li>当 low &gt;= high 时，退出循环二分，返回 numbers[low]</li>
+</ul>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minArray</span><span class="params">(<span class="keyword">int</span>[] numbers)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = numbers.length;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = len - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">while</span> (low &lt; high) &#123;</span><br><span class="line">            <span class="keyword">if</span> (numbers[mid] &gt; numbers[high]) &#123;</span><br><span class="line">                low = mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (numbers[mid] &lt; numbers[high]) &#123;</span><br><span class="line">                high = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                high--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> numbers[low];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -501,8 +504,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/18/Python文件操作/" rel="next" title="Python文件操作">
-                <i class="fa fa-chevron-left"></i> Python文件操作
+              <a href="/2020/07/20/二数之和II-输入有序数组/" rel="next" title="二数之和II-输入有序数组">
+                <i class="fa fa-chevron-left"></i> 二数之和II-输入有序数组
               </a>
             
           </div>
@@ -510,10 +513,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/18/win10如何开启超级管理员administrator账户/" rel="prev" title="win10如何开启超级管理员administrator账户">
-                win10如何开启超级管理员administrator账户 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -557,8 +556,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -632,6 +640,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
