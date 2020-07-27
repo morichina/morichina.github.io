@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，剑指 Offer 11.  旋转数组的最小数字">
+  <meta name="description" content="LeetCode每日一题，392.  Is Subsequence">
 <meta property="og:type" content="article">
-<meta property="og:title" content="旋转数组的最小数">
-<meta property="og:url" content="http://yoursite.com/2020/07/22/旋转数组的最小数/index.html">
+<meta property="og:title" content="判断子序列">
+<meta property="og:url" content="http://yoursite.com/2020/07/27/判断子序列/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，剑指 Offer 11.  旋转数组的最小数字">
+<meta property="og:description" content="LeetCode每日一题，392.  Is Subsequence">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/07/22/U7WpVS.png">
-<meta property="og:updated_time" content="2020-07-22T04:49:23.142Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/27/aPhQXR.png">
+<meta property="og:updated_time" content="2020-07-27T06:14:02.110Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="旋转数组的最小数">
-<meta name="twitter:description" content="LeetCode每日一题，剑指 Offer 11.  旋转数组的最小数字">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/22/U7WpVS.png">
+<meta name="twitter:title" content="判断子序列">
+<meta name="twitter:description" content="LeetCode每日一题，392.  Is Subsequence">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/27/aPhQXR.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/07/22/旋转数组的最小数/">
+  <link rel="canonical" href="http://yoursite.com/2020/07/27/判断子序列/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>旋转数组的最小数 | Morichina</title>
+  <title>判断子序列 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/22/旋转数组的最小数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/27/判断子序列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">旋转数组的最小数
+          <h1 class="post-title" itemprop="name headline">判断子序列
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-07-22 11:47:50 / 修改时间：12:49:23" itemprop="dateCreated datePublished" datetime="2020-07-22T11:47:50+08:00">2020-07-22</time>
+              <time title="创建时间：2020-07-27 11:35:51 / 修改时间：14:14:02" itemprop="dateCreated datePublished" datetime="2020-07-27T11:35:51+08:00">2020-07-27</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">953</span>
+              <span title="本文字数">2k</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -456,23 +456,26 @@
       
 
       
-        <p>LeetCode每日一题，剑指 Offer 11.  旋转数组的最小数字</p>
+        <p>LeetCode每日一题，392.  Is Subsequence</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/07/22/U7WpVS.png" alt></p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>循环二分法</strong></p>
+<p><img src="https://s1.ax1x.com/2020/07/27/aPhQXR.png" alt></p>
+<p>题目大意就是判断 s 是否为 t 的子序列，子序列的定义是原始字符串删除一些（也可以不删除）字符而不改变剩余字符相对位置形成的新字符串</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>双指针法</strong></p>
+<p>第一反应就是双指针法，两个指针 left 和 right 起始分别指向字符串 s 和 t 的第 0 个字符，若 left 和 right 能匹配，就同时右移指针，若不匹配，就仅将 right 右移，若匹配中途 left 的值等于 s 长度，就直接返回 true；若最终 left 的值扔小于 s 长度，则返回 false</p>
+<p><strong>动态规划</strong></p>
+<p>看了题解才知道这题竟然还可以用动态规划，虽然性能不如双指针法，但这题可以用动态规划还是很惊讶的</p>
 <ul>
-<li>初始化三个指针 low = 0，high = numbers.length - 1，mid = （low + high) / 2</li>
-<li>开始循环二分<ul>
-<li>若 numbers[mid] &gt; numbers[high]，说明最小值在 mid 右边，即 [mid + 1, high] 区间，令 low = mid + 1</li>
-<li>若 numbers[mid] &lt; numbers[high]，说明最小值在 mid 左边，即 [low, mid] 区间，令 high = mid</li>
-<li>若 numbers[mid] = numbers[high]，则无法判断最小值在 mid 左边还是右边，则令 high = high - 1 缩小搜索范围</li>
+<li>令 dp[i][j] 表示字符串 t 中从位置 i 开始往后字符 j 第一次出现的位置。在进行状态转移时，如果 t 中位置 i 的字符就是 j，那么  dp[i][j] = i，否则 j 出现在位置 i+1 开始往后，即 dp[i][j] = dp[i + 1][j]，因此我们要倒过来进行动态规划，从后往前枚举 i</li>
+<li>状态转移方程：若 t[i] = j，dp[i][j] = i；否则，dp[i][j] = dp[i + 1][j]</li>
+<li>用 n 表示字符串 t 长度，下标从 0 开始，那么应有 0 &lt;= i &lt; n，对于边界状态 dp[n - 1][…]，我们置 dp[n][…] 为 n，让 dp[n - 1][…] 能够正常转移，这样如果 dp[i][j] = n，就表示从位置 i 开始往后字符串 t 中不存在字符 j</li>
 </ul>
-</li>
-<li>当 low &gt;= high 时，退出循环二分，返回 numbers[low]</li>
-</ul>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minArray</span><span class="params">(<span class="keyword">int</span>[] numbers)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = numbers.length;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = len - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">while</span> (low &lt; high) &#123;</span><br><span class="line">            <span class="keyword">if</span> (numbers[mid] &gt; numbers[high]) &#123;</span><br><span class="line">                low = mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (numbers[mid] &lt; numbers[high]) &#123;</span><br><span class="line">                high = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                high--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> numbers[low];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>双指针法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSubsequence</span><span class="params">(String s, String t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (s.length() &gt; t.length()) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; t.length()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (t.charAt(right) == s.charAt(left)) left++;</span><br><span class="line">            right++;</span><br><span class="line">            <span class="keyword">if</span> (left == s.length()) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>动态规划</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSubsequence</span><span class="params">(String s, String t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = s.length();</span><br><span class="line">        <span class="keyword">int</span> n = t.length();</span><br><span class="line">        <span class="keyword">if</span> (m == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (m &gt; n) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n+ <span class="number">1</span>][<span class="number">26</span>];</span><br><span class="line">        Arrays.fill(dp[n], n);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = n-<span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">26</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (t.charAt(i) - <span class="string">'a'</span> == j) &#123;</span><br><span class="line">                    dp[i][j] = i;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    dp[i][j] = dp[i + <span class="number">1</span>][j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> add = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (dp[add][s.charAt(i) - <span class="string">'a'</span>] == n) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">else</span> add = dp[add][s.charAt(i) - <span class="string">'a'</span>] + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -504,8 +507,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/20/二数之和II-输入有序数组/" rel="next" title="二数之和II-输入有序数组">
-                <i class="fa fa-chevron-left"></i> 二数之和II-输入有序数组
+              <a href="/2020/07/25/分割数组的最大值/" rel="next" title="分割数组的最大值">
+                <i class="fa fa-chevron-left"></i> 分割数组的最大值
               </a>
             
           </div>
@@ -513,10 +516,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/25/分割数组的最大值/" rel="prev" title="分割数组的最大值">
-                分割数组的最大值 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
