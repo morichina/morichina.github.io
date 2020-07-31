@@ -94,17 +94,19 @@
 
 
 
-  <meta name="description" content="继上一篇博客">
+  <meta name="description" content="LeetCode每日一题，面试题08.03.  Magic Index LCCI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python的类中设置私有变量的实质">
-<meta property="og:url" content="http://yoursite.com/2019/07/30/Python的类中设置私有变量的实质/index.html">
+<meta property="og:title" content="魔术索引">
+<meta property="og:url" content="http://yoursite.com/2020/07/31/魔术索引/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="继上一篇博客">
+<meta property="og:description" content="LeetCode每日一题，面试题08.03.  Magic Index LCCI">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-30T08:30:51.224Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/31/a1Dvlt.png">
+<meta property="og:updated_time" content="2020-07-31T15:53:07.331Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python的类中设置私有变量的实质">
-<meta name="twitter:description" content="继上一篇博客">
+<meta name="twitter:title" content="魔术索引">
+<meta name="twitter:description" content="LeetCode每日一题，面试题08.03.  Magic Index LCCI">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/31/a1Dvlt.png">
 
 
 
@@ -112,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/30/Python的类中设置私有变量的实质/">
+  <link rel="canonical" href="http://yoursite.com/2020/07/31/魔术索引/">
 
 
 
@@ -122,7 +124,7 @@
   };
 </script>
 
-  <title>Python的类中设置私有变量的实质 | Morichina</title>
+  <title>魔术索引 | Morichina</title>
   
 
 
@@ -349,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/30/Python的类中设置私有变量的实质/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/31/魔术索引/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -366,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python的类中设置私有变量的实质
+          <h1 class="post-title" itemprop="name headline">魔术索引
 
               
             
@@ -392,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2019-07-30 15:56:09 / 修改时间：16:30:51" itemprop="dateCreated datePublished" datetime="2019-07-30T15:56:09+08:00">2019-07-30</time>
+              <time title="创建时间：2020-07-31 23:33:14 / 修改时间：23:53:07" itemprop="dateCreated datePublished" datetime="2020-07-31T23:33:14+08:00">2020-07-31</time>
             </span>
           
 
@@ -423,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">6</span>
+              <span title="本文字数">806</span>
             </span>
           
 
@@ -454,38 +456,21 @@
       
 
       
-        <p>继上一篇博客<a href="[https://morichina.github.io/2019/07/27/%E2%80%9Cpython%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/#more](https://morichina.github.io/2019/07/27/" python面向对象 #more)">Python面向对象</a></p>
+        <p>LeetCode每日一题，面试题08.03.  Magic Index LCCI</p>
 <a id="more"></a>
 
-<p>在上一篇博客中提到了Python中定义类的过程中，变量名前面加两个下划线，可以将该属性设置为私有，外部无法直接调用，但是在后面学习的过程中发现这只是一种伪私有，Python中并不能实现真正的私有，将这些在博客中记录一下</p>
-<hr>
-<p>首先还是定义一个Student类，并初始化一个stu对象</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, score)</span>:</span></span><br><span class="line">		super( Student, self).__init__()</span><br><span class="line">		self.__name = name <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line">		self.__score = score <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line"></span><br><span class="line">stu = Student(<span class="string">"lisa"</span>, <span class="number">90</span>)</span><br></pre></td></tr></table></figure>
+<p>先看题目描述</p>
+<p><img src="https://s1.ax1x.com/2020/07/31/a1Dvlt.png" alt></p>
+<p>大意就是给定一个 nums 数组，找到其中使 nums[i] = i 的最小索引，若没有，就返回 -1</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>暴力法</strong></p>
+<p>暴力法很好理解，就直接遍历，找到的第一个 nums[i] = i 的下标就直接返回，若遍历完后没找到满足条件的下标，就返回 -1</p>
+<p><strong>优化后的暴力法</strong></p>
+<p>因为题目中提到给的 nums 数组是有序的，于是可以利用这点来优化暴力法，例如在遍历时遍历到 nums[2] = 100，因为 nums 数组有序，nums[2] 之后的数肯定都大于等于 100，因此下一个下标就直接从 100 开始遍历，这样就可以对暴力法进行优化</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>暴力法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMagicIndex</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == nums[i]) <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>接下来我们输出的stu自带的__dict__属性，这个属性会将stu拥有的各个属性与属性名以字典的形式返回</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(stu.__dict__)</span><br></pre></td></tr></table></figure>
-
-<p>可以看到结果</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">'_Student__name'</span>: <span class="string">'lisa'</span>, <span class="string">'_Student__score'</span>: <span class="number">90</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<p>看看我们发现了什么，之前在类中定义的私有属性的名字都发生了改变，于是猜测python的类中将属性设置为私有只是改变下属性名呢，为了证实我们的猜测，再来试一下，这次添加一个age属性，但是不设置为私有，然后将对象实例化后输出__dict__属性</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, score, age)</span>:</span></span><br><span class="line">        super( Student, self).__init__()</span><br><span class="line">        self.__name = name <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line">        self.__score = score <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line">        self.age = age</span><br><span class="line"></span><br><span class="line">stu = Student(<span class="string">"lisa"</span>, <span class="number">90</span>, <span class="number">12</span>)</span><br><span class="line">print(stu.__dict__)</span><br></pre></td></tr></table></figure>
-
-<p>结果为</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">'_Student__name'</span>: <span class="string">'lisa'</span>, <span class="string">'_Student__score'</span>: <span class="number">90</span>, <span class="string">'age'</span>: <span class="number">12</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这样我们就更加肯定我们的猜测了，python在类的定义中将属性设置为私有，只是了改变私有属性的名字，是一种伪私有，实际上从外部仍然可以调用，接下来尝试设置和输出私有属性</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, score, age)</span>:</span></span><br><span class="line">        super( Student, self).__init__()</span><br><span class="line">        self.__name = name <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line">        self.__score = score <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line">        self.age = age</span><br><span class="line"></span><br><span class="line">stu = Student(<span class="string">"lisa"</span>, <span class="number">90</span>, <span class="number">12</span>)</span><br><span class="line">print(stu.__dict__)</span><br><span class="line">stu._Student__name = <span class="string">"tom"</span></span><br><span class="line">stu._Student__score = <span class="number">100</span></span><br><span class="line">print(stu._Student__name)</span><br><span class="line">print(stu._Student__score)</span><br><span class="line">print(stu.__dict__)</span><br></pre></td></tr></table></figure>
-
-<p>可以看到结果为</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">'_Student__name'</span>: <span class="string">'lisa'</span>, <span class="string">'_Student__score'</span>: <span class="number">90</span>, <span class="string">'age'</span>: <span class="number">12</span>&#125;</span><br><span class="line">tom</span><br><span class="line"><span class="number">100</span></span><br><span class="line">&#123;<span class="string">'_Student__name'</span>: <span class="string">'tom'</span>, <span class="string">'_Student__score'</span>: <span class="number">100</span>, <span class="string">'age'</span>: <span class="number">12</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<p>我们可以在外部通过改变以后的属性名，直接设置或者输出该私有属性，调用形式就是_类名__属性名</p>
-<p>我们也可以通过以下形式从外部调用私有属性</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, score)</span>:</span></span><br><span class="line">        super( Student, self).__init__()</span><br><span class="line">        self.__name = name <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line">        self.__score = score <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line"></span><br><span class="line">stu = Student(<span class="string">"lisa"</span>, <span class="number">90</span>)</span><br><span class="line">print(stu.__dict__.get(<span class="string">"_Student__name"</span>))</span><br><span class="line">print(stu.__dict__.get(<span class="string">"_Student__score"</span>))</span><br></pre></td></tr></table></figure>
-
-<p>这个实际上就是利用了字典的get()函数</p>
-
+<p><strong>优化后的暴力法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMagicIndex</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == nums[i]) <span class="keyword">return</span> i;</span><br><span class="line">            <span class="keyword">if</span> (i &lt; nums[i]) i = nums[i] - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -515,8 +500,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/27/python面向对象/" rel="next" title="Python面向对象">
-                <i class="fa fa-chevron-left"></i> Python面向对象
+              <a href="/2020/07/30/整数拆分/" rel="next" title="整数拆分">
+                <i class="fa fa-chevron-left"></i> 整数拆分
               </a>
             
           </div>
@@ -524,10 +509,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/30/Python中给函数添加注解/" rel="prev" title="Python中给函数添加注解">
-                Python中给函数添加注解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -571,8 +552,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -646,6 +636,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
