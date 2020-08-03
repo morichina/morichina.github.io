@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，剑指offer 09.用两个栈实现队列">
+  <meta name="description" content="LeetCode每日一题，415. Add Strings">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用两个栈实现队列">
-<meta property="og:url" content="http://yoursite.com/2020/06/30/用两个栈实现队列/index.html">
+<meta property="og:title" content="字符串相加">
+<meta property="og:url" content="http://yoursite.com/2020/08/03/字符串相加/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，剑指offer 09.用两个栈实现队列">
+<meta property="og:description" content="LeetCode每日一题，415. Add Strings">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/06/30/NIaEbn.png">
-<meta property="og:updated_time" content="2020-06-30T12:10:02.973Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/03/aNO9fK.png">
+<meta property="og:updated_time" content="2020-08-03T02:28:57.643Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用两个栈实现队列">
-<meta name="twitter:description" content="LeetCode每日一题，剑指offer 09.用两个栈实现队列">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/30/NIaEbn.png">
+<meta name="twitter:title" content="字符串相加">
+<meta name="twitter:description" content="LeetCode每日一题，415. Add Strings">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/08/03/aNO9fK.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/06/30/用两个栈实现队列/">
+  <link rel="canonical" href="http://yoursite.com/2020/08/03/字符串相加/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>用两个栈实现队列 | Morichina</title>
+  <title>字符串相加 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/30/用两个栈实现队列/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/03/字符串相加/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">用两个栈实现队列
+          <h1 class="post-title" itemprop="name headline">字符串相加
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-06-30 18:39:16 / 修改时间：20:10:02" itemprop="dateCreated datePublished" datetime="2020-06-30T18:39:16+08:00">2020-06-30</time>
+              <time title="创建时间：2020-08-03 10:04:21 / 修改时间：10:28:57" itemprop="dateCreated datePublished" datetime="2020-08-03T10:04:21+08:00">2020-08-03</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1k</span>
+              <span title="本文字数">2.1k</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -456,13 +456,25 @@
       
 
       
-        <p>LeetCode每日一题，剑指offer 09.用两个栈实现队列</p>
+        <p>LeetCode每日一题，415. Add Strings</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/06/30/NIaEbn.png" alt></p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>在类中维护两个栈，一个栈用于负责插入元素功能，第二个栈用于负责删除功能。当要插入整数时，就直接往第一个栈中添加元素；当要删除整数时，若两个栈均为空，则直接返回 -1，否则的话就看第二个栈是否为空，为空的话就将第一个栈的元素一个个弹出并插入到第二个栈中，再将第二个栈的栈顶元素弹出并返回，不空的话就直接弹出第二个栈的栈顶元素并返回</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CQueue</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Deque&lt;Integer&gt; addStack = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    <span class="keyword">private</span> Deque&lt;Integer&gt; deleteStack = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CQueue</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">appendTail</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        addStack.push(value);</span><br><span class="line">        size++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">deleteHead</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (size == <span class="number">0</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (deleteStack.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">while</span> (!addStack.isEmpty()) &#123;</span><br><span class="line">                deleteStack.push(addStack.pop());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        size--;</span><br><span class="line">        <span class="keyword">return</span> deleteStack.pop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your CQueue object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * CQueue obj = new CQueue();</span></span><br><span class="line"><span class="comment"> * obj.appendTail(value);</span></span><br><span class="line"><span class="comment"> * int param_2 = obj.deleteHead();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/08/03/aNO9fK.png" alt></p>
+<p>题目大意就是给定两个只含正整数的两个长字符串，将其相加，并以字符串形式返回</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>思路就是模拟人工加法</p>
+<p><strong>算法流程</strong></p>
+<ul>
+<li>初始化进位 carry = 0</li>
+<li>从后往前相加，计算 temp = n1 + n2 + carry，将当前位 temp % 10 添加到结果字符串 sb 首位</li>
+<li>计算进位，计算 carry = temp / 10，代表当前位相加是否产生了进位</li>
+<li>当长度较小的字符串遍历完后，遍历长度较大的字符串剩余部分，按照前面的方法计算进位和当前位，添加到结果字符串 sb 头部</li>
+<li>最终返回转成字符串的 sb</li>
+</ul>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addStrings</span><span class="params">(String num1, String num2)</span> </span>&#123;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">int</span> len1 = num1.length();</span><br><span class="line">        <span class="keyword">int</span> len2 = num2.length();</span><br><span class="line">        <span class="keyword">int</span> len = Math.min(len1, len2);</span><br><span class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++) &#123;</span><br><span class="line">                <span class="keyword">int</span> temp = num1.charAt(len1 - i) - <span class="string">'0'</span> + num2.charAt(len2 - i) - <span class="string">'0'</span> + carry;</span><br><span class="line">                sb.insert(<span class="number">0</span>, (<span class="keyword">char</span>)(<span class="string">'0'</span> + temp % <span class="number">10</span>));</span><br><span class="line">                carry = temp / <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (len1 &gt; len2) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = len1 - len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">                <span class="keyword">int</span> temp = num1.charAt(i) - <span class="string">'0'</span> + carry;</span><br><span class="line">                sb.insert(<span class="number">0</span>, (<span class="keyword">char</span>)(<span class="string">'0'</span> + temp % <span class="number">10</span>));</span><br><span class="line">                carry = temp / <span class="number">10</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (len1 &lt; len2) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = len2 - len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">                <span class="keyword">int</span> temp = num2.charAt(i) - <span class="string">'0'</span> + carry;</span><br><span class="line">                sb.insert(<span class="number">0</span>, (<span class="keyword">char</span>)(<span class="string">'0'</span> + temp % <span class="number">10</span>));</span><br><span class="line">                carry = temp / <span class="number">10</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (carry == <span class="number">1</span>) sb.insert(<span class="number">0</span>, <span class="string">'1'</span>);</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>提交完后去看题解，发现思路是一致的，运行效率也差不多，但是别人写的代码要更加简洁，可以学习下这种写法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addStrings</span><span class="params">(String num1, String num2)</span> </span>&#123;</span><br><span class="line">        StringBuilder res = <span class="keyword">new</span> StringBuilder(<span class="string">""</span>);</span><br><span class="line">        <span class="keyword">int</span> i = num1.length() - <span class="number">1</span>, j = num2.length() - <span class="number">1</span>, carry = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &gt;= <span class="number">0</span> || j &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> n1 = i &gt;= <span class="number">0</span> ? num1.charAt(i) - <span class="string">'0'</span> : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> n2 = j &gt;= <span class="number">0</span> ? num2.charAt(j) - <span class="string">'0'</span> : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> tmp = n1 + n2 + carry;</span><br><span class="line">            carry = tmp / <span class="number">10</span>;</span><br><span class="line">            res.append(tmp % <span class="number">10</span>);</span><br><span class="line">            i--; j--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(carry == <span class="number">1</span>) res.append(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> res.reverse().toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -494,8 +506,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/29/数组中的第K个最大元素/" rel="next" title="数组中的第K个最大元素">
-                <i class="fa fa-chevron-left"></i> 数组中的第K个最大元素
+              <a href="/2020/08/03/二叉树展开为链表/" rel="next" title="二叉树展开为链表">
+                <i class="fa fa-chevron-left"></i> 二叉树展开为链表
               </a>
             
           </div>
@@ -503,10 +515,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/01/最长重复子数组/" rel="prev" title="最长重复子数组">
-                最长重复子数组 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
