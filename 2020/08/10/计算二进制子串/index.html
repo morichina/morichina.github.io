@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，112.Path Sum">
+  <meta name="description" content="LeetCode每日一题，696.  Count Binary Substrings">
 <meta property="og:type" content="article">
-<meta property="og:title" content="路径总和">
-<meta property="og:url" content="http://yoursite.com/2020/07/07/路径总和/index.html">
+<meta property="og:title" content="计算二进制子串">
+<meta property="og:url" content="http://yoursite.com/2020/08/10/计算二进制子串/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，112.Path Sum">
+<meta property="og:description" content="LeetCode每日一题，696.  Count Binary Substrings">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/07/07/UFhzLD.png">
-<meta property="og:updated_time" content="2020-07-07T06:51:53.801Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/10/aHhD5d.png">
+<meta property="og:updated_time" content="2020-08-10T05:47:28.106Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="路径总和">
-<meta name="twitter:description" content="LeetCode每日一题，112.Path Sum">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/07/UFhzLD.png">
+<meta name="twitter:title" content="计算二进制子串">
+<meta name="twitter:description" content="LeetCode每日一题，696.  Count Binary Substrings">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/08/10/aHhD5d.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/07/07/路径总和/">
+  <link rel="canonical" href="http://yoursite.com/2020/08/10/计算二进制子串/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>路径总和 | Morichina</title>
+  <title>计算二进制子串 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/07/路径总和/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/10/计算二进制子串/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">路径总和
+          <h1 class="post-title" itemprop="name headline">计算二进制子串
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-07-07 10:33:49 / 修改时间：14:51:53" itemprop="dateCreated datePublished" datetime="2020-07-07T10:33:49+08:00">2020-07-07</time>
+              <time title="创建时间：2020-08-10 13:33:40 / 修改时间：13:47:28" itemprop="dateCreated datePublished" datetime="2020-08-10T13:33:40+08:00">2020-08-10</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">746</span>
+              <span title="本文字数">2.5k</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -456,14 +456,25 @@
       
 
       
-        <p>LeetCode每日一题，112.Path Sum</p>
+        <p>LeetCode每日一题，696.  Count Binary Substrings</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/07/07/UFhzLD.png" alt></p>
-<p>大意就是给定一个二叉树 和 sum，问是否存在一条从根节点到叶子节点的路径，路径上所有节点值相加等于 sum</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>从根节点开始，每当遇到一个节点的时候，就从 sum 里扣除节点值，一直到叶子节点判断 sum 是否被刚好扣完，用递归就可以解决该问题</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPathSum</span><span class="params">(TreeNode root, <span class="keyword">int</span> sum)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (root.left == <span class="keyword">null</span> &amp;&amp; root.right == <span class="keyword">null</span> &amp;&amp; root.val == sum) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/08/10/aHhD5d.png" alt></p>
+<p>大意就是给定一个字符串 s，计算具有相同数量 0 和 1 的非空连续子字符串的个数，并且这些子字符串中所有的 0 和 1 都是组合在一起的</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>我们可以将字符串 s 按照 0 和 1 的连续段分组，存在  counts 数组中，例如 s = 00111011，可以得到这样的 counts 数组：counts= {2,3,1,2}</p>
+<p>这里 counts 数组中两个相邻的数一定代表的是两种不同的字符。假设 counts 数组中两个相邻的数字为 u 和 v，它们对应着 u 个 00 和 v 个 1，或者 u 个 1 和 v 个 0。它们能组成的满足条件的子串数目为 min{u ,v}，即一对相邻的数字对答案的贡献</p>
+<p>我们只要遍历所有相邻的数对，求它们的贡献总和，即可得到答案</p>
+<h2 id="实现源码"><a href="#实现源码" class="headerlink" title="实现源码"></a>实现源码</h2><p>一开始是这样实现的，结果超时了，原因是求 counts 数组所花的时间太长</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">countBinarySubstrings</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = s.length();</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        List&lt;Integer&gt; counts = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; s.charAt(i) != s.charAt(i - <span class="number">1</span>)) &#123;</span><br><span class="line">                counts.add(count);</span><br><span class="line">                count = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            count += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        counts.add(count);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt; counts.size() - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            res += Math.min(counts.get(i), counts.get(i + <span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>后来看了题解发现是自己想错方向了，用两层 while 循环就可以求出需要的 counts 数组</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">countBinarySubstrings</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = s.length();</span><br><span class="line">        <span class="keyword">int</span> ptr = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        List&lt;Integer&gt; counts = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">while</span> (ptr &lt; len) &#123;</span><br><span class="line">            <span class="keyword">char</span> c = s.charAt(ptr);</span><br><span class="line">            <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (ptr &lt; len &amp;&amp; c == s.charAt(ptr)) &#123;</span><br><span class="line">                count += <span class="number">1</span>;</span><br><span class="line">                ptr += <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            counts.add(count);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt; counts.size() - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            res += Math.min(counts.get(i), counts.get(i + <span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于某一个位置 i，其实我们只关心 i - 1 位置的 counts 值是多少，所以可以用一个 last 变量来维护当前位置的前一个位置的 counts 值，这样可以省去 counts 数组的空间，也可以省去最后重复访问 counts 数组计算 res 值的时间，优化代码运行的时间效率和空间效率</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">countBinarySubstrings</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = s.length();</span><br><span class="line">        <span class="keyword">int</span> ptr = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> last = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (ptr &lt; len) &#123;</span><br><span class="line">            <span class="keyword">char</span> c = s.charAt(ptr);</span><br><span class="line">            <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (ptr &lt; len &amp;&amp; c == s.charAt(ptr)) &#123;</span><br><span class="line">                count += <span class="number">1</span>;</span><br><span class="line">                ptr += <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            res += Math.min(count, last);</span><br><span class="line">            last = count;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
@@ -493,8 +504,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/06/不同路径Ⅱ/" rel="next" title="不同路径Ⅱ">
-                <i class="fa fa-chevron-left"></i> 不同路径Ⅱ
+              <a href="/2020/08/08/恢复二叉搜索树/" rel="next" title="恢复二叉搜索树">
+                <i class="fa fa-chevron-left"></i> 恢复二叉搜索树
               </a>
             
           </div>
@@ -502,10 +513,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/08/跳水板/" rel="prev" title="跳水板">
-                跳水板 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -644,7 +651,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现源码"><span class="nav-number">2.</span> <span class="nav-text">实现源码</span></a></li></ol></div>
             
 
           </div>
