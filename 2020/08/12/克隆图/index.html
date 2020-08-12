@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，309.Best Time to Buy  and Sell Stock with Cooldown">
+  <meta name="description" content="LeetCode每日一题，133.  Clone Graph">
 <meta property="og:type" content="article">
-<meta property="og:title" content="最佳买卖股票时机含冷冻期">
-<meta property="og:url" content="http://yoursite.com/2020/07/10/最佳买卖股票时机含冷冻期/index.html">
+<meta property="og:title" content="克隆图">
+<meta property="og:url" content="http://yoursite.com/2020/08/12/克隆图/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，309.Best Time to Buy  and Sell Stock with Cooldown">
+<meta property="og:description" content="LeetCode每日一题，133.  Clone Graph">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/07/10/Uu4Dd1.png">
-<meta property="og:updated_time" content="2020-07-10T04:40:51.567Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/12/aj6ZtJ.png">
+<meta property="og:updated_time" content="2020-08-12T04:35:54.351Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="最佳买卖股票时机含冷冻期">
-<meta name="twitter:description" content="LeetCode每日一题，309.Best Time to Buy  and Sell Stock with Cooldown">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/10/Uu4Dd1.png">
+<meta name="twitter:title" content="克隆图">
+<meta name="twitter:description" content="LeetCode每日一题，133.  Clone Graph">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/08/12/aj6ZtJ.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/07/10/最佳买卖股票时机含冷冻期/">
+  <link rel="canonical" href="http://yoursite.com/2020/08/12/克隆图/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>最佳买卖股票时机含冷冻期 | Morichina</title>
+  <title>克隆图 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/10/最佳买卖股票时机含冷冻期/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/12/克隆图/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">最佳买卖股票时机含冷冻期
+          <h1 class="post-title" itemprop="name headline">克隆图
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-07-10 11:25:34 / 修改时间：12:40:51" itemprop="dateCreated datePublished" datetime="2020-07-10T11:25:34+08:00">2020-07-10</time>
+              <time title="创建时间：2020-08-12 12:16:01 / 修改时间：12:35:54" itemprop="dateCreated datePublished" datetime="2020-08-12T12:16:01+08:00">2020-08-12</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2.4k</span>
+              <span title="本文字数">1.9k</span>
             </span>
           
 
@@ -456,32 +456,19 @@
       
 
       
-        <p>LeetCode每日一题，309.Best Time to Buy  and Sell Stock with Cooldown</p>
+        <p>LeetCode每日一题，133.  Clone Graph</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/07/10/Uu4Dd1.png" alt></p>
-<p>大意就是给定一个整型数组，第 i 项代表第 i 天的股票价格，让我们计算买卖股票的最大利润，其中有两个约束条件， 1：再次购买股票前要出售之前的股票；2：卖出股票后，有一天的冷冻期</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>第一反应是动态规划，想用 dp[i] 代表第 i 天累积的最大利润，但没想出状态转移方程，然后就去看题解，发现还要对一天可能的三种状态进行分析</p>
-<p>我们用 dp[i] 表示第 i 天开始时的累计最大收益，根据题目描述，由于我们最多只能同时买入（持有）一支股票，并且卖出股票后有冷冻期的限制，因此我们会有三种不同的状态：</p>
-<ul>
-<li>目前持有一支股票，对应的最大收益记为 dp[i][0]</li>
-<li>目前不持有股票，且处于冷冻期中，对应的最大收益记为 dp[i][1</li>
-<li>目前不持有股票，且不处于冷冻期中，对应的最大收益记为 dp[i][2]</li>
-</ul>
-<p>下面就是如何分析状态转移方程，显而易见第 i 天的状态从第 i - 1 天的状态转移而来，接下来就是分析三种状态：</p>
-<ul>
-<li>dp[i][0] = max(dp[i - 1][0], dp[i  - 1][2] - prices[i - 1])，因为第 i 天开始时持有股票，要么第 i -1 天开始时就持有股票，要么第 i - 1 天开始时不处于冷冻期然后买了一支股票</li>
-<li>dp[i][1] = dp[i - 1][0] + prices[i - 1]，因为第 i 天开始时不持有股票且处于冷冻期，只有可能是第 i - 1 天开始时持有股票，然后将该股票出售</li>
-<li>dp[i][2] = max(dp[i - 1][1], dp[i - 1][2])，因为第 i 天开始时不持有股票且不处于冷冻期，要么是第 i - 1 天开始时不持有股票但处于冷冻期，要么是第 i - 1 天开始时就不持有股票且不处于冷冻期</li>
-</ul>
-<p>最终返回 max(dp[len][1], dp[len][2]) 即可， 因为最后一天(第 len - 1 天)结束，第 len 天开始时，要想累计收益最大，显然是不会持有股票的</p>
-<p>之后就是一些细节和初始化的问题，初始化时 dp[0][0] = -prices[0], dp[0][1] = 0，dp[0][2] = 0，实际上第 0 天开始时是不可能处于 dp[0][0] 和 dp[0][1]，但为了计算仍对其初始化，同理第 1 天开始时也不可能处于 dp[1][1]，但这并不影响每天累计最大收益的运算</p>
-<h2 id="实现源码"><a href="#实现源码" class="headerlink" title="实现源码"></a>实现源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = prices.length;</span><br><span class="line">        <span class="keyword">if</span> (len &lt; <span class="number">2</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[len + <span class="number">1</span>][<span class="number">3</span>];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = -prices[<span class="number">0</span>];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++) &#123;</span><br><span class="line">            dp[i][<span class="number">0</span>] = Math.max(dp[i - <span class="number">1</span>][<span class="number">0</span>], dp[i - <span class="number">1</span>][<span class="number">2</span>] - prices[i - <span class="number">1</span>]);</span><br><span class="line">            dp[i][<span class="number">1</span>] = dp[i - <span class="number">1</span>][<span class="number">0</span>] + prices[i - <span class="number">1</span>];</span><br><span class="line">            dp[i][<span class="number">2</span>] = Math.max(dp[i - <span class="number">1</span>][<span class="number">1</span>], dp[i - <span class="number">1</span>][<span class="number">2</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Math.max(dp[len][<span class="number">1</span>], dp[len][<span class="number">2</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/08/12/aj6ZtJ.png" alt></p>
+<p>大意就是给定一个无向图，让我们克隆这个无向图</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这道题实际上就是让我们遍历这个无向图，所以遍历时候要记录已经访问点，我们用一个字典记录</p>
+<p>遍历方法有两种，分别是深度优先遍历和广度优先遍历</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>深度优先遍历</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// Definition for a Node.</span></span><br><span class="line"><span class="comment">class Node &#123;</span></span><br><span class="line"><span class="comment">    public int val;</span></span><br><span class="line"><span class="comment">    public List&lt;Node&gt; neighbors;</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment">    public Node() &#123;</span></span><br><span class="line"><span class="comment">        val = 0;</span></span><br><span class="line"><span class="comment">        neighbors = new ArrayList&lt;Node&gt;();</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment">    public Node(int _val) &#123;</span></span><br><span class="line"><span class="comment">        val = _val;</span></span><br><span class="line"><span class="comment">        neighbors = new ArrayList&lt;Node&gt;();</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment">    public Node(int _val, ArrayList&lt;Node&gt; _neighbors) &#123;</span></span><br><span class="line"><span class="comment">        val = _val;</span></span><br><span class="line"><span class="comment">        neighbors = _neighbors;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    HashMap&lt;Node, Node&gt; visited = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Node <span class="title">cloneGraph</span><span class="params">(Node node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) <span class="keyword">return</span> node;</span><br><span class="line">        <span class="keyword">if</span> (visited.containsKey(node)) <span class="keyword">return</span> visited.get(node);</span><br><span class="line">        Node cloneNode = <span class="keyword">new</span> Node(node.val, <span class="keyword">new</span> ArrayList&lt;&gt;());</span><br><span class="line">        visited.put(node, cloneNode);</span><br><span class="line">        <span class="keyword">for</span> (Node neighbor: node.neighbors) &#123;</span><br><span class="line">            cloneNode.neighbors.add(cloneGraph(neighbor));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cloneNode;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>虽然这个代码通过了测试，但运行效率并不理想，因为使用的是数组，每个状态的结果都记录了下来，而且重复访问数组也增加了运行时间。为了改善运行的时间效率和空间效率，我们发现 dp[i][…] 只与 dp[i - 1][…] 有关，而与之前的所有状态无关，我们不必存储这些无关状态，因此我们只需要将 dp[i - 1][0], dp[i - 1][1], dp[i - 1][2] 存储在三个变量中，遍历过程中不断维护这三个变量，最终返回结果即可</p>
-<p>下面是实现源码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = prices.length;</span><br><span class="line">        <span class="keyword">if</span> (len &lt; <span class="number">2</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> f0 = -prices[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> f1 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> f2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp0 = Math.max(f0, f2 - prices[i - <span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">int</span> temp1 = f0 + prices[i - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">int</span> temp2 = Math.max(f1, f2);</span><br><span class="line">            f0 = temp0;</span><br><span class="line">            f1 = temp1;</span><br><span class="line">            f2 = temp2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Math.max(f1, f2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>广度优先遍历</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Node <span class="title">cloneGraph</span><span class="params">(Node node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        Map&lt;Node, Node&gt; lookup = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        Node clone = <span class="keyword">new</span> Node(node.val, <span class="keyword">new</span> ArrayList&lt;&gt;());</span><br><span class="line">        lookup.put(node, clone);</span><br><span class="line">        Deque&lt;Node&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        queue.offer(node);</span><br><span class="line">        <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">            Node tmp = queue.poll();</span><br><span class="line">            <span class="keyword">for</span> (Node n : tmp.neighbors) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!lookup.containsKey(n)) &#123;</span><br><span class="line">                    lookup.put(n, <span class="keyword">new</span> Node(n.val, <span class="keyword">new</span> ArrayList&lt;&gt;()));</span><br><span class="line">                    queue.offer(n);</span><br><span class="line">                &#125;</span><br><span class="line">                lookup.get(tmp).neighbors.add(lookup.get(n));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> clone;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -513,8 +500,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/09/恢复空格/" rel="next" title="恢复空格">
-                <i class="fa fa-chevron-left"></i> 恢复空格
+              <a href="/2020/08/11/被围绕的区域/" rel="next" title="被围绕的区域">
+                <i class="fa fa-chevron-left"></i> 被围绕的区域
               </a>
             
           </div>
@@ -522,10 +509,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/14/三角形最小路径和/" rel="prev" title="三角形最小路径和">
-                三角形最小路径和 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -664,7 +647,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现源码"><span class="nav-number">2.</span> <span class="nav-text">实现源码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
