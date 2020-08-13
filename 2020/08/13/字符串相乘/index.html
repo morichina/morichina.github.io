@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，16.3Sum Closet">
+  <meta name="description" content="LeetCode每日一题，43.  Multiply Strings">
 <meta property="og:type" content="article">
-<meta property="og:title" content="最接近的三数之和">
-<meta property="og:url" content="http://yoursite.com/2020/06/24/最接近的三数之和/index.html">
+<meta property="og:title" content="字符串相乘">
+<meta property="og:url" content="http://yoursite.com/2020/08/13/字符串相乘/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，16.3Sum Closet">
+<meta property="og:description" content="LeetCode每日一题，43.  Multiply Strings">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/06/24/Na4Ir8.png">
-<meta property="og:updated_time" content="2020-06-24T03:51:08.613Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/13/azj6sI.png">
+<meta property="og:updated_time" content="2020-08-13T05:44:49.526Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="最接近的三数之和">
-<meta name="twitter:description" content="LeetCode每日一题，16.3Sum Closet">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/24/Na4Ir8.png">
+<meta name="twitter:title" content="字符串相乘">
+<meta name="twitter:description" content="LeetCode每日一题，43.  Multiply Strings">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/08/13/azj6sI.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/06/24/最接近的三数之和/">
+  <link rel="canonical" href="http://yoursite.com/2020/08/13/字符串相乘/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>最接近的三数之和 | Morichina</title>
+  <title>字符串相乘 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/24/最接近的三数之和/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/13/字符串相乘/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">最接近的三数之和
+          <h1 class="post-title" itemprop="name headline">字符串相乘
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-06-24 11:28:42 / 修改时间：11:51:08" itemprop="dateCreated datePublished" datetime="2020-06-24T11:28:42+08:00">2020-06-24</time>
+              <time title="创建时间：2020-08-13 13:19:33 / 修改时间：13:44:49" itemprop="dateCreated datePublished" datetime="2020-08-13T13:19:33+08:00">2020-08-13</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.4k</span>
+              <span title="本文字数">3.1k</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">3 分钟</span>
             </span>
           
 
@@ -456,35 +456,23 @@
       
 
       
-        <p>LeetCode每日一题，16.3Sum Closet</p>
+        <p>LeetCode每日一题，43.  Multiply Strings</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/06/24/Na4Ir8.png" alt></p>
-<p>这道题与之前做过的三数之和很像，不过那道题是返回所有相加等于 0 的三个数的组合，这个是返回三数相加之和最接近 target 的值</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这题的思路和前面的三数之和基本一致，也是排序加上双指针，就是实现细节不一样</p>
-<p><strong>算法流程</strong></p>
-<ul>
-<li><p>定义 res 用来维护当前最接近 target 的三数之和，定义 min 用来维护 target 与 res 之差的绝对值</p>
-</li>
-<li><p>对 nums 数组进行升序排列</p>
-</li>
-<li><p>遍历 nums 数组</p>
-<ul>
-<li>遍历到 nums[i] 时，令 left = i + 1，right = nums.length() - 1<ul>
-<li>用 sum 记录 nums[i] + nums[left] + nums[right] 的值</li>
-<li>若 sum - target 的绝对值小于 min，则更新 res  与 min</li>
-<li>若 min = 0，直接返回 res，min &gt; 0 则左移 right 指针，min &lt; 0 则右移 left 指针</li>
-<li>重复上述步骤直至 left &gt;= right</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>返回 res</p>
-</li>
-</ul>
-<p>还有一点要注意的是，当 nums[i] = nums[i - 1] 时，可直接跳过 nums[i]，无需再重复</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">threeSumClosest</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> min = Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length - <span class="number">2</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i &gt;= <span class="number">1</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">int</span> left = i + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> right = nums.length - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (left &lt; right)&#123;</span><br><span class="line">                <span class="keyword">int</span> sum = nums[i] + nums[left] + nums[right];</span><br><span class="line">                <span class="keyword">int</span> minus = sum - target;</span><br><span class="line">                <span class="keyword">if</span> (Math.abs(minus) &lt; min) &#123;</span><br><span class="line">                    min = Math.abs(minus);</span><br><span class="line">                    res = sum;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (minus &gt; <span class="number">0</span>) right--;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (minus &lt; <span class="number">0</span>) left++;</span><br><span class="line">                <span class="keyword">else</span>  <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/08/13/azj6sI.png" alt></p>
+<p>大意是两个大整数以字符串形式给出，让我们返回两数相乘后的结果，要求不能使用大整数类</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>做加法</strong></p>
+<p>这是自己实现的，思路就是模拟竖式乘法，从右往左遍历乘数，将乘数的每一位与被乘数相乘得到对应的结果，再将每次得到的结果累加，在累加时需要注意，乘数除了最低位外，其余每一位的运算结果都需要补 0</p>
+<p><strong>做乘法</strong></p>
+<p>这是看题解才理解的方法，效率明显优于做加法。由于 num 1和 num 2 的乘积的最大长度为 m+n，因此创建长度为 m+n 的数组 ansArr 用于存储乘积。对于任意 0 ≤ i &lt; m 和 0 ≤ j &lt; n，num1[i] * num2[j] 的结果位于 ansArr[i+j+1]，如果 ansArr[i+j+1] ≥ 10，则将进位部分加到 ansArr[i+j]</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>做加法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">multiply</span><span class="params">(String num1, String num2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (num1.length() &lt; num2.length()) <span class="keyword">return</span> multiply(num2, num1);</span><br><span class="line">        <span class="keyword">int</span> m = num1.length();</span><br><span class="line">        <span class="keyword">int</span> n = num2.length();</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> singleMultiply(num1, num2.charAt(<span class="number">0</span>)).toString();</span><br><span class="line">        StringBuilder temp = <span class="keyword">new</span> StringBuilder(<span class="string">"0"</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            StringBuilder cur = singleMultiply(num1, num2.charAt(n - i));</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; i; j++) &#123;</span><br><span class="line">                cur.append(<span class="number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            temp = add(cur, temp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> temp.toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> StringBuilder <span class="title">singleMultiply</span><span class="params">(String num1, <span class="keyword">char</span> num2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (num2 == <span class="string">'0'</span>) <span class="keyword">return</span> <span class="keyword">new</span> StringBuilder(<span class="string">"0"</span>);</span><br><span class="line">        StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> num = (<span class="keyword">int</span>)(num2 - <span class="string">'0'</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = num1.length() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = (num1.charAt(i) - <span class="string">'0'</span>) * num + carry;</span><br><span class="line">            res.append(temp % <span class="number">10</span>);</span><br><span class="line">            carry = temp / <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (carry &gt; <span class="number">0</span>) res.append(carry);</span><br><span class="line">        <span class="keyword">return</span> res.reverse();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> StringBuilder <span class="title">add</span><span class="params">(StringBuilder num1, StringBuilder num2)</span> </span>&#123;</span><br><span class="line">        StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">int</span> m = num1.length();</span><br><span class="line">        <span class="keyword">int</span> n = num2.length();</span><br><span class="line">        <span class="keyword">int</span> len = Math.max(m, n);</span><br><span class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> n1 = m - i &gt;= <span class="number">0</span> ? (num1.charAt(m - i) - <span class="string">'0'</span>) : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> n2 = n - i &gt;= <span class="number">0</span> ? (num2.charAt(n - i) - <span class="string">'0'</span>) : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> temp = n1 + n2 + carry;</span><br><span class="line">            res.append(temp % <span class="number">10</span>);</span><br><span class="line">            carry = temp / <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (carry &gt; <span class="number">0</span> ) res.append(carry);</span><br><span class="line">        <span class="keyword">return</span> res.reverse();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>做乘法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">multiply</span><span class="params">(String num1, String num2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (num1.equals(<span class="string">"0"</span>) || num2.equals(<span class="string">"0"</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"0"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> m = num1.length(), n = num2.length();</span><br><span class="line">        <span class="keyword">int</span>[] ansArr = <span class="keyword">new</span> <span class="keyword">int</span>[m + n];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = m - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">int</span> x = num1.charAt(i) - <span class="string">'0'</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = n - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">                <span class="keyword">int</span> y = num2.charAt(j) - <span class="string">'0'</span>;</span><br><span class="line">                ansArr[i + j + <span class="number">1</span>] += x * y;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = m + n - <span class="number">1</span>; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">            ansArr[i - <span class="number">1</span>] += ansArr[i] / <span class="number">10</span>;</span><br><span class="line">            ansArr[i] %= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> index = ansArr[<span class="number">0</span>] == <span class="number">0</span> ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">        StringBuffer ans = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">        <span class="keyword">while</span> (index &lt; m + n) &#123;</span><br><span class="line">            ans.append(ansArr[index]);</span><br><span class="line">            index++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
@@ -514,8 +502,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/23/二进制求和/" rel="next" title="二进制求和">
-                <i class="fa fa-chevron-left"></i> 二进制求和
+              <a href="/2020/08/12/克隆图/" rel="next" title="克隆图">
+                <i class="fa fa-chevron-left"></i> 克隆图
               </a>
             
           </div>
@@ -523,10 +511,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/25/单词拆分/" rel="prev" title="单词拆分">
-                单词拆分 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
