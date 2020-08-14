@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，面试题08.03.  Magic Index LCCI">
+  <meta name="description" content="LeetCode每日一题，20.  Valid Parentheses">
 <meta property="og:type" content="article">
-<meta property="og:title" content="魔术索引">
-<meta property="og:url" content="http://yoursite.com/2020/07/31/魔术索引/index.html">
+<meta property="og:title" content="有效的括号">
+<meta property="og:url" content="http://yoursite.com/2020/08/14/有效的括号/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，面试题08.03.  Magic Index LCCI">
+<meta property="og:description" content="LeetCode每日一题，20.  Valid Parentheses">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/07/31/a1Dvlt.png">
-<meta property="og:updated_time" content="2020-07-31T15:53:07.331Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/14/dCUPcq.png">
+<meta property="og:updated_time" content="2020-08-14T05:46:42.561Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="魔术索引">
-<meta name="twitter:description" content="LeetCode每日一题，面试题08.03.  Magic Index LCCI">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/31/a1Dvlt.png">
+<meta name="twitter:title" content="有效的括号">
+<meta name="twitter:description" content="LeetCode每日一题，20.  Valid Parentheses">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/08/14/dCUPcq.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/07/31/魔术索引/">
+  <link rel="canonical" href="http://yoursite.com/2020/08/14/有效的括号/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>魔术索引 | Morichina</title>
+  <title>有效的括号 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/31/魔术索引/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/14/有效的括号/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">魔术索引
+          <h1 class="post-title" itemprop="name headline">有效的括号
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-07-31 23:33:14 / 修改时间：23:53:07" itemprop="dateCreated datePublished" datetime="2020-07-31T23:33:14+08:00">2020-07-31</time>
+              <time title="创建时间：2020-08-14 13:29:11 / 修改时间：13:46:42" itemprop="dateCreated datePublished" datetime="2020-08-14T13:29:11+08:00">2020-08-14</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">806</span>
+              <span title="本文字数">2.5k</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -456,21 +456,22 @@
       
 
       
-        <p>LeetCode每日一题，面试题08.03.  Magic Index LCCI</p>
+        <p>LeetCode每日一题，20.  Valid Parentheses</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/07/31/a1Dvlt.png" alt></p>
-<p>大意就是给定一个 nums 数组，找到其中使 nums[i] = i 的最小索引，若没有，就返回 -1</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>暴力法</strong></p>
-<p>暴力法很好理解，就直接遍历，找到的第一个 nums[i] = i 的下标就直接返回，若遍历完后没找到满足条件的下标，就返回 -1</p>
-<p><strong>优化后的暴力法</strong></p>
-<p>因为题目中提到给的 nums 数组是有序的，于是可以利用这点来优化暴力法，例如在遍历时遍历到 nums[2] = 100，因为 nums 数组有序，nums[2] 之后的数肯定都大于等于 100，因此下一个下标就直接从 100 开始遍历，这样就可以对暴力法进行优化</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>暴力法</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMagicIndex</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == nums[i]) <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/08/14/dCUPcq.png" alt></p>
+<p>大意就是让我们给定一个只包含括号的字符串，让我们判断是不是有效的括号</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这题很简单，用一个栈就可以，当是左括号时就进栈，是右括号时就将栈顶元素出栈，若能匹配则继续遍历字符串，若不能匹配则直接返回 false，最终遍历完时根据栈是否为空，来返回 true 或 false</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() % <span class="number">2</span> == <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        Deque&lt;Character&gt; stack = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br><span class="line">        Map&lt;Character, Character&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        map.put(<span class="string">'('</span>, <span class="string">')'</span>);</span><br><span class="line">        map.put(<span class="string">'['</span>, <span class="string">']'</span>);</span><br><span class="line">        map.put(<span class="string">'&#123;'</span>, <span class="string">'&#125;'</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : s.toCharArray()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(c)) &#123;</span><br><span class="line">                stack.push(c);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (stack.isEmpty() || c != map.get(stack.pop())) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>优化后的暴力法</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMagicIndex</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == nums[i]) <span class="keyword">return</span> i;</span><br><span class="line">            <span class="keyword">if</span> (i &lt; nums[i]) i = nums[i] - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>后来去看题解，发现可以不使用哈希表来进一步优化时间效率和空间效率，下面是代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() % <span class="number">2</span> == <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(s.isEmpty())</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        Stack&lt;Character&gt; stack=<span class="keyword">new</span> Stack&lt;Character&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> c:s.toCharArray())&#123;</span><br><span class="line">            <span class="keyword">if</span>(c==<span class="string">'('</span>)</span><br><span class="line">                stack.push(<span class="string">')'</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(c==<span class="string">'&#123;'</span>)</span><br><span class="line">                stack.push(<span class="string">'&#125;'</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(c==<span class="string">'['</span>)</span><br><span class="line">                stack.push(<span class="string">']'</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(stack.empty()||c!=stack.pop())</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后去看击败100%的范例，发现别人是用了一个数组来代替栈的作用，第一次见到这种操作，下面是代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> legnth = s.length();</span><br><span class="line">        <span class="keyword">if</span> ((legnth &amp; <span class="number">1</span>) == <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">char</span>[] stack = <span class="keyword">new</span> <span class="keyword">char</span>[legnth + <span class="number">1</span>];</span><br><span class="line">        stack[<span class="number">0</span>] = <span class="string">' '</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">char</span>[] sChar = s.toCharArray();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : sChar) &#123;</span><br><span class="line">            <span class="keyword">switch</span> (c) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">')'</span> : &#123;</span><br><span class="line">                    <span class="keyword">if</span> (stack[--index] != <span class="string">'('</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">case</span> <span class="string">'&#125;'</span> : &#123;</span><br><span class="line">                    <span class="keyword">if</span> (stack[--index] != <span class="string">'&#123;'</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">case</span> <span class="string">']'</span> : &#123;</span><br><span class="line">                    <span class="keyword">if</span> (stack[--index] != <span class="string">'['</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">default</span> : &#123;</span><br><span class="line">                    stack[index++] = c;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> index == <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
@@ -500,8 +501,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/30/整数拆分/" rel="next" title="整数拆分">
-                <i class="fa fa-chevron-left"></i> 整数拆分
+              <a href="/2020/08/13/字符串相乘/" rel="next" title="字符串相乘">
+                <i class="fa fa-chevron-left"></i> 字符串相乘
               </a>
             
           </div>
@@ -509,10 +510,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/08/03/二叉树展开为链表/" rel="prev" title="二叉树展开为链表">
-                二叉树展开为链表 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
