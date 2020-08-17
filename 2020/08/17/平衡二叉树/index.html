@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，14.最长公共前缀">
+  <meta name="description" content="LeetCode每日一题，110.  Balanced Binary Tree">
 <meta property="og:type" content="article">
-<meta property="og:title" content="最长公共前缀">
-<meta property="og:url" content="http://yoursite.com/2020/06/15/最长公共前缀/index.html">
+<meta property="og:title" content="平衡二叉树">
+<meta property="og:url" content="http://yoursite.com/2020/08/17/平衡二叉树/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，14.最长公共前缀">
+<meta property="og:description" content="LeetCode每日一题，110.  Balanced Binary Tree">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/06/15/N9ixXT.png">
-<meta property="og:updated_time" content="2020-06-15T04:38:52.577Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/17/dZWzfU.png">
+<meta property="og:updated_time" content="2020-08-17T03:23:58.942Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="最长公共前缀">
-<meta name="twitter:description" content="LeetCode每日一题，14.最长公共前缀">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/15/N9ixXT.png">
+<meta name="twitter:title" content="平衡二叉树">
+<meta name="twitter:description" content="LeetCode每日一题，110.  Balanced Binary Tree">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/08/17/dZWzfU.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/06/15/最长公共前缀/">
+  <link rel="canonical" href="http://yoursite.com/2020/08/17/平衡二叉树/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>最长公共前缀 | Morichina</title>
+  <title>平衡二叉树 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/15/最长公共前缀/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/17/平衡二叉树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">最长公共前缀
+          <h1 class="post-title" itemprop="name headline">平衡二叉树
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-06-15 11:35:12 / 修改时间：12:38:52" itemprop="dateCreated datePublished" datetime="2020-06-15T11:35:12+08:00">2020-06-15</time>
+              <time title="创建时间：2020-08-17 10:54:32 / 修改时间：11:23:58" itemprop="dateCreated datePublished" datetime="2020-08-17T10:54:32+08:00">2020-08-17</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">950</span>
+              <span title="本文字数">1.5k</span>
             </span>
           
 
@@ -456,13 +456,23 @@
       
 
       
-        <p>LeetCode每日一题，14.最长公共前缀</p>
+        <p>LeetCode每日一题，110.  Balanced Binary Tree</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/06/15/N9ixXT.png" alt></p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>思路就是遍历每个字符串，求出这个字符串与下个字符串的公共前缀长度，若小于当前的最长公共前缀长度，就将其更新，就这样一直更新，最后根据最长公共前缀长度返回公共前缀，要注意考虑字符串长度为 0 的情况</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestCommonPrefix</span><span class="params">(String[] strs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (strs.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">if</span> (strs.length == <span class="number">1</span>) <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">10000</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; strs.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            String a = strs[i];</span><br><span class="line">            String b = strs[i + <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">int</span> len = Math.min(a.length(), b.length());</span><br><span class="line">            <span class="keyword">if</span> (len == <span class="number">0</span>) &#123;</span><br><span class="line">                max = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; len; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (a.charAt(j) != b.charAt(j)) &#123;</span><br><span class="line">                    max = Math.min(max, j);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (j == len - <span class="number">1</span>) max = Math.min(max, len);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> strs[<span class="number">0</span>].substring(<span class="number">0</span>, max);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/08/17/dZWzfU.png" alt></p>
+<p>大意就是让我们判断一颗二叉树是否是平衡二叉树</p>
+<h2 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h2><p><strong>自顶向下</strong></p>
+<p>思路是构造一个计算二叉树深度的方法，通过比较此子树的左右子树的最大高度差，来判断当前子树是否是平衡二叉树，再去判断其左右子树是否是平衡二叉树，若树的所有子树都平衡，此树才平衡**</p>
+<p><strong>自底向上</strong></p>
+<p>这是看了题解才知道的方法，思路是对二叉树做先序遍历，自底向上返回子树最大高度，若判定某子树不是平衡树则 “剪枝” ，直接向上返回，这个方法代码的关键在于 recur 方法，既起到返回子树高度的作用，又起到体现子树是否平衡的作用。当 recur(root) 返回值为 -1 时，代表以 root 为根节点的子树不平衡，返回值为 0 时，代表 root 为空，返回值大于 0 时，则代表以 root 为根节点的子树平衡且返回的是该子树的高度</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>自顶向下</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">return</span> Math.abs(getDepth(root.left) - getDepth(root.right)) &lt;= <span class="number">1</span> &amp;&amp; isBalanced(root.left) &amp;&amp; isBalanced(root.right);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> Math.max(getDepth(root.left), getDepth(root.right)) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>自底向上</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> recur(root) != -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">recur</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = recur(root.left);</span><br><span class="line">        <span class="keyword">if</span>(left == -<span class="number">1</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> right = recur(root.right);</span><br><span class="line">        <span class="keyword">if</span>(right == -<span class="number">1</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> Math.abs(left - right) &lt; <span class="number">2</span> ? Math.max(left, right) + <span class="number">1</span> : -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
@@ -492,8 +502,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/14/转变数组后最接近目标值的数组和/" rel="next" title="转变数组后最接近目标值的数组和">
-                <i class="fa fa-chevron-left"></i> 转变数组后最接近目标值的数组和
+              <a href="/2020/08/16/图像渲染/" rel="next" title="图像渲染">
+                <i class="fa fa-chevron-left"></i> 图像渲染
               </a>
             
           </div>
@@ -501,10 +511,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/16/二叉树的序列化与反序列化/" rel="prev" title="二叉树的序列化与反序列化">
-                二叉树的序列化与反序列化 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -643,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法思路"><span class="nav-number">1.</span> <span class="nav-text">算法思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
