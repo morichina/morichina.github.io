@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，32.Longest Valid Parentheses">
+  <meta name="description" content="LeetCode每日一题，529.  Minesweeper">
 <meta property="og:type" content="article">
-<meta property="og:title" content="最长有效括号">
-<meta property="og:url" content="http://yoursite.com/2020/07/05/最长有效括号/index.html">
+<meta property="og:title" content="扫雷游戏">
+<meta property="og:url" content="http://yoursite.com/2020/08/20/扫雷游戏/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，32.Longest Valid Parentheses">
+<meta property="og:description" content="LeetCode每日一题，529.  Minesweeper">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/07/05/USpKnP.png">
-<meta property="og:updated_time" content="2020-07-04T17:06:44.721Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/20/d8ruJ1.png">
+<meta property="og:updated_time" content="2020-08-20T06:13:17.836Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="最长有效括号">
-<meta name="twitter:description" content="LeetCode每日一题，32.Longest Valid Parentheses">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/05/USpKnP.png">
+<meta name="twitter:title" content="扫雷游戏">
+<meta name="twitter:description" content="LeetCode每日一题，529.  Minesweeper">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/08/20/d8ruJ1.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/07/05/最长有效括号/">
+  <link rel="canonical" href="http://yoursite.com/2020/08/20/扫雷游戏/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>最长有效括号 | Morichina</title>
+  <title>扫雷游戏 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/05/最长有效括号/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/20/扫雷游戏/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">最长有效括号
+          <h1 class="post-title" itemprop="name headline">扫雷游戏
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-07-05 00:46:59 / 修改时间：01:06:44" itemprop="dateCreated datePublished" datetime="2020-07-05T00:46:59+08:00">2020-07-05</time>
+              <time title="创建时间：2020-08-20 14:00:53 / 修改时间：14:13:17" itemprop="dateCreated datePublished" datetime="2020-08-20T14:00:53+08:00">2020-08-20</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.3k</span>
+              <span title="本文字数">1.5k</span>
             </span>
           
 
@@ -456,25 +456,14 @@
       
 
       
-        <p>LeetCode每日一题，32.Longest Valid Parentheses</p>
+        <p>LeetCode每日一题，529.  Minesweeper</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/07/05/USpKnP.png" alt></p>
-<p>大意就是给定只包括 ( 和 ) 的字符串，返回最长的包括有效括号子串的长度</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>看到涉及括号匹配，第一反应就是用栈，但始终没想出来，后来看了题解才明白</p>
-<p>具体做法是我们始终保持栈底元素为当前已经遍历过的元素中 <strong>最后一个没有被匹配的右括号的下标</strong>，这样的做法主要是考虑了边界条件的处理，栈里其他元素维护左括号的下标：</p>
-<ul>
-<li>对于遇到的每个 { ，我们将它的下标放入栈中</li>
-<li>对于遇到的每个 }，我们先弹出栈顶元素(个人理解：若弹出的栈顶元素代表左括号，栈是不可能为空的，弹出栈顶元素以后栈为空，说明这个右括号前面没有可以和它匹配的左括号)表示匹配了当前右括号：<ul>
-<li>如果栈为空，说明当前的右括号为没有被匹配的右括号，我们将其下标放入栈中来更新我们之前提到的 <strong>最后一个没有被匹配的右括号的下标</strong></li>
-<li>如果栈不为空，当前右括号的下标减去栈顶元素即为 <strong>以该右括号为结尾的最长有效括号的长度</strong></li>
-</ul>
-</li>
-</ul>
-<p>我们从前往后遍历字符串并维护最长有效括号的长度即可</p>
-<p>需要注意的是，如果一开始栈为空，第一个字符为左括号的时候我们会将其放入栈中，这样就不满足提及的<strong>最后一个没有被匹配的右括号的下标</strong>，为了保持统一，我们在一开始的时候往栈底放入一个值为 -1 的元素</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">longestValidParentheses</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = s.length();</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        Deque&lt;Integer&gt; stack = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        stack.push(-<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s.charAt(i) == <span class="string">'('</span>) &#123;</span><br><span class="line">                stack.push(i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                stack.pop();</span><br><span class="line">                <span class="keyword">if</span> (stack.isEmpty()) &#123;</span><br><span class="line">                    stack.push(i);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    res = Math.max(res, i - stack.peek());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/08/20/d8ruJ1.png" alt></p>
+<p>大意就是一个扫雷游戏，矩阵表示扫雷游戏的板子，E 表示未翻开的空格，M 表示未翻开的雷，B 表示该格周围没有地雷，数字表示该格周围有几颗雷，X 表示这是翻开的雷，当翻到地雷时，游戏也就结束了，还有个特殊的规则是当翻开的格子周围没地雷时，所有和它相邻的方块都应该递归的暴露出来</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>由题意就可以想到，这题应该用 dfs深度优先搜索，扩散性的将各格子揭露出来，我们用代码模拟扩散的过程即可，当翻开一个格子时，若是 M，则将其变为 X，然后直接结束；否则就计算其周围格子中地雷数目，若 &gt; 0，就改为数字；若 = 0，就改为 B，然后用同样策略递归的揭露其周围还未被翻开的格子</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] dx = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, -<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span>[] dy = &#123;<span class="number">1</span>, -<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, -<span class="number">1</span>, <span class="number">1</span>, -<span class="number">1</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">char</span>[][] updateBoard(<span class="keyword">char</span>[][] board, <span class="keyword">int</span>[] click) &#123;</span><br><span class="line">        <span class="keyword">int</span> x = click[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> y = click[<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span> (board[x][y] == <span class="string">'M'</span>) board[x][y] = <span class="string">'X'</span>;</span><br><span class="line">        <span class="keyword">else</span> dfs(board, x, y);</span><br><span class="line">        <span class="keyword">return</span> board;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">char</span>[][] board, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> tx = x + dx[i];</span><br><span class="line">            <span class="keyword">int</span> ty = y + dy[i];</span><br><span class="line">            <span class="keyword">if</span> (tx &lt; <span class="number">0</span> || tx &gt;= board.length || ty &lt; <span class="number">0</span> || ty &gt;= board[<span class="number">0</span>].length) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span> (board[tx][ty] == <span class="string">'M'</span>) cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (cnt &gt; <span class="number">0</span> ) board[x][y] = (<span class="keyword">char</span>)(cnt + <span class="string">'0'</span>);</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            board[x][y] = <span class="string">'B'</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++) &#123;</span><br><span class="line">                <span class="keyword">int</span> tx = x + dx[i];</span><br><span class="line">                <span class="keyword">int</span> ty = y + dy[i];</span><br><span class="line">                <span class="keyword">if</span> (tx &lt; <span class="number">0</span> || tx &gt;= board.length || ty &lt; <span class="number">0</span> || ty &gt;= board[<span class="number">0</span>].length || board[tx][ty] != <span class="string">'E'</span>) <span class="keyword">continue</span>;</span><br><span class="line">                dfs(board, tx, ty);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -506,8 +495,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/03/将有序数组转化为二叉搜索树/" rel="next" title="将有序数组转化为二叉搜索树">
-                <i class="fa fa-chevron-left"></i> 将有序数组转化为二叉搜索树
+              <a href="/2020/08/17/平衡二叉树/" rel="next" title="平衡二叉树">
+                <i class="fa fa-chevron-left"></i> 平衡二叉树
               </a>
             
           </div>
@@ -515,10 +504,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/06/不同路径Ⅱ/" rel="prev" title="不同路径Ⅱ">
-                不同路径Ⅱ <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
