@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，110.  Balanced Binary Tree">
+  <meta name="description" content="LeetCode每日一题，17.  Letter Combinations of a Phone Number">
 <meta property="og:type" content="article">
-<meta property="og:title" content="平衡二叉树">
-<meta property="og:url" content="http://yoursite.com/2020/08/17/平衡二叉树/index.html">
+<meta property="og:title" content="电话号码的字母组合">
+<meta property="og:url" content="http://yoursite.com/2020/08/26/电话号码的字母组合/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，110.  Balanced Binary Tree">
+<meta property="og:description" content="LeetCode每日一题，17.  Letter Combinations of a Phone Number">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/08/17/dZWzfU.png">
-<meta property="og:updated_time" content="2020-08-17T03:23:58.942Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/26/dRhVZ4.png">
+<meta property="og:updated_time" content="2020-08-26T07:27:37.311Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="平衡二叉树">
-<meta name="twitter:description" content="LeetCode每日一题，110.  Balanced Binary Tree">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/08/17/dZWzfU.png">
+<meta name="twitter:title" content="电话号码的字母组合">
+<meta name="twitter:description" content="LeetCode每日一题，17.  Letter Combinations of a Phone Number">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/08/26/dRhVZ4.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/08/17/平衡二叉树/">
+  <link rel="canonical" href="http://yoursite.com/2020/08/26/电话号码的字母组合/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>平衡二叉树 | Morichina</title>
+  <title>电话号码的字母组合 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/17/平衡二叉树/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/26/电话号码的字母组合/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">平衡二叉树
+          <h1 class="post-title" itemprop="name headline">电话号码的字母组合
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-08-17 10:54:32 / 修改时间：11:23:58" itemprop="dateCreated datePublished" datetime="2020-08-17T10:54:32+08:00">2020-08-17</time>
+              <time title="创建时间：2020-08-26 14:49:48 / 修改时间：15:27:37" itemprop="dateCreated datePublished" datetime="2020-08-26T14:49:48+08:00">2020-08-26</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.5k</span>
+              <span title="本文字数">2.7k</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -456,23 +456,17 @@
       
 
       
-        <p>LeetCode每日一题，110.  Balanced Binary Tree</p>
+        <p>LeetCode每日一题，17.  Letter Combinations of a Phone Number</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/08/17/dZWzfU.png" alt></p>
-<p>大意就是让我们判断一颗二叉树是否是平衡二叉树</p>
-<h2 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h2><p><strong>自顶向下</strong></p>
-<p>思路是构造一个计算二叉树深度的方法，通过比较此子树的左右子树的最大高度差，来判断当前子树是否是平衡二叉树，再去判断其左右子树是否是平衡二叉树，若树的所有子树都平衡，此树才平衡**</p>
-<p><strong>自底向上</strong></p>
-<p>这是看了题解才知道的方法，思路是对二叉树做先序遍历，自底向上返回子树最大高度，若判定某子树不是平衡树则 “剪枝” ，直接向上返回，这个方法代码的关键在于 recur 方法，既起到返回子树高度的作用，又起到体现子树是否平衡的作用。当 recur(root) 返回值为 -1 时，代表以 root 为根节点的子树不平衡，返回值为 0 时，代表 root 为空，返回值大于 0 时，则代表以 root 为根节点的子树平衡且返回的是该子树的高度</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>自顶向下</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">return</span> Math.abs(getDepth(root.left) - getDepth(root.right)) &lt;= <span class="number">1</span> &amp;&amp; isBalanced(root.left) &amp;&amp; isBalanced(root.right);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> Math.max(getDepth(root.left), getDepth(root.right)) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/08/26/dRhVZ4.png" alt></p>
+<p>大意就是手机上的数字与字母对应，给出只含数字的字符串，让我们返回对应字母的排列组合</p>
+<h2 id="算法与思路"><a href="#算法与思路" class="headerlink" title="算法与思路"></a>算法与思路</h2><p>一开始的思路是模拟数字一个个的添加进来，先是添加 2 对应的，于是 res 中就有 [“a”, “b”, “c”]，然后将 3 添加进来，因为 3 对应 3 个字母，先将 res * 3 变为 [“a”, “b”, “c”, “a”, “b”, “c”, “a”, “b”, “c”]，然后分别添加 3 个 “d”，3 个 “e”，3 个 “f”，res 变为 [“ad”, “bd”, “cd”, “ae”, “be”, “ce”, “af”, “bf”, “cf”]，然后返回 res 即可，就用代码模拟这个过程</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">letterCombinations</span><span class="params">(String digits)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; res = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (digits.length() == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        res.add(<span class="string">""</span>);</span><br><span class="line">        HashMap&lt;Character, String&gt; phone = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        phone.put(<span class="string">'2'</span>, <span class="string">"abc"</span>);</span><br><span class="line">        phone.put(<span class="string">'3'</span>, <span class="string">"def"</span>);</span><br><span class="line">        phone.put(<span class="string">'4'</span>, <span class="string">"ghi"</span>);</span><br><span class="line">        phone.put(<span class="string">'5'</span>, <span class="string">"jkl"</span>);</span><br><span class="line">        phone.put(<span class="string">'6'</span>, <span class="string">"mno"</span>);</span><br><span class="line">        phone.put(<span class="string">'7'</span>, <span class="string">"pqrs"</span>);</span><br><span class="line">        phone.put(<span class="string">'8'</span>, <span class="string">"tuv"</span>);</span><br><span class="line">        phone.put(<span class="string">'9'</span>, <span class="string">"wxyz"</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c: digits.toCharArray()) &#123;</span><br><span class="line">            <span class="keyword">int</span> cur = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> coun = res.size();</span><br><span class="line">            <span class="keyword">int</span> len = phone.get(c).length();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; coun; j++) &#123;</span><br><span class="line">                    res.add(res.get(j));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; coun; j++) &#123;</span><br><span class="line">                    res.set(cur, res.get(cur) + phone.get(c).charAt(i));</span><br><span class="line">                    cur++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>自底向上</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> recur(root) != -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">recur</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = recur(root.left);</span><br><span class="line">        <span class="keyword">if</span>(left == -<span class="number">1</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> right = recur(root.right);</span><br><span class="line">        <span class="keyword">if</span>(right == -<span class="number">1</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> Math.abs(left - right) &lt; <span class="number">2</span> ? Math.max(left, right) + <span class="number">1</span> : -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+<p>但这个代码的运行效率不行，后来看了题解才发现可以用递归，且频繁的字符串组装可以使用 StringBuilder 下面是使用递归和 StringBuilder 的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;String&gt; res = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    <span class="keyword">private</span> String letterMap[] = &#123;</span><br><span class="line">            <span class="string">" "</span>,    <span class="comment">//0</span></span><br><span class="line">            <span class="string">""</span>,     <span class="comment">//1</span></span><br><span class="line">            <span class="string">"abc"</span>,  <span class="comment">//2</span></span><br><span class="line">            <span class="string">"def"</span>,  <span class="comment">//3</span></span><br><span class="line">            <span class="string">"ghi"</span>,  <span class="comment">//4</span></span><br><span class="line">            <span class="string">"jkl"</span>,  <span class="comment">//5</span></span><br><span class="line">            <span class="string">"mno"</span>,  <span class="comment">//6</span></span><br><span class="line">            <span class="string">"pqrs"</span>, <span class="comment">//7</span></span><br><span class="line">            <span class="string">"tuv"</span>,  <span class="comment">//8</span></span><br><span class="line">            <span class="string">"wxyz"</span>  <span class="comment">//9</span></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">letterCombinations</span><span class="params">(String digits)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (digits.length() == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        combination(digits, <span class="number">0</span>, sb);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">combination</span><span class="params">(String digits, <span class="keyword">int</span> index, StringBuilder sb)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (index == digits.length()) &#123;</span><br><span class="line">            res.add(sb.toString());</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        Character c = digits.charAt(index);</span><br><span class="line">        String letters = letterMap[c - <span class="string">'0'</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; letters.length(); i++) &#123;</span><br><span class="line">            combination(digits, index + <span class="number">1</span>, sb.append(letters.charAt(i)));</span><br><span class="line">            sb.deleteCharAt(sb.length() - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -502,8 +496,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/08/16/图像渲染/" rel="next" title="图像渲染">
-                <i class="fa fa-chevron-left"></i> 图像渲染
+              <a href="/2020/08/21/二叉树的最小深度/" rel="next" title="二叉树的最小深度">
+                <i class="fa fa-chevron-left"></i> 二叉树的最小深度
               </a>
             
           </div>
@@ -511,10 +505,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/08/20/扫雷游戏/" rel="prev" title="扫雷游戏">
-                扫雷游戏 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -653,7 +643,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法思路"><span class="nav-number">1.</span> <span class="nav-text">算法思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法与思路"><span class="nav-number">1.</span> <span class="nav-text">算法与思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
