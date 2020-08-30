@@ -94,17 +94,19 @@
 
 
 
-  <meta name="description" content="使用列表的remove函数时的注意事项">
+  <meta name="description" content="LeetCode每日一题，557.  Reverse Words In a String III">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python中使用remove函数的注意事项">
-<meta property="og:url" content="http://yoursite.com/2019/07/15/Python中使用remove函数的注意事项/index.html">
+<meta property="og:title" content="反转字符串中的单词">
+<meta property="og:url" content="http://yoursite.com/2020/08/30/反转字符串中的单词/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="使用列表的remove函数时的注意事项">
+<meta property="og:description" content="LeetCode每日一题，557.  Reverse Words In a String III">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-18T08:55:40.344Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/30/dbqudS.png">
+<meta property="og:updated_time" content="2020-08-30T07:44:14.338Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python中使用remove函数的注意事项">
-<meta name="twitter:description" content="使用列表的remove函数时的注意事项">
+<meta name="twitter:title" content="反转字符串中的单词">
+<meta name="twitter:description" content="LeetCode每日一题，557.  Reverse Words In a String III">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/08/30/dbqudS.png">
 
 
 
@@ -112,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/15/Python中使用remove函数的注意事项/">
+  <link rel="canonical" href="http://yoursite.com/2020/08/30/反转字符串中的单词/">
 
 
 
@@ -122,7 +124,7 @@
   };
 </script>
 
-  <title>Python中使用remove函数的注意事项 | Morichina</title>
+  <title>反转字符串中的单词 | Morichina</title>
   
 
 
@@ -349,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/15/Python中使用remove函数的注意事项/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/30/反转字符串中的单词/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -366,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python中使用remove函数的注意事项
+          <h1 class="post-title" itemprop="name headline">反转字符串中的单词
 
               
             
@@ -392,23 +394,13 @@
                 
               
 
-              <time title="创建时间：2019-07-15 18:15:38" itemprop="dateCreated datePublished" datetime="2019-07-15T18:15:38+08:00">2019-07-15</time>
+              <time title="创建时间：2020-08-30 15:34:07 / 修改时间：15:44:14" itemprop="dateCreated datePublished" datetime="2020-08-30T15:34:07+08:00">2020-08-30</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-18 16:55:40" itemprop="dateModified" datetime="2019-07-18T16:55:40+08:00">2019-07-18</time>
-              </span>
             
           
 
@@ -433,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">872</span>
+              <span title="本文字数">1.4k</span>
             </span>
           
 
@@ -464,25 +456,18 @@
       
 
       
-        <h2 id="使用列表的remove函数时的注意事项"><a href="#使用列表的remove函数时的注意事项" class="headerlink" title="使用列表的remove函数时的注意事项"></a>使用列表的remove函数时的注意事项</h2><a id="more"></a>
+        <p>LeetCode每日一题，557.  Reverse Words In a String III</p>
+<a id="more"></a>
 
-<p>前几天写寻找最稠密子图问题的算法时，在测试的时候发现了一个bug，那就是删除度数最低的顶点时，也要把有关的边都删除，但是当删除的边在列表中相邻时，只会删除第一条边，最后查找资料，发现还是对python遍历列表的方式没理解透彻</p>
-<p>这里是出现bug部分的代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delMinNode</span><span class="params">(minNode)</span>:</span> <span class="comment"># 删除度数最小的节点，相应的边也会被删除</span></span><br><span class="line">	nodes.remove(minNode)</span><br><span class="line">	<span class="keyword">for</span> edge <span class="keyword">in</span> edges:</span><br><span class="line">		<span class="keyword">if</span> minNode <span class="keyword">in</span> edge:</span><br><span class="line">			edges.remove(edge)</span><br></pre></td></tr></table></figure>
+<p>先看题目描述</p>
+<p><img src="https://s1.ax1x.com/2020/08/30/dbqudS.png" alt></p>
+<p>大意就是给定一个字符串，里面有若干个被空格分开的单词，让我们将单词翻转，但单词顺序和空格不变</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>基本思路就是先将字符串根据空格切割，获得字符串数组，然后遍历里面每个字符串，将每个字符串翻转后添加到 res 后，同时添加一个空格，最后一个单词翻转后不用加空格到 res 后，最后返回 res即可</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">reverseWords</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        String[] ss = s.split(<span class="string">" "</span>);</span><br><span class="line">        StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; ss.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            res.append(<span class="keyword">new</span> StringBuilder(ss[i]).reverse() + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        res.append(<span class="keyword">new</span> StringBuilder(ss[ss.length - <span class="number">1</span>]).reverse());</span><br><span class="line">        <span class="keyword">return</span> res.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>再看下面的一个例子</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">	<span class="keyword">if</span> i == <span class="number">5</span>:</span><br><span class="line">		a.remove(i)</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+<p>后来看时间击败 94.865% 的代码，发现别人没用 java 内置的函数，使用了几个指针，再一个个遍历字符实现单词翻转，效率更高，下面是代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">reverseWords</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = s.length();</span><br><span class="line">        <span class="keyword">char</span>[] chars = s.toCharArray();</span><br><span class="line">        <span class="keyword">char</span>[] res = <span class="keyword">new</span> <span class="keyword">char</span>[len];</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, mem = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> ptr = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; len &amp;&amp; right &lt; len) &#123;</span><br><span class="line">            <span class="keyword">while</span> (right &lt; len &amp;&amp; chars[right] != <span class="string">' '</span>) &#123;</span><br><span class="line">                right++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = right - <span class="number">1</span>; i &gt;= left; i--) &#123;</span><br><span class="line">                res[ptr++] = chars[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (ptr &lt; len) res[ptr++] = <span class="string">' '</span>;</span><br><span class="line">            left = right + <span class="number">1</span>;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> String.valueOf(res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>这段代码的目的是将列表中所有的5都删除，然后将列表打印出来,  但是运行结果却是</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br></pre></td></tr></table></figure>
-
-<p>下面来分析原因：</p>
-<p>首先了解下python当中的遍历机制，python中遍历是按照下标来遍历的，即a[0]，a[1], a[2]….. 一个个遍历过去</p>
-<p>再看上面的例子，第一个5是在a[4]的位置，当遍历进行到a[4]时，这个5被删除，这个时候后面的每个元素都要往前进一位，第二个5到了a[4]的位置，6变成a[5]…..于是下一次循环时，会去判断a[5]，也就是6，第二个5遍历时被跳过，没被删除，导致了这样的运行结果</p>
-<p>于是之前的算法中代码可以这样修改</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delMinNode</span><span class="params">(minNode)</span>:</span> <span class="comment"># 删除度数最小的节点，相应的边也会被删除</span></span><br><span class="line">	nodes.remove(minNode)</span><br><span class="line">	newEdges = copy.deepcopy(edges)</span><br><span class="line">	<span class="keyword">for</span> edge <span class="keyword">in</span> newEdges:</span><br><span class="line">		<span class="keyword">if</span> minNode <span class="keyword">in</span> edge:</span><br><span class="line">			edges.remove(edge)</span><br></pre></td></tr></table></figure>
-
-<p>深复制一个与原列表相同的新列表，然后遍历这个新列表，删除时是删原列表中的边，便可避免相邻边无法删除的bug</p>
 
       
     </div>
@@ -513,8 +498,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/12/寻找最稠密子图问题/" rel="next" title="寻找最稠密子图问题">
-                <i class="fa fa-chevron-left"></i> 寻找最稠密子图问题
+              <a href="/2020/08/28/机器人能否回到原点/" rel="next" title="机器人能否回到原点">
+                <i class="fa fa-chevron-left"></i> 机器人能否回到原点
               </a>
             
           </div>
@@ -522,10 +507,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/15/浅谈赋值-浅复制与深复制的区别/" rel="prev" title="浅谈赋值, 浅复制与深复制的区别">
-                浅谈赋值, 浅复制与深复制的区别 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -664,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用列表的remove函数时的注意事项"><span class="nav-number">1.</span> <span class="nav-text">使用列表的remove函数时的注意事项</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
