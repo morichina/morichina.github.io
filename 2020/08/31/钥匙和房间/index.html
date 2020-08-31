@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，557.  Reverse Words In a String III">
+  <meta name="description" content="LeetCode每日一题，841.  Keys and Rooms">
 <meta property="og:type" content="article">
-<meta property="og:title" content="反转字符串中的单词">
-<meta property="og:url" content="http://yoursite.com/2020/08/30/反转字符串中的单词/index.html">
+<meta property="og:title" content="钥匙和房间">
+<meta property="og:url" content="http://yoursite.com/2020/08/31/钥匙和房间/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，557.  Reverse Words In a String III">
+<meta property="og:description" content="LeetCode每日一题，841.  Keys and Rooms">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/08/30/dbqudS.png">
-<meta property="og:updated_time" content="2020-08-30T07:44:14.338Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/31/dOYQhR.png">
+<meta property="og:updated_time" content="2020-08-31T07:28:26.973Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="反转字符串中的单词">
-<meta name="twitter:description" content="LeetCode每日一题，557.  Reverse Words In a String III">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/08/30/dbqudS.png">
+<meta name="twitter:title" content="钥匙和房间">
+<meta name="twitter:description" content="LeetCode每日一题，841.  Keys and Rooms">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/08/31/dOYQhR.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/08/30/反转字符串中的单词/">
+  <link rel="canonical" href="http://yoursite.com/2020/08/31/钥匙和房间/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>反转字符串中的单词 | Morichina</title>
+  <title>钥匙和房间 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/30/反转字符串中的单词/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/31/钥匙和房间/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">反转字符串中的单词
+          <h1 class="post-title" itemprop="name headline">钥匙和房间
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-08-30 15:34:07 / 修改时间：15:44:14" itemprop="dateCreated datePublished" datetime="2020-08-30T15:34:07+08:00">2020-08-30</time>
+              <time title="创建时间：2020-08-31 15:02:00 / 修改时间：15:28:26" itemprop="dateCreated datePublished" datetime="2020-08-31T15:02:00+08:00">2020-08-31</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.4k</span>
+              <span title="本文字数">1.1k</span>
             </span>
           
 
@@ -456,17 +456,15 @@
       
 
       
-        <p>LeetCode每日一题，557.  Reverse Words In a String III</p>
+        <p>LeetCode每日一题，841.  Keys and Rooms</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/08/30/dbqudS.png" alt></p>
-<p>大意就是给定一个字符串，里面有若干个被空格分开的单词，让我们将单词翻转，但单词顺序和空格不变</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>基本思路就是先将字符串根据空格切割，获得字符串数组，然后遍历里面每个字符串，将每个字符串翻转后添加到 res 后，同时添加一个空格，最后一个单词翻转后不用加空格到 res 后，最后返回 res即可</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">reverseWords</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        String[] ss = s.split(<span class="string">" "</span>);</span><br><span class="line">        StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; ss.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            res.append(<span class="keyword">new</span> StringBuilder(ss[i]).reverse() + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        res.append(<span class="keyword">new</span> StringBuilder(ss[ss.length - <span class="number">1</span>]).reverse());</span><br><span class="line">        <span class="keyword">return</span> res.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>后来看时间击败 94.865% 的代码，发现别人没用 java 内置的函数，使用了几个指针，再一个个遍历字符实现单词翻转，效率更高，下面是代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">reverseWords</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = s.length();</span><br><span class="line">        <span class="keyword">char</span>[] chars = s.toCharArray();</span><br><span class="line">        <span class="keyword">char</span>[] res = <span class="keyword">new</span> <span class="keyword">char</span>[len];</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, mem = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> ptr = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; len &amp;&amp; right &lt; len) &#123;</span><br><span class="line">            <span class="keyword">while</span> (right &lt; len &amp;&amp; chars[right] != <span class="string">' '</span>) &#123;</span><br><span class="line">                right++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = right - <span class="number">1</span>; i &gt;= left; i--) &#123;</span><br><span class="line">                res[ptr++] = chars[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (ptr &lt; len) res[ptr++] = <span class="string">' '</span>;</span><br><span class="line">            left = right + <span class="number">1</span>;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> String.valueOf(res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/08/31/dOYQhR.png" alt></p>
+<p>大意就是给定一个二维数组 rooms，里面代表每个房间里存的钥匙，有相应钥匙就可以进入相应房间，一开始除了 0 号房间，其他房间都是锁上的，问是否可以进入所有房间</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这题可以看作图的遍历问题，每个房间可以看作不同节点，房间里的钥匙就代表它的相邻节点，那么问题问的就是该图是否是个连通图，解决该题可以用 dfs深度优先搜索，也可以用 bfs广度优先搜索，我使用的是 dfs</p>
+<p>数组 visited[] 中存储的是是否访问过房间的相应信息，visited[i] = 0，就代表没访问过 i 号房间；visited[i] &gt; 0，就代表访问过 i 号房间。我们使用深度优先搜索的方式遍历整张图，并使用数组 visited 记录访问信息，以防止重复访问，最后通过 visited 来判断是否所有节点均被访问，以返回 true 或 false</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] visited;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canVisitAllRooms</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; rooms)</span> </span>&#123;</span><br><span class="line">        visited = <span class="keyword">new</span> <span class="keyword">int</span>[rooms.size()];</span><br><span class="line">        visited[<span class="number">0</span>]++;</span><br><span class="line">        visitRoom(<span class="number">0</span>, rooms);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; visited.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (visited[i] == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visitRoom</span><span class="params">(<span class="keyword">int</span> num, List&lt;List&lt;Integer&gt;&gt; rooms)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (Integer key: rooms.get(num)) &#123;</span><br><span class="line">            <span class="keyword">if</span> (visited[key] == <span class="number">0</span>) &#123;</span><br><span class="line">                visited[key]++;</span><br><span class="line">                visitRoom(key, rooms);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -498,8 +496,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/08/28/机器人能否回到原点/" rel="next" title="机器人能否回到原点">
-                <i class="fa fa-chevron-left"></i> 机器人能否回到原点
+              <a href="/2020/08/30/反转字符串中的单词/" rel="next" title="反转字符串中的单词">
+                <i class="fa fa-chevron-left"></i> 反转字符串中的单词
               </a>
             
           </div>
@@ -507,10 +505,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/08/31/钥匙和房间/" rel="prev" title="钥匙和房间">
-                钥匙和房间 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
