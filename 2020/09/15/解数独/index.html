@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，557.  Reverse Words In a String III">
+  <meta name="description" content="LeetCode每日一题，37.  Sudoku Solver">
 <meta property="og:type" content="article">
-<meta property="og:title" content="反转字符串中的单词">
-<meta property="og:url" content="http://yoursite.com/2020/08/30/反转字符串中的单词/index.html">
+<meta property="og:title" content="解数独">
+<meta property="og:url" content="http://yoursite.com/2020/09/15/解数独/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，557.  Reverse Words In a String III">
+<meta property="og:description" content="LeetCode每日一题，37.  Sudoku Solver">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/08/30/dbqudS.png">
-<meta property="og:updated_time" content="2020-08-30T07:44:14.338Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/15/wyuH5q.png">
+<meta property="og:updated_time" content="2020-09-15T05:09:46.035Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="反转字符串中的单词">
-<meta name="twitter:description" content="LeetCode每日一题，557.  Reverse Words In a String III">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/08/30/dbqudS.png">
+<meta name="twitter:title" content="解数独">
+<meta name="twitter:description" content="LeetCode每日一题，37.  Sudoku Solver">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/09/15/wyuH5q.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/08/30/反转字符串中的单词/">
+  <link rel="canonical" href="http://yoursite.com/2020/09/15/解数独/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>反转字符串中的单词 | Morichina</title>
+  <title>解数独 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/30/反转字符串中的单词/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/15/解数独/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">反转字符串中的单词
+          <h1 class="post-title" itemprop="name headline">解数独
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-08-30 15:34:07 / 修改时间：15:44:14" itemprop="dateCreated datePublished" datetime="2020-08-30T15:34:07+08:00">2020-08-30</time>
+              <time title="创建时间：2020-09-15 12:50:19 / 修改时间：13:09:46" itemprop="dateCreated datePublished" datetime="2020-09-15T12:50:19+08:00">2020-09-15</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.4k</span>
+              <span title="本文字数">2.6k</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -456,17 +456,22 @@
       
 
       
-        <p>LeetCode每日一题，557.  Reverse Words In a String III</p>
+        <p>LeetCode每日一题，37.  Sudoku Solver</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/08/30/dbqudS.png" alt></p>
-<p>大意就是给定一个字符串，里面有若干个被空格分开的单词，让我们将单词翻转，但单词顺序和空格不变</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>基本思路就是先将字符串根据空格切割，获得字符串数组，然后遍历里面每个字符串，将每个字符串翻转后添加到 res 后，同时添加一个空格，最后一个单词翻转后不用加空格到 res 后，最后返回 res即可</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">reverseWords</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        String[] ss = s.split(<span class="string">" "</span>);</span><br><span class="line">        StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; ss.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            res.append(<span class="keyword">new</span> StringBuilder(ss[i]).reverse() + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        res.append(<span class="keyword">new</span> StringBuilder(ss[ss.length - <span class="number">1</span>]).reverse());</span><br><span class="line">        <span class="keyword">return</span> res.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>后来看时间击败 94.865% 的代码，发现别人没用 java 内置的函数，使用了几个指针，再一个个遍历字符实现单词翻转，效率更高，下面是代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">reverseWords</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = s.length();</span><br><span class="line">        <span class="keyword">char</span>[] chars = s.toCharArray();</span><br><span class="line">        <span class="keyword">char</span>[] res = <span class="keyword">new</span> <span class="keyword">char</span>[len];</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, mem = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> ptr = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; len &amp;&amp; right &lt; len) &#123;</span><br><span class="line">            <span class="keyword">while</span> (right &lt; len &amp;&amp; chars[right] != <span class="string">' '</span>) &#123;</span><br><span class="line">                right++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = right - <span class="number">1</span>; i &gt;= left; i--) &#123;</span><br><span class="line">                res[ptr++] = chars[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (ptr &lt; len) res[ptr++] = <span class="string">' '</span>;</span><br><span class="line">            left = right + <span class="number">1</span>;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> String.valueOf(res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/09/15/wyuH5q.png" alt></p>
+<p>大意就是实现一个程序，可以解数独题，解必须满足三个要求：1. 数字 1-9 在每一行只可以出现一次; 2. 数字 1-9 在每一列只可以出现一次; 3. 数字 1-9 在以实线分割的 3*3 方格里只可以出现一次</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>回溯</strong></p>
+<p>使用回溯模拟人的思考方式来解决问题</p>
+<ul>
+<li>使用三个布尔数组 rowUsed, colUsed, boxUsed 来记录行列和方格中数字的使用情况，true 表示使用过，false 表示没使用过，例如 rowUsed[0][5] = true，表示第 0 行中，数字 5 已经使用过了；boxUsed[1][0][8] = true，表示第 1 行的第 0 个方格中，数字 8 已经使用过了</li>
+<li>在填充数组前先遍历一遍，将三个布尔数组初始化，表明哪些数字已经使用过了</li>
+<li>尝试去填充数组，只要行，列， 还有 3*3 的方格内 出现已经被使用过的数字，我们就不填充，否则尝试填充</li>
+<li>如果填充失败，那么我们需要回溯。将原来尝试填充的地方改回来</li>
+<li>递归直到数组被填充完成</li>
+</ul>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">solveSudoku</span><span class="params">(<span class="keyword">char</span>[][] board)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 三个布尔数组 表明 行, 列, 还有 3*3 的方格的数字是否被使用过</span></span><br><span class="line">        <span class="keyword">boolean</span>[][] rowUsed = <span class="keyword">new</span> <span class="keyword">boolean</span>[<span class="number">9</span>][<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">boolean</span>[][] colUsed = <span class="keyword">new</span> <span class="keyword">boolean</span>[<span class="number">9</span>][<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">boolean</span>[][][] boxUsed = <span class="keyword">new</span> <span class="keyword">boolean</span>[<span class="number">3</span>][<span class="number">3</span>][<span class="number">10</span>];</span><br><span class="line">        <span class="comment">// 初始化三个布尔数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> row = <span class="number">0</span>; row &lt; board.length; row++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> col = <span class="number">0</span>; col &lt; board[<span class="number">0</span>].length; col++) &#123;</span><br><span class="line">                <span class="keyword">int</span> num = board[row][col] - <span class="string">'0'</span>;</span><br><span class="line">                <span class="keyword">if</span> (num &gt;= <span class="number">1</span> &amp;&amp; num &lt;= <span class="number">9</span>) &#123;</span><br><span class="line">                    rowUsed[row][num] = <span class="keyword">true</span>;</span><br><span class="line">                    colUsed[col][num] = <span class="keyword">true</span>;</span><br><span class="line">                    boxUsed[row / <span class="number">3</span>][col / <span class="number">3</span>][num] = <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 递归尝试填充数组</span></span><br><span class="line">        dfs(<span class="number">0</span>, <span class="number">0</span>, board, rowUsed, colUsed, boxUsed);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> col, <span class="keyword">char</span>[][] board, <span class="keyword">boolean</span>[][] rowUsed, <span class="keyword">boolean</span>[][] colUsed, <span class="keyword">boolean</span>[][][] boxUsed)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 边界校验, 如果已经填充完成, 返回true, 表示一切结束</span></span><br><span class="line">        <span class="keyword">if</span> (col == board[<span class="number">0</span>].length) &#123;</span><br><span class="line">            col = <span class="number">0</span>;</span><br><span class="line">            row += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (row == board.length) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="comment">// 是空则尝试填充, 否则跳过继续尝试填充下一个位置</span></span><br><span class="line">        <span class="keyword">if</span> (board[row][col] == <span class="string">'.'</span>) &#123;</span><br><span class="line">            <span class="comment">// 尝试填充1~9</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> num = <span class="number">1</span>; num &lt;= <span class="number">9</span>; num++) &#123;</span><br><span class="line">                <span class="keyword">boolean</span> canUsed = !(rowUsed[row][num] || colUsed[col][num] || boxUsed[row / <span class="number">3</span>][col / <span class="number">3</span>][num]);</span><br><span class="line">                <span class="keyword">if</span> (canUsed) &#123;</span><br><span class="line">                    board[row][col] = (<span class="keyword">char</span>) (num + <span class="string">'0'</span>);</span><br><span class="line">                    rowUsed[row][num] = <span class="keyword">true</span>;</span><br><span class="line">                    colUsed[col][num] = <span class="keyword">true</span>;</span><br><span class="line">                    boxUsed[row / <span class="number">3</span>][col / <span class="number">3</span>][num] = <span class="keyword">true</span>;</span><br><span class="line">                    <span class="keyword">if</span> (dfs(row, col + <span class="number">1</span>, board, rowUsed, colUsed, boxUsed)) &#123;</span><br><span class="line">                        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    board[row][col] = <span class="string">'.'</span>;</span><br><span class="line">                    rowUsed[row][num] = <span class="keyword">false</span>;</span><br><span class="line">                    colUsed[col][num] = <span class="keyword">false</span>;</span><br><span class="line">                    boxUsed[row / <span class="number">3</span>][col / <span class="number">3</span>][num] = <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> dfs(row, col + <span class="number">1</span>, board, rowUsed, colUsed, boxUsed);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -498,8 +503,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/08/28/机器人能否回到原点/" rel="next" title="机器人能否回到原点">
-                <i class="fa fa-chevron-left"></i> 机器人能否回到原点
+              <a href="/2020/09/14/二叉树的中序遍历/" rel="next" title="二叉树的中序遍历">
+                <i class="fa fa-chevron-left"></i> 二叉树的中序遍历
               </a>
             
           </div>
@@ -507,10 +512,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/08/31/钥匙和房间/" rel="prev" title="钥匙和房间">
-                钥匙和房间 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
