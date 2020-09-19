@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，面试题16.18.Pattern Matching LCCI">
+  <meta name="description" content="LeetCode每日一题，404.  Sum Of Left Leaves">
 <meta property="og:type" content="article">
-<meta property="og:title" content="模式匹配">
-<meta property="og:url" content="http://yoursite.com/2020/06/22/模式匹配/index.html">
+<meta property="og:title" content="左叶子之和">
+<meta property="og:url" content="http://yoursite.com/2020/09/19/左叶子之和/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，面试题16.18.Pattern Matching LCCI">
+<meta property="og:description" content="LeetCode每日一题，404.  Sum Of Left Leaves">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/06/22/NG8lYF.png">
-<meta property="og:updated_time" content="2020-06-22T05:21:30.304Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/19/wItgh9.png">
+<meta property="og:updated_time" content="2020-09-19T10:43:31.525Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="模式匹配">
-<meta name="twitter:description" content="LeetCode每日一题，面试题16.18.Pattern Matching LCCI">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/22/NG8lYF.png">
+<meta name="twitter:title" content="左叶子之和">
+<meta name="twitter:description" content="LeetCode每日一题，404.  Sum Of Left Leaves">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/09/19/wItgh9.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/06/22/模式匹配/">
+  <link rel="canonical" href="http://yoursite.com/2020/09/19/左叶子之和/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>模式匹配 | Morichina</title>
+  <title>左叶子之和 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/22/模式匹配/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/19/左叶子之和/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">模式匹配
+          <h1 class="post-title" itemprop="name headline">左叶子之和
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-06-22 12:51:03 / 修改时间：13:21:30" itemprop="dateCreated datePublished" datetime="2020-06-22T12:51:03+08:00">2020-06-22</time>
+              <time title="创建时间：2020-09-19 16:31:29 / 修改时间：18:43:31" itemprop="dateCreated datePublished" datetime="2020-09-19T16:31:29+08:00">2020-09-19</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2.9k</span>
+              <span title="本文字数">1k</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">3 分钟</span>
+              <span title="阅读时长">1 分钟</span>
             </span>
           
 
@@ -456,16 +456,16 @@
       
 
       
-        <p>LeetCode每日一题，面试题16.18.Pattern Matching LCCI</p>
+        <p>LeetCode每日一题，404.  Sum Of Left Leaves</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/06/22/NG8lYF.png" alt></p>
-<p>这也是道和模式匹配相关的问题</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这道题想出思路来不难，关键点就在于要想到这道题其实就在于给 a, b 分配合适的长度，将长度分配好以后代入待匹配的字符串中进行匹配，若可以匹配，就返回 true，若遍历了所有的长度可能，均无法匹配，就返回 false，在分配长度时要注意，a 的长度可以决定 b 的长度，故分配长度时遍历一次即可。以 例子 1 为例，pattern 中有 2 个 a，2 个 b，value 的长度为 12，故 a 的可选长度范围为 [0, 6]，遍历[0, 6] 发现 对于每个值均有一个整数值 b 与之对应 ，故 a 长度的可选值列表为 [0, 1, 2, 3, 4, 5, 6]，然后将相应的长度一个个代入看能否有满足题目要求的匹配，发现有就返回 true，没有就返回 false。想到这个思路不难，关键就是实现和一些细节方面的东西，例如边界， pattern 长度和 value 长度为 0 的情况等</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">patternMatching</span><span class="params">(String pattern, String value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (pattern.length() == <span class="number">0</span> &amp;&amp; value.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (pattern.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> m = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c: pattern.toCharArray()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">'a'</span>) m++;</span><br><span class="line">            <span class="keyword">else</span> n++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (m * n != <span class="number">0</span> &amp;&amp; value.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (m == <span class="number">0</span> || n == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> len = Math.max(m, n);</span><br><span class="line">            <span class="keyword">if</span> (value.length() % len != <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            len = value.length() / len;</span><br><span class="line">            String pat = value.substring(<span class="number">0</span>, len);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; Math.max(m, n); i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!pat.equals(value.substring(len * i, len * (i + <span class="number">1</span>)))) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        List&lt;Integer&gt; vals = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= value.length()/m; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> ((value.length() - m * i)%n == <span class="number">0</span>) vals.add(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (vals.size() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> val: vals) &#123;</span><br><span class="line">            <span class="keyword">int</span> val2 = (value.length() - m * val) / n;</span><br><span class="line">            <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">            String pre_a = <span class="keyword">null</span>;</span><br><span class="line">            String pre_b = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">char</span> c : pattern.toCharArray()) &#123;</span><br><span class="line">                <span class="keyword">if</span> (c == <span class="string">'a'</span>) &#123;</span><br><span class="line">                    String pat1;</span><br><span class="line">                    <span class="keyword">if</span> (val &gt; <span class="number">0</span>) pat1 = value.substring(count, count + val);</span><br><span class="line">                    <span class="keyword">else</span> pat1 = <span class="string">""</span>;</span><br><span class="line">                    <span class="keyword">if</span> (pre_a != <span class="keyword">null</span> &amp;&amp; !pat1.equals(pre_a)) &#123;</span><br><span class="line">                        flag = <span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    pre_a = pat1;</span><br><span class="line">                    count += val;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    String pat2;</span><br><span class="line">                    <span class="keyword">if</span> (val2 &gt; <span class="number">0</span>) pat2 = value.substring(count, count + val2);</span><br><span class="line">                    <span class="keyword">else</span> pat2 = <span class="string">""</span>;</span><br><span class="line">                    <span class="keyword">if</span> (pre_b != <span class="keyword">null</span> &amp;&amp; !pat2.equals(pre_b)) &#123;</span><br><span class="line">                        flag = <span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    pre_b = pat2;</span><br><span class="line">                    count += val2;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (flag == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/09/19/wItgh9.png" alt></p>
+<p>大意就是给定一颗二叉树，让我们返回二叉树里所有的左叶子节点的和</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这题很简单，从上往下使用递归计算就可以</p>
+<p><strong>以 root 为根的二叉树中所有的左叶子节点的和等于其左子树中所有的左叶子节点之和加上其右子树中所有的左叶子节点之和</strong>，为了实现要求，我们定义一个方法 dfs(root, flag)来实现该功能，当 root为空时，直接返回 0；若 root 为叶子节点时，不能直接返回其值，因为题目要的是左叶子节点，所以添加一个标志位 flag 标识该节点是其父节点的左子节点还是右子节点，用 flag = 1 表示为左子节点，flag = 0 表示为右子节点。所以若 root 为叶子节点且 flag = 1 时，则直接返回其值；若 root 为叶子节点且 flag = 0 时，则直接返回 0；若不是上述三种情况之一，则返回 dfs(root.left, 1) + dfs(root.right, 0)</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sumOfLeftLeaves</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> dfs(root, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">dfs</span><span class="params">(TreeNode root, <span class="keyword">int</span> flag)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (flag == <span class="number">1</span> &amp;&amp; root.left == <span class="keyword">null</span> &amp;&amp; root.right == <span class="keyword">null</span>) <span class="keyword">return</span> root.val;</span><br><span class="line">        <span class="keyword">return</span> dfs(root.left, <span class="number">1</span>) + dfs(root.right, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>有一个要注意的点是，比较字符串的值要用 equals() 方法，不能用 ==，因为字符串是引用型数据，== 会比较字符串的地址，equals 才是只比较字符串的值，这个需要注意</p>
 
       
     </div>
@@ -496,8 +496,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/21/二叉树中的最大路径和/" rel="next" title="二叉树中的最大路径和">
-                <i class="fa fa-chevron-left"></i> 二叉树中的最大路径和
+              <a href="/2020/09/16/翻转二叉树/" rel="next" title="翻转二叉树">
+                <i class="fa fa-chevron-left"></i> 翻转二叉树
               </a>
             
           </div>
@@ -505,10 +505,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/23/二进制求和/" rel="prev" title="二进制求和">
-                二进制求和 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
