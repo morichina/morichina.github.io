@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，5. Longest Palindromic Substring">
+  <meta name="description" content="LeetCode每日一题，538.  Convert BST to Greater Tree">
 <meta property="og:type" content="article">
-<meta property="og:title" content="最长回文子串">
-<meta property="og:url" content="http://yoursite.com/2020/09/14/最长回文子串/index.html">
+<meta property="og:title" content="把二叉搜索树转换为累加树">
+<meta property="og:url" content="http://yoursite.com/2020/09/21/把二叉搜索树转换为累加树/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，5. Longest Palindromic Substring">
+<meta property="og:description" content="LeetCode每日一题，538.  Convert BST to Greater Tree">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/14/wrxJOg.png">
-<meta property="og:updated_time" content="2020-09-14T14:07:18.300Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/21/wqYCi8.png">
+<meta property="og:updated_time" content="2020-09-21T14:44:38.696Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="最长回文子串">
-<meta name="twitter:description" content="LeetCode每日一题，5. Longest Palindromic Substring">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/09/14/wrxJOg.png">
+<meta name="twitter:title" content="把二叉搜索树转换为累加树">
+<meta name="twitter:description" content="LeetCode每日一题，538.  Convert BST to Greater Tree">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/09/21/wqYCi8.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/09/14/最长回文子串/">
+  <link rel="canonical" href="http://yoursite.com/2020/09/21/把二叉搜索树转换为累加树/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>最长回文子串 | Morichina</title>
+  <title>把二叉搜索树转换为累加树 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/14/最长回文子串/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/21/把二叉搜索树转换为累加树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">最长回文子串
+          <h1 class="post-title" itemprop="name headline">把二叉搜索树转换为累加树
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-09-14 21:15:57 / 修改时间：22:07:18" itemprop="dateCreated datePublished" datetime="2020-09-14T21:15:57+08:00">2020-09-14</time>
+              <time title="创建时间：2020-09-21 22:31:07 / 修改时间：22:44:38" itemprop="dateCreated datePublished" datetime="2020-09-21T22:31:07+08:00">2020-09-21</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.4k</span>
+              <span title="本文字数">784</span>
             </span>
           
 
@@ -456,26 +456,14 @@
       
 
       
-        <p>LeetCode每日一题，5. Longest Palindromic Substring</p>
+        <p>LeetCode每日一题，538.  Convert BST to Greater Tree</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/09/14/wrxJOg.png" alt></p>
-<p>大意就是给定一个字符串，返回其中的最长回文子串</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这题一开始只想到了暴力解法，觉得这个方法肯定不好。后面就去看题解，发现可以用动态规划优化</p>
-<p><strong>动态规划</strong></p>
-<ul>
-<li>dp[i][j] 表示字符串的子串 s[i, j](左闭右闭) 是否是回文子串，若为 true，则是回文子串; 否则不是</li>
-<li>状态转移方程:<ul>
-<li>若 i - j &lt;= 2，dp[i][j] = s[i] == s[j]</li>
-<li>否则，dp[i][j] = (s[i] == s[j]) &amp;&amp; dp[i + 1][j - 1]</li>
-</ul>
-</li>
-</ul>
-<p>初始化时，单个字符一定是回文串，因此将 dp[i][i] 置为 true</p>
-<p>一旦 dp[i][j] = true，则计算其长度，若长度大于当前维护的最大长度，则更新最大长度，并记录其起始位置，最后根据记录的最大长度和起始位置返回子串即可</p>
-<p><strong>注意：由于需要先得到小子串的回文判定，然后大子串才能参考小子串的判断结果，所以填表顺序很重要</strong></p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = s.length();</span><br><span class="line">        <span class="keyword">if</span> (len == <span class="number">0</span> || len == <span class="number">1</span>) <span class="keyword">return</span> s;</span><br><span class="line">        <span class="keyword">boolean</span>[][] dp = <span class="keyword">new</span> <span class="keyword">boolean</span>[len][len];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            dp[i][i] = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> max_len = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> begin = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; len; j++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i= <span class="number">0</span>; i &lt; j; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> ((j - i) &lt;= <span class="number">2</span> &amp;&amp; s.charAt(i) == s.charAt(j)) dp[i][j] = <span class="keyword">true</span>;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    dp[i][j] = s.charAt(i) == s.charAt(j) &amp;&amp; dp[i + <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (dp[i][j] &amp;&amp; (j - i + <span class="number">1</span>) &gt; max_len) &#123;</span><br><span class="line">                    max_len = j - i + <span class="number">1</span>;</span><br><span class="line">                    begin = i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.substring(begin, begin + max_len);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/09/21/wqYCi8.png" alt></p>
+<p>大意就是给定一棵二叉搜索树，转化为累加树，并将其返回</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>大致思路就是实现一个反向中序遍历，即 右根左 的遍历，然后在遍历过程中用一个变量 temp 记录上一个比它大的节点的累加值，然后对当前遍历的节点 root 执行 root.val = root.val + temp，temp = root.val，就这样在反向中序遍历的过程中，一直对遍历的节点进行上述操作，最后返回最开始的根节点，就将转化的累加树返回了</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">convertBST</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        dfs(root);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">        dfs(root.right);</span><br><span class="line">        root.val += temp;</span><br><span class="line">        temp = root.val;</span><br><span class="line">        dfs(root.left);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -507,8 +495,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/09/13/单词搜索/" rel="next" title="单词搜索">
-                <i class="fa fa-chevron-left"></i> 单词搜索
+              <a href="/2020/09/20/子集/" rel="next" title="子集">
+                <i class="fa fa-chevron-left"></i> 子集
               </a>
             
           </div>
@@ -516,10 +504,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/09/14/二叉树的中序遍历/" rel="prev" title="二叉树的中序遍历">
-                二叉树的中序遍历 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
