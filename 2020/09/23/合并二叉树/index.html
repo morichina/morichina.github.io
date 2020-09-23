@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="前段时间在计算机组成原理的专业课中学习到了汉明码的校验过程，不禁回想起之前看到的一道通过小白鼠测试毒试剂的经典面试题，发现这个测试过程实质上就是汉明码的校验过程">
+  <meta name="description" content="LeetCode每日一题，617.  Merge Two Binary Trees">
 <meta property="og:type" content="article">
-<meta property="og:title" content="由通过小白鼠测试毒试剂的面试题联想到汉明码的校验过程">
-<meta property="og:url" content="http://yoursite.com/2019/11/06/由通过小白鼠测试毒试剂的面试题联想到汉明码的校验过程/index.html">
+<meta property="og:title" content="合并二叉树">
+<meta property="og:url" content="http://yoursite.com/2020/09/23/合并二叉树/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="前段时间在计算机组成原理的专业课中学习到了汉明码的校验过程，不禁回想起之前看到的一道通过小白鼠测试毒试剂的经典面试题，发现这个测试过程实质上就是汉明码的校验过程">
+<meta property="og:description" content="LeetCode每日一题，617.  Merge Two Binary Trees">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s2.ax1x.com/2019/11/06/MimffI.png">
-<meta property="og:updated_time" content="2019-11-06T12:34:56.827Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/23/wjiBlT.png">
+<meta property="og:updated_time" content="2020-09-23T02:19:08.860Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="由通过小白鼠测试毒试剂的面试题联想到汉明码的校验过程">
-<meta name="twitter:description" content="前段时间在计算机组成原理的专业课中学习到了汉明码的校验过程，不禁回想起之前看到的一道通过小白鼠测试毒试剂的经典面试题，发现这个测试过程实质上就是汉明码的校验过程">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/11/06/MimffI.png">
+<meta name="twitter:title" content="合并二叉树">
+<meta name="twitter:description" content="LeetCode每日一题，617.  Merge Two Binary Trees">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/09/23/wjiBlT.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/11/06/由通过小白鼠测试毒试剂的面试题联想到汉明码的校验过程/">
+  <link rel="canonical" href="http://yoursite.com/2020/09/23/合并二叉树/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>由通过小白鼠测试毒试剂的面试题联想到汉明码的校验过程 | Morichina</title>
+  <title>合并二叉树 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/06/由通过小白鼠测试毒试剂的面试题联想到汉明码的校验过程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/23/合并二叉树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">由通过小白鼠测试毒试剂的面试题联想到汉明码的校验过程
+          <h1 class="post-title" itemprop="name headline">合并二叉树
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2019-11-06 18:56:46 / 修改时间：20:34:56" itemprop="dateCreated datePublished" datetime="2019-11-06T18:56:46+08:00">2019-11-06</time>
+              <time title="创建时间：2020-09-23 10:04:13 / 修改时间：10:19:08" itemprop="dateCreated datePublished" datetime="2020-09-23T10:04:13+08:00">2020-09-23</time>
             </span>
           
 
@@ -456,43 +456,18 @@
       
 
       
-        <p>前段时间在计算机组成原理的专业课中学习到了汉明码的校验过程，不禁回想起之前看到的一道通过小白鼠测试毒试剂的经典面试题，发现这个测试过程实质上就是汉明码的校验过程</p>
+        <p>LeetCode每日一题，617.  Merge Two Binary Trees</p>
 <a id="more"></a>
 
-<h2 id="面试题：8个试剂，其中一个有毒，有三只小白鼠，每个试剂发作需要十二小时，问最短需要多少时间能找出有毒的试剂"><a href="#面试题：8个试剂，其中一个有毒，有三只小白鼠，每个试剂发作需要十二小时，问最短需要多少时间能找出有毒的试剂" class="headerlink" title="面试题：8个试剂，其中一个有毒，有三只小白鼠，每个试剂发作需要十二小时，问最短需要多少时间能找出有毒的试剂"></a>面试题：8个试剂，其中一个有毒，有三只小白鼠，每个试剂发作需要十二小时，问最短需要多少时间能找出有毒的试剂</h2><p>解法：</p>
-<p>3只小鼠能组成8种状态</p>
-<ul>
-<li><p>第一只喂食【1、3、5、7】四支试剂</p>
-</li>
-<li><p>第二只喂食【2、3、6、7】四支试剂</p>
-</li>
-<li><p>第三只喂食【4、5、6、7】四支试剂</p>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># [3、2、1]</span></span><br><span class="line"><span class="number">0</span> <span class="number">0</span> <span class="number">1</span> = <span class="number">1</span>  <span class="comment"># 2、3没死，1死了，说明第1支试剂有毒</span></span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">0</span> = <span class="number">2</span>  <span class="comment"># 1、3没死，2死了，说明第2支试剂有毒</span></span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">1</span> = <span class="number">3</span>  <span class="comment"># 3没死，1、2死了，说明第3支试剂有毒</span></span><br><span class="line"><span class="number">1</span> <span class="number">0</span> <span class="number">0</span> = <span class="number">4</span>  <span class="comment"># 1、2没死，3死了，说明第4支试剂有毒</span></span><br><span class="line"><span class="number">1</span> <span class="number">0</span> <span class="number">1</span> = <span class="number">5</span>  <span class="comment"># 2没死，1、3死了，说明第5支试剂有毒</span></span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">0</span> = <span class="number">6</span>  <span class="comment"># 1没死，2、3死了，说明第6支试剂有毒</span></span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">1</span> = <span class="number">7</span>  <span class="comment"># 三只都死了，说明第7支试剂有毒</span></span><br><span class="line"><span class="number">0</span> <span class="number">0</span> <span class="number">0</span> = <span class="number">0</span>  <span class="comment"># 三只都没死，说明前7支试剂都没毒，第8支试剂有毒</span></span><br></pre></td></tr></table></figure>
+<p>先看题目描述</p>
+<p><img src="https://s1.ax1x.com/2020/09/23/wjiBlT.png" alt></p>
+<p>大意就是将两棵二叉树合并，合并规则是若两节点重复，就将其值相加作为新节点，若有一个为空，则以非空的那个为新节点</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>自己一开始的思路是把 t2 给合并到 t1 上，合并好后将 t1 返回，基本思路就是深度优先遍历两棵二叉树相同位置的各个节点，遍历过程中记录下来父节点，并记录一个标志位表示该节点是父节点的左子节点还是右子节点，若当前 t2 节点为空，则直接返回，因为我们是将 t2 合并到 t1 上；若当前 t1 节点为空，则将当前 t2 节点根据标志位设为父节点的左子节点或右子节点；若均不为空，则将 t2 节点的值加到 t1 节点的值上，然后继续深度优先遍历。</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">mergeTrees</span><span class="params">(TreeNode t1, TreeNode t2)</span> </span>&#123;</span><br><span class="line">        TreeNode root = <span class="keyword">new</span> TreeNode(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span> (t2 == <span class="keyword">null</span>) <span class="keyword">return</span> t1;</span><br><span class="line">        <span class="keyword">if</span> (t1 == <span class="keyword">null</span>) <span class="keyword">return</span> t2;</span><br><span class="line">        dfs(t1, t2, <span class="keyword">null</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> t1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode t1, TreeNode t2, TreeNode preNode, <span class="keyword">int</span> flag)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (t2 == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (t1 == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (flag == <span class="number">0</span>) preNode.left = t2;</span><br><span class="line">            <span class="keyword">if</span> (flag == <span class="number">1</span>) preNode.right = t2;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        t1.val = t1.val  + t2.val;</span><br><span class="line">        dfs(t1.left, t2.left, t1, <span class="number">0</span>);</span><br><span class="line">        dfs(t1.right, t2.right, t1, <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>可以看出十二个小时就可以找出有毒的试剂</p>
-<h1 id="汉明码"><a href="#汉明码" class="headerlink" title="汉明码"></a>汉明码</h1><p>汉明码（Hamming Code），是在电信领域的一种线性调试码，以发明者理查德·卫斯里·汉明的名字命名。汉明码在传输的消息流中插入验证码，当计算机存储或移动数据时，可能会产生数据位错误，以侦测并更正单一比特错误。由于汉明编码简单，它们被广泛应用于内存（RAM）</p>
-<p>汉明码需要几个检测位有个公式: <strong>2<sup>k</sup>≥n+k+1</strong>, 其中k为检测位的个数，n为原始数据的位数</p>
-<p>假设要传输一个4位数据0011，那么我们添加3个检测位即可，它们分别放在第2<sup>0</sup>，2<sup>1</sup>，2<sup>2</sup>即第1，2，4位，如图</p>
-<p><img src="https://s2.ax1x.com/2019/11/06/MimffI.png" alt="MimffI.png"></p>
-<p>那么各检测位C<sub>i</sub>承担的检测任务为</p>
-<p>C<sub>1</sub>检测的g<sub>1</sub>小组包含第1，3，5，7···位，其二进制编码为X…XXX1</p>
-<p>C<sub>2</sub>检测的g<sub>2</sub>小组包含第2，3，6，7···位，其二进制编码为X…XX1X</p>
-<p>C<sub>3</sub>检测的g<sub>3</sub>小组包含第4，5，6，7···位，其二进制编码为X…X1XX</p>
-<p>如果按照配偶原则配置汉明码的话，要保证检测的小组中1的个数为偶数，则有</p>
-<p>C<sub>1 </sub>=3⨁5⨁7=1</p>
-<p>C<sub>2</sub>=3⨁6⨁7=0</p>
-<p>C<sub>3</sub>=5⨁6⨁7=0</p>
-<p>那么得到的7位汉明码则为1000011，若经传输以后数据变为1000001，有1位数据发送改变，可以进行纠错</p>
-<p>D<sub>1 </sub>=1⨁3⨁5⨁7=0</p>
-<p>D<sub>2</sub>=2⨁3⨁6⨁7=1</p>
-<p>D<sub>3</sub>=3⨁5⨁6⨁7=1</p>
-<p>则出错位数为D<sub>3</sub>D<sub>2</sub>D<sub>1</sub>=110=6，则可知道是第6位数据出错，纠错以后可知原始的4位数据应该是0011</p>
-<p>D<sub>3</sub>D<sub>2</sub>D<sub>1</sub>能组成8种状态</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># [3、2、1]</span></span><br><span class="line"><span class="number">0</span> <span class="number">0</span> <span class="number">1</span> = <span class="number">1</span>  <span class="comment"># 第2、3检测小组未出问题，第1个检测小组出现问题，说明汉明码第1位数据出错</span></span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">0</span> = <span class="number">2</span>  <span class="comment"># 第1、3检测小组未出问题，第2个检测小组出现问题，说明汉明码第2位数据出错</span></span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">1</span> = <span class="number">3</span>  <span class="comment"># 第3检测小组未出问题，第1、2个检测小组出现问题，说明汉明码第3位数据出错</span></span><br><span class="line"><span class="number">1</span> <span class="number">0</span> <span class="number">0</span> = <span class="number">4</span>  <span class="comment"># 第1、2检测小组未出问题，第3个检测小组出现问题，说明汉明码第4位数据出错</span></span><br><span class="line"><span class="number">1</span> <span class="number">0</span> <span class="number">1</span> = <span class="number">5</span>  <span class="comment"># 第2检测小组未出问题，第1、3个检测小组出现问题，说明汉明码第5位数据出错</span></span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">0</span> = <span class="number">6</span>  <span class="comment"># 第1检测小组未出问题，第2、3个检测小组出现问题，说明汉明码第6位数据出错</span></span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">1</span> = <span class="number">7</span>  <span class="comment"># 第1、2、3个检测小组都出现问题，说明汉明码第7位数据出错</span></span><br><span class="line"><span class="number">0</span> <span class="number">0</span> <span class="number">0</span> = <span class="number">0</span>  <span class="comment"># 3个检测小组都未出问题，说明传输数据没有出错</span></span><br></pre></td></tr></table></figure>
+<p>后来去看题解，发现题解是创建了棵新的二叉树，作为两棵二叉树的合并，代码更加简洁明了，不过运行效率差不多</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">mergeTrees</span><span class="params">(TreeNode t1, TreeNode t2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (t1 == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> t2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (t2 == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> t1;</span><br><span class="line">        &#125;</span><br><span class="line">        TreeNode merged = <span class="keyword">new</span> TreeNode(t1.val + t2.val);</span><br><span class="line">        merged.left = mergeTrees(t1.left, t2.left);</span><br><span class="line">        merged.right = mergeTrees(t1.right, t2.right);</span><br><span class="line">        <span class="keyword">return</span> merged;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>至此可以看出，这道经典面试题的解答思想和汉明码的校验过程是高度相似的，三只小白鼠喝的试剂分别就是三个检测小组，第一只小白鼠喝的1、3、5、7号试剂，二进制编码就是XX1，第二只小白鼠喝的2、3、6、7号试剂，二进制编码就是X1X，第三只小白鼠喝的4、5、6、7号试剂，二进制编码就是1XX，通过代表三个检测小组的三只小白鼠喝了试剂以后死亡与否来找出是哪个试剂有毒，这个过程实际上与汉明码的校验过程高度相似，思想实际上是相同的</p>
 
       
     </div>
@@ -523,8 +498,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/11/Python格式化字符串f-string的简单实用/" rel="next" title="Python格式化字符串f-string的简单使用">
-                <i class="fa fa-chevron-left"></i> Python格式化字符串f-string的简单使用
+              <a href="/2020/09/22/监控二叉树/" rel="next" title="监控二叉树">
+                <i class="fa fa-chevron-left"></i> 监控二叉树
               </a>
             
           </div>
@@ -532,10 +507,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/06/字符串模式匹配的Sunday算法/" rel="prev" title="字符串模式匹配的Sunday算法">
-                字符串模式匹配的Sunday算法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -674,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面试题：8个试剂，其中一个有毒，有三只小白鼠，每个试剂发作需要十二小时，问最短需要多少时间能找出有毒的试剂"><span class="nav-number">1.</span> <span class="nav-text">面试题：8个试剂，其中一个有毒，有三只小白鼠，每个试剂发作需要十二小时，问最短需要多少时间能找出有毒的试剂</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#汉明码"><span class="nav-number"></span> <span class="nav-text">汉明码</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
