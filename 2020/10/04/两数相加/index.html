@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，167.  Two Sum II - Input array is sorted">
+  <meta name="description" content="LeetCode每日一题，2. Add Two Numbers">
 <meta property="og:type" content="article">
-<meta property="og:title" content="二数之和II-输入有序数组">
-<meta property="og:url" content="http://yoursite.com/2020/07/20/二数之和II-输入有序数组/index.html">
+<meta property="og:title" content="两数相加">
+<meta property="og:url" content="http://yoursite.com/2020/10/04/两数相加/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，167.  Two Sum II - Input array is sorted">
+<meta property="og:description" content="LeetCode每日一题，2. Add Two Numbers">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/07/20/Uf5yHH.png">
-<meta property="og:updated_time" content="2020-07-20T02:32:48.411Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/04/08cy5T.png">
+<meta property="og:updated_time" content="2020-10-04T02:29:22.742Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="二数之和II-输入有序数组">
-<meta name="twitter:description" content="LeetCode每日一题，167.  Two Sum II - Input array is sorted">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/20/Uf5yHH.png">
+<meta name="twitter:title" content="两数相加">
+<meta name="twitter:description" content="LeetCode每日一题，2. Add Two Numbers">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/04/08cy5T.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/07/20/二数之和II-输入有序数组/">
+  <link rel="canonical" href="http://yoursite.com/2020/10/04/两数相加/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>二数之和II-输入有序数组 | Morichina</title>
+  <title>两数相加 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/20/二数之和II-输入有序数组/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/04/两数相加/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">二数之和II-输入有序数组
+          <h1 class="post-title" itemprop="name headline">两数相加
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-07-20 10:15:58 / 修改时间：10:32:48" itemprop="dateCreated datePublished" datetime="2020-07-20T10:15:58+08:00">2020-07-20</time>
+              <time title="创建时间：2020-10-04 10:07:16 / 修改时间：10:29:22" itemprop="dateCreated datePublished" datetime="2020-10-04T10:07:16+08:00">2020-10-04</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.7k</span>
+              <span title="本文字数">2.9k</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">2 分钟</span>
+              <span title="阅读时长">3 分钟</span>
             </span>
           
 
@@ -456,21 +456,19 @@
       
 
       
-        <p>LeetCode每日一题，167.  Two Sum II - Input array is sorted</p>
+        <p>LeetCode每日一题，2. Add Two Numbers</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/07/20/Uf5yHH.png" alt></p>
-<p>大意就是给定一个有序数组和一个目标整数 target，返回其中相加等于 target 的两个数的下标(下标从 1 开始)</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>方法一：二分查找</strong></p>
-<p>因为题目给定的是个有序数组，所以第一反应就是用二分法，思路就是先固定一个数字，然后去寻找第二个数字，第二个数字的值等于 target - 固定的数字，利用数组的有序性，可以用二分查找法来寻找第二个数字，每次只在固定的数字右侧进行二分查找</p>
-<p>实现源码如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> tar = target - numbers[i];</span><br><span class="line">            <span class="keyword">int</span> left = i + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> right = numbers.length - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span>(left &lt;= right) &#123;</span><br><span class="line">                <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">if</span> (numbers[mid] &lt; tar) &#123;</span><br><span class="line">                    left = mid + <span class="number">1</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (numbers[mid] &gt; tar) &#123;</span><br><span class="line">                    right = mid - <span class="number">1</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    res[<span class="number">0</span>] = i + <span class="number">1</span>;</span><br><span class="line">                    res[<span class="number">1</span>] = mid + <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">return</span> res;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/10/04/08cy5T.png" alt></p>
+<p>大意就是有两个用链表逆序存储的数字，让我们返回两数相加之和，和同样用链表逆序存储</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>思路就是模拟人计算的过程就可以，用 l1 来存储最终结果，把 l2 的值加到 l1 上，若 l1 的长度较短，则将 l2 多出来的部分接到链表 l1 后面，并注意对进位进行处理；若 l2 长度较短，则只需注意最后的对进位进行处理即可</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode() &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val) &#123; this.val = val; &#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        ListNode root = l1;</span><br><span class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>;</span><br><span class="line">        ListNode preNode1 = <span class="keyword">null</span>;</span><br><span class="line">        ListNode preNode2 = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span> (l1 != <span class="keyword">null</span> &amp;&amp; l2 != <span class="keyword">null</span>) &#123;</span><br><span class="line">            l1.val = (l1.val + l2.val) % <span class="number">10</span>;</span><br><span class="line">            carry = (l1.val + l2.val + carry) / <span class="number">10</span>;</span><br><span class="line">            preNode1 = l1;</span><br><span class="line">            preNode2 = l2;</span><br><span class="line">            l1 = l1.next;</span><br><span class="line">            l2 = l2.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (l1 == <span class="keyword">null</span> &amp;&amp; l2 == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (carry == <span class="number">1</span>) &#123;</span><br><span class="line">                preNode1.next = <span class="keyword">new</span> ListNode(<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (l1 == <span class="keyword">null</span>) &#123;</span><br><span class="line">            preNode1.next = l2;</span><br><span class="line">            <span class="keyword">while</span> (l2 != <span class="keyword">null</span> &amp;&amp; carry != <span class="number">0</span>) &#123;</span><br><span class="line">                l2.val = (l2.val + carry) % <span class="number">10</span>;</span><br><span class="line">                carry = (l2.val + carry) / <span class="number">10</span>;</span><br><span class="line">                preNode2 = l2;</span><br><span class="line">                l2 = l2.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (l2 == <span class="keyword">null</span> &amp;&amp; carry == <span class="number">1</span>) &#123;</span><br><span class="line">                preNode2.next = <span class="keyword">new</span> ListNode(<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (l1 != <span class="keyword">null</span> &amp;&amp; carry != <span class="number">0</span>) &#123;</span><br><span class="line">                l1.val = (l1.val + carry) % <span class="number">10</span>;</span><br><span class="line">                carry = (l1.val + carry) / <span class="number">10</span>;</span><br><span class="line">                preNode1 = l1;</span><br><span class="line">                l1 = l1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (l1 == <span class="keyword">null</span> &amp;&amp; carry == <span class="number">1</span>) &#123;</span><br><span class="line">                preNode1.next = <span class="keyword">new</span> ListNode(<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>方法二：双指针法</strong></p>
-<p>定义一个 left 指针与一个 right 指针，初值为 0 与  numbers.length - 1，当 nums[left]  + nums[right] &lt; target 时，left 指针右移一位，当 nums[left] + nums[right] &gt; target 时，right 指针左移一位，重复上述过程直至 nums[left]  + nums[right] = target，并将结果返回</p>
-<p>实现源码如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = numbers.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (numbers[right] + numbers[left] &gt; target) right--;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (numbers[right] + numbers[left] &lt; target) left++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;left + <span class="number">1</span>, right + <span class="number">1</span>&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">0</span>, <span class="number">0</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>题解同样是模拟人的计算，但采用了末尾补 0 的方式，效率差不多，但代码更加简洁</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        ListNode head = <span class="keyword">null</span>, tail = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (l1 != <span class="keyword">null</span> || l2 != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> n1 = l1 != <span class="keyword">null</span> ? l1.val : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> n2 = l2 != <span class="keyword">null</span> ? l2.val : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> sum = n1 + n2 + carry;</span><br><span class="line">            <span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</span><br><span class="line">                head = tail = <span class="keyword">new</span> ListNode(sum % <span class="number">10</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                tail.next = <span class="keyword">new</span> ListNode(sum % <span class="number">10</span>);</span><br><span class="line">                tail = tail.next;</span><br><span class="line">            &#125;</span><br><span class="line">            carry = sum / <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">if</span> (l1 != <span class="keyword">null</span>) &#123;</span><br><span class="line">                l1 = l1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (l2 != <span class="keyword">null</span>) &#123;</span><br><span class="line">                l2 = l2.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (carry &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            tail.next = <span class="keyword">new</span> ListNode(carry);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
@@ -500,8 +498,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/18/交错字符串/" rel="next" title="交错字符串">
-                <i class="fa fa-chevron-left"></i> 交错字符串
+              <a href="/2020/10/03/Z字形变换/" rel="next" title="Z字形变换">
+                <i class="fa fa-chevron-left"></i> Z字形变换
               </a>
             
           </div>
@@ -509,10 +507,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/22/旋转数组的最小数/" rel="prev" title="旋转数组的最小数">
-                旋转数组的最小数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -651,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
