@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="LeetCode每日一题，834.  Sum of Distances in Tree">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树中距离之和">
+<meta property="og:url" content="http://yoursite.com/2020/10/06/树中距离之和/index.html">
+<meta property="og:site_name" content="Morichina">
+<meta property="og:description" content="LeetCode每日一题，834.  Sum of Distances in Tree">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/06/0NIquq.png">
+<meta property="og:updated_time" content="2020-10-06T09:10:12.466Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="树中距离之和">
+<meta name="twitter:description" content="LeetCode每日一题，834.  Sum of Distances in Tree">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/06/0NIquq.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2020/10/06/树中距离之和/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>树中距离之和 | Morichina</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Morichina</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">记录自己的学习历程</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">0</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">0</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">118</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/06/树中距离之和/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="邓星鹏">
+      <meta itemprop="description" content="一个成长中的菜鸡">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Morichina">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">树中距离之和
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-10-06 16:29:23 / 修改时间：17:10:12" itemprop="dateCreated datePublished" datetime="2020-10-06T16:29:23+08:00">2020-10-06</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">5.1k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">5 分钟</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>LeetCode每日一题，834.  Sum of Distances in Tree</p>
+<a id="more"></a>
+
+<p>先看题目描述</p>
+<p><img src="https://s1.ax1x.com/2020/10/06/0NIquq.png" alt></p>
+<p>大意就是给定一个无向连通的树，数种有 N 个被标记为 0 … N - 1 的节点以及 N - 1 条边，返回一个表示每个节点与其他所有节点距离之和的列表 ans </p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>树形动态规划</strong></p>
+<p>首先我们来考虑一个节点的情况，即每次题目指定一棵树，以 \textit{root}root 为根，询问节点 \textit{root}root 与其他所有节点的距离之和。</p>
+<p>很容易想到一个树形动态规划：定义 dp[u] 表示以 u 为根的子树，它的所有子节点到它的距离之和，同时定义 sz[u] 表示以 u 为根的子树的节点数量，不难得出如下的转移方程：</p>
+<pre><code>$$dp[u] = \sum_{v∈son[u]}(dp[v] + sz[v])$$</code></pre><p>其中 son[u] 表示 uu 的所有后代节点集合。转移方程表示的含义就是考虑每个后代节点 v，已知 v 的所有子节点到它的距离之和为 dp[v]，那么这些节点到 u 的距离之和还要考虑 u→v 这条边的贡献。考虑这条边长度为 1，一共有 sz[v] 个节点到节点 u 的距离会包含这条边，因此贡献即为 $1 × sz[v] = sz[v]$。我们遍历整棵树，从叶子节点开始自底向上递推到根节点 root 即能得出最后的答案为 dp[root]</p>
+<p>经过一次树形动态规划后其实我们获得了在 u<em>u</em> 为根的树中，每个节点为根的子树的答案 \textit{dp}<em>dp</em>，我们可以利用这些已有信息来优化时间复杂度。</p>
+<p>假设 u 的某个后代节点为 v，如果要算 v 的答案，本来我们要以 v 为根来进行一次树形动态规划。但是利用已有的信息，我们可以考虑树的形态做一次改变，让 v 换到根的位置，u 变为其孩子节点，同时维护原有的 dp 信息。在这一次的转变中，我们观察到除了 u 和 v 的 dp 值，其他节点的 dp 值都不会改变，因此只要更新 dp[u] 和 dp[v] 的值即可。</p>
+<p>那么我们来看 v 换到根的位置的时候怎么利用已有信息求出 dp[u] 和 dp[v] 的值。重新回顾第一次树形动态规划的转移方程，我们可以知道当 u 变为 v 的孩子的时候 v 不在 u 的后代集合 son[u] 中了，因此此时 dp[u] 需要减去 v 的贡献，同时 sz[u] 也要相应减去 sz[v]，即</p>
+<p>​                                                    $$dp[u] = dp[u] - (dp[v] + sz[v])$$</p>
+<p>​                                                    $$sz[u] = sz[u] - sz[v]$$</p>
+<p>而 v 的后代节点集合中多出了 u，因此 dp[v] 的值要由 u 更新上来，同时 sz[v] 也要相应加上 sz[u]，即</p>
+<p>​                                                    $$dp[v] = dp[v] + (dp[u] + sz[u])$$</p>
+<p>​                                                    $$sz[v] = sz[v] + sz[u]$$</p>
+<p>至此我们完成了一次换根操作，在 O(1) 的时间内维护了 dp 的信息，且此时的树结构以 v 为根。那么接下来我们不断地进行换根的操作，即能在 O(N) 的时间内求出每个节点为根的答案</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p>在换根的过程中，我们是要对根节点的每一个子节点进行换根，但我们实际上对每个节点维护的邻居节点里，除了子节点以外，是还包含一个父节点的，所以在遍历邻居节点进行换根操作时，父节点是要跳过的。两种方法都可以实现这个，一种是维护一个布尔数组 visited 来记录哪些节点已经访问过，即执行过换根操作；另一种是在深度优先遍历树的过程中，记录下当前节点的父节点，遍历邻居节点时遇见父节点就跳过，第二种的效率略优于第一种</p>
+<p><strong>第一种</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;List&lt;Integer&gt;&gt; graph = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] dp;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] sz;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] ans;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span>[] visited;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sumOfDistancesInTree(<span class="keyword">int</span> N, <span class="keyword">int</span>[][] edges) &#123;</span><br><span class="line">        dp = <span class="keyword">new</span> <span class="keyword">int</span>[N];</span><br><span class="line">        sz = <span class="keyword">new</span> <span class="keyword">int</span>[N];</span><br><span class="line">        ans = <span class="keyword">new</span> <span class="keyword">int</span>[N];</span><br><span class="line">        visited = <span class="keyword">new</span> <span class="keyword">boolean</span>[N];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">            graph.add(<span class="keyword">new</span> ArrayList&lt;&gt;());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] edge: edges) &#123;</span><br><span class="line">            graph.get(edge[<span class="number">0</span>]).add(edge[<span class="number">1</span>]);</span><br><span class="line">            graph.get(edge[<span class="number">1</span>]).add(edge[<span class="number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        dfs1(<span class="number">0</span>);</span><br><span class="line">        visited = <span class="keyword">new</span> <span class="keyword">boolean</span>[N];</span><br><span class="line">        dfs2(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        visited[index] = <span class="keyword">true</span>;</span><br><span class="line">        dp[index] = <span class="number">0</span>;</span><br><span class="line">        sz[index] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> node: graph.get(index)) &#123;</span><br><span class="line">            <span class="keyword">if</span> (visited[node]) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            dfs1(node);</span><br><span class="line">            dp[index] += dp[node] + sz[node];</span><br><span class="line">            sz[index] += sz[node];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs2</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        ans[index] = dp[index];</span><br><span class="line">        visited[index] = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> node: graph.get(index)) &#123;</span><br><span class="line">            <span class="keyword">if</span> (visited[node]) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> pu = dp[index];</span><br><span class="line">            <span class="keyword">int</span> su = sz[index];</span><br><span class="line">            <span class="keyword">int</span> pv = dp[node];</span><br><span class="line">            <span class="keyword">int</span> sv = sz[node];</span><br><span class="line">            dp[index] -= dp[node] + sz[node];</span><br><span class="line">            sz[index] -= sz[node];</span><br><span class="line">            dp[node] += dp[index] + sz[index];</span><br><span class="line">            sz[node] += sz[index];</span><br><span class="line">            dfs2(node);</span><br><span class="line">            dp[index] = pu;</span><br><span class="line">            sz[index] = su;</span><br><span class="line">            dp[node] = pv;</span><br><span class="line">            sz[node] = sv;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>第二种</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] ans;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] sz;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] dp;</span><br><span class="line">    <span class="keyword">private</span> List&lt;List&lt;Integer&gt;&gt; graph = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sumOfDistancesInTree(<span class="keyword">int</span> N, <span class="keyword">int</span>[][] edges) &#123;</span><br><span class="line">        dp = <span class="keyword">new</span> <span class="keyword">int</span>[N];</span><br><span class="line">        sz = <span class="keyword">new</span> <span class="keyword">int</span>[N];</span><br><span class="line">        ans = <span class="keyword">new</span> <span class="keyword">int</span>[N];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">            graph.add(<span class="keyword">new</span> ArrayList&lt;&gt;());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] edge: edges) &#123;</span><br><span class="line">            graph.get(edge[<span class="number">0</span>]).add(edge[<span class="number">1</span>]);</span><br><span class="line">            graph.get(edge[<span class="number">1</span>]).add(edge[<span class="number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        dfs1(<span class="number">0</span>, -<span class="number">1</span>);</span><br><span class="line">        dfs2(<span class="number">0</span>, -<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(<span class="keyword">int</span> index, <span class="keyword">int</span> pre)</span> </span>&#123;</span><br><span class="line">        dp[index] = <span class="number">0</span>;</span><br><span class="line">        sz[index] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> node: graph.get(index)) &#123;</span><br><span class="line">            <span class="keyword">if</span> (node == pre) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            dfs1(node, index);</span><br><span class="line">            dp[index] += dp[node] + sz[node];</span><br><span class="line">            sz[index] += sz[node];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs2</span><span class="params">(<span class="keyword">int</span> index, <span class="keyword">int</span> pre)</span> </span>&#123;</span><br><span class="line">        ans[index] = dp[index];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> node: graph.get(index)) &#123;</span><br><span class="line">            <span class="keyword">if</span> (node == pre) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> pu = dp[index];</span><br><span class="line">            <span class="keyword">int</span> su = sz[index];</span><br><span class="line">            <span class="keyword">int</span> pv = dp[node];</span><br><span class="line">            <span class="keyword">int</span> sv = sz[node];</span><br><span class="line">            dp[index] -= dp[node] + sz[node];</span><br><span class="line">            sz[index] -= sz[node];</span><br><span class="line">            dp[node] += dp[index] + sz[index];</span><br><span class="line">            sz[node] += sz[index];</span><br><span class="line">            dfs2(node, index);</span><br><span class="line">            dp[index] = pu;</span><br><span class="line">            sz[index] = su;</span><br><span class="line">            dp[node] = pv;</span><br><span class="line">            sz[node] = sv;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/10/05/四数之和/" rel="next" title="四数之和">
+                <i class="fa fa-chevron-left"></i> 四数之和
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/author.png" alt="邓星鹏">
+            
+              <p class="site-author-name" itemprop="name">邓星鹏</p>
+              <div class="site-description motion-element" itemprop="description">一个成长中的菜鸡</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">118</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/morichina" title="GitHub &rarr; https://github.com/morichina" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:morichina00@gmail.com" title="E-Mail &rarr; mailto:morichina00@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">邓星鹏</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">215k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">3:15</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="200" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/reading_progress/reading_progress.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      const selection = document.getSelection();
+      const selected = selection.rangeCount > 0 ? selection.getRangeAt(0) : false;
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+      if (selected) {
+        selection.removeAllRanges();
+        selection.addRange(selected);
+      }
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/clicklove.js"></script>
+
+</body>
+</html>
