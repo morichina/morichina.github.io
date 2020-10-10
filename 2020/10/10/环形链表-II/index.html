@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，1.  Two Sum">
+  <meta name="description" content="LeetCode每日一题，142.  环形链表 II">
 <meta property="og:type" content="article">
-<meta property="og:title" content="两数之和">
-<meta property="og:url" content="http://yoursite.com/2020/10/03/两数之和/index.html">
+<meta property="og:title" content="环形链表 II">
+<meta property="og:url" content="http://yoursite.com/2020/10/10/环形链表-II/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，1.  Two Sum">
+<meta property="og:description" content="LeetCode每日一题，142.  环形链表 II">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/10/03/01r79A.png">
-<meta property="og:updated_time" content="2020-10-03T02:10:19.730Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/10/0sQfsA.png">
+<meta property="og:updated_time" content="2020-10-10T01:37:07.472Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="两数之和">
-<meta name="twitter:description" content="LeetCode每日一题，1.  Two Sum">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/03/01r79A.png">
+<meta name="twitter:title" content="环形链表 II">
+<meta name="twitter:description" content="LeetCode每日一题，142.  环形链表 II">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/10/0sQfsA.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/10/03/两数之和/">
+  <link rel="canonical" href="http://yoursite.com/2020/10/10/环形链表-II/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>两数之和 | Morichina</title>
+  <title>环形链表 II | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/03/两数之和/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/10/环形链表-II/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">两数之和
+          <h1 class="post-title" itemprop="name headline">环形链表 II
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-10-03 09:51:19 / 修改时间：10:10:19" itemprop="dateCreated datePublished" datetime="2020-10-03T09:51:19+08:00">2020-10-03</time>
+              <time title="创建时间：2020-10-10 09:06:43 / 修改时间：09:37:07" itemprop="dateCreated datePublished" datetime="2020-10-10T09:06:43+08:00">2020-10-10</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">761</span>
+              <span title="本文字数">1.7k</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -456,20 +456,42 @@
       
 
       
-        <p>LeetCode每日一题，1.  Two Sum</p>
+        <p>LeetCode每日一题，142.  环形链表 II</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/10/03/01r79A.png" alt></p>
-<p>大意就是给定一个整数数组 nums 和一个目标数 target，让我们返回 nums 中相加等于 target 的两个数的下标</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>哈希表</strong></p>
-<p>思路就是使用哈希表，遍历一次 nums 数组即可</p>
-<p>每遍历到一个数字 num 时，进行判断：</p>
-<ul>
-<li>若哈希表的 key 中存在 num，则直接将该 key 值对应的 value 和这个 num 对应的下标返回</li>
-<li>否则，则计算 tar = target - num，将 tar 与 num 对应的下标存入哈希表中</li>
+<p><img src="https://s1.ax1x.com/2020/10/10/0sQfsA.png" alt></p>
+<p>大意就是给定一个链表，若链表中有环，就让我们返回环的起点；否则，就返回空</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这类链表题目一般使用双指针解决</p>
+<p><strong>算法流程</strong></p>
+<ol>
+<li>双指针第一次相遇：设两指针 fast 和 slow 指向 head，fast 每轮走两步，slow 每轮走一步<ol>
+<li>第一种结果：fast 指针走过链表末端，说明无环，返回 null</li>
+<li>第二种结果：当 fast == slow 时，两指针第一次在环中相遇，下面分析 fast 和 slow 走过的步数的关系<ul>
+<li>设链表共有 a+b 个节点，其中 链表头部到链表环的入口 有 a 个节点（不计链表入口节点）， 链表环 有 b 个节点；设两指针分别走了 f，s 步，则有：<ol>
+<li>fast 走的步数是 slow 的两倍，f = 2s</li>
+<li>fast 比 slow 多走了 n 个环的长度，即 f = s +nb</li>
+</ol>
+</li>
+<li>两式相减得 f = 2nb，s = nb，即 f 和 s 分别走了 2n，n 个环的周长</li>
 </ul>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        HashMap&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> num = nums[i];</span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(num)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;map.get(num), i&#125;;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> tar = target - num;</span><br><span class="line">            map.put(tar, i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li>目前情况分析<ul>
+<li>如果让指针从链表头部一直向前走并统计步数 k，那么所有走到链表环的入口节点时的步数是：k=a+nb（先走 a 步到入口节点，之后每绕 1 圈环（ b 步）都会再次到入口节点）</li>
+<li>而目前，slow 指针走过的步数为 nb 步。因此，我们只要想办法让 slow 再走 a 步停下来，就可以到环的入口</li>
+<li>但是我们不知道 a 的值，该怎么办？依然是使用双指针法。我们构建一个指针，此指针需要有以下性质：此指针和 slow 一起向前走 a 步后，两者在链表环的入口节点相遇。那么从哪里走到链表环的入口节点需要 a 步？答案是链表头部head</li>
+</ul>
+</li>
+<li>双指针第二次相遇：<ul>
+<li>slow 指针位置不变 ，将 fast 指针重新 指向链表头部节点 head；slow 和 fast 同时每轮向前走 1 步</li>
+<li>当 fast 指针走到 f = a 步时，slow 指针走到 s = a + nb 步；此时两指针重合，并同时指向链表环入口</li>
+</ul>
+</li>
+<li>返回 slow 指针指向节点</li>
+</ol>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123;</span></span><br><span class="line"><span class="comment"> *         val = x;</span></span><br><span class="line"><span class="comment"> *         next = null;</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">detectCycle</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        ListNode slow = head;</span><br><span class="line">        ListNode fast = head;</span><br><span class="line">        <span class="keyword">while</span> (fast != <span class="keyword">null</span>) &#123;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            fast = fast.next;</span><br><span class="line">            <span class="keyword">if</span> (fast == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            fast = fast.next;</span><br><span class="line">            <span class="keyword">if</span> (slow == fast) &#123;</span><br><span class="line">                fast = head;</span><br><span class="line">                <span class="keyword">while</span> (slow != fast) &#123;</span><br><span class="line">                    slow = slow.next;</span><br><span class="line">                    fast = fast.next;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> slow;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -501,8 +523,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/10/02/宝石与石头/" rel="next" title="宝石与石头">
-                <i class="fa fa-chevron-left"></i> 宝石与石头
+              <a href="/2020/10/09/环形链表/" rel="next" title="环形链表">
+                <i class="fa fa-chevron-left"></i> 环形链表
               </a>
             
           </div>
@@ -510,10 +532,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/10/03/Z字形变换/" rel="prev" title="Z字形变换">
-                Z字形变换 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
