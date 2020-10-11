@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，226.  Invert Binary Tree">
+  <meta name="description" content="LeetCode每日一题，416.  Partition Equal Subset Sum">
 <meta property="og:type" content="article">
-<meta property="og:title" content="翻转二叉树">
-<meta property="og:url" content="http://yoursite.com/2020/09/16/翻转二叉树/index.html">
+<meta property="og:title" content="分割等和子集">
+<meta property="og:url" content="http://yoursite.com/2020/10/11/分割等和子集/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，226.  Invert Binary Tree">
+<meta property="og:description" content="LeetCode每日一题，416.  Partition Equal Subset Sum">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/16/w2288H.png">
-<meta property="og:updated_time" content="2020-09-16T14:18:21.072Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/11/0gJqOK.png">
+<meta property="og:updated_time" content="2020-10-11T13:10:42.499Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="翻转二叉树">
-<meta name="twitter:description" content="LeetCode每日一题，226.  Invert Binary Tree">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/09/16/w2288H.png">
+<meta name="twitter:title" content="分割等和子集">
+<meta name="twitter:description" content="LeetCode每日一题，416.  Partition Equal Subset Sum">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/11/0gJqOK.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/09/16/翻转二叉树/">
+  <link rel="canonical" href="http://yoursite.com/2020/10/11/分割等和子集/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>翻转二叉树 | Morichina</title>
+  <title>分割等和子集 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/16/翻转二叉树/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/11/分割等和子集/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">翻转二叉树
+          <h1 class="post-title" itemprop="name headline">分割等和子集
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-09-16 22:06:49 / 修改时间：22:18:21" itemprop="dateCreated datePublished" datetime="2020-09-16T22:06:49+08:00">2020-09-16</time>
+              <time title="创建时间：2020-10-11 16:40:08 / 修改时间：21:10:42" itemprop="dateCreated datePublished" datetime="2020-10-11T16:40:08+08:00">2020-10-11</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">752</span>
+              <span title="本文字数">3.4k</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">3 分钟</span>
             </span>
           
 
@@ -456,14 +456,38 @@
       
 
       
-        <p>LeetCode每日一题，226.  Invert Binary Tree</p>
+        <p>LeetCode每日一题，416.  Partition Equal Subset Sum</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/09/16/w2288H.png" alt></p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>递归</strong></p>
-<p>这道题很简单，我们只需要从根节点开始，递归的对树进行遍历，并从叶子节点开始从下往上进行翻转即可。如果当前遍历到的节点 root 的左右两棵子树都已经翻转，那么我们只需要交换两棵子树的位置，即可完成以 root 为根节点的整棵子树的翻转</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">invertTree</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        dfs(root);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        dfs(root.left);</span><br><span class="line">        dfs(root.right);</span><br><span class="line">        TreeNode temp = root.right;</span><br><span class="line">        root.right = root.left;</span><br><span class="line">        root.left = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/10/11/0gJqOK.png" alt></p>
+<p>题目大意就是给定一个只包含正整数的非空数组，让我们判断是否可以将这个非空数组分割成两个子集</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>动态规划</strong></p>
+<p>一开始看到这题没有头绪，然后去看题解，发现这题可以转化为「0-1 背包问题」使用动态规划解决</p>
+<p>算法流程：</p>
+<ul>
+<li>状态定义：dp[i][j] 表示从数组的[i, …, len - 1] 区间挑选一些正整数，能否使这些数的和恰好等于 j。能的话 dp[i][j] = true；否则为 false</li>
+<li>状态转移方程：很多时候，状态转移方程思考的角度是分类讨论，对于「0-1 背包问题」而言就是「当前考虑到的数字选与不选」<ul>
+<li>不选择 nums[i] 的话，dp[i][j] = dp[i + 1][j]</li>
+<li>选择 nums[i] 的话，dp[i][j] = dp[i + 1][j - nums[i]]</li>
+</ul>
+</li>
+<li>故状态转移方程为 $dp[i][j] = dp[i + 1][j]\quad or \quad dp[i + 1][j - nums[i]]$</li>
+<li>考虑初始化条件：<ul>
+<li>j - nums[i] 作为数组下标，故必须保证 $j \geq nums[i]$</li>
+<li>虽然 i 的范围是从 0 到 len - 1，但考虑到状态转移方程，要用到下一行的状态，我们定义 dp 数组的行数为 len + 1，并初始化 dp[len][0] = true，用于刚开始的状态转移</li>
+</ul>
+</li>
+<li>返回 dp[0][target]，其中 target 为数组元素之和除 2（若数组元素之和不能被 2 整除，则直接返回 false)</li>
+</ul>
+<p><strong>优化</strong></p>
+<p>我们之前定义的 dp 数组的行数是 len + 1，列数为 target + 1，但我们观察状态方程，可以发现某一行的状态只与其下一行有关，那么我们没必要维护一个 len + 1 行的 dp 数组，可以只维护一个 2 行的 dp 数组，这样可以节省空间</p>
+<p><strong>题解中虽然也是使用的动态规划，但状态的定义不太一样，题解中 dp[i][j] 表示的是从从数组的 [0, …, i] 区间挑选一些正整数，能否使这些数的和恰好等于 j。能的话 dp[i][j] = true；否则为 false，最后返回 dp[len - 1][target] 。两种定义都可以，基本的思路还是一致的</strong></p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>动态规划</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canPartition</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            max = Math.max(max, nums[i]);</span><br><span class="line">            sum += nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (sum % <span class="number">2</span> != <span class="number">0</span> || max &gt; sum / <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (max == sum / <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> target = sum / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">boolean</span>[][] dp = <span class="keyword">new</span> <span class="keyword">boolean</span>[len + <span class="number">1</span>][target + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= len; i++) &#123;</span><br><span class="line">            dp[i][<span class="number">0</span>] = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = len - <span class="number">1</span>; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= target; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] &gt; j) &#123;</span><br><span class="line">                    dp[i][j] = dp[i + <span class="number">1</span>][j];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    dp[i][j] = dp[i + <span class="number">1</span>][j] || dp[i + <span class="number">1</span>][j - nums[i]];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (nums[<span class="number">0</span>] &gt; target) &#123;</span><br><span class="line">            dp[<span class="number">0</span>][target] = dp[<span class="number">1</span>][target];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            dp[<span class="number">0</span>][target] = dp[<span class="number">1</span>][target - nums[<span class="number">0</span>]];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">0</span>][target];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>优化空间后的动态规划</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canPartition</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> num = nums[i];</span><br><span class="line">            max = Math.max(max, num);</span><br><span class="line">            sum += num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (sum % <span class="number">2</span> != <span class="number">0</span> || max &gt; sum / <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (max == sum / <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> target = sum / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">boolean</span>[][] dp = <span class="keyword">new</span> <span class="keyword">boolean</span>[<span class="number">2</span>][target + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123;</span><br><span class="line">            dp[i][<span class="number">0</span>] = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = len - <span class="number">1</span>; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">int</span> row = i % <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= target; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] &gt; j) &#123;</span><br><span class="line">                    dp[row][j] = dp[<span class="number">1</span> - row][j];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    dp[row][j] = dp[<span class="number">1</span> - row][j] || dp[<span class="number">1</span> - row][j - nums[i]];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (nums[<span class="number">0</span>] &gt; target) &#123;</span><br><span class="line">            dp[<span class="number">0</span>][target] = dp[<span class="number">1</span>][target];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            dp[<span class="number">0</span>][target] = dp[<span class="number">1</span>][target - nums[<span class="number">0</span>]];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">0</span>][target];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -495,8 +519,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/09/15/解数独/" rel="next" title="解数独">
-                <i class="fa fa-chevron-left"></i> 解数独
+              <a href="/2020/10/10/环形链表-II/" rel="next" title="环形链表 II">
+                <i class="fa fa-chevron-left"></i> 环形链表 II
               </a>
             
           </div>
@@ -504,10 +528,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/09/19/左叶子之和/" rel="prev" title="左叶子之和">
-                左叶子之和 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
