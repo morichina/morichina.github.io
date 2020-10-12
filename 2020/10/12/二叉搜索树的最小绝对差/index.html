@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="解决爬虫爬取数据无法写入文件的问题">
+  <meta name="description" content="LeetCode每日一题，530.  Minimum Absolute Difference in BST">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python3解决&#39;gbk&#39; codec can&#39;t encode character &#39;\xXX&#39; in position XX">
-<meta property="og:url" content="http://yoursite.com/2019/07/24/PYTHON3解决-gbk-codec-can-t-encode-character-xXX-in-position-XX/index.html">
+<meta property="og:title" content="二叉搜索树的最小绝对差">
+<meta property="og:url" content="http://yoursite.com/2020/10/12/二叉搜索树的最小绝对差/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="解决爬虫爬取数据无法写入文件的问题">
+<meta property="og:description" content="LeetCode每日一题，530.  Minimum Absolute Difference in BST">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/24/eE4yvQ.png">
-<meta property="og:updated_time" content="2019-07-28T09:04:45.587Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/12/02UcJe.png">
+<meta property="og:updated_time" content="2020-10-12T02:57:47.998Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python3解决&#39;gbk&#39; codec can&#39;t encode character &#39;\xXX&#39; in position XX">
-<meta name="twitter:description" content="解决爬虫爬取数据无法写入文件的问题">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/07/24/eE4yvQ.png">
+<meta name="twitter:title" content="二叉搜索树的最小绝对差">
+<meta name="twitter:description" content="LeetCode每日一题，530.  Minimum Absolute Difference in BST">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/12/02UcJe.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/24/PYTHON3解决-gbk-codec-can-t-encode-character-xXX-in-position-XX/">
+  <link rel="canonical" href="http://yoursite.com/2020/10/12/二叉搜索树的最小绝对差/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>Python3解决'gbk' codec can't encode character '\xXX' in position XX | Morichina</title>
+  <title>二叉搜索树的最小绝对差 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/24/PYTHON3解决-gbk-codec-can-t-encode-character-xXX-in-position-XX/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/12/二叉搜索树的最小绝对差/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python3解决'gbk' codec can't encode character '\xXX' in position XX
+          <h1 class="post-title" itemprop="name headline">二叉搜索树的最小绝对差
 
               
             
@@ -394,23 +394,13 @@
                 
               
 
-              <time title="创建时间：2019-07-24 15:29:07" itemprop="dateCreated datePublished" datetime="2019-07-24T15:29:07+08:00">2019-07-24</time>
+              <time title="创建时间：2020-10-12 10:47:39 / 修改时间：10:57:47" itemprop="dateCreated datePublished" datetime="2020-10-12T10:47:39+08:00">2020-10-12</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-28 17:04:45" itemprop="dateModified" datetime="2019-07-28T17:04:45+08:00">2019-07-28</time>
-              </span>
             
           
 
@@ -435,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">378</span>
+              <span title="本文字数">836</span>
             </span>
           
 
@@ -466,18 +456,14 @@
       
 
       
-        <p>解决爬虫爬取数据无法写入文件的问题</p>
+        <p>LeetCode每日一题，530.  Minimum Absolute Difference in BST</p>
 <a id="more"></a>
 
-<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>之前写了个爬虫爬取csdn首页，但是在往txt文件写入的时候会报错</p>
-<p><img src="https://s2.ax1x.com/2019/07/24/eE4yvQ.png" alt></p>
-<p>​     在网上查了许久都是说因为print()输出的缺陷，但是自己测试时发现并非如此，报错的实际上是fh.write()这个方法，查找资料之后原因是txt文件的默认编码是GBK而不是Unicode，于是做了一些小改动，代码如下:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line">fh = codecs.open(<span class="string">'D:\\test.txt'</span>,<span class="string">'w'</span>,<span class="string">'utf-8'</span>)</span><br><span class="line">a = <span class="string">'\ue863'</span></span><br><span class="line">print(a)</span><br><span class="line">fh.write(a)</span><br><span class="line">fh.close()</span><br></pre></td></tr></table></figure>
-
-<p>再次运行果然没有问题了，所以在临时保存文件时应注意临时文件也要设置好编码</p>
-<hr>
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>打开文件时加入编码格式</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fh = open(<span class="string">'D:\\test.txt'</span>,<span class="string">'w'</span>,encoding = <span class="string">'utf-8'</span>)</span><br></pre></td></tr></table></figure>
+<p>先看题目描述</p>
+<p><img src="https://s1.ax1x.com/2020/10/12/02UcJe.png" alt></p>
+<p>大意就是给定一棵二叉搜索树，让我们返回节点的差的绝对值的最小值</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这题很简单，利用二叉搜索树的性质就可以，对这棵二叉搜索树进行中根遍历，就可以得到所有节点的值的升序序列，在中根遍历的过程中维护节点之差的绝对值最小值就可以</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> min = Integer.MAX_VALUE;</span><br><span class="line">    <span class="keyword">int</span> pre = -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMinimumDifference</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        dfs(root);</span><br><span class="line">        <span class="keyword">return</span> min;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root != <span class="keyword">null</span>) &#123;</span><br><span class="line">            dfs(root.left);</span><br><span class="line">            <span class="keyword">if</span> (pre &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                min = Math.min(root.val - pre, min);</span><br><span class="line">            &#125;</span><br><span class="line">            pre = root.val;</span><br><span class="line">            dfs(root.right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -509,8 +495,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/23/http中post-和-get-请求方法区别/" rel="next" title="http中post 和 get 请求方法区别">
-                <i class="fa fa-chevron-left"></i> http中post 和 get 请求方法区别
+              <a href="/2020/10/11/分割等和子集/" rel="next" title="分割等和子集">
+                <i class="fa fa-chevron-left"></i> 分割等和子集
               </a>
             
           </div>
@@ -519,8 +505,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/24/Python网路爬虫模拟浏览器访问的三种方法/" rel="prev" title="Python网络爬虫模拟浏览器访问的三种方法">
-                Python网络爬虫模拟浏览器访问的三种方法 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/10/12/字符串转换整数/" rel="prev" title="字符串转换整数">
+                字符串转换整数 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -660,7 +646,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一"><span class="nav-number">1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二"><span class="nav-number">2.</span> <span class="nav-text">方法二</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
