@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，94.  Binary Tree Inorder Traversal">
+  <meta name="description" content="LeetCode每日一题，24.  Swap Nodes in Pairs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="二叉树的中序遍历">
-<meta property="og:url" content="http://yoursite.com/2020/09/14/二叉树的中序遍历/index.html">
+<meta property="og:title" content="两两交换链表中的节点">
+<meta property="og:url" content="http://yoursite.com/2020/10/13/两两交换链表中的节点/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，94.  Binary Tree Inorder Traversal">
+<meta property="og:description" content="LeetCode每日一题，24.  Swap Nodes in Pairs">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/14/wsPftH.png">
-<meta property="og:updated_time" content="2020-09-14T14:17:06.005Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/13/0f03qJ.png">
+<meta property="og:updated_time" content="2020-10-13T04:51:07.837Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="二叉树的中序遍历">
-<meta name="twitter:description" content="LeetCode每日一题，94.  Binary Tree Inorder Traversal">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/09/14/wsPftH.png">
+<meta name="twitter:title" content="两两交换链表中的节点">
+<meta name="twitter:description" content="LeetCode每日一题，24.  Swap Nodes in Pairs">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/13/0f03qJ.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/09/14/二叉树的中序遍历/">
+  <link rel="canonical" href="http://yoursite.com/2020/10/13/两两交换链表中的节点/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>二叉树的中序遍历 | Morichina</title>
+  <title>两两交换链表中的节点 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/14/二叉树的中序遍历/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/13/两两交换链表中的节点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">二叉树的中序遍历
+          <h1 class="post-title" itemprop="name headline">两两交换链表中的节点
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-09-14 21:55:07 / 修改时间：22:17:06" itemprop="dateCreated datePublished" datetime="2020-09-14T21:55:07+08:00">2020-09-14</time>
+              <time title="创建时间：2020-10-13 09:39:29 / 修改时间：12:51:07" itemprop="dateCreated datePublished" datetime="2020-10-13T09:39:29+08:00">2020-10-13</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.5k</span>
+              <span title="本文字数">1.4k</span>
             </span>
           
 
@@ -456,21 +456,31 @@
       
 
       
-        <p>LeetCode每日一题，94.  Binary Tree Inorder Traversal</p>
+        <p>LeetCode每日一题，24.  Swap Nodes in Pairs</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/09/14/wsPftH.png" alt></p>
-<p>就是给定一个二叉树，让返回其中序遍历序列</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>递归</strong></p>
-<p>直接用递归的算法十分简单，定义 dfs(root) 表示当前遍历到 root 节点的答案，那么按照定义，我们只要递归调用 dfs(root.left) 来遍历root 节点的左子树，然后将 root 节点的值加入答案，再递归调用 dfs(root.right) 来遍历 root 节点的右子树即可，递归终止的条件为碰到空节点</p>
-<p><strong>栈</strong></p>
-<p>其实就是上一方法中的递归函数用迭代来实现，两种方式等价。区别在于递归的时候维护了一个隐形的栈，而在迭代的时候则是显式的将这个栈模拟出来</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>递归</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">inorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        inorder(root);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">        inorder(root.left);</span><br><span class="line">        res.add(root.val);</span><br><span class="line">        inorder(root.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>栈</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">inorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        LinkedList&lt;TreeNode&gt; stk = <span class="keyword">new</span> LinkedList&lt;TreeNode&gt;();</span><br><span class="line">        <span class="keyword">while</span> (root != <span class="keyword">null</span> || !stk.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">while</span> (root != <span class="keyword">null</span>) &#123;</span><br><span class="line">                stk.add(root);</span><br><span class="line">                root = root.left;</span><br><span class="line">            &#125;</span><br><span class="line">            root = stk.pollLast();</span><br><span class="line">            res.add(root.val);</span><br><span class="line">            root = root.right;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/10/13/0f03qJ.png" alt></p>
+<p>大意就是给定一个链表，两两交换其中相邻的节点，然后返回交换后的链表</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>算法流程</strong></p>
+<ul>
+<li>先判断链表是否为空，或者只有一个节点，则不需要操作，直接返回 head</li>
+<li>初始化 pre = null，node = head，res = head.next</li>
+<li>然后开始移动 node 遍历链表，并在途中交换相邻节点 node 与 node.next<ul>
+<li>交换相邻节点需要三个参数：要交换的 first 节点和 last 节点，还有 first 的前置节点 pre，交换操作如下：<ul>
+<li>若 last 为空，则无需交换，直接返回</li>
+<li>令 temp = last.next</li>
+<li>last.next = first</li>
+<li>first.next = temp</li>
+<li>若 pre 不为空，则 pre.next = last</li>
+</ul>
+</li>
+<li>交换 node 与 node.next 后，node 变为较后节点，令 pre = node，node = node.next</li>
+</ul>
+</li>
+<li>持续上述操作直至 node 为空，交换后的链表的头节点为 res，即一开始的 head.next，返回 res即可</li>
+</ul>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode() &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val) &#123; this.val = val; &#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">swapPairs</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode pre = <span class="keyword">null</span>;</span><br><span class="line">        ListNode node = head;</span><br><span class="line">        ListNode res = head.next;</span><br><span class="line">        <span class="keyword">while</span> (node != <span class="keyword">null</span>) &#123;</span><br><span class="line">            swao(node, node.next, pre);</span><br><span class="line">            pre = node;</span><br><span class="line">            node = node.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swao</span><span class="params">(ListNode first, ListNode last, ListNode pre)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (last == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">        ListNode temp = last.next;</span><br><span class="line">        last.next = first;</span><br><span class="line">        first.next = temp;</span><br><span class="line">        <span class="keyword">if</span> (pre != <span class="keyword">null</span>) pre.next = last;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -502,8 +512,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/09/14/最长回文子串/" rel="next" title="最长回文子串">
-                <i class="fa fa-chevron-left"></i> 最长回文子串
+              <a href="/2020/10/12/字符串转换整数/" rel="next" title="字符串转换整数">
+                <i class="fa fa-chevron-left"></i> 字符串转换整数
               </a>
             
           </div>
@@ -511,10 +521,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/09/15/解数独/" rel="prev" title="解数独">
-                解数独 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
