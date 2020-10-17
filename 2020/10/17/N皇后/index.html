@@ -94,20 +94,20 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，410.  Split Array Largest Num">
+  <meta name="description" content="LeetCode题目，51.  N-Queens">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分割数组的最大值">
-<meta property="og:url" content="http://yoursite.com/2020/07/25/分割数组的最大值/index.html">
+<meta property="og:title" content="N皇后">
+<meta property="og:url" content="http://yoursite.com/2020/10/17/N皇后/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，410.  Split Array Largest Num">
+<meta property="og:description" content="LeetCode题目，51.  N-Queens">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/07/25/Uzk04H.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/07/25/UzAwLV.png">
-<meta property="og:updated_time" content="2020-07-25T03:41:28.341Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/17/0LZ3Xd.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/17/0LmPsJ.png">
+<meta property="og:updated_time" content="2020-10-17T07:27:44.032Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分割数组的最大值">
-<meta name="twitter:description" content="LeetCode每日一题，410.  Split Array Largest Num">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/25/Uzk04H.png">
+<meta name="twitter:title" content="N皇后">
+<meta name="twitter:description" content="LeetCode题目，51.  N-Queens">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/17/0LZ3Xd.png">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/07/25/分割数组的最大值/">
+  <link rel="canonical" href="http://yoursite.com/2020/10/17/N皇后/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>分割数组的最大值 | Morichina</title>
+  <title>N皇后 | Morichina</title>
   
 
 
@@ -352,7 +352,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/25/分割数组的最大值/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/17/N皇后/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -369,7 +369,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">分割数组的最大值
+          <h1 class="post-title" itemprop="name headline">N皇后
 
               
             
@@ -395,7 +395,7 @@
                 
               
 
-              <time title="创建时间：2020-07-25 10:53:18 / 修改时间：11:41:28" itemprop="dateCreated datePublished" datetime="2020-07-25T10:53:18+08:00">2020-07-25</time>
+              <time title="创建时间：2020-10-17 15:07:06 / 修改时间：15:27:44" itemprop="dateCreated datePublished" datetime="2020-10-17T15:07:06+08:00">2020-10-17</time>
             </span>
           
 
@@ -426,7 +426,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2.7k</span>
+              <span title="本文字数">2.1k</span>
             </span>
           
 
@@ -457,30 +457,16 @@
       
 
       
-        <p>LeetCode每日一题，410.  Split Array Largest Num</p>
+        <p>LeetCode题目，51.  N-Queens</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/07/25/Uzk04H.png" alt></p>
-<p>大意是给定一个非负整数数组和一个整数 m ，将这个数组分成连续的子数组，求出子数组和的最大值中的最小值</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>看了题解才知道该用动态规划或二分法</p>
-<p><strong>动态规划</strong></p>
-<ul>
-<li>dp[i][j] 表示将数组中前 i 个数分成 j 段后所能得到的最大连续子数组和的最小值</li>
-<li>状态转移方程：<img src="https://s1.ax1x.com/2020/07/25/UzAwLV.png" alt></li>
-<li>对于状态 dp[i][j]，由于我们不能分出空的子数组，因此合法的状态必须有 i ≥ j。对于不合法 (i &lt; j) 的状态，由于我们的目标是求出最小值，因此可以将这些状态全部初始化为一个很大的数。在上述的状态转移方程中，一旦我们尝试从不合法的状态 dp[k][j - 1] 进行转移，那么 max(⋯) 将会是一个很大的数，就不会对最外层的 min{⋯} 产生任何影响</li>
-<li>在上述的状态转移方程中，当 j = 1 时，唯一的可能性就是前 i 个数被分成了一段，如果枚举的是 k = 0，那就代表这种情况；如果 k != 0，那对应的状态 dp[k][0] 就是不合法的情况，无法进行转移，因此仅令 dp[0][0] = 0</li>
-</ul>
-<p><strong>二分查找 + 贪心</strong></p>
-<p>「使……最大值尽可能小」是二分搜索题目常见的问法。</p>
-<p>由题意可知：子数组的最大值是有范围的，即在区间 [max(nums), sum(nums)] 之中。</p>
-<p>本题中，我们注意到：<em>当我们选定一个值 x，我们可以线性地验证是否存在一种分割方案，满足其最大分割子数组和不超过 x。</em>策略如下：</p>
-<p>贪心地模拟分割的过程，从前到后遍历数组，用 sum 表示当前分割子数组的和，cnt 表示已经分割出的子数组的数量（包括当前子数组），那么每当 sum 加上当前值超过了 x，我们就把当前取的值作为新的一段分割子数组的开头，并将 cnt 加 1。遍历结束后验证是否 cnt 不超过 m，cnt 表示的就是数组和的最大值不大于 mid 对应的子数组个数。如果 cnt &gt; m，说明划分的子数组多了，即我们找到的 mid 偏小，故令 l = mid + 1；否则，说明划分的子数组少了，即 mid 偏大(或者恰好等于目标值)，故令 h = mid</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>动态规划</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">splitArray</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>][m + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span>[] sub = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            Arrays.fill(dp[i], Integer.MAX_VALUE);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            sub[i] = sub[i - <span class="number">1</span>] + nums[i - <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= Math.min(i, m); j++) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; i; k++) &#123;</span><br><span class="line">                    dp[i][j] = Math.min(dp[i][j], Math.max(dp[k][j - <span class="number">1</span>], sub[i] - sub[k]));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n][m];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>二分查找 + 贪心</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">splitArray</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            right += nums[i];</span><br><span class="line">            <span class="keyword">if</span> (left &lt; nums[i]) &#123;</span><br><span class="line">                left = nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (right - left) / <span class="number">2</span> + left;</span><br><span class="line">            <span class="keyword">if</span> (check(nums, mid, m)) &#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> x, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (sum + nums[i] &gt; x) &#123;</span><br><span class="line">                cnt++;</span><br><span class="line">                sum = nums[i];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                sum += nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cnt &lt;= m;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/10/17/0LZ3Xd.png" alt></p>
+<p>n 皇后问题研究的是如何将 n 个皇后放在一个 n × n 的棋盘上，并且使皇后不能彼此之间相互攻击，皇后的攻击方式是可以走直线攻击，也可以走对角线斜着攻击。题目要求是给定一个 n 代表皇后数量，让我们返回所有不同的 n 皇后问题的解决方案</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>回溯搜索算法(深度优先遍历)</strong>.</p>
+<p>思路就是尝试一行行的摆皇后位置，由于要保证皇后不能同时出现在 <strong>同一主对角线方向</strong> 或者 <strong>同一副对角线方向</strong> 或者<strong>同一列上</strong>，我们要为每一列，主对角线和副对角线设置相应的<strong>布尔数组变量</strong>，只要排定了某个皇后的位置，就要将其位置那列，主对角线和副对角线对应的布尔变量设置为 true，表示占住了对应的位置；当排定了某一行的皇后时，就去排下一行的皇后，只要「检测」到新摆放的「皇后」与已经摆放好的「皇后」冲突，就尝试摆放同一行的下一个位置，到行尾还不能放置皇后，<strong>就执行回溯操作</strong></p>
+<p><img src="https://s1.ax1x.com/2020/10/17/0LmPsJ.png" alt></p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    List&lt;List&lt;String&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">private</span> Deque&lt;Integer&gt; path;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span>[] cols;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span>[] main;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span>[] sub;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;String&gt;&gt; solveNQueens(<span class="keyword">int</span> n) &#123;</span><br><span class="line">        path = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        cols = <span class="keyword">new</span> <span class="keyword">boolean</span>[n];</span><br><span class="line">        main = <span class="keyword">new</span> <span class="keyword">boolean</span>[<span class="number">2</span> * n - <span class="number">1</span>];</span><br><span class="line">        sub = <span class="keyword">new</span> <span class="keyword">boolean</span>[<span class="number">2</span> * n - <span class="number">1</span>];</span><br><span class="line">        dfs(<span class="number">0</span>, n);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (row == n) &#123;</span><br><span class="line">            List&lt;String&gt; board = convertToBoard(path, n);</span><br><span class="line">            res.add(board);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!cols[i] &amp;&amp; !main[row + i] &amp;&amp; !sub[row - i + n - <span class="number">1</span>]) &#123;</span><br><span class="line">                cols[i] = <span class="keyword">true</span>;</span><br><span class="line">                main[row + i] = <span class="keyword">true</span>;</span><br><span class="line">                sub[row - i + n - <span class="number">1</span>] = <span class="keyword">true</span>;</span><br><span class="line">                path.add(i);</span><br><span class="line">                dfs(row + <span class="number">1</span>, n);</span><br><span class="line">                path.removeLast();</span><br><span class="line">                cols[i] = <span class="keyword">false</span>;</span><br><span class="line">                main[row + i] = <span class="keyword">false</span>;</span><br><span class="line">                sub[row - i + n - <span class="number">1</span>] = <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> List&lt;String&gt; <span class="title">convertToBoard</span><span class="params">(Deque&lt;Integer&gt; path, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; board = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num : path) &#123;</span><br><span class="line">            StringBuilder temp = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">            temp.append(<span class="string">"."</span>.repeat(n));</span><br><span class="line">            temp.replace(num, num + <span class="number">1</span>, <span class="string">"Q"</span>);</span><br><span class="line">            board.add(temp.toString());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> board;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -512,8 +498,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/22/旋转数组的最小数/" rel="next" title="旋转数组的最小数">
-                <i class="fa fa-chevron-left"></i> 旋转数组的最小数
+              <a href="/2020/10/16/盛最多水的容器/" rel="next" title="盛最多水的容器">
+                <i class="fa fa-chevron-left"></i> 盛最多水的容器
               </a>
             
           </div>
@@ -521,10 +507,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/27/判断子序列/" rel="prev" title="判断子序列">
-                判断子序列 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
