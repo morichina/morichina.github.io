@@ -94,17 +94,19 @@
 
 
 
-  <meta name="description" content="赋值，浅复制，深复制的区别">
+  <meta name="description" content="LeetCode每日一题，19.  Remove Nth Node From End of LIst">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈赋值, 浅复制与深复制的区别">
-<meta property="og:url" content="http://yoursite.com/2019/07/15/浅谈赋值-浅复制与深复制的区别/index.html">
+<meta property="og:title" content="删除链表的倒数第N个节点">
+<meta property="og:url" content="http://yoursite.com/2020/10/18/删除链表的倒数第N个节点/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="赋值，浅复制，深复制的区别">
+<meta property="og:description" content="LeetCode每日一题，19.  Remove Nth Node From End of LIst">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-15T12:37:39.548Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/18/0OLz0H.png">
+<meta property="og:updated_time" content="2020-10-18T02:34:26.456Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈赋值, 浅复制与深复制的区别">
-<meta name="twitter:description" content="赋值，浅复制，深复制的区别">
+<meta name="twitter:title" content="删除链表的倒数第N个节点">
+<meta name="twitter:description" content="LeetCode每日一题，19.  Remove Nth Node From End of LIst">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/18/0OLz0H.png">
 
 
 
@@ -112,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/15/浅谈赋值-浅复制与深复制的区别/">
+  <link rel="canonical" href="http://yoursite.com/2020/10/18/删除链表的倒数第N个节点/">
 
 
 
@@ -122,7 +124,7 @@
   };
 </script>
 
-  <title>浅谈赋值, 浅复制与深复制的区别 | Morichina</title>
+  <title>删除链表的倒数第N个节点 | Morichina</title>
   
 
 
@@ -349,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/15/浅谈赋值-浅复制与深复制的区别/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/18/删除链表的倒数第N个节点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -366,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">浅谈赋值, 浅复制与深复制的区别
+          <h1 class="post-title" itemprop="name headline">删除链表的倒数第N个节点
 
               
             
@@ -392,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2019-07-15 19:47:20 / 修改时间：20:37:39" itemprop="dateCreated datePublished" datetime="2019-07-15T19:47:20+08:00">2019-07-15</time>
+              <time title="创建时间：2020-10-18 09:13:01 / 修改时间：10:34:26" itemprop="dateCreated datePublished" datetime="2020-10-18T09:13:01+08:00">2020-10-18</time>
             </span>
           
 
@@ -423,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.3k</span>
+              <span title="本文字数">2.2k</span>
             </span>
           
 
@@ -435,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -454,60 +456,30 @@
       
 
       
-        <p>赋值，浅复制，深复制的区别</p>
+        <p>LeetCode每日一题，19.  Remove Nth Node From End of LIst</p>
 <a id="more"></a>
 
-<h3 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h3><p>首先是赋值：赋值并不会产生一个独立的对象单独存在，可以看作是给某对象贴上一个新标签</p>
-<p>看下下面这段代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">b = a</span><br><span class="line">a = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure>
+<p>先看题目描述</p>
+<p><img src="https://s1.ax1x.com/2020/10/18/0OLz0H.png" alt></p>
+<p>大意就是给定一个链表，再给定一个数字 n，让我们删除链表中的倒数第 n 个节点</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>如果是遍历两遍的话，代码很容易实现，先遍历一遍统计链表长度 len，再遍历一遍来删除正数第 len - n + 1 个节点</p>
+<p>但题目要求只遍历一遍，那么就使用双指针法</p>
+<p><strong>双指针法</strong></p>
+<p>算法流程：</p>
+<ul>
+<li>定义两个指针 p 和 q 指向链表的头节点 head</li>
+<li>将 q 指针向后移动 n 位</li>
+<li>同时向右移动 p 指针和 q 指针直至 q 指针为空，移动过程中用 pre 指针来指向 p 指针的前置节点</li>
+<li>当 q 指针为空时，p 指针指向的节点就是要删除的节点</li>
+<li>删除掉 p 指针指向节点并返回链表即可</li>
+</ul>
+<p><strong>注意：为了解决删除头节点的问题，可以定义一个哑节点 dumpy，令其 next 为 head 节点，初始化 pre 指针时使其指向 dumpy 节点，最终结果返回 dumpy.next</strong></p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>两次遍历</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode() &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val) &#123; this.val = val; &#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">removeNthFromEnd</span><span class="params">(ListNode head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">        ListNode node = head;</span><br><span class="line">        <span class="keyword">while</span> (node != <span class="keyword">null</span>) &#123;</span><br><span class="line">            len++;</span><br><span class="line">            node = node.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n == len) &#123;</span><br><span class="line">            ListNode ans = head.next;</span><br><span class="line">            head.next = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">return</span> ans;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> con =  len - n + <span class="number">1</span>;</span><br><span class="line">        node = head;</span><br><span class="line">        ListNode pre = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; con; i++) &#123;</span><br><span class="line">            pre = node;</span><br><span class="line">            node = node.next;</span><br><span class="line">        &#125;</span><br><span class="line">        pre.next = node.next;</span><br><span class="line">        node.next = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>运行结果是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3, 4, 5]</span><br></pre></td></tr></table></figure>
+<p><strong>双指针</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode() &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val) &#123; this.val = val; &#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">removeNthFromEnd</span><span class="params">(ListNode head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        dummy.next = head;</span><br><span class="line">        ListNode q = head;</span><br><span class="line">        ListNode p = head;</span><br><span class="line">        ListNode pre = dummy;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            q = q.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (q != <span class="keyword">null</span>) &#123;</span><br><span class="line">            pre = p;</span><br><span class="line">            p = p.next;</span><br><span class="line">            q = q.next;</span><br><span class="line">        &#125;</span><br><span class="line">        pre.next = p.next;</span><br><span class="line">        p.next = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>可以看到令b = a后，给a重新赋值，b并没有改变</p>
-<p>再看下面这段代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">b = a</span><br><span class="line">a[<span class="number">0</span>] = <span class="number">2</span></span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure>
-
-<p>运行结果是</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
-
-<p>这里可以看到改变a[0]的值后，b[0]也发生了改变</p>
-<p>怎么理解这个呢，得先了解python的数据存储方式</p>
-<hr>
-<h3 id="python的数据存储方式"><a href="#python的数据存储方式" class="headerlink" title="python的数据存储方式"></a>python的数据存储方式</h3><p>python的数据存储方式与其他OOP语言不同。它与其说是把某个值赋给变量，不如说是给变量建立了一个到具体值的引用</p>
-<p>以上面的两段代码为例，先看第一段代码</p>
-<p>a = [1, 2, 3, 4, 5]，这个语句可以看成是将a这个标签贴到了[1,2,3,4,5]这个列表上，然后b = a，可以看作又将b这个标签贴到了[1,2,3,4,5]这个列表上，之后a = [2,3,4,5,6]，便是将a这个标签从[1,2,3,4,5]这个列表上拿下来，贴到了一个新列表上，所以实际上b指向的列表并未发生变化</p>
-<p>再看第二段代码</p>
-<p>同样是将a，b这两个标签先后贴到[1,2,3,4,5]这个列表上，然后a[0] = 2，这个语句是真正改变了[1,2,3,4,5]这个列表中的元素，而b这个标签是指向该列表的，于是相应的b[0]也发生了改变</p>
-<hr>
-<h3 id="深复制"><a href="#深复制" class="headerlink" title="深复制"></a>深复制</h3><p>直接给出结论，深复制是产生一个独立于原对象的新对象，新对象与原对象之间不会互相影响</p>
-<p>可以看下面这个列子</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"></span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">b = copy.deepcopy(a)</span><br><span class="line">a[<span class="number">0</span>] = <span class="number">2</span></span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure>
-
-<p>运行结果是</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="浅复制"><a href="#浅复制" class="headerlink" title="浅复制"></a>浅复制</h3><p>浅复制要分两种情况进行讨论:</p>
-<ol>
-<li><p>当浅复制的对象是不可变对象(数值，字符串，元组)时和“等于赋值”的情况一样，对象的id值与浅复制原来的对象相同</p>
-</li>
-<li><p>当浅复制的对象是可变对象(列表，集合和字典)时，又分为两种情况:</p>
-<p>第一种情况: 浅复制的对象中无复杂子对象时，新对象与浅复制原来的对象不会互相影响，id值不同</p>
-<p>第二种情况: 浅复制的对象中有复杂子对象时，如果不改变其中复杂子对象，浅复制的值改变并不会影响原对象的值。但是改变其中的复杂子对象，则浅复制的值改变会影响原对象的值</p>
-</li>
-</ol>
-<p>看下面两个例子</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"></span><br><span class="line">a = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">b = copy.copy(a)</span><br><span class="line">b[<span class="number">1</span>] = <span class="number">3</span></span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
-
-<p>结果是</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
-
-<p>可以看到改变b[1]并没有影响a的值，再看第二个例子</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"></span><br><span class="line">a = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">b = copy.copy(a)</span><br><span class="line">b[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">2</span></span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
-
-<p>可以看到改变b[0] [0]的值影响了a的值</p>
-<p>参考<a href="https://blog.csdn.net/u011630575/article/details/78604226" target="_blank" rel="noopener">Python—copy()、deepcopy()与赋值的区别</a></p>
 
       
     </div>
@@ -538,8 +510,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/15/Python中使用remove函数的注意事项/" rel="next" title="Python中使用remove函数的注意事项">
-                <i class="fa fa-chevron-left"></i> Python中使用remove函数的注意事项
+              <a href="/2020/10/17/N皇后/" rel="next" title="N皇后">
+                <i class="fa fa-chevron-left"></i> N皇后
               </a>
             
           </div>
@@ -547,10 +519,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/18/Python文件操作/" rel="prev" title="Python文件操作">
-                Python文件操作 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -689,7 +657,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#赋值"><span class="nav-number">1.</span> <span class="nav-text">赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python的数据存储方式"><span class="nav-number">2.</span> <span class="nav-text">python的数据存储方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深复制"><span class="nav-number">3.</span> <span class="nav-text">深复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浅复制"><span class="nav-number">4.</span> <span class="nav-text">浅复制</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
