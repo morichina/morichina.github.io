@@ -94,20 +94,20 @@
 
 
 
-  <meta name="description" content="LeetCode题目，201.  Construct Binary Tree from Inorder and Postorder Treversal">
+  <meta name="description" content="LeetCode题目，12.  Integer to Rooman">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数字范围按位与">
-<meta property="og:url" content="http://yoursite.com/2020/09/26/数字范围按位与/index.html">
+<meta property="og:title" content="整数转罗马数字">
+<meta property="og:url" content="http://yoursite.com/2020/10/21/整数转罗马数字/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode题目，201.  Construct Binary Tree from Inorder and Postorder Treversal">
+<meta property="og:description" content="LeetCode题目，12.  Integer to Rooman">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/26/0i6rNQ.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/26/0igAzR.png">
-<meta property="og:updated_time" content="2020-09-26T12:25:05.578Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/21/BPwCJe.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/21/BPBgRe.png">
+<meta property="og:updated_time" content="2020-10-21T14:06:19.969Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数字范围按位与">
-<meta name="twitter:description" content="LeetCode题目，201.  Construct Binary Tree from Inorder and Postorder Treversal">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/09/26/0i6rNQ.png">
+<meta name="twitter:title" content="整数转罗马数字">
+<meta name="twitter:description" content="LeetCode题目，12.  Integer to Rooman">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/21/BPwCJe.png">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/09/26/数字范围按位与/">
+  <link rel="canonical" href="http://yoursite.com/2020/10/21/整数转罗马数字/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>数字范围按位与 | Morichina</title>
+  <title>整数转罗马数字 | Morichina</title>
   
 
 
@@ -352,7 +352,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/26/数字范围按位与/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/21/整数转罗马数字/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -369,7 +369,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">数字范围按位与
+          <h1 class="post-title" itemprop="name headline">整数转罗马数字
 
               
             
@@ -395,7 +395,7 @@
                 
               
 
-              <time title="创建时间：2020-09-26 19:56:34 / 修改时间：20:25:05" itemprop="dateCreated datePublished" datetime="2020-09-26T19:56:34+08:00">2020-09-26</time>
+              <time title="创建时间：2020-10-21 17:34:18 / 修改时间：22:06:19" itemprop="dateCreated datePublished" datetime="2020-10-21T17:34:18+08:00">2020-10-21</time>
             </span>
           
 
@@ -426,7 +426,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">853</span>
+              <span title="本文字数">2.5k</span>
             </span>
           
 
@@ -438,7 +438,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -457,19 +457,40 @@
       
 
       
-        <p>LeetCode题目，201.  Construct Binary Tree from Inorder and Postorder Treversal</p>
+        <p>LeetCode题目，12.  Integer to Rooman</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/09/26/0i6rNQ.png" alt></p>
-<p>大意就是给定两个数表示一个范围，让我们返回该范围内所有数按位与的结果</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>刚看到这道题的时候，基本思毫无头绪，不知道怎么做，后来看题解，发现这个应该算是个数学题，只要看出题目本质就很好做</p>
-<p><strong>统计最长公共前缀</strong></p>
-<p>假设两个数在第 i 位及之前都相同，那么必定一个第 i + 1 位为 0，一个第 i + 1 位为 1，则这两个数之间一定存在一个数，这个数的第 i + 1 位为 1，且后面全都是 0，这样按位与以后第 i + 1 位以及之后全都为 0 了</p>
-<p>例如 m 和 n 的最长公共前缀为 00101，假设 m &gt; n，那么 m 可以表示为 001011XXXX，n表示为 001010XXXX，这两个数之间一定存在一个数为 0010110000，这样按位与以后的结果就为 0010100000</p>
-<p>所以求两个数的公共前缀即可，通过两个数不断右移，直到两个数相等，再左移相应位数。例如 m 和 n 一起右移 5 位后得到两个数相等为 00101，那么再将这个数左移 5 位得到 0010100000，这个数转成十进制就是要返回的结果</p>
-<p><img src="https://s1.ax1x.com/2020/09/26/0igAzR.png" alt></p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">rangeBitwiseAnd</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (m == n) <span class="keyword">return</span> m;</span><br><span class="line">        <span class="keyword">int</span> shift = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (m != n) &#123;</span><br><span class="line">            m = m &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            n = n &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            shift++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> m &lt;&lt; shift;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/BPwCJe" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/21/BPwCJe.png" alt="BPwCJe.png"></a></p>
+<p>大意就是给定一个整数，让我们将其转为罗马数字</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>哈希表</strong></p>
+<p>大致思路就是先用一个哈希表将各整数对应的罗马数字储存起来，然后从左到右一层层的转化为罗马数字</p>
+<p>算法流程如下：</p>
+<ul>
+<li>先计算出整数的长度 len</li>
+<li>令 i 从 len - 1 到 0 进行 len -1 次循环：<ul>
+<li>令 con 等于 10 的 len - 1 次方，cur = num / con</li>
+<li>若 cur 等于 4 或 9，则直接在 res 后添加 con × cur 对应的罗马字符</li>
+<li>否则：<ul>
+<li>若 cur 大于等于 5，则先在 res 后添加 con × 5 对应的罗马字符，再将 cur - 5</li>
+<li>在 res 后添加 cur 个 con 对应的罗马字符</li>
+</ul>
+</li>
+<li>num = num % con</li>
+</ul>
+</li>
+<li>最终返回 res</li>
+</ul>
+<p><strong>贪心算法</strong></p>
+<p>这题的背景类似找零钱问题，罗马数字与阿拉伯数字的对应关系从大到小排列如下图所示</p>
+<p><a href="https://imgchr.com/i/BPBgRe" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/21/BPBgRe.png" alt="BPBgRe.png"></a></p>
+<p>于是，“将整数转换为罗马数字”的过程，就是用上面这张表中右边的数字作为“加法因子”去分解一个整数，目的是“分解的整数个数”尽可能少，因此，对于这道问题，类似于用最少的纸币凑成一个整数，贪心算法的规则如下：</p>
+<p><strong>每一步都使用当前较大的罗马数字作为加法因子，最后得到罗马数字表示就是长度最少的。</strong></p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>哈希表</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;Integer, String&gt; map = <span class="keyword">new</span> HashMap&lt;Integer, String&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">intToRoman</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        map.put(<span class="number">1</span>, <span class="string">"I"</span>);</span><br><span class="line">        map.put(<span class="number">5</span>, <span class="string">"V"</span>);</span><br><span class="line">        map.put(<span class="number">10</span>, <span class="string">"X"</span>);</span><br><span class="line">        map.put(<span class="number">50</span>, <span class="string">"L"</span>);</span><br><span class="line">        map.put(<span class="number">100</span>, <span class="string">"C"</span>);</span><br><span class="line">        map.put(<span class="number">500</span>, <span class="string">"D"</span>);</span><br><span class="line">        map.put(<span class="number">1000</span>, <span class="string">"M"</span>);</span><br><span class="line">        map.put(<span class="number">4</span>, <span class="string">"IV"</span>);</span><br><span class="line">        map.put(<span class="number">9</span>, <span class="string">"IX"</span>);</span><br><span class="line">        map.put(<span class="number">40</span>, <span class="string">"XL"</span>);</span><br><span class="line">        map.put(<span class="number">90</span>, <span class="string">"XC"</span>);</span><br><span class="line">        map.put(<span class="number">400</span>, <span class="string">"CD"</span>);</span><br><span class="line">        map.put(<span class="number">900</span>, <span class="string">"CM"</span>);</span><br><span class="line">        StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">int</span> temp = num;</span><br><span class="line">        <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (temp != <span class="number">0</span>) &#123;</span><br><span class="line">            temp /= <span class="number">10</span>;</span><br><span class="line">            len++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">int</span> con = (<span class="keyword">int</span>)Math.pow(<span class="number">10</span>, i);</span><br><span class="line">            <span class="keyword">int</span> cur = num / con;</span><br><span class="line">            <span class="keyword">if</span> (cur % <span class="number">5</span> == <span class="number">4</span>) &#123;</span><br><span class="line">                res.append(map.get(con * cur));</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (cur &gt;= <span class="number">5</span>) &#123;</span><br><span class="line">                    res.append(map.get(con * <span class="number">5</span>));</span><br><span class="line">                    cur = cur - <span class="number">5</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; cur; j++) &#123;</span><br><span class="line">                    res.append(map.get(con));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            num = num % con;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>贪心算法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">intToRoman</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="comment">// 把阿拉伯数字与罗马数字可能出现的所有情况和对应关系，放在两个数组中</span></span><br><span class="line">        <span class="comment">// 并且按照阿拉伯数字的大小降序排列，这是贪心选择思想</span></span><br><span class="line">        <span class="keyword">int</span>[] nums = &#123;<span class="number">1000</span>, <span class="number">900</span>, <span class="number">500</span>, <span class="number">400</span>, <span class="number">100</span>, <span class="number">90</span>, <span class="number">50</span>, <span class="number">40</span>, <span class="number">10</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">1</span>&#125;;</span><br><span class="line">        String[] romans = &#123;<span class="string">"M"</span>, <span class="string">"CM"</span>, <span class="string">"D"</span>, <span class="string">"CD"</span>, <span class="string">"C"</span>, <span class="string">"XC"</span>, <span class="string">"L"</span>, <span class="string">"XL"</span>, <span class="string">"X"</span>, <span class="string">"IX"</span>, <span class="string">"V"</span>, <span class="string">"IV"</span>, <span class="string">"I"</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (index &lt; <span class="number">13</span>) &#123;</span><br><span class="line">            <span class="keyword">while</span> (num &gt;= nums[index]) &#123;</span><br><span class="line">                res.append(romans[index]);</span><br><span class="line">                num -= nums[index];</span><br><span class="line">            &#125;</span><br><span class="line">            index++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -501,8 +522,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/09/25/从中序与后序遍历序列构造二叉树/" rel="next" title="从中序与后序遍历序列构造二叉树">
-                <i class="fa fa-chevron-left"></i> 从中序与后序遍历序列构造二叉树
+              <a href="/2020/10/21/长按键入/" rel="next" title="长按键入">
+                <i class="fa fa-chevron-left"></i> 长按键入
               </a>
             
           </div>
@@ -510,10 +531,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/09/26/路径总和II/" rel="prev" title="路径总和II">
-                路径总和II <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
