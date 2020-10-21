@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，968.  Binary Tree Cameras">
+  <meta name="description" content="LeetCode每日一题，925.  Long Pressed Name">
 <meta property="og:type" content="article">
-<meta property="og:title" content="监控二叉树">
-<meta property="og:url" content="http://yoursite.com/2020/09/22/监控二叉树/index.html">
+<meta property="og:title" content="长按键入">
+<meta property="og:url" content="http://yoursite.com/2020/10/21/长按键入/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，968.  Binary Tree Cameras">
+<meta property="og:description" content="LeetCode每日一题，925.  Long Pressed Name">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/22/wqTegO.png">
-<meta property="og:updated_time" content="2020-09-22T01:07:28.850Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/21/B9anXV.png">
+<meta property="og:updated_time" content="2020-10-21T01:21:42.633Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="监控二叉树">
-<meta name="twitter:description" content="LeetCode每日一题，968.  Binary Tree Cameras">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/09/22/wqTegO.png">
+<meta name="twitter:title" content="长按键入">
+<meta name="twitter:description" content="LeetCode每日一题，925.  Long Pressed Name">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/21/B9anXV.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/09/22/监控二叉树/">
+  <link rel="canonical" href="http://yoursite.com/2020/10/21/长按键入/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>监控二叉树 | Morichina</title>
+  <title>长按键入 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/22/监控二叉树/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/21/长按键入/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">监控二叉树
+          <h1 class="post-title" itemprop="name headline">长按键入
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-09-22 08:39:50 / 修改时间：09:07:28" itemprop="dateCreated datePublished" datetime="2020-09-22T08:39:50+08:00">2020-09-22</time>
+              <time title="创建时间：2020-10-21 09:08:52 / 修改时间：09:21:42" itemprop="dateCreated datePublished" datetime="2020-10-21T09:08:52+08:00">2020-10-21</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.4k</span>
+              <span title="本文字数">1.2k</span>
             </span>
           
 
@@ -456,21 +456,29 @@
       
 
       
-        <p>LeetCode每日一题，968.  Binary Tree Cameras</p>
+        <p>LeetCode每日一题，925.  Long Pressed Name</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/09/22/wqTegO.png" alt></p>
-<p>大意就是可以在节点放相机，每个相机可以监控该节点的父节点和两个直接的子节点，给定我们一棵二叉树，问要监控整个二叉树至少需要多少个相机</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>我们定义三种状态</p>
+<p><a href="https://imgchr.com/i/B9anXV" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/21/B9anXV.png" alt="B9anXV.png"></a></p>
+<p>大意就是一个人要在键盘中输入自己的名字，有的时候，某个字符可能被长按，即被输入多次，给定一个名字和一个被输入的字符串，问这个输入的字符串是否有可能是他的名字</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>思路就是使用两个指针，分别指向两个字符串中进行比较，若不相等则直接返回 false；否则就把两个指针都向后移动一位，若指向 name 的指针移动后指向字符不变，则继续比较两个指针对应字符，否则的话就将指向 typed 的指针移动到下一个不一样的字符</p>
+<p>算法流程：</p>
 <ul>
-<li>0：节点未覆盖</li>
-<li>1：节点已覆盖但未装相机</li>
-<li>2：节点装了相机</li>
+<li>初始化 i = 0，j = 0，m = name.length，n = typed.length</li>
+<li>若 m &gt; n，则直接返回 false</li>
+<li>当 i &lt; m 且 j &lt; n时：<ul>
+<li>若 name[i] 与 typed[j] 不相等，则直接返回 false</li>
+<li>i 指针和 j 指针同时向后移动一位</li>
+<li>若 name[i] 与 name[i-  1] 不相等：<ul>
+<li>则移动 j 指针指针 typed[j] 与 typed[j - 1] 不相等</li>
 </ul>
-<p>我们用个全局变量 res 记录需要的相机数目，定义一个函数 dfs 返回值就代表节点状态，然后就开始深度优先搜索进行遍历二叉树上节点并维护 res 的值，当遍历到某个节点时，若节点为空，则直接返回 1；若节点不为空，则执行 left = dfs(root.left)，right = dfs(root.right)，得到两个直接子节点的状态，若 left 和 right 中至少有一个为 0，那么 root 必须安装相机，将 res 的值加 1，并返回 2；若 left 和 right 的值相加大于等于 3，那么就代表 root 的两个子节点均被覆盖且至少有一个安装了相机，那么 root 已被覆盖，且不需要安装相机，返回1；若 left 和 right 的值均等于 1，则代表 root 的两个子节点均被覆盖，但都未安装相机，那么 root 就未被覆盖，返回 0。深度优先搜索遍历完二叉树后返回 res 即可</p>
-<p><strong>注意：若最后二叉树的根节点状态值为 0，则代表根节点未被覆盖，需要将 res 值加 1，代表给根节点安装相机将其覆盖，然后再返回 res 作为最终答案</strong></p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minCameraCover</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (dfs(root) == <span class="number">0</span>) &#123;</span><br><span class="line">            res++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 三种状态，0 代表节点未覆盖，1代表节点已覆盖但没装相机，2代表节点已装相机</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">dfs</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> left = dfs(root.left);</span><br><span class="line">        <span class="keyword">int</span> right = dfs(root.right);</span><br><span class="line">        <span class="keyword">if</span> (left == <span class="number">0</span> || right == <span class="number">0</span>) &#123;</span><br><span class="line">            res++;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> ((left + right) &gt;= <span class="number">3</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (left == <span class="number">1</span> &amp;&amp; right == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>若 i = m，j = n，则返回 true；否则返回 false</li>
+</ul>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isLongPressedName</span><span class="params">(String name, String typed)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = name.length();</span><br><span class="line">        <span class="keyword">int</span> n = typed.length();</span><br><span class="line">        <span class="keyword">if</span> (m &gt; n) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; m &amp;&amp; j &lt; n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (name.charAt(i) != typed.charAt(j)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">            <span class="keyword">if</span> (i &lt; m &amp;&amp; name.charAt(i) == name.charAt(i - <span class="number">1</span>)) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">while</span> (j &lt; n &amp;&amp; typed.charAt(j) == typed.charAt(j - <span class="number">1</span>)) &#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> i == m &amp;&amp; j == n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -502,8 +510,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/09/21/把二叉搜索树转换为累加树/" rel="next" title="把二叉搜索树转换为累加树">
-                <i class="fa fa-chevron-left"></i> 把二叉搜索树转换为累加树
+              <a href="/2020/10/20/重排链表/" rel="next" title="重排链表">
+                <i class="fa fa-chevron-left"></i> 重排链表
               </a>
             
           </div>
@@ -511,10 +519,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/09/23/合并二叉树/" rel="prev" title="合并二叉树">
-                合并二叉树 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
