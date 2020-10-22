@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，112.Path Sum">
+  <meta name="description" content="LeetCode每日一题，763.  Partition Labels">
 <meta property="og:type" content="article">
-<meta property="og:title" content="路径总和">
-<meta property="og:url" content="http://yoursite.com/2020/07/07/路径总和/index.html">
+<meta property="og:title" content="划分字母区间">
+<meta property="og:url" content="http://yoursite.com/2020/10/22/划分字母区间/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，112.Path Sum">
+<meta property="og:description" content="LeetCode每日一题，763.  Partition Labels">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/07/07/UFhzLD.png">
-<meta property="og:updated_time" content="2020-07-07T06:51:53.801Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/22/BiEGJe.png">
+<meta property="og:updated_time" content="2020-10-22T01:22:17.643Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="路径总和">
-<meta name="twitter:description" content="LeetCode每日一题，112.Path Sum">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/07/UFhzLD.png">
+<meta name="twitter:title" content="划分字母区间">
+<meta name="twitter:description" content="LeetCode每日一题，763.  Partition Labels">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/22/BiEGJe.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/07/07/路径总和/">
+  <link rel="canonical" href="http://yoursite.com/2020/10/22/划分字母区间/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>路径总和 | Morichina</title>
+  <title>划分字母区间 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/07/路径总和/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/22/划分字母区间/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">路径总和
+          <h1 class="post-title" itemprop="name headline">划分字母区间
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-07-07 10:33:49 / 修改时间：14:51:53" itemprop="dateCreated datePublished" datetime="2020-07-07T10:33:49+08:00">2020-07-07</time>
+              <time title="创建时间：2020-10-22 09:03:16 / 修改时间：09:22:17" itemprop="dateCreated datePublished" datetime="2020-10-22T09:03:16+08:00">2020-10-22</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">746</span>
+              <span title="本文字数">1.2k</span>
             </span>
           
 
@@ -456,14 +456,30 @@
       
 
       
-        <p>LeetCode每日一题，112.Path Sum</p>
+        <p>LeetCode每日一题，763.  Partition Labels</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/07/07/UFhzLD.png" alt></p>
-<p>大意就是给定一个二叉树 和 sum，问是否存在一条从根节点到叶子节点的路径，路径上所有节点值相加等于 sum</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>从根节点开始，每当遇到一个节点的时候，就从 sum 里扣除节点值，一直到叶子节点判断 sum 是否被刚好扣完，用递归就可以解决该问题</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPathSum</span><span class="params">(TreeNode root, <span class="keyword">int</span> sum)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (root.left == <span class="keyword">null</span> &amp;&amp; root.right == <span class="keyword">null</span> &amp;&amp; root.val == sum) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/BiEGJe" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/22/BiEGJe.png" alt="BiEGJe.png"></a></p>
+<p>大意就是给定一个字符串 S，让我们将 S 分为尽可能多的片段，要求每个字母最多只出现在其中一个片段</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>贪心算法</strong></p>
+<p>由于同一个字母只能出现在同一个片段，显然同一个字母的第一次出现的下标位置和最后一次出现的下标位置必须出现在同一个片段。因此需要遍历字符串，得到每个字母最后一次出现的下标位置</p>
+<p>算法流程：</p>
+<ul>
+<li>last 数组记录每个字母最后一次出现的下标位置，初始化 index 为 0，pre 为 -1</li>
+<li>移动 index 指针：<ul>
+<li>将 index 移动到它对应字母最后一次出现的下标位置 last[S[index]]</li>
+<li>然后遍历 pre + 1 与 index 之间的所有字母 S[i]，若 last[S[i]] 大于 index，则更新 index 为 last[S[i]]</li>
+<li>结果列表  res 中添加 index - pre</li>
+<li>更新 pre 为 index</li>
+<li>将 index + 1</li>
+</ul>
+</li>
+<li>重复上述过程直至 index 大于等于字符串 S 的长度</li>
+</ul>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">partitionLabels</span><span class="params">(String S)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">int</span> len = S.length();</span><br><span class="line">        <span class="keyword">int</span>[] last = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            last[S.charAt(i) - <span class="string">'a'</span>] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> pre = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (index &lt; len) &#123;</span><br><span class="line">            index = last[S.charAt(index) - <span class="string">'a'</span>];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = pre + <span class="number">1</span>; i &lt; index; i++) &#123;</span><br><span class="line">                <span class="keyword">int</span> cur = last[S.charAt(i) - <span class="string">'a'</span>];</span><br><span class="line">                index = index &gt; cur ? index : cur;</span><br><span class="line">            &#125;</span><br><span class="line">            res.add(index - pre);</span><br><span class="line">            pre = index;</span><br><span class="line">            index++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
@@ -493,8 +509,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/06/不同路径Ⅱ/" rel="next" title="不同路径Ⅱ">
-                <i class="fa fa-chevron-left"></i> 不同路径Ⅱ
+              <a href="/2020/10/21/整数转罗马数字/" rel="next" title="整数转罗马数字">
+                <i class="fa fa-chevron-left"></i> 整数转罗马数字
               </a>
             
           </div>
@@ -502,10 +518,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/08/跳水板/" rel="prev" title="跳水板">
-                跳水板 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
