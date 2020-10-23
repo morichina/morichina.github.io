@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，96. Unique Binary Search Trees">
+  <meta name="description" content="LeetCode每日一题，234.  Palindrome Linked List">
 <meta property="og:type" content="article">
-<meta property="og:title" content="不同的二叉搜索树">
-<meta property="og:url" content="http://yoursite.com/2020/07/15/不同的二叉搜索树/index.html">
+<meta property="og:title" content="回文链表">
+<meta property="og:url" content="http://yoursite.com/2020/10/23/回文链表/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，96. Unique Binary Search Trees">
+<meta property="og:description" content="LeetCode每日一题，234.  Palindrome Linked List">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/07/15/UdS8M9.png">
-<meta property="og:updated_time" content="2020-07-15T01:34:58.797Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/23/Bkqwbd.png">
+<meta property="og:updated_time" content="2020-10-23T03:21:16.241Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="不同的二叉搜索树">
-<meta name="twitter:description" content="LeetCode每日一题，96. Unique Binary Search Trees">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/15/UdS8M9.png">
+<meta name="twitter:title" content="回文链表">
+<meta name="twitter:description" content="LeetCode每日一题，234.  Palindrome Linked List">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/23/Bkqwbd.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/07/15/不同的二叉搜索树/">
+  <link rel="canonical" href="http://yoursite.com/2020/10/23/回文链表/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>不同的二叉搜索树 | Morichina</title>
+  <title>回文链表 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/15/不同的二叉搜索树/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/23/回文链表/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">不同的二叉搜索树
+          <h1 class="post-title" itemprop="name headline">回文链表
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-07-15 09:19:03 / 修改时间：09:34:58" itemprop="dateCreated datePublished" datetime="2020-07-15T09:19:03+08:00">2020-07-15</time>
+              <time title="创建时间：2020-10-23 10:27:33 / 修改时间：11:21:16" itemprop="dateCreated datePublished" datetime="2020-10-23T10:27:33+08:00">2020-10-23</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.3k</span>
+              <span title="本文字数">3.2k</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">3 分钟</span>
             </span>
           
 
@@ -456,25 +456,43 @@
       
 
       
-        <p>LeetCode每日一题，96. Unique Binary Search Trees</p>
+        <p>LeetCode每日一题，234.  Palindrome Linked List</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/07/15/UdS8M9.png" alt></p>
-<p>大意就是给定二叉树的节点数量，问有多少种不同结构的二叉树</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>大致思路就是有 n 个节点的二叉树，那么其左子树的节点数为 0 到 n - 1，右子树的相应节点数为 n - 1 到 0，那么每次将左子树可能的结构数量与右子树可能的结构数量相乘，最后累加即可</p>
-<p><strong>动态规划</strong></p>
+<p><a href="https://imgchr.com/i/Bkqwbd" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/23/Bkqwbd.png" alt="Bkqwbd.png"></a></p>
+<p>大意就是给定一个链表，让我们判断它是否为回文链表</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>递归</strong></p>
+<p>这个思路参照了前几天做的题<a href="https://morichina.github.io/2020/10/20/%E9%87%8D%E6%8E%92%E9%93%BE%E8%A1%A8/#more" target="_blank" rel="noopener">重排链表</a>里的递归的算法</p>
+<p>思路就是当给定一个链表后，若我们已知链表的头节点和尾节点，并且可以判断头节点和尾节点之间的部分是否为回文链表，那么这个问题就很好解决。于是就希望实现一个递归函数，可以判断中间部分是否是回文链表，并且可以返回尾节点。因此就想到构造这样一个递归函数：</p>
 <ul>
-<li>dp[i] 表示有 i 个节点的二叉树共有多少种结构</li>
-<li>初始化时 dp[0] = 1，dp[1] = 1</li>
-<li>状态转移方程：dp[i] = dp[0] * dp[i - 1] + dp[1] * dp[i - 2] + … + dp[i - 2] * dp[1]] + dp[i - 1] * dp[0]</li>
-<li>最后返回 dp[n] 即可</li>
+<li>若头节点和尾节点之间的部分是回文链表，则返回尾节点</li>
+<li>若中间的部分不是回文链表，则返回 null</li>
 </ul>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p>一开始是用递归实现的，运行效率十分感人</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numTrees</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n / <span class="number">2</span>; i++) &#123;</span><br><span class="line">                res += numTrees(i) * numTrees(n - <span class="number">1</span> - i) * <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            res += numTrees(n / <span class="number">2</span>) * numTrees(n / <span class="number">2</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n / <span class="number">2</span>; i++) &#123;</span><br><span class="line">                res += numTrees(i) * numTrees(n - <span class="number">1</span> - i) * <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那么我们实现该函数以后，只需再对头节点和尾节点的值进行比较，然后返回 true 或 false 即可</p>
+<p><strong>快慢指针+反转后半部分链表</strong></p>
+<p>这个算法的效率没有上一个递归算法的运行效率高</p>
+<p>整个流程可以分为以下五个步骤：</p>
+<ul>
+<li>通过快慢指针找到前半部分链表的尾节点</li>
+<li>反转后半部分链表</li>
+<li>判断是否回文</li>
+<li>恢复链表</li>
+<li>返回结果</li>
+</ul>
+<p>执行步骤一，我们可以计算链表节点的数量，然后遍历链表找到前半部分的尾节点</p>
+<p>我们也可以使用快慢指针在一次遍历中找到：慢指针一次走一步，快指针一次走两步，快慢指针同时出发。当快指针移动到链表的末尾时，慢指针恰好到链表的中间。通过慢指针将链表分为两部分</p>
+<p>若链表有奇数个节点，则中间的节点应该看作是前半部分</p>
+<p>步骤二可以使用「206. 反转链表」问题中的解决方法来反转链表的后半部分</p>
+<p>步骤三比较两个部分的值，当后半部分到达末尾则比较完成，可以忽略计数情况中的中间节点</p>
+<p>步骤四与步骤二使用的函数相同，再反转一次恢复链表本身</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>递归</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">        ListNode node = head;</span><br><span class="line">        <span class="keyword">while</span> (node != <span class="keyword">null</span>) &#123;</span><br><span class="line">            node = node.next;</span><br><span class="line">            len++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (len == <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (len == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> head.val == head.next.val;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode tail = getPalindromeTail(head.next, len - <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">return</span> tail != <span class="keyword">null</span> &amp;&amp; head.val == tail.val;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ListNode <span class="title">getPalindromeTail</span><span class="params">(ListNode head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> head.next;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (head.val == head.next.val) &#123;</span><br><span class="line">                <span class="keyword">return</span> head.next.next;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode tail = getPalindromeTail(head.next, n - <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">if</span> (tail == <span class="keyword">null</span> || head.val != tail.val) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> tail.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>看了题解后改成用动态规划，运行效率就大大提高了</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numTrees</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>];</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        dp[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                dp[i] += dp[j] * dp[i - <span class="number">1</span> -j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>快慢指针+反转后半部分链表</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 找到前半部分链表的尾节点并反转后半部分链表</span></span><br><span class="line">        ListNode firstHalfEnd = endOfFirstHalf(head);</span><br><span class="line">        ListNode secondHalfStart = reverseList(firstHalfEnd.next);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 判断是否回文</span></span><br><span class="line">        ListNode p1 = head;</span><br><span class="line">        ListNode p2 = secondHalfStart;</span><br><span class="line">        <span class="keyword">boolean</span> result = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">while</span> (result &amp;&amp; p2 != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (p1.val != p2.val) &#123;</span><br><span class="line">                result = <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            p1 = p1.next;</span><br><span class="line">            p2 = p2.next;</span><br><span class="line">        &#125;        </span><br><span class="line"></span><br><span class="line">        <span class="comment">// 还原链表并返回结果</span></span><br><span class="line">        firstHalfEnd.next = reverseList(secondHalfStart);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ListNode <span class="title">reverseList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        ListNode prev = <span class="keyword">null</span>;</span><br><span class="line">        ListNode curr = head;</span><br><span class="line">        <span class="keyword">while</span> (curr != <span class="keyword">null</span>) &#123;</span><br><span class="line">            ListNode nextTemp = curr.next;</span><br><span class="line">            curr.next = prev;</span><br><span class="line">            prev = curr;</span><br><span class="line">            curr = nextTemp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> prev;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ListNode <span class="title">endOfFirstHalf</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        ListNode fast = head;</span><br><span class="line">        ListNode slow = head;</span><br><span class="line">        <span class="keyword">while</span> (fast.next != <span class="keyword">null</span> &amp;&amp; fast.next.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> slow;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
@@ -504,8 +522,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/14/三角形最小路径和/" rel="next" title="三角形最小路径和">
-                <i class="fa fa-chevron-left"></i> 三角形最小路径和
+              <a href="/2020/10/22/划分字母区间/" rel="next" title="划分字母区间">
+                <i class="fa fa-chevron-left"></i> 划分字母区间
               </a>
             
           </div>
@@ -514,8 +532,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/07/18/交错字符串/" rel="prev" title="交错字符串">
-                交错字符串 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/10/23/反转链表/" rel="prev" title="反转链表">
+                反转链表 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

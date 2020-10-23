@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，96. Unique Binary Search Trees">
+  <meta name="description" content="LeetCode题目，206.  Reverse Linked List">
 <meta property="og:type" content="article">
-<meta property="og:title" content="不同的二叉搜索树">
-<meta property="og:url" content="http://yoursite.com/2020/07/15/不同的二叉搜索树/index.html">
+<meta property="og:title" content="反转链表">
+<meta property="og:url" content="http://yoursite.com/2020/10/23/反转链表/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，96. Unique Binary Search Trees">
+<meta property="og:description" content="LeetCode题目，206.  Reverse Linked List">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/07/15/UdS8M9.png">
-<meta property="og:updated_time" content="2020-07-15T01:34:58.797Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/23/BApe8s.png">
+<meta property="og:updated_time" content="2020-10-23T03:21:58.213Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="不同的二叉搜索树">
-<meta name="twitter:description" content="LeetCode每日一题，96. Unique Binary Search Trees">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/15/UdS8M9.png">
+<meta name="twitter:title" content="反转链表">
+<meta name="twitter:description" content="LeetCode题目，206.  Reverse Linked List">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/23/BApe8s.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/07/15/不同的二叉搜索树/">
+  <link rel="canonical" href="http://yoursite.com/2020/10/23/反转链表/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>不同的二叉搜索树 | Morichina</title>
+  <title>反转链表 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/15/不同的二叉搜索树/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/23/反转链表/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">不同的二叉搜索树
+          <h1 class="post-title" itemprop="name headline">反转链表
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-07-15 09:19:03 / 修改时间：09:34:58" itemprop="dateCreated datePublished" datetime="2020-07-15T09:19:03+08:00">2020-07-15</time>
+              <time title="创建时间：2020-10-23 11:03:15 / 修改时间：11:21:58" itemprop="dateCreated datePublished" datetime="2020-10-23T11:03:15+08:00">2020-10-23</time>
             </span>
           
 
@@ -456,25 +456,23 @@
       
 
       
-        <p>LeetCode每日一题，96. Unique Binary Search Trees</p>
+        <p>LeetCode题目，206.  Reverse Linked List</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/07/15/UdS8M9.png" alt></p>
-<p>大意就是给定二叉树的节点数量，问有多少种不同结构的二叉树</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>大致思路就是有 n 个节点的二叉树，那么其左子树的节点数为 0 到 n - 1，右子树的相应节点数为 n - 1 到 0，那么每次将左子树可能的结构数量与右子树可能的结构数量相乘，最后累加即可</p>
-<p><strong>动态规划</strong></p>
-<ul>
-<li>dp[i] 表示有 i 个节点的二叉树共有多少种结构</li>
-<li>初始化时 dp[0] = 1，dp[1] = 1</li>
-<li>状态转移方程：dp[i] = dp[0] * dp[i - 1] + dp[1] * dp[i - 2] + … + dp[i - 2] * dp[1]] + dp[i - 1] * dp[0]</li>
-<li>最后返回 dp[n] 即可</li>
-</ul>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p>一开始是用递归实现的，运行效率十分感人</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numTrees</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n / <span class="number">2</span>; i++) &#123;</span><br><span class="line">                res += numTrees(i) * numTrees(n - <span class="number">1</span> - i) * <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            res += numTrees(n / <span class="number">2</span>) * numTrees(n / <span class="number">2</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n / <span class="number">2</span>; i++) &#123;</span><br><span class="line">                res += numTrees(i) * numTrees(n - <span class="number">1</span> - i) * <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/BApe8s" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/23/BApe8s.png" alt="BApe8s.png"></a></p>
+<p>大意就是给定一个链表，让我们将链表反转</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>迭代</strong></p>
+<p>在遍历列表时，将当前节点的 next 指针改为指向前一个元素。由于节点没有引用其上一个节点，因此必须事先存储其前一个元素。在更改引用之前，还需要另一个指针来存储下一个节点。最后要返回新的头引用</p>
+<p><strong>递归</strong></p>
+<p>思路就是实现一个递归函数可以反转链表，假设头节点下的所有节点都已经反转好了，现在就剩头节点和其 next 节点 没有完成最后的反转了，然后就反转一下头节点和其 next 节点；执行 head.next.next = head，head.next = null，注意最后返回的是新的头节点</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>迭代</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        ListNode cur = head;</span><br><span class="line">        ListNode pre = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span> (cur != <span class="keyword">null</span>) &#123;</span><br><span class="line">            ListNode next = cur.next;</span><br><span class="line">            cur.next = pre;</span><br><span class="line">            pre = cur;</span><br><span class="line">            cur = next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>看了题解后改成用动态规划，运行效率就大大提高了</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numTrees</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>];</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        dp[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                dp[i] += dp[j] * dp[i - <span class="number">1</span> -j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>递归</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode res = reverseList(head.next);</span><br><span class="line">        head.next.next = head;</span><br><span class="line">        head.next = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
@@ -504,8 +502,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/14/三角形最小路径和/" rel="next" title="三角形最小路径和">
-                <i class="fa fa-chevron-left"></i> 三角形最小路径和
+              <a href="/2020/10/23/回文链表/" rel="next" title="回文链表">
+                <i class="fa fa-chevron-left"></i> 回文链表
               </a>
             
           </div>
@@ -513,10 +511,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/18/交错字符串/" rel="prev" title="交错字符串">
-                交错字符串 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
