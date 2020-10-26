@@ -94,17 +94,19 @@
 
 
 
-  <meta name="description" content="继上一篇博客">
+  <meta name="description" content="LeetCode每日一题，1365.  How Many Numbers Are Smaller Than the Current Number">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python的类中设置私有变量的实质">
-<meta property="og:url" content="http://yoursite.com/2019/07/30/Python的类中设置私有变量的实质/index.html">
+<meta property="og:title" content="有多少小于当前数字的数字">
+<meta property="og:url" content="http://yoursite.com/2020/10/26/有多少小于当前数字的数字/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="继上一篇博客">
+<meta property="og:description" content="LeetCode每日一题，1365.  How Many Numbers Are Smaller Than the Current Number">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-30T08:30:51.224Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/26/Bn7h9A.png">
+<meta property="og:updated_time" content="2020-10-26T04:26:11.277Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python的类中设置私有变量的实质">
-<meta name="twitter:description" content="继上一篇博客">
+<meta name="twitter:title" content="有多少小于当前数字的数字">
+<meta name="twitter:description" content="LeetCode每日一题，1365.  How Many Numbers Are Smaller Than the Current Number">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/26/Bn7h9A.png">
 
 
 
@@ -112,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/30/Python的类中设置私有变量的实质/">
+  <link rel="canonical" href="http://yoursite.com/2020/10/26/有多少小于当前数字的数字/">
 
 
 
@@ -122,7 +124,7 @@
   };
 </script>
 
-  <title>Python的类中设置私有变量的实质 | Morichina</title>
+  <title>有多少小于当前数字的数字 | Morichina</title>
   
 
 
@@ -349,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/30/Python的类中设置私有变量的实质/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/26/有多少小于当前数字的数字/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -366,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python的类中设置私有变量的实质
+          <h1 class="post-title" itemprop="name headline">有多少小于当前数字的数字
 
               
             
@@ -392,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2019-07-30 15:56:09 / 修改时间：16:30:51" itemprop="dateCreated datePublished" datetime="2019-07-30T15:56:09+08:00">2019-07-30</time>
+              <time title="创建时间：2020-10-26 12:00:29 / 修改时间：12:26:11" itemprop="dateCreated datePublished" datetime="2020-10-26T12:00:29+08:00">2020-10-26</time>
             </span>
           
 
@@ -423,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">6</span>
+              <span title="本文字数">2.1k</span>
             </span>
           
 
@@ -435,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -454,37 +456,22 @@
       
 
       
-        <p>继上一篇博客<a href="[https://morichina.github.io/2019/07/27/%E2%80%9Cpython%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/#more](https://morichina.github.io/2019/07/27/" python面向对象 #more)">Python面向对象</a></p>
+        <p>LeetCode每日一题，1365.  How Many Numbers Are Smaller Than the Current Number</p>
 <a id="more"></a>
 
-<p>在上一篇博客中提到了Python中定义类的过程中，变量名前面加两个下划线，可以将该属性设置为私有，外部无法直接调用，但是在后面学习的过程中发现这只是一种伪私有，Python中并不能实现真正的私有，将这些在博客中记录一下</p>
-<hr>
-<p>首先还是定义一个Student类，并初始化一个stu对象</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, score)</span>:</span></span><br><span class="line">		super( Student, self).__init__()</span><br><span class="line">		self.__name = name <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line">		self.__score = score <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line"></span><br><span class="line">stu = Student(<span class="string">"lisa"</span>, <span class="number">90</span>)</span><br></pre></td></tr></table></figure>
+<p>先看题目描述</p>
+<p><a href="https://imgchr.com/i/Bn7h9A" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/26/Bn7h9A.png" alt="Bn7h9A.png"></a></p>
+<p>大意就是给定一个数组 nums，对于其中每个数 nums[i]，让我们统计比它小的所有数字的数目</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>哈希表</strong></p>
+<p>思路就是先复制一个和 nums 一样的数组 temp，然后对 temp 进行排序，然后遍历 temp，每当遍历到一个和前面数字不一样的数时，就用哈希表记录下该数字和其下标，其下标就是小于它的数字的数目。最后遍历 nums 数组中的每个数 nums[i]，res[i] 就等于哈希表中 nums[i] 索引对应的 value值，最后返回 res即可</p>
+<p><strong>计数排序</strong></p>
+<p>注意到数组元素的值域为 [0, 100]，所以可以考虑建立一个频次数组 cnt ，cnt[i] 表示数字 i 出现的次数。那么对于数字 i 而言，小于它的数目就为 cnt[0] + cnt[1] + … + cnt[i - 1] 的总和；具体地，构建好频次数组 cnt 后，我们遍历 cnt 数组中的每个数 cnt[i]，对其执行 cnt[i] = cnt[i] + cnt[i - 1] 操作，那么此时 cnt[i] 就表示小于等于 i 的数字的数目，res[i] 就与 cnt[nums[i] - 1] 对应，最后返回 res 即可</p>
+<h2 id="算法和源码"><a href="#算法和源码" class="headerlink" title="算法和源码"></a>算法和源码</h2><p><strong>哈希表</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] smallerNumbersThanCurrent(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        <span class="keyword">int</span>[] temp = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">        System.arraycopy(nums, <span class="number">0</span>, temp, <span class="number">0</span>, len);</span><br><span class="line">        Arrays.sort(temp);</span><br><span class="line">        <span class="keyword">if</span> (temp[<span class="number">0</span>] == temp[len - <span class="number">1</span>]) &#123;</span><br><span class="line">           <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line">        map.put(temp[<span class="number">0</span>], <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (index &lt; len) &#123;</span><br><span class="line">            <span class="keyword">while</span> (index &lt; len &amp;&amp; temp[index] == temp[index - <span class="number">1</span>]) &#123;</span><br><span class="line">                index++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (index &lt; len) &#123;</span><br><span class="line">                map.put(temp[index], index);</span><br><span class="line">            &#125;</span><br><span class="line">            index++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            res[i] = map.get(nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>接下来我们输出的stu自带的__dict__属性，这个属性会将stu拥有的各个属性与属性名以字典的形式返回</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(stu.__dict__)</span><br></pre></td></tr></table></figure>
+<p><strong>计数排序</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] smallerNumbersThanCurrent(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        <span class="keyword">int</span>[] cnt = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">101</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num : nums) &#123;</span><br><span class="line">            cnt[num]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">100</span>; i++) &#123;</span><br><span class="line">            cnt[i] += cnt[i - <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                res[i] = cnt[nums[i] - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>可以看到结果</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">'_Student__name'</span>: <span class="string">'lisa'</span>, <span class="string">'_Student__score'</span>: <span class="number">90</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<p>看看我们发现了什么，之前在类中定义的私有属性的名字都发生了改变，于是猜测python的类中将属性设置为私有只是改变下属性名呢，为了证实我们的猜测，再来试一下，这次添加一个age属性，但是不设置为私有，然后将对象实例化后输出__dict__属性</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, score, age)</span>:</span></span><br><span class="line">        super( Student, self).__init__()</span><br><span class="line">        self.__name = name <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line">        self.__score = score <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line">        self.age = age</span><br><span class="line"></span><br><span class="line">stu = Student(<span class="string">"lisa"</span>, <span class="number">90</span>, <span class="number">12</span>)</span><br><span class="line">print(stu.__dict__)</span><br></pre></td></tr></table></figure>
-
-<p>结果为</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">'_Student__name'</span>: <span class="string">'lisa'</span>, <span class="string">'_Student__score'</span>: <span class="number">90</span>, <span class="string">'age'</span>: <span class="number">12</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这样我们就更加肯定我们的猜测了，python在类的定义中将属性设置为私有，只是了改变私有属性的名字，是一种伪私有，实际上从外部仍然可以调用，接下来尝试设置和输出私有属性</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, score, age)</span>:</span></span><br><span class="line">        super( Student, self).__init__()</span><br><span class="line">        self.__name = name <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line">        self.__score = score <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line">        self.age = age</span><br><span class="line"></span><br><span class="line">stu = Student(<span class="string">"lisa"</span>, <span class="number">90</span>, <span class="number">12</span>)</span><br><span class="line">print(stu.__dict__)</span><br><span class="line">stu._Student__name = <span class="string">"tom"</span></span><br><span class="line">stu._Student__score = <span class="number">100</span></span><br><span class="line">print(stu._Student__name)</span><br><span class="line">print(stu._Student__score)</span><br><span class="line">print(stu.__dict__)</span><br></pre></td></tr></table></figure>
-
-<p>可以看到结果为</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">'_Student__name'</span>: <span class="string">'lisa'</span>, <span class="string">'_Student__score'</span>: <span class="number">90</span>, <span class="string">'age'</span>: <span class="number">12</span>&#125;</span><br><span class="line">tom</span><br><span class="line"><span class="number">100</span></span><br><span class="line">&#123;<span class="string">'_Student__name'</span>: <span class="string">'tom'</span>, <span class="string">'_Student__score'</span>: <span class="number">100</span>, <span class="string">'age'</span>: <span class="number">12</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<p>我们可以在外部通过改变以后的属性名，直接设置或者输出该私有属性，调用形式就是_类名__属性名</p>
-<p>我们也可以通过以下形式从外部调用私有属性</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, score)</span>:</span></span><br><span class="line">        super( Student, self).__init__()</span><br><span class="line">        self.__name = name <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line">        self.__score = score <span class="comment"># 属性，加两个下划线表示私有，但这只是伪私有</span></span><br><span class="line"></span><br><span class="line">stu = Student(<span class="string">"lisa"</span>, <span class="number">90</span>)</span><br><span class="line">print(stu.__dict__.get(<span class="string">"_Student__name"</span>))</span><br><span class="line">print(stu.__dict__.get(<span class="string">"_Student__score"</span>))</span><br></pre></td></tr></table></figure>
-
-<p>这个实际上就是利用了字典的get()函数</p>
 
       
     </div>
@@ -515,8 +502,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/27/python面向对象/" rel="next" title="Python面向对象">
-                <i class="fa fa-chevron-left"></i> Python面向对象
+              <a href="/2020/10/25/视频拼接/" rel="next" title="视频拼接">
+                <i class="fa fa-chevron-left"></i> 视频拼接
               </a>
             
           </div>
@@ -524,10 +511,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/30/Python中给函数添加注解/" rel="prev" title="Python中给函数添加注解">
-                Python中给函数添加注解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -571,8 +554,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -646,6 +638,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和源码"><span class="nav-number">2.</span> <span class="nav-text">算法和源码</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
