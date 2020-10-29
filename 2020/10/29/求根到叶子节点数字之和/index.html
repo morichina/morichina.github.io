@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，617.  Merge Two Binary Trees">
+  <meta name="description" content="LeetCode每日一题，129.  Sum Root to Leaf Numbers">
 <meta property="og:type" content="article">
-<meta property="og:title" content="合并二叉树">
-<meta property="og:url" content="http://yoursite.com/2020/09/23/合并二叉树/index.html">
+<meta property="og:title" content="求根到叶子节点数字之和">
+<meta property="og:url" content="http://yoursite.com/2020/10/29/求根到叶子节点数字之和/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，617.  Merge Two Binary Trees">
+<meta property="og:description" content="LeetCode每日一题，129.  Sum Root to Leaf Numbers">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/23/wjiBlT.png">
-<meta property="og:updated_time" content="2020-09-23T02:19:08.860Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/29/BGI2Lj.png">
+<meta property="og:updated_time" content="2020-10-29T09:56:41.126Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="合并二叉树">
-<meta name="twitter:description" content="LeetCode每日一题，617.  Merge Two Binary Trees">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/09/23/wjiBlT.png">
+<meta name="twitter:title" content="求根到叶子节点数字之和">
+<meta name="twitter:description" content="LeetCode每日一题，129.  Sum Root to Leaf Numbers">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/29/BGI2Lj.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/09/23/合并二叉树/">
+  <link rel="canonical" href="http://yoursite.com/2020/10/29/求根到叶子节点数字之和/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>合并二叉树 | Morichina</title>
+  <title>求根到叶子节点数字之和 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/23/合并二叉树/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/29/求根到叶子节点数字之和/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">合并二叉树
+          <h1 class="post-title" itemprop="name headline">求根到叶子节点数字之和
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-09-23 10:04:13 / 修改时间：10:19:08" itemprop="dateCreated datePublished" datetime="2020-09-23T10:04:13+08:00">2020-09-23</time>
+              <time title="创建时间：2020-10-29 15:52:43 / 修改时间：17:56:41" itemprop="dateCreated datePublished" datetime="2020-10-29T15:52:43+08:00">2020-10-29</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.7k</span>
+              <span title="本文字数">999</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">2 分钟</span>
+              <span title="阅读时长">1 分钟</span>
             </span>
           
 
@@ -456,17 +456,15 @@
       
 
       
-        <p>LeetCode每日一题，617.  Merge Two Binary Trees</p>
+        <p>LeetCode每日一题，129.  Sum Root to Leaf Numbers</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/09/23/wjiBlT.png" alt></p>
-<p>大意就是将两棵二叉树合并，合并规则是若两节点重复，就将其值相加作为新节点，若有一个为空，则以非空的那个为新节点</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>自己一开始的思路是把 t2 给合并到 t1 上，合并好后将 t1 返回，基本思路就是深度优先遍历两棵二叉树相同位置的各个节点，遍历过程中记录下来父节点，并记录一个标志位表示该节点是父节点的左子节点还是右子节点，若当前 t2 节点为空，则直接返回，因为我们是将 t2 合并到 t1 上；若当前 t1 节点为空，则将当前 t2 节点根据标志位设为父节点的左子节点或右子节点；若均不为空，则将 t2 节点的值加到 t1 节点的值上，然后继续深度优先遍历。</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">mergeTrees</span><span class="params">(TreeNode t1, TreeNode t2)</span> </span>&#123;</span><br><span class="line">        TreeNode root = <span class="keyword">new</span> TreeNode(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span> (t2 == <span class="keyword">null</span>) <span class="keyword">return</span> t1;</span><br><span class="line">        <span class="keyword">if</span> (t1 == <span class="keyword">null</span>) <span class="keyword">return</span> t2;</span><br><span class="line">        dfs(t1, t2, <span class="keyword">null</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> t1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode t1, TreeNode t2, TreeNode preNode, <span class="keyword">int</span> flag)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (t2 == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (t1 == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (flag == <span class="number">0</span>) preNode.left = t2;</span><br><span class="line">            <span class="keyword">if</span> (flag == <span class="number">1</span>) preNode.right = t2;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        t1.val = t1.val  + t2.val;</span><br><span class="line">        dfs(t1.left, t2.left, t1, <span class="number">0</span>);</span><br><span class="line">        dfs(t1.right, t2.right, t1, <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>后来去看题解，发现题解是创建了棵新的二叉树，作为两棵二叉树的合并，代码更加简洁明了，不过运行效率差不多</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">mergeTrees</span><span class="params">(TreeNode t1, TreeNode t2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (t1 == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> t2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (t2 == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> t1;</span><br><span class="line">        &#125;</span><br><span class="line">        TreeNode merged = <span class="keyword">new</span> TreeNode(t1.val + t2.val);</span><br><span class="line">        merged.left = mergeTrees(t1.left, t2.left);</span><br><span class="line">        merged.right = mergeTrees(t1.right, t2.right);</span><br><span class="line">        <span class="keyword">return</span> merged;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/BGI2Lj" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/29/BGI2Lj.png" alt="BGI2Lj.png"></a></p>
+<p>大意就是给定一棵二叉树，每条从根到叶子节点的路径都代表一个数字，计算从根到叶子节点生成的所有数字之和</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>DFS+回溯</strong></p>
+<p>深度优先搜索是很直观的做法。从根节点开始，遍历每个节点，如果遇到叶子节点，则将叶子节点对应的数字加到数字之和。如果当前节点不是叶子节点，则计算其子节点对应的数字，然后对子节点递归遍历</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> cur = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sumNumbers</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        dfs(root);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        cur = cur * <span class="number">10</span> + root.val;</span><br><span class="line">        <span class="keyword">if</span> (root.left == <span class="keyword">null</span> &amp;&amp; root.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">            res += cur;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">            dfs(root.left);</span><br><span class="line">            cur /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root.right != <span class="keyword">null</span>)&#123;</span><br><span class="line">            dfs(root.right);</span><br><span class="line">            cur /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -498,8 +496,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/09/22/监控二叉树/" rel="next" title="监控二叉树">
-                <i class="fa fa-chevron-left"></i> 监控二叉树
+              <a href="/2020/10/28/合并两个有序链表/" rel="next" title="合并两个有序链表">
+                <i class="fa fa-chevron-left"></i> 合并两个有序链表
               </a>
             
           </div>
@@ -507,10 +505,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/09/24/二叉搜索树中的众数/" rel="prev" title="二叉搜索树中的众数">
-                二叉搜索树中的众数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
