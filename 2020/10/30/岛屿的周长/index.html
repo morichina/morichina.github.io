@@ -94,19 +94,20 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，763.  Partition Labels">
+  <meta name="description" content="LeetCode每日一题，463.  Island Perimeter">
 <meta property="og:type" content="article">
-<meta property="og:title" content="划分字母区间">
-<meta property="og:url" content="http://yoursite.com/2020/10/22/划分字母区间/index.html">
+<meta property="og:title" content="岛屿的周长">
+<meta property="og:url" content="http://yoursite.com/2020/10/30/岛屿的周长/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，763.  Partition Labels">
+<meta property="og:description" content="LeetCode每日一题，463.  Island Perimeter">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/10/22/BiEGJe.png">
-<meta property="og:updated_time" content="2020-10-22T01:22:17.643Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/30/BY5KC6.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/30/BYTlvT.png">
+<meta property="og:updated_time" content="2020-10-30T03:33:34.129Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="划分字母区间">
-<meta name="twitter:description" content="LeetCode每日一题，763.  Partition Labels">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/22/BiEGJe.png">
+<meta name="twitter:title" content="岛屿的周长">
+<meta name="twitter:description" content="LeetCode每日一题，463.  Island Perimeter">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/30/BY5KC6.png">
 
 
 
@@ -114,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/10/22/划分字母区间/">
+  <link rel="canonical" href="http://yoursite.com/2020/10/30/岛屿的周长/">
 
 
 
@@ -124,7 +125,7 @@
   };
 </script>
 
-  <title>划分字母区间 | Morichina</title>
+  <title>岛屿的周长 | Morichina</title>
   
 
 
@@ -351,7 +352,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/22/划分字母区间/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/30/岛屿的周长/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +369,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">划分字母区间
+          <h1 class="post-title" itemprop="name headline">岛屿的周长
 
               
             
@@ -394,7 +395,7 @@
                 
               
 
-              <time title="创建时间：2020-10-22 09:03:16 / 修改时间：09:22:17" itemprop="dateCreated datePublished" datetime="2020-10-22T09:03:16+08:00">2020-10-22</time>
+              <time title="创建时间：2020-10-30 10:53:51 / 修改时间：11:33:34" itemprop="dateCreated datePublished" datetime="2020-10-30T10:53:51+08:00">2020-10-30</time>
             </span>
           
 
@@ -425,7 +426,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.2k</span>
+              <span title="本文字数">2k</span>
             </span>
           
 
@@ -437,7 +438,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -456,28 +457,24 @@
       
 
       
-        <p>LeetCode每日一题，763.  Partition Labels</p>
+        <p>LeetCode每日一题，463.  Island Perimeter</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><a href="https://imgchr.com/i/BiEGJe" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/22/BiEGJe.png" alt="BiEGJe.png"></a></p>
-<p>大意就是给定一个字符串 S，让我们将 S 分为尽可能多的片段，要求每个字母最多只出现在其中一个片段</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>贪心算法</strong></p>
-<p>由于同一个字母只能出现在同一个片段，显然同一个字母的第一次出现的下标位置和最后一次出现的下标位置必须出现在同一个片段。因此需要遍历字符串，得到每个字母最后一次出现的下标位置</p>
-<p>算法流程：</p>
-<ul>
-<li>last 数组记录每个字母最后一次出现的下标位置，初始化 index 为 0，pre 为 -1</li>
-<li>移动 index 指针：<ul>
-<li>将 index 移动到它对应字母最后一次出现的下标位置 last[S[index]]</li>
-<li>然后遍历 pre + 1 与 index 之间的所有字母 S[i]，若 last[S[i]] 大于 index，则更新 index 为 last[S[i]]</li>
-<li>结果列表  res 中添加 index - pre</li>
-<li>更新 pre 为 index</li>
-<li>将 index + 1</li>
-</ul>
-</li>
-<li>重复上述过程直至 index 大于等于字符串 S 的长度</li>
-</ul>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">partitionLabels</span><span class="params">(String S)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">int</span> len = S.length();</span><br><span class="line">        <span class="keyword">int</span>[] last = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            last[S.charAt(i) - <span class="string">'a'</span>] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> pre = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (index &lt; len) &#123;</span><br><span class="line">            index = last[S.charAt(index) - <span class="string">'a'</span>];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = pre + <span class="number">1</span>; i &lt; index; i++) &#123;</span><br><span class="line">                <span class="keyword">int</span> cur = last[S.charAt(i) - <span class="string">'a'</span>];</span><br><span class="line">                index = index &gt; cur ? index : cur;</span><br><span class="line">            &#125;</span><br><span class="line">            res.add(index - pre);</span><br><span class="line">            pre = index;</span><br><span class="line">            index++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/BY5KC6" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/30/BY5KC6.png" alt="BY5KC6.png"></a></p>
+<p>大意就是给定一个只包含 0 和 1 的二维网格地图，0 表示水域而 1 表示陆地，让我们计算岛屿的周长</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>DFS</strong></p>
+<p>看到岛屿的题目，第一反应就是使用深度优先搜索。在 DFS 遍历时求岛屿的周长，有个很简单的思路就是：<strong>岛屿的周长就是岛屿方格和非岛屿方格相邻的边的数量</strong>，这里的非岛屿方格，既包括水域方格，也包括网格的边界，可以见下图</p>
+<p><a href="https://imgchr.com/i/BYTlvT" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/30/BYTlvT.png" alt="BYTlvT.png"></a></p>
+<p>具体实现上，我们对于已访问过的岛屿，我们将其值置为 2，代表已访问过，以避免递归陷入死循环。当遇到网格边界或水域方格时，便返回 1；当遇到以访问过的岛屿时，则返回 0</p>
+<p><strong>迭代</strong></p>
+<p>这道题上使用深度优先搜索的算法效率并不是很高，后来去看运行效率高的代码，发现这道题直接使用迭代的效率很高</p>
+<p>大致思路就是初始化 res = 0，然后逐行的遍历方格，若遇到岛屿，则将 res + 4，若该岛屿的上方有岛屿，则将 res - 2，因为有部分边重复；若该岛屿的左边有岛屿，则同样将 res - 2，因为有部分边重复。最后遍历结束后返回 res 即可</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>递归</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">islandPerimeter</span><span class="params">(<span class="keyword">int</span>[][] grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = grid.length;</span><br><span class="line">        <span class="keyword">int</span> n = grid[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (grid[i][j] == <span class="number">1</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> dfs(grid, i, j);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[][] grid, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (i &lt; <span class="number">0</span> || i &gt;= grid.length || j &lt; <span class="number">0</span> || j &gt;= grid[<span class="number">0</span>].length || grid[i][j] == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (grid[i][j] == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        grid[i][j] = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">return</span> dfs(grid, i + <span class="number">1</span>, j) + dfs(grid, i - <span class="number">1</span>, j) + dfs(grid, i, j + <span class="number">1</span>) + dfs(grid, i, j - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>迭代</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">islandPerimeter</span><span class="params">(<span class="keyword">int</span>[][] grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> m = grid.length;</span><br><span class="line">        <span class="keyword">int</span> n = grid[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (grid[i][j] == <span class="number">1</span>) &#123;</span><br><span class="line">                    res += <span class="number">4</span>;</span><br><span class="line">                    <span class="keyword">if</span> (j &gt;= <span class="number">1</span> &amp;&amp; grid[i][j - <span class="number">1</span>] == <span class="number">1</span>) &#123;</span><br><span class="line">                        res -= <span class="number">2</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (i &gt;= <span class="number">1</span> &amp;&amp; grid[i - <span class="number">1</span>][j] == <span class="number">1</span>) &#123;</span><br><span class="line">                        res -= <span class="number">2</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -509,8 +506,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/10/21/整数转罗马数字/" rel="next" title="整数转罗马数字">
-                <i class="fa fa-chevron-left"></i> 整数转罗马数字
+              <a href="/2020/10/29/求根到叶子节点数字之和/" rel="next" title="求根到叶子节点数字之和">
+                <i class="fa fa-chevron-left"></i> 求根到叶子节点数字之和
               </a>
             
           </div>
@@ -518,10 +515,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/10/23/回文链表/" rel="prev" title="回文链表">
-                回文链表 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
