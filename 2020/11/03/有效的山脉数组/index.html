@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，1028.Recover a Tree From Preorder Traversal">
+  <meta name="description" content="LeetCode每日一题，941.  Valid Mountain Array">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从先序遍历还原二叉树">
-<meta property="og:url" content="http://yoursite.com/2020/06/18/从先序遍历还原二叉树/index.html">
+<meta property="og:title" content="有效的山脉数组">
+<meta property="og:url" content="http://yoursite.com/2020/11/03/有效的山脉数组/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，1028.Recover a Tree From Preorder Traversal">
+<meta property="og:description" content="LeetCode每日一题，941.  Valid Mountain Array">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/06/18/NeKCWj.png">
-<meta property="og:updated_time" content="2020-06-18T04:19:24.936Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/11/03/BsD4OS.png">
+<meta property="og:updated_time" content="2020-11-03T04:24:39.535Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从先序遍历还原二叉树">
-<meta name="twitter:description" content="LeetCode每日一题，1028.Recover a Tree From Preorder Traversal">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/18/NeKCWj.png">
+<meta name="twitter:title" content="有效的山脉数组">
+<meta name="twitter:description" content="LeetCode每日一题，941.  Valid Mountain Array">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/11/03/BsD4OS.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/06/18/从先序遍历还原二叉树/">
+  <link rel="canonical" href="http://yoursite.com/2020/11/03/有效的山脉数组/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>从先序遍历还原二叉树 | Morichina</title>
+  <title>有效的山脉数组 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/18/从先序遍历还原二叉树/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/03/有效的山脉数组/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">从先序遍历还原二叉树
+          <h1 class="post-title" itemprop="name headline">有效的山脉数组
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-06-18 11:50:25 / 修改时间：12:19:24" itemprop="dateCreated datePublished" datetime="2020-06-18T11:50:25+08:00">2020-06-18</time>
+              <time title="创建时间：2020-11-03 09:02:18 / 修改时间：12:24:39" itemprop="dateCreated datePublished" datetime="2020-11-03T09:02:18+08:00">2020-11-03</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.7k</span>
+              <span title="本文字数">888</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">2 分钟</span>
+              <span title="阅读时长">1 分钟</span>
             </span>
           
 
@@ -456,35 +456,17 @@
       
 
       
-        <p>LeetCode每日一题，1028.Recover a Tree From Preorder Traversal</p>
+        <p>LeetCode每日一题，941.  Valid Mountain Array</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/06/18/NeKCWj.png" alt></p>
-<p>题目大意就是给定一个字符串，表示二叉树的先序遍历和每个节点深度，让我们将二叉树还原</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>我们记当前节点为 T，上一节点为 S，那么实际上只有两种情况：</p>
-<ul>
-<li>T 为 S 的左子节点</li>
-<li>T 是根节点到 S 的这一条路径上(不包括 S)某一个节点的右子节点</li>
-</ul>
-<p>于是我们可以用栈来保存节点，在遍历时要记录当前节点 T 的值和深度，若 T 深度比 S 刚好大 1，则 T 为 S 的左子节点，否则 T 是根节点到 S 的这一条路径上(不包括 S)某一个节点的右子节点，于是我们可以不停的将节点出栈，直到 T 的深度恰好比栈顶节点的深度大 1，此时 T 为栈顶节点的右子节点</p>
-<p><strong>算法流程</strong></p>
-<ul>
-<li><p>建立一个栈 stack 来记录节点</p>
-</li>
-<li><p>遍历字符串，遍历时不断维护节点的深度 dep</p>
-<ul>
-<li>遍历到当前节点 T 时，若 dep 与栈深度相等且栈不为空，则 T 为栈顶节点的左子节点</li>
-<li>若 dep 与栈的深度不相等，则不断将栈顶节点出栈直至 dep 与栈的深度相等，此时 T 为栈顶节点的右子节点</li>
-<li>将 T 入栈</li>
-</ul>
-</li>
-<li><p>将栈顶节点不断出栈直至栈的深度为 1</p>
-</li>
-<li><p>返回栈顶节点(二叉树的根节点)</p>
-</li>
-</ul>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Deque;</span><br><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">recoverFromPreorder</span><span class="params">(String S)</span> </span>&#123;</span><br><span class="line">        Deque&lt;TreeNode&gt; stack = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> pos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (pos &lt; S.length()) &#123;</span><br><span class="line">            <span class="keyword">int</span> dep = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (S.charAt(pos) == <span class="string">'-'</span>) &#123;</span><br><span class="line">                dep++;</span><br><span class="line">                pos++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> val = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (S.charAt(pos) != <span class="string">'-'</span>) &#123;</span><br><span class="line">                val = val*<span class="number">10</span> + S.charAt(pos) - <span class="string">'0'</span>;</span><br><span class="line">                pos++;</span><br><span class="line">            &#125;</span><br><span class="line">            TreeNode node = <span class="keyword">new</span> TreeNode(val);</span><br><span class="line">            <span class="keyword">if</span> (dep == stack.size()) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!stack.isEmpty()) stack.peek().left = node;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">while</span> (stack.size() != dep) stack.pop();</span><br><span class="line">                stack.peek().right = node;</span><br><span class="line">            &#125;</span><br><span class="line">            stack.push(node);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (stack.size() != <span class="number">1</span>) stack.pop();</span><br><span class="line">        <span class="keyword">return</span> stack.pop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/BsD4OS" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/11/03/BsD4OS.png" alt="BsD4OS.png"></a></p>
+<p>大意就是给定一个数组，让我们判断其是否为山脉数组，山脉数组的定义为数组 A 的长度大于等于 3，且存在一个 i 使得 A[0] &lt; A[1] &lt; … &lt; A[i]，A[i] &gt; A[i+1] &gt; … &gt; A[A.length - 1]</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>线性扫描</strong></p>
+<p>按题意模拟即可。我们从数组的最左侧开始向右扫描，直到找到第一个不满足 A[i] &lt; A[i+1] 的下标 i，那么 i 就是这个数组的最高点的下标。如果 i=0 或者不存在这样的 i（即整个数组都是单调递增的），那么就返回 false。否则从 i 开始继续向右扫描，判断接下来的的下标 j 是否都满足 A[j] &gt; A[j+1]，若都满足就返回 true，否则返回 false</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">validMountainArray</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = A.length;</span><br><span class="line">        <span class="keyword">if</span> (len &lt; <span class="number">3</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (index &lt; len - <span class="number">1</span> &amp;&amp; A[index] &lt; A[index + <span class="number">1</span>]) &#123;</span><br><span class="line">            index++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (index == len - <span class="number">1</span> || index == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">while</span> (index &lt; len - <span class="number">1</span> &amp;&amp; A[index] &gt; A[index + <span class="number">1</span>]) &#123;</span><br><span class="line">            index++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> index == len - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
@@ -514,8 +496,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/17/最佳观光组合/" rel="next" title="最佳观光组合">
-                <i class="fa fa-chevron-left"></i> 最佳观光组合
+              <a href="/2020/11/02/两个数组的交集/" rel="next" title="两个数组的交集">
+                <i class="fa fa-chevron-left"></i> 两个数组的交集
               </a>
             
           </div>
@@ -523,10 +505,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/19/验证回文串/" rel="prev" title="验证回文串">
-                验证回文串 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
