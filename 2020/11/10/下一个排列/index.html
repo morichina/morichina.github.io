@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，63.Unique Paths II">
+  <meta name="description" content="LeetCode每日一题，31. Next Permutation">
 <meta property="og:type" content="article">
-<meta property="og:title" content="不同路径Ⅱ">
-<meta property="og:url" content="http://yoursite.com/2020/07/06/不同路径Ⅱ/index.html">
+<meta property="og:title" content="下一个排列">
+<meta property="og:url" content="http://yoursite.com/2020/11/10/下一个排列/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，63.Unique Paths II">
+<meta property="og:description" content="LeetCode每日一题，31. Next Permutation">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/07/06/Ui4o26.png">
-<meta property="og:updated_time" content="2020-07-06T14:10:16.600Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/11/10/Bqpiaq.png">
+<meta property="og:updated_time" content="2020-11-10T02:21:04.952Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="不同路径Ⅱ">
-<meta name="twitter:description" content="LeetCode每日一题，63.Unique Paths II">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/06/Ui4o26.png">
+<meta name="twitter:title" content="下一个排列">
+<meta name="twitter:description" content="LeetCode每日一题，31. Next Permutation">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/11/10/Bqpiaq.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/07/06/不同路径Ⅱ/">
+  <link rel="canonical" href="http://yoursite.com/2020/11/10/下一个排列/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>不同路径Ⅱ | Morichina</title>
+  <title>下一个排列 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/06/不同路径Ⅱ/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/10/下一个排列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">不同路径Ⅱ
+          <h1 class="post-title" itemprop="name headline">下一个排列
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-07-06 21:40:33 / 修改时间：22:10:16" itemprop="dateCreated datePublished" datetime="2020-07-06T21:40:33+08:00">2020-07-06</time>
+              <time title="创建时间：2020-11-10 09:54:36 / 修改时间：10:21:04" itemprop="dateCreated datePublished" datetime="2020-11-10T09:54:36+08:00">2020-11-10</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.4k</span>
+              <span title="本文字数">1.7k</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -456,30 +456,32 @@
       
 
       
-        <p>LeetCode每日一题，63.Unique Paths II</p>
+        <p>LeetCode每日一题，31. Next Permutation</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/07/06/Ui4o26.png" alt></p>
-<p>大意就是给定网格中的空位和障碍的位置，让我们返回从左上走到右下一共有几种走法</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>使用动态规划就可以解决</p>
+<p><a href="https://imgchr.com/i/Bqpiaq" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/11/10/Bqpiaq.png" alt="Bqpiaq.png"></a></p>
+<p>大意就是将给定数字序列重新排列成字典序中下一个更大的排列，如果不存在，则将数字重新排列成最小的排列</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这个问题可以形式化的描述为给定若干个数字，将其组合为一个整数。如何将这些数字重新排列，以得到下一个更大的整数。如 123下一个更大的数为 132。如果没有更大的整数，则输出最小的整数</p>
+<p>我们可以这样分析：</p>
+<ol>
+<li>我们希望下一个数比当前数大，这样才满足“下一个排列”的定义。因此只需要将后面的「大数」与前面的「小数」交换，就能得到一个更大的数。比如 123456，将 5 和 6 交换就能得到一个更大的数 123465</li>
+<li>我们还希望下一个数增加的幅度尽可能的小，这样才满足“下一个排列与当前排列紧邻“的要求。为了满足这个要求，我们需要：<ol>
+<li>在尽可能靠右的低位进行交换，需要从后向前查找</li>
+<li>将一个 尽可能小的「大数」 与前面的「小数」交换。比如 123465，下一个排列应该把 5 和 4 交换而不是把 6 和 4 交换</li>
+<li>将「大数」换到前面后，需要将「大数」后面的所有数重置为升序，升序排列就是最小的排列。以 123465 为例：首先按照上一步，交换 5 和 4，得到 123564；然后需要将 5 之后的数重置为升序，得到 123546。显然 123546 比 123564 更小，123546 就是 123465 的下一个排列</li>
+</ol>
+</li>
+</ol>
+<p><strong>算法流程</strong></p>
 <ul>
-<li><p>dp[i][j] 表示走到 obstaclGrid[i][j] 共有几种走法</p>
-</li>
-<li><p>状态转移方程：</p>
-<ul>
-<li>若 obstacleGrid[i][0] = 0，dp[i][0] = dp[i - 1][0]，否则，dp[i][0] = 0</li>
-<li>若  obstacleGrid[0][i] = 0，dp[0][i] = dp[0][i - 1]，否则，dp[0][i] = 0</li>
-<li>当 i, j 均大于等于 1 时<ul>
-<li>若  obstacleGrid[i][j] = 0，dp[i][j] = dp[i - 1][j] + dp[i][j - 1]，否则 dp[i][j] = 0</li>
+<li>从后向前查找第一个相邻的升序元素对 (i, j)，满足 nums[i] &lt; nums[j]，此时 [j, end] 必然是降序</li>
+<li>在 [j, end] 中从后向前查找第一个大于 nums[i] 的数 nums[k]，nums[i] 和 nums[k] 就是上文说的需要交换的大数和小数</li>
+<li>交换 nums[i] 与 nums[k]</li>
+<li>此时 [j, end] 必然是降序，逆置 [j, end]，使其升序排列</li>
+<li>若找不到符合的相邻元素对 (i, j)，则说明当前 [begin, end] 是以一个降序排列序列，直接逆置 [begin, end]</li>
 </ul>
-</li>
-</ul>
-</li>
-<li><p>初始化时，若 obstacleGrid[i][j] = 0，dp[0][0] = 1，否则直接返回 0</p>
-</li>
-</ul>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePathsWithObstacles</span><span class="params">(<span class="keyword">int</span>[][] obstacleGrid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = obstacleGrid.length;</span><br><span class="line">        <span class="keyword">if</span> (m == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n = obstacleGrid[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</span><br><span class="line">        <span class="keyword">if</span> (obstacleGrid[<span class="number">0</span>][<span class="number">0</span>] == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (obstacleGrid[i][<span class="number">0</span>] == <span class="number">0</span>) dp[i][<span class="number">0</span>] = dp[i - <span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">else</span> dp[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (obstacleGrid[<span class="number">0</span>][i] == <span class="number">0</span>) dp[<span class="number">0</span>][i] = dp[<span class="number">0</span>][i - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">else</span> dp[<span class="number">0</span>][i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (obstacleGrid[i][j] == <span class="number">0</span>) dp[i][j] = dp[i - <span class="number">1</span>][j] + dp[i][j - <span class="number">1</span>];</span><br><span class="line">                <span class="keyword">else</span> dp[i][j] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m - <span class="number">1</span>][n - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">nextPermutation</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">int</span> i = len - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> k = len - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span> || nums[i] &gt; nums[i - <span class="number">1</span>]) &#123;</span><br><span class="line">                i--;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        j = i + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (i &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (; k &gt;= j; k--) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[k] &gt; nums[i]) &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            swap(nums, i, k);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> m = j, n = len - <span class="number">1</span>; m &lt; n; m++, n--) &#123;</span><br><span class="line">            swap(nums, m, n);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = nums[i];</span><br><span class="line">        nums[i] = nums[j];</span><br><span class="line">        nums[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -511,8 +513,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/05/最长有效括号/" rel="next" title="最长有效括号">
-                <i class="fa fa-chevron-left"></i> 最长有效括号
+              <a href="/2020/11/06/根据数字二进制下1的数目排序/" rel="next" title="根据数字二进制下1的数目排序">
+                <i class="fa fa-chevron-left"></i> 根据数字二进制下1的数目排序
               </a>
             
           </div>
@@ -521,8 +523,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/07/07/路径总和/" rel="prev" title="路径总和">
-                路径总和 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/11/10/最接近原点的k个数/" rel="prev" title="最接近原点的k个数">
+                最接近原点的k个数 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
