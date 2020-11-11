@@ -94,19 +94,20 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，剑指 Offer 11.  旋转数组的最小数字">
+  <meta name="description" content="LeetCode每日一题，514.  Freedom Trail">
 <meta property="og:type" content="article">
-<meta property="og:title" content="旋转数组的最小数">
-<meta property="og:url" content="http://yoursite.com/2020/07/22/旋转数组的最小数/index.html">
+<meta property="og:title" content="自由之路">
+<meta property="og:url" content="http://yoursite.com/2020/11/11/自由之路/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，剑指 Offer 11.  旋转数组的最小数字">
+<meta property="og:description" content="LeetCode每日一题，514.  Freedom Trail">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/07/22/U7WpVS.png">
-<meta property="og:updated_time" content="2020-07-22T04:49:23.142Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/11/11/BXYi5j.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/11/11/BXNIK0.png">
+<meta property="og:updated_time" content="2020-11-11T02:44:16.253Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="旋转数组的最小数">
-<meta name="twitter:description" content="LeetCode每日一题，剑指 Offer 11.  旋转数组的最小数字">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/22/U7WpVS.png">
+<meta name="twitter:title" content="自由之路">
+<meta name="twitter:description" content="LeetCode每日一题，514.  Freedom Trail">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/11/11/BXYi5j.png">
 
 
 
@@ -114,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/07/22/旋转数组的最小数/">
+  <link rel="canonical" href="http://yoursite.com/2020/11/11/自由之路/">
 
 
 
@@ -124,7 +125,7 @@
   };
 </script>
 
-  <title>旋转数组的最小数 | Morichina</title>
+  <title>自由之路 | Morichina</title>
   
 
 
@@ -351,7 +352,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/22/旋转数组的最小数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/11/自由之路/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +369,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">旋转数组的最小数
+          <h1 class="post-title" itemprop="name headline">自由之路
 
               
             
@@ -394,7 +395,7 @@
                 
               
 
-              <time title="创建时间：2020-07-22 11:47:50 / 修改时间：12:49:23" itemprop="dateCreated datePublished" datetime="2020-07-22T11:47:50+08:00">2020-07-22</time>
+              <time title="创建时间：2020-11-11 10:13:43 / 修改时间：10:44:16" itemprop="dateCreated datePublished" datetime="2020-11-11T10:13:43+08:00">2020-11-11</time>
             </span>
           
 
@@ -425,7 +426,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">953</span>
+              <span title="本文字数">2.9k</span>
             </span>
           
 
@@ -437,7 +438,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">3 分钟</span>
             </span>
           
 
@@ -456,24 +457,26 @@
       
 
       
-        <p>LeetCode每日一题，剑指 Offer 11.  旋转数组的最小数字</p>
+        <p>LeetCode每日一题，514.  Freedom Trail</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/07/22/U7WpVS.png" alt></p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>循环二分法</strong></p>
-<ul>
-<li>初始化三个指针 low = 0，high = numbers.length - 1，mid = （low + high) / 2</li>
-<li>开始循环二分<ul>
-<li>若 numbers[mid] &gt; numbers[high]，说明最小值在 mid 右边，即 [mid + 1, high] 区间，令 low = mid + 1</li>
-<li>若 numbers[mid] &lt; numbers[high]，说明最小值在 mid 左边，即 [low, mid] 区间，令 high = mid</li>
-<li>若 numbers[mid] = numbers[high]，则无法判断最小值在 mid 左边还是右边，则令 high = high - 1 缩小搜索范围</li>
-</ul>
-</li>
-<li>当 low &gt;= high 时，退出循环二分，返回 numbers[low]</li>
-</ul>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minArray</span><span class="params">(<span class="keyword">int</span>[] numbers)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = numbers.length;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = len - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">while</span> (low &lt; high) &#123;</span><br><span class="line">            <span class="keyword">if</span> (numbers[mid] &gt; numbers[high]) &#123;</span><br><span class="line">                low = mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (numbers[mid] &lt; numbers[high]) &#123;</span><br><span class="line">                high = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                high--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> numbers[low];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/BXYi5j" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/11/11/BXYi5j.png" alt="BXYi5j.png"></a></p>
+<p>大意就是给定两个字符串，一个字符串 ring 表示刻在外环上的编码，另一个字符串 key 表示需要拼接的关键词，让我们算出能够拼写关键词中所有字符的最少步数</p>
+<h2 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h2><p>这题不会，我是直接看的题解…</p>
+<p><strong>动态规划</strong></p>
+<p>定义 dp[i][j] 表示从前往后拼写出 key 的第 i 个字符， ring 的第 j 个字符与12:00 方向对齐的最少步数（下标均从 0 开始）</p>
+<p>显然，只有当字符串 ring 的第 j 个字符和 key 的第 i 个字符相同时才能拼写出 key 的第 i 个字符，因此对于 key 的第 i 个字符，需要考虑其在 ring 中出现的下标集合。我们对每个字符维护一个位置数组 pos[i]，表示字符 i 在 ring 中出现的位置集合，用来加速计算转移的过程</p>
+<p>对于状态 dp[i][j]，需要枚举上一次与 12:00 方向对齐的位置 k，因此可以列出如下的转移方程：</p>
+<p><a href="https://imgchr.com/i/BXNIK0" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/11/11/BXNIK0.png" alt="BXNIK0.png"></a></p>
+<p>其中 min{abs(j - k), n - abs(j - k)} 表示在当前第 k 个字符与 12:00 方向对齐时第 j 个字符旋转到 12:00 方向并按下拼写的最少步数</p>
+<p>最后返回数组 dp[m - 1] 中的最小值即可</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findRotateSteps</span><span class="params">(String ring, String key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = key.length();</span><br><span class="line">        <span class="keyword">int</span> n = ring.length();</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</span><br><span class="line">        List&lt;Integer&gt;[] pos = <span class="keyword">new</span> List[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++) &#123;</span><br><span class="line">            pos[i] = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            pos[ring.charAt(i) - <span class="string">'a'</span>].add(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            Arrays.fill(dp[i], Integer.MAX_VALUE);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> index : pos[key.charAt(<span class="number">0</span>) - <span class="string">'a'</span>]) &#123;</span><br><span class="line">            dp[<span class="number">0</span>][index] = Math.min(index, n - index) + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j : pos[key.charAt(i) - <span class="string">'a'</span>]) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> k : pos[key.charAt(i - <span class="number">1</span>) - <span class="string">'a'</span>]) &#123;</span><br><span class="line">                    dp[i][j] = Math.min(dp[i][j], dp[i - <span class="number">1</span>][k] + Math.min(Math.abs(j - k), n - Math.abs(j - k)) + <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Arrays.stream(dp[m - <span class="number">1</span>]).min().getAsInt();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><strong>利用滚动数组优化空间复杂度后的代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findRotateSteps</span><span class="params">(String ring, String key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = key.length();</span><br><span class="line">        <span class="keyword">int</span> n = ring.length();</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>][n];</span><br><span class="line">        List&lt;Integer&gt;[] pos = <span class="keyword">new</span> List[<span class="number">26</span>];</span><br><span class="line">        <span class="comment">// Arrays.fill(pos, new ArrayList&lt;&gt;());</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++) &#123;</span><br><span class="line">            pos[i] = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            pos[ring.charAt(i) - <span class="string">'a'</span>].add(i);</span><br><span class="line">        &#125;</span><br><span class="line">        Arrays.fill(dp[<span class="number">0</span>], Integer.MAX_VALUE);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> index: pos[key.charAt(<span class="number">0</span>) - <span class="string">'a'</span>]) &#123;</span><br><span class="line">            dp[<span class="number">0</span>][index] = Math.min(index, n - index) + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> row = i % <span class="number">2</span>;</span><br><span class="line">            Arrays.fill(dp[row], Integer.MAX_VALUE);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j : pos[key.charAt(i) - <span class="string">'a'</span>]) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> k : pos[key.charAt(i - <span class="number">1</span>) - <span class="string">'a'</span>]) &#123;</span><br><span class="line">                    dp[row][j] = Math.min(dp[row][j], dp[<span class="number">1</span> - row][k] + Math.min(Math.abs(j - k), n - Math.abs(j - k)) + <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Arrays.stream(dp[(m - <span class="number">1</span>) % <span class="number">2</span>]).min().getAsInt();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意在对列表数组 pos 初始化时不能用 Arrays.fill()，否则 pos 中的所有元素实际上指向的是是同一个列表</p>
 
       
     </div>
@@ -504,8 +507,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/20/二数之和II-输入有序数组/" rel="next" title="二数之和II-输入有序数组">
-                <i class="fa fa-chevron-left"></i> 二数之和II-输入有序数组
+              <a href="/2020/11/10/最接近原点的k个数/" rel="next" title="最接近原点的k个数">
+                <i class="fa fa-chevron-left"></i> 最接近原点的k个数
               </a>
             
           </div>
@@ -513,10 +516,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/25/分割数组的最大值/" rel="prev" title="分割数组的最大值">
-                分割数组的最大值 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -655,7 +654,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法思路"><span class="nav-number">1.</span> <span class="nav-text">算法思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
