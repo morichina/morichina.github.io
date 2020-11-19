@@ -94,21 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，143.  Reorder List">
+  <meta name="description" content="LeetCode每日一题，283.  MoveZeroes">
 <meta property="og:type" content="article">
-<meta property="og:title" content="重排链表">
-<meta property="og:url" content="http://yoursite.com/2020/10/20/重排链表/index.html">
+<meta property="og:title" content="移动零">
+<meta property="og:url" content="http://yoursite.com/2020/11/19/移动零/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，143.  Reorder List">
+<meta property="og:description" content="LeetCode每日一题，283.  MoveZeroes">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/10/20/BSU3R0.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/10/20/BSdC9I.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/10/20/BSdKCn.png">
-<meta property="og:updated_time" content="2020-10-20T04:55:31.347Z">
+<meta property="og:image" content="https://s3.ax1x.com/2020/11/19/DuKy7D.png">
+<meta property="og:updated_time" content="2020-11-19T02:36:17.500Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="重排链表">
-<meta name="twitter:description" content="LeetCode每日一题，143.  Reorder List">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/20/BSU3R0.png">
+<meta name="twitter:title" content="移动零">
+<meta name="twitter:description" content="LeetCode每日一题，283.  MoveZeroes">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/11/19/DuKy7D.png">
 
 
 
@@ -116,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/10/20/重排链表/">
+  <link rel="canonical" href="http://yoursite.com/2020/11/19/移动零/">
 
 
 
@@ -126,7 +124,7 @@
   };
 </script>
 
-  <title>重排链表 | Morichina</title>
+  <title>移动零 | Morichina</title>
   
 
 
@@ -353,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/20/重排链表/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/19/移动零/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -370,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">重排链表
+          <h1 class="post-title" itemprop="name headline">移动零
 
               
             
@@ -396,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-10-20 12:28:14 / 修改时间：12:55:31" itemprop="dateCreated datePublished" datetime="2020-10-20T12:28:14+08:00">2020-10-20</time>
+              <time title="创建时间：2020-11-19 10:18:09 / 修改时间：10:36:17" itemprop="dateCreated datePublished" datetime="2020-11-19T10:18:09+08:00">2020-11-19</time>
             </span>
           
 
@@ -427,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2.1k</span>
+              <span title="本文字数">1.9k</span>
             </span>
           
 
@@ -458,38 +456,30 @@
       
 
       
-        <p>LeetCode每日一题，143.  Reorder List</p>
+        <p>LeetCode每日一题，283.  MoveZeroes</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/10/20/BSU3R0.png" alt></p>
-<p>大意就是给定一个链表 : L0→L1→…→Ln-1→Ln，让我们将其重排为 L0→Ln→L1→Ln-1→L2→Ln-2…</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>双指针</strong></p>
-<p>这个是自己实现的算法，流程如下</p>
-<p>算法流程：</p>
+<p><a href="https://imgchr.com/i/DuKy7D" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/19/DuKy7D.png" alt="DuKy7D.png"></a></p>
+<p>大意就是给定一个数组，将其中非零的元素按照顺序放在前面，0 都放在后面</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>使用双指针，左指针指向当前已经处理好的序列的尾部，右指针指向待处理序列的头部</p>
+<p>右指针不断向右移动，每次右指针指向非零数，则将左右指针对应的数交换，同时左指针右移</p>
+<p>注意到以下性质：</p>
 <ul>
-<li>定义一个哈希表 map，将链表中的每个节点和其前序节点对应起来</li>
-<li>定义一个 first 指针和 last 指针分别指向链表的头节点和尾节点，通过 first 指针和 last 指针来遍历链表：<ul>
-<li>将 last 对应节点插到 first 对应节点之后</li>
-<li>first 指针向后移动两位</li>
-<li>last 指针指向其之前的前序节点，并使其之前前序节点的 next 值为空</li>
-</ul>
+<li><p>左指针左边均为非零数</p>
 </li>
-<li>重复上述操作直至 first 和 last 相遇或者 last 指向 first 指针的后一位</li>
+<li><p>右指针左边直到左指针处均为零</p>
+</li>
 </ul>
-<p><strong>递归</strong></p>
-<p>如果我们的递归函数能够返回当前头元素对应的尾元素，并且将头元素和尾元素之间的链表按要求完成，那就变得简单了</p>
-<p><a href="https://imgchr.com/i/BSdC9I" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/20/BSdC9I.png" alt="BSdC9I.png"></a></p>
-<p>如上图，我们只需要将 head 指向 tail，tail 指向处理完的链表头即可</p>
-<p><a href="https://imgchr.com/i/BSdKCn" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/20/BSdKCn.png" alt="BSdKCn.png"></a></p>
-<p>然后我们把之前的 tail.next 返回就是外层 head 对应的 tail 了</p>
-<p>递归出口的话，如果只有一个节点，那么我们只需要将 head.next 返回</p>
-<p>如果是两个节点，我们需要将 head.next.next 返回</p>
+<p>因此每次交换，都是将左指针的零与右指针的非零数交换，且非零数的相对顺序并未改变</p>
 <h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>双指针</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reorderList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">        Map&lt;ListNode, ListNode&gt; map = <span class="keyword">new</span> HashMap&lt;ListNode, ListNode&gt;();</span><br><span class="line">        ListNode node = head;</span><br><span class="line">        ListNode pre = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span> (node != <span class="keyword">null</span>) &#123;</span><br><span class="line">            map.put(node, pre);</span><br><span class="line">            pre = node;</span><br><span class="line">            node = node.next;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode first = head;</span><br><span class="line">        ListNode last = pre;</span><br><span class="line">        <span class="keyword">while</span> (first != last &amp;&amp; last != first.next) &#123;</span><br><span class="line">            last.next = first.next;</span><br><span class="line">            first.next = last;</span><br><span class="line">            last = map.get(last);</span><br><span class="line">            last.next = <span class="keyword">null</span>;</span><br><span class="line">            first = first.next.next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">moveZeroes</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] != <span class="number">0</span>) &#123;</span><br><span class="line">                swap(nums, left, i);</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = nums[i];</span><br><span class="line">        nums[i] = nums[j];</span><br><span class="line">        nums[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>递归</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reorderList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">        ListNode node = head;</span><br><span class="line">        <span class="keyword">while</span> (node != <span class="keyword">null</span>) &#123;</span><br><span class="line">            len++;</span><br><span class="line">            node = node.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (len &lt;= <span class="number">2</span>) <span class="keyword">return</span>;</span><br><span class="line">        reorder(head, len);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> ListNode <span class="title">reorder</span><span class="params">(ListNode head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">            ListNode node = head.next;</span><br><span class="line">            head.next= <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">return</span> node;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">2</span>) &#123;</span><br><span class="line">            ListNode node = head.next.next;</span><br><span class="line">            head.next.next = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">return</span> node;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode tail = reorder(head.next, n - <span class="number">2</span>);</span><br><span class="line">        ListNode node = tail.next;</span><br><span class="line">        tail.next = head.next;</span><br><span class="line">        head.next = tail;</span><br><span class="line">        <span class="keyword">return</span> node;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也可以用非零数覆盖前面的 0，最后在末尾补 0</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">moveZeroes</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> indexNow = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> indexNum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> m = nums.length;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(indexNum&lt;m)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[indexNum] != <span class="number">0</span>) &#123;</span><br><span class="line">                nums[indexNow++] = nums[indexNum];</span><br><span class="line">            &#125;</span><br><span class="line">            ++indexNum;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = indexNow; i &lt; m; i++)&#123;</span><br><span class="line">            nums[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面是自己一开始想的解法，效率比较低</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">moveZeroes</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">if</span> (len &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> j = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (j &lt; len &amp;&amp; nums[j] == <span class="number">0</span>) &#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">while</span> (j &lt;= i ||  j &lt; len &amp;&amp; nums[j] == <span class="number">0</span>) &#123;</span><br><span class="line">                        j++;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (j &gt;= len) <span class="keyword">break</span>;</span><br><span class="line">                    swap(nums, i, j);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = nums[i];</span><br><span class="line">        nums[i] = nums[j];</span><br><span class="line">        nums[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -521,8 +511,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/10/19/比较含退格的字符串/" rel="next" title="比较含退格的字符串">
-                <i class="fa fa-chevron-left"></i> 比较含退格的字符串
+              <a href="/2020/11/18/距离顺序排列矩阵单元格/" rel="next" title="距离顺序排列矩阵单元格">
+                <i class="fa fa-chevron-left"></i> 距离顺序排列矩阵单元格
               </a>
             
           </div>
@@ -530,10 +520,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/10/21/长按键入/" rel="prev" title="长按键入">
-                长按键入 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
