@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，922.  Sort Array By Parity II">
+  <meta name="description" content="LeetCode每日一题，147.  Insertion Sort List">
 <meta property="og:type" content="article">
-<meta property="og:title" content="按奇偶排序数组II">
-<meta property="og:url" content="http://yoursite.com/2020/11/12/按奇偶排序数组II/index.html">
+<meta property="og:title" content="对链表进行插入排序">
+<meta property="og:url" content="http://yoursite.com/2020/11/20/对链表进行插入排序/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，922.  Sort Array By Parity II">
+<meta property="og:description" content="LeetCode每日一题，147.  Insertion Sort List">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s3.ax1x.com/2020/11/12/BzkOJS.png">
-<meta property="og:updated_time" content="2020-11-12T11:33:29.356Z">
+<meta property="og:image" content="https://s3.ax1x.com/2020/11/20/DQmQr6.png">
+<meta property="og:updated_time" content="2020-11-20T10:21:13.202Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="按奇偶排序数组II">
-<meta name="twitter:description" content="LeetCode每日一题，922.  Sort Array By Parity II">
-<meta name="twitter:image" content="https://s3.ax1x.com/2020/11/12/BzkOJS.png">
+<meta name="twitter:title" content="对链表进行插入排序">
+<meta name="twitter:description" content="LeetCode每日一题，147.  Insertion Sort List">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/11/20/DQmQr6.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/11/12/按奇偶排序数组II/">
+  <link rel="canonical" href="http://yoursite.com/2020/11/20/对链表进行插入排序/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>按奇偶排序数组II | Morichina</title>
+  <title>对链表进行插入排序 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/12/按奇偶排序数组II/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/20/对链表进行插入排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">按奇偶排序数组II
+          <h1 class="post-title" itemprop="name headline">对链表进行插入排序
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-11-12 16:35:36 / 修改时间：19:33:29" itemprop="dateCreated datePublished" datetime="2020-11-12T16:35:36+08:00">2020-11-12</time>
+              <time title="创建时间：2020-11-20 15:12:57 / 修改时间：18:21:13" itemprop="dateCreated datePublished" datetime="2020-11-20T15:12:57+08:00">2020-11-20</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2.7k</span>
+              <span title="本文字数">1.8k</span>
             </span>
           
 
@@ -456,27 +456,34 @@
       
 
       
-        <p>LeetCode每日一题，922.  Sort Array By Parity II</p>
+        <p>LeetCode每日一题，147.  Insertion Sort List</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><a href="https://imgchr.com/i/BzkOJS" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/12/BzkOJS.png" alt="BzkOJS.png"></a></p>
-<p>大意就是给定一个数组，这个数组中一半是奇数，一半是偶数，让我们给这个数组排序，保证当 i 是奇数时，A[i] 为奇数；当 i 是偶数时，A[i] 为偶数</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>使用两个栈</strong></p>
-<p>大致思路就是一次遍历，用一个长度为2的双向队列数组存储位置不对的数，当碰到一个奇数处于偶数位置时，若此时 indexs[0] 为空，则将其下标存储入 indexs[1] 中，若 indexs[0] 不为空，则弹出 indexs[1] 中的最后一个元素，然后将这个下标对应的数字与当前数字交换；若碰到一个偶数处于奇数位置，也是同样的操作，若 indexs[1] 不为空，则弹出下标，并将其对应数字与当前数字交换，否则就将当前下标添加入 indexs[0] 中，遍历完后返回交换后的数组即可</p>
-<p><strong>一次遍历+双指针(不修改原数组)</strong></p>
-<p>先定义一个长度与原数组相同的 ans 数组，用于储存最后的结果。然后定义两个指针 m 和 n，并初始化 m = 0， n = 1，然后遍历原数组，当遇到偶数时，则将其值赋给 ans[m]，并将 m 往后移动两位；遇到奇数时，则将其值赋给 ans[n]，并将 n 向后移动两位。遍历完后返回 ans 数组即可</p>
-<p><strong>一次遍历+双指针(修改原数组)</strong></p>
-<p>若原数组可修改，那我们没必要定义一个新数组，在原数组的基础上交换元素即可。同样是定义两个指针 i 和 j，初始化 i = 0，j = 1，然后每次将 i 指针往后移动两位，当遇到奇数时，则指针 i 停止移动，然后开始移动 j 指针，也是每次往后移动两位直至遇到偶数，此时将 i 指针指向的数字和 j 指针指向的数字交换即可。重复上述过程，直至遍历完整个数组，然后返回交换后的数组即可</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>使用两个栈</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortArrayByParityII(<span class="keyword">int</span>[] A) &#123;</span><br><span class="line">        Deque&lt;Integer&gt;[] indexs = <span class="keyword">new</span> Deque[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123;</span><br><span class="line">            indexs[i] = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> len = A.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> remainder = A[i] % <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (remainder != i % <span class="number">2</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!indexs[<span class="number">1</span> - remainder].isEmpty()) &#123;</span><br><span class="line">                    <span class="keyword">int</span> j = indexs[<span class="number">1</span> - remainder].removeLast();</span><br><span class="line">                    swap(A, i, j);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    indexs[remainder].add(i);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> A;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] A, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = A[i];</span><br><span class="line">        A[i] = A[j];</span><br><span class="line">        A[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这个的效率会比较低，因为对双向队列的这些操作还是挺耗时的</p>
-<p><strong>一次遍历+双指针(不修改原数组)</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortArrayByParityII(<span class="keyword">int</span>[] A) &#123;</span><br><span class="line">        <span class="keyword">int</span> len = A.length;</span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        <span class="keyword">int</span> m = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num : A) &#123;</span><br><span class="line">            <span class="keyword">if</span> (num % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                ans[m] = num;</span><br><span class="line">                m += <span class="number">2</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                ans[n] = num;</span><br><span class="line">                n += <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>一次遍历+双指针(修改原数组)</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortArrayByParityII(<span class="keyword">int</span>[] A) &#123;</span><br><span class="line">        <span class="keyword">int</span> len = A.length;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i += <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (A[i] %<span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">while</span> (A[j] % <span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">                    j += <span class="number">2</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                swap(A, i, j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> A;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] A, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = A[i];</span><br><span class="line">        A[i] = A[j];</span><br><span class="line">        A[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/DQmQr6" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DQmQr6.png" alt="DQmQr6.png"></a></p>
+<p>大意就是使用插入排序对链表进行排序</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>插入排序的基本思想是，维护一个有序序列，初始时有序序列只有一个元素，每次将一个新的元素插入到有序序列中，将有序序列的长度增加 1，直到全部元素都加入到有序序列中</p>
+<p>若是数组的插入排序，则每次从后往前寻找插入位置，并将插入位置之后的元素都向后移一位即可；题目中是链表的插入排序，而每个节点指向的都是其后一个节点，所以我们每次要从前往后寻找插入位置，然后将当前节点插入到该位置即可，就这样不断维护前面的有序链表</p>
+<p><strong>算法流程</strong></p>
+<ul>
+<li>初始化一个哑节点 dump， 使其值为整数最小值，next 指向 head；定义一个指针 tail 指向当前有序链表的尾部，初始化其指向 head；初始化一个指针 cur = head.next，用于遍历链表的未排序部分</li>
+<li>移动 cur 来遍历链表的未排序部分：<ul>
+<li>若 tail.val &lt;= cur.val：<ul>
+<li>说明 cur 应插入到目前有序链表的尾部，令 tail = cur</li>
+</ul>
+</li>
+<li>若 tail.val &gt; cur.val，则从前往后寻找 cur 应插入的位置：<ul>
+<li>初始化指针 temp = dump.next，prev = dump</li>
+<li>移动 prev 和 temp 指针，令 prev = temp，temp = temp.next 直至 temp.val &gt; cur.val</li>
+<li>此时 prev 指针就指向 cur 应插入位置的前一个节点，将 cur 插入到 prev 和 temp 之间，令 tail.next = cur.next，prev.next = cur，cur.nex = temp</li>
+</ul>
+</li>
+<li>移动 cur 指针使其指向未排序链表的第一个元素，令 cur = tail.next</li>
+</ul>
+</li>
+<li>最后返回 dump.next</li>
+</ul>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">insertionSortList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        ListNode dump = <span class="keyword">new</span> ListNode(Integer.MIN_VALUE);</span><br><span class="line">        dump.next = head;</span><br><span class="line">        ListNode tail = head;</span><br><span class="line">        ListNode cur = tail.next;</span><br><span class="line">        <span class="keyword">while</span> (cur != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (tail.val &lt;= cur.val) &#123;</span><br><span class="line">                tail = cur;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                ListNode temp = dump.next;</span><br><span class="line">                ListNode prev = dump;</span><br><span class="line">                <span class="keyword">while</span> (temp.val &lt;= cur.val) &#123;</span><br><span class="line">                    prev = temp;</span><br><span class="line">                    temp = temp.next;</span><br><span class="line">                &#125;</span><br><span class="line">                tail.next= cur.next;</span><br><span class="line">                prev.next = cur;</span><br><span class="line">                cur.next = temp;</span><br><span class="line">            &#125;</span><br><span class="line">            cur = tail.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dump.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -508,8 +515,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/11/11/自由之路/" rel="next" title="自由之路">
-                <i class="fa fa-chevron-left"></i> 自由之路
+              <a href="/2020/11/19/移动零/" rel="next" title="移动零">
+                <i class="fa fa-chevron-left"></i> 移动零
               </a>
             
           </div>
@@ -517,10 +524,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/11/12/买卖股票的最佳时机II/" rel="prev" title="买卖股票的最佳时机II">
-                买卖股票的最佳时机II <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
