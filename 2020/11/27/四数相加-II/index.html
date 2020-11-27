@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，10.Regular Expression Matching">
+  <meta name="description" content="LeetCode每日一题，454.  4Sum II">
 <meta property="og:type" content="article">
-<meta property="og:title" content="正则表达式匹配">
-<meta property="og:url" content="http://yoursite.com/2020/06/20/正则表达式匹配/index.html">
+<meta property="og:title" content="四数相加 II">
+<meta property="og:url" content="http://yoursite.com/2020/11/27/四数相加-II/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，10.Regular Expression Matching">
+<meta property="og:description" content="LeetCode每日一题，454.  4Sum II">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/06/20/NQbMfU.png">
-<meta property="og:updated_time" content="2020-06-20T06:02:46.192Z">
+<meta property="og:image" content="https://s3.ax1x.com/2020/11/27/DDnaCD.png">
+<meta property="og:updated_time" content="2020-11-27T03:02:22.925Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="正则表达式匹配">
-<meta name="twitter:description" content="LeetCode每日一题，10.Regular Expression Matching">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/20/NQbMfU.png">
+<meta name="twitter:title" content="四数相加 II">
+<meta name="twitter:description" content="LeetCode每日一题，454.  4Sum II">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/11/27/DDnaCD.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/06/20/正则表达式匹配/">
+  <link rel="canonical" href="http://yoursite.com/2020/11/27/四数相加-II/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>正则表达式匹配 | Morichina</title>
+  <title>四数相加 II | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/20/正则表达式匹配/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/27/四数相加-II/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">正则表达式匹配
+          <h1 class="post-title" itemprop="name headline">四数相加 II
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-06-20 12:43:36 / 修改时间：14:02:46" itemprop="dateCreated datePublished" datetime="2020-06-20T12:43:36+08:00">2020-06-20</time>
+              <time title="创建时间：2020-11-27 10:32:43 / 修改时间：11:02:22" itemprop="dateCreated datePublished" datetime="2020-11-27T10:32:43+08:00">2020-11-27</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.8k</span>
+              <span title="本文字数">997</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">2 分钟</span>
+              <span title="阅读时长">1 分钟</span>
             </span>
           
 
@@ -456,36 +456,17 @@
       
 
       
-        <p>LeetCode每日一题，10.Regular Expression Matching</p>
+        <p>LeetCode每日一题，454.  4Sum II</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/06/20/NQbMfU.png" alt></p>
-<p>大概就是给两个字符串，一个是原字符串，一个是正则表达式，判断是否匹配</p>
-<h2 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h2><p>因为这道题自己一直没想出来，就直接去看了题解，才看明白，下面是那篇题解</p>
-<p>使用的方法是动态规划</p>
-<p><strong>状态</strong></p>
-<p>dp[i][j] 表示 s 的前 i 个字符是否能与 p 的前 j 个匹配</p>
-<p><strong>状态转移方程</strong></p>
-<p>已知 dp[i-1][j-1]，要求 dp[i][j]，根据 s[i]，p[j] 值的不同，要分情况考虑</p>
-<ul>
-<li><p>当 s[i] = p[j] 或 p[j] = “.”时，dp[i][j] = dp[i-1][j-1]</p>
-</li>
-<li><p>当 p[j] = “*”时，因为 * 的含义是匹配零个或多个前面的那个元素，所以要考虑前面的元素 p[j-1]</p>
-<ul>
-<li>当 p[j - 1] != s[i] 时，dp[i][j] = dp[i][j-2]，比如(ab, abc<em>)，遇到 * 往前看两个，发现前面 s[i] 的 ab 和 p[j-2] 的 ab 能匹配，虽然后面有 c</em>，但可以看作 c 重复 0 次，所以也是 true</li>
-<li>当 p[j-1] = s[i] 或 p[j-1] = “.” 时，又有两种情况<ul>
-<li>p[j-1] 重复 0 次，dp[i][j] = dp[i][j-2]</li>
-<li>p[j-1] 重复多次，dp[i][j] = dp[i-1][j]</li>
-<li>两种满足一种就能匹配上</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>实际上看的题解中还有 p[j-1] 重复一次的情况，但是实际上这种情况是多余的，因为检查多个字符匹配的时候也是要落到检查单个字符最后检查 empty，也可以这样理解，重复一次的情况时，dp[i][j] = dp[i][j-1]，由于 p[j-1] 是字母或 “.”，必然可以推到 dp[i][j] = dp[i-1][j-2]，又由于 p[j] 是 “*”，则得到 dp[i][j] = dp[i-1][j]</p>
-<p>找到状态转移方程以后就是一些细节和初始化 dp 的问题了</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isMatch</span><span class="params">(String s, String p)</span> </span>&#123;</span><br><span class="line">        s = <span class="string">" "</span> + s;</span><br><span class="line">        p = <span class="string">" "</span> + p;</span><br><span class="line">        <span class="keyword">int</span> m = s.length();</span><br><span class="line">        <span class="keyword">int</span> n = p.length();</span><br><span class="line">        <span class="keyword">boolean</span>[][] dp = <span class="keyword">new</span> <span class="keyword">boolean</span>[m + <span class="number">1</span>][n + <span class="number">1</span>];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (s.charAt(i - <span class="number">1</span>) == p.charAt(j - <span class="number">1</span>) || p.charAt(j - <span class="number">1</span>) == <span class="string">'.'</span>) &#123;</span><br><span class="line">                    dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(p.charAt(j - <span class="number">1</span>) == <span class="string">'*'</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (p.charAt(j - <span class="number">2</span>) != s.charAt(i - <span class="number">1</span>) &amp;&amp; p.charAt(j - <span class="number">2</span>) != <span class="string">'.'</span>) &#123;</span><br><span class="line">                        dp[i][j] = dp[i][j - <span class="number">2</span>];</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        dp[i][j] = dp[i][j - <span class="number">2</span>] || dp[i - <span class="number">1</span>][j];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/DDnaCD" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/27/DDnaCD.png" alt="DDnaCD.png"></a></p>
+<p>大意就是给定四个数组 A，B，C 和 D，问存在的四元组 (i，j，k，l) 使得 A[i] + B[j] + C[k] + D[l] = 0 的数量</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>分组+哈希表</strong></p>
+<p>将四个数组分成两部分，A 和  B 分为一组，C 和 D 分为另外一组</p>
+<p>对于 A 和 B，使用二重循环对它们进行遍历，得到所有 A[i] + B[j] 的值并存入哈希表中，对于哈希表中的每个键值对，键 A[i] + B[j] 对应的值就是 A[i] + B[j] 出现的次数</p>
+<p>对于 C 和 D，同样使用二重循环对它们进行遍历。当遍历到 C[k] + D[l] 时，若哈希表的键中存在 -C[k] - D[l]，则将其对应的值累加到答案上，最后即可得到满足 A[i] + B[j] + C[k] + D[l] = 0 的四元组的数量</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">fourSumCount</span><span class="params">(<span class="keyword">int</span>[] A, <span class="keyword">int</span>[] B, <span class="keyword">int</span>[] C, <span class="keyword">int</span>[] D)</span> </span>&#123;</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> u : A) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> v : B) &#123;</span><br><span class="line">                map.put(u + v, map.getOrDefault(u + v, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> u : C) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> v : D) &#123;</span><br><span class="line">                <span class="keyword">if</span> (map.containsKey(-u - v)) &#123;</span><br><span class="line">                    ans += map.get(-u - v);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -517,8 +498,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/19/验证回文串/" rel="next" title="验证回文串">
-                <i class="fa fa-chevron-left"></i> 验证回文串
+              <a href="/2020/11/26/Java中八种基本类型数据占据内存的大小/" rel="next" title="Java中八种基本类型数据占据内存的大小">
+                <i class="fa fa-chevron-left"></i> Java中八种基本类型数据占据内存的大小
               </a>
             
           </div>
@@ -526,10 +507,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/21/二叉树中的最大路径和/" rel="prev" title="二叉树中的最大路径和">
-                二叉树中的最大路径和 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -668,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法思路"><span class="nav-number">1.</span> <span class="nav-text">算法思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
