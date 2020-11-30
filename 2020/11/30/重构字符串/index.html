@@ -94,17 +94,19 @@
 
 
 
-  <meta name="description" content="一个成长中的菜鸡">
+  <meta name="description" content="LeetCode每日一题，767.  Reorganize String">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python网络爬虫之正则表达式">
-<meta property="og:url" content="http://yoursite.com/2019/07/19/python网络爬虫之正则表达式/index.html">
+<meta property="og:title" content="重构字符串">
+<meta property="og:url" content="http://yoursite.com/2020/11/30/重构字符串/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="一个成长中的菜鸡">
+<meta property="og:description" content="LeetCode每日一题，767.  Reorganize String">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-19T08:11:25.066Z">
+<meta property="og:image" content="https://s3.ax1x.com/2020/11/30/DREtW6.png">
+<meta property="og:updated_time" content="2020-11-30T08:30:15.895Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python网络爬虫之正则表达式">
-<meta name="twitter:description" content="一个成长中的菜鸡">
+<meta name="twitter:title" content="重构字符串">
+<meta name="twitter:description" content="LeetCode每日一题，767.  Reorganize String">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/11/30/DREtW6.png">
 
 
 
@@ -112,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/19/python网络爬虫之正则表达式/">
+  <link rel="canonical" href="http://yoursite.com/2020/11/30/重构字符串/">
 
 
 
@@ -122,7 +124,7 @@
   };
 </script>
 
-  <title>python网络爬虫之正则表达式 | Morichina</title>
+  <title>重构字符串 | Morichina</title>
   
 
 
@@ -349,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/19/python网络爬虫之正则表达式/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/30/重构字符串/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -366,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python网络爬虫之正则表达式
+          <h1 class="post-title" itemprop="name headline">重构字符串
 
               
             
@@ -392,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2019-07-19 16:11:24 / 修改时间：16:11:25" itemprop="dateCreated datePublished" datetime="2019-07-19T16:11:24+08:00">2019-07-19</time>
+              <time title="创建时间：2020-11-30 15:57:19 / 修改时间：16:30:15" itemprop="dateCreated datePublished" datetime="2020-11-30T15:57:19+08:00">2020-11-30</time>
             </span>
           
 
@@ -423,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">0</span>
+              <span title="本文字数">2k</span>
             </span>
           
 
@@ -435,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -454,7 +456,26 @@
       
 
       
-        
+        <p>LeetCode每日一题，767.  Reorganize String</p>
+<a id="more"></a>
+
+<p>先看题目描述</p>
+<p><a href="https://imgchr.com/i/DREtW6" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/30/DREtW6.png" alt="DREtW6.png"></a></p>
+<p>大意就是给定一个字符串 S，让我们判断能否重构该字符串，使字符串的相邻字母均不相同，能的话就返回重构后字符串，不能的话则返回空串</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>ps：这题不会做，想到了用计数排序，但用计数排序写了一半后，不知道该怎么利用频次数组来重构字符串，于是就去看题解了..</p>
+<p>设字符串长度为 n，我们需要先遍历字符串并用一个频次数组 cnt 统计每个字母的出现次数，同时用一个变量 max 维护所有字母中的最大出现次数。统计结束后，若 max &gt; (n + 1) / 2，则无法重新排布字母使得相邻的字母都不相同，返回空串；若 max &lt;= (n + 1) / 2，则考虑如何重新排布字母</p>
+<p><strong>基于计数的贪心算法</strong></p>
+<p>首先统计每个字母的出现次数，然后根据每个字母的出现次数重构字符串</p>
+<p>当 n 是奇数且出现最多的字母的出现次数是 (n+1)/2 时，出现次数最多的字母必须全部放置在偶数下标，否则一定会出现相邻的字母相同的情况。其余情况下，每个字母放置在偶数下标或者奇数下标都是可行的</p>
+<p>维护偶数下标 evenIndex 和奇数下标 oddIndex，初始值分别为 0 和 1。遍历每个字母，根据每个字母的出现次数判断字母应该放置在偶数下标还是奇数下标</p>
+<p>首先考虑是否可以放置在奇数下标。根据上述分析可知，只要字母的出现次数不超过字符串的长度的一半（即出现次数小于或等于 n/2），就可以放置在奇数下标，只有当字母的出现次数超过字符串的长度的一半时，才必须放置在偶数下标。字母的出现次数超过字符串的长度的一半只可能发生在 n 是奇数的情况下，且最多只有一个字母的出现次数会超过字符串的长度的一半</p>
+<p>因此通过如下操作在重构的字符串中放置字母</p>
+<ul>
+<li>如果字母的出现次数大于 0 且小于或等于 n / 2，且 oddIndex 没有超出数组下标范围，则将字母放置在 oddIndex，然后将 oddIndex 的值加 2</li>
+<li>如果字母的出现次数大于 n/2，或 oddIndex 超出数组下标范围，则将字母放置在 evenIndex，然后将 evenIndex 的值加 2</li>
+</ul>
+<p>最后返回重构后的字符串即可</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">reorganizeString</span><span class="params">(String S)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = S.length();</span><br><span class="line">        <span class="keyword">if</span> (len &lt;= <span class="number">1</span>) <span class="keyword">return</span> S;</span><br><span class="line">        <span class="keyword">char</span>[] ss = S.toCharArray();</span><br><span class="line">        <span class="keyword">char</span>[] res = <span class="keyword">new</span> <span class="keyword">char</span>[len];</span><br><span class="line">        <span class="keyword">int</span>[] cnt = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : ss) &#123;</span><br><span class="line">            cnt[c - <span class="string">'a'</span>]++;</span><br><span class="line">            max = Math.max(max, cnt[c - <span class="string">'a'</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (max &gt; (len + <span class="number">1</span>) / <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> evenIndex = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> oddIndex = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> halfLen = len / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">char</span> c = (<span class="keyword">char</span>)(<span class="string">'a'</span> + i);</span><br><span class="line">            <span class="keyword">while</span> (cnt[i] &gt; <span class="number">0</span> &amp;&amp; cnt[i] &lt;= halfLen &amp;&amp; oddIndex &lt; len) &#123;</span><br><span class="line">                res[oddIndex] = c;</span><br><span class="line">                oddIndex += <span class="number">2</span>;</span><br><span class="line">                cnt[i]--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (cnt[i] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                res[evenIndex] = c;</span><br><span class="line">                evenIndex += <span class="number">2</span>;</span><br><span class="line">                cnt[i]--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> String(res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -484,8 +505,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/18/Python异常处理/" rel="next" title="Python异常处理">
-                <i class="fa fa-chevron-left"></i> Python异常处理
+              <a href="/2020/11/29/三角形的最大周长/" rel="next" title="三角形的最大周长">
+                <i class="fa fa-chevron-left"></i> 三角形的最大周长
               </a>
             
           </div>
@@ -493,10 +514,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/23/http中post-和-get-请求方法区别/" rel="prev" title="http中post 和 get 请求方法区别">
-                http中post 和 get 请求方法区别 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -540,8 +557,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -615,6 +641,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
