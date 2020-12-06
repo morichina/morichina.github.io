@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，538.  Squares of a Sorted Array">
+  <meta name="description" content="LeetCode每日一题，118.  Pascal’s Triangle">
 <meta property="og:type" content="article">
-<meta property="og:title" content="有序数组的平方">
-<meta property="og:url" content="http://yoursite.com/2020/10/16/有序数组的平方/index.html">
+<meta property="og:title" content="杨辉三角">
+<meta property="og:url" content="http://yoursite.com/2020/12/06/杨辉三角/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，538.  Squares of a Sorted Array">
+<meta property="og:description" content="LeetCode每日一题，118.  Pascal’s Triangle">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/10/16/0HEGJH.png">
-<meta property="og:updated_time" content="2020-10-16T02:56:22.723Z">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/06/DXqyVS.png">
+<meta property="og:updated_time" content="2020-12-06T08:16:11.114Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="有序数组的平方">
-<meta name="twitter:description" content="LeetCode每日一题，538.  Squares of a Sorted Array">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/16/0HEGJH.png">
+<meta name="twitter:title" content="杨辉三角">
+<meta name="twitter:description" content="LeetCode每日一题，118.  Pascal’s Triangle">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/12/06/DXqyVS.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/10/16/有序数组的平方/">
+  <link rel="canonical" href="http://yoursite.com/2020/12/06/杨辉三角/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>有序数组的平方 | Morichina</title>
+  <title>杨辉三角 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/16/有序数组的平方/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/06/杨辉三角/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">有序数组的平方
+          <h1 class="post-title" itemprop="name headline">杨辉三角
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-10-16 10:34:50 / 修改时间：10:56:22" itemprop="dateCreated datePublished" datetime="2020-10-16T10:34:50+08:00">2020-10-16</time>
+              <time title="创建时间：2020-12-06 16:08:18 / 修改时间：16:16:11" itemprop="dateCreated datePublished" datetime="2020-12-06T16:08:18+08:00">2020-12-06</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.3k</span>
+              <span title="本文字数">913</span>
             </span>
           
 
@@ -456,28 +456,14 @@
       
 
       
-        <p>LeetCode每日一题，538.  Squares of a Sorted Array</p>
+        <p>LeetCode每日一题，118.  Pascal’s Triangle</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/10/16/0HEGJH.png" alt></p>
-<p>大意就是给定一个有序数组，让我们返回各数的平方和，以升序的顺序返回</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>直接排序法</strong></p>
-<p>这个是最容易想到的思路，将数组中各数平方以后，再返回排序后的数组</p>
-<p><strong>双指针法</strong></p>
-<p>上一个方法虽然很容易想到，但没有利用数组有序的特点，我们可以利用该点，使用双指针法，实现更好的效率，这个方法有点借助了归并排序的思想</p>
-<p>算法流程：</p>
-<ul>
-<li>初始时定义两个指针 i 和 j 分别指向位置 0 和 len - 1</li>
-<li>每次比较 i 和 j 两个指针对应的数，选择平方后较大的那个数逆序放入答案数组中并移动指针(若指针 i 指向的数大于 0，则直接将指针 j 对应的数逆序放入答案数组中，并移动 j 指针)</li>
-<li>重复上述过程直至 i 指针和 j 指针相遇</li>
-<li>最后返回答案数组</li>
-</ul>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>直接排序法</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortedSquares(<span class="keyword">int</span>[] A) &#123;</span><br><span class="line">        <span class="keyword">int</span> len = A.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            A[i] = A[i] * A[i];</span><br><span class="line">        &#125;</span><br><span class="line">        Arrays.sort(A);</span><br><span class="line">        <span class="keyword">return</span> A;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>双指针法</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortedSquares(<span class="keyword">int</span>[] A) &#123;</span><br><span class="line">        <span class="keyword">int</span> len = A.length;</span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        <span class="keyword">int</span> pos = len - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, j = len - <span class="number">1</span>; i &lt;= j;) &#123;</span><br><span class="line">            <span class="keyword">if</span> (A[i] &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                ans[pos] = A[j] * A[j];</span><br><span class="line">                j--;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (A[i] * A[i] &gt; A[j] * A[j]) &#123;</span><br><span class="line">                ans[pos] = A[i] * A[i];</span><br><span class="line">                i++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                ans[pos] = A[j] * A[j];</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            pos--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/DXqyVS" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/12/06/DXqyVS.png" alt="DXqyVS.png"></a></p>
+<p>大意就是给定一个整数 numRows，让我们生成杨辉三角的前 numRows 行</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这题很简单，没什么好说的，就一行行生成就可以。对于第 n 行的数字，需要由第 n - 1 行来生成，第 n 行的第一个数字和最后一个数字均为 1，对于第 n 行的第 i 个数字(1 &lt; i &lt; n)，其值会等于第 n - 1 行的第 i -1 个数字和第 i 个数字之和。就这样按照该规律，一行行的生成杨辉三角即可</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; generate(<span class="keyword">int</span> numRows) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numRows; i++) &#123;</span><br><span class="line">            List&lt;Integer&gt; temp = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (j == <span class="number">0</span> || j == i) &#123;</span><br><span class="line">                    temp.add(<span class="number">1</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    temp.add(res.get(i - <span class="number">1</span>).get(j - <span class="number">1</span>) + res.get(i - <span class="number">1</span>).get(j));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            res.add(temp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -509,8 +495,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/10/15/查找常用字符/" rel="next" title="查找常用字符">
-                <i class="fa fa-chevron-left"></i> 查找常用字符
+              <a href="/2020/12/04/分割数组为连续子序列/" rel="next" title="分割数组为连续子序列">
+                <i class="fa fa-chevron-left"></i> 分割数组为连续子序列
               </a>
             
           </div>
@@ -518,10 +504,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/10/16/盛最多水的容器/" rel="prev" title="盛最多水的容器">
-                盛最多水的容器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
