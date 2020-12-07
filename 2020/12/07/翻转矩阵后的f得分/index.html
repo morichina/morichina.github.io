@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，97.  Interleaving String">
+  <meta name="description" content="LeetCode每日一题，861.  Score After Flipping Matrix">
 <meta property="og:type" content="article">
-<meta property="og:title" content="交错字符串">
-<meta property="og:url" content="http://yoursite.com/2020/07/18/交错字符串/index.html">
+<meta property="og:title" content="翻转矩阵后的得分">
+<meta property="og:url" content="http://yoursite.com/2020/12/07/翻转矩阵后的f得分/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，97.  Interleaving String">
+<meta property="og:description" content="LeetCode每日一题，861.  Score After Flipping Matrix">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/07/18/U2BDFs.png">
-<meta property="og:updated_time" content="2020-07-18T15:30:38.242Z">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/07/Dv0kGj.png">
+<meta property="og:updated_time" content="2020-12-07T03:18:28.203Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="交错字符串">
-<meta name="twitter:description" content="LeetCode每日一题，97.  Interleaving String">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/18/U2BDFs.png">
+<meta name="twitter:title" content="翻转矩阵后的得分">
+<meta name="twitter:description" content="LeetCode每日一题，861.  Score After Flipping Matrix">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/12/07/Dv0kGj.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/07/18/交错字符串/">
+  <link rel="canonical" href="http://yoursite.com/2020/12/07/翻转矩阵后的f得分/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>交错字符串 | Morichina</title>
+  <title>翻转矩阵后的得分 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/18/交错字符串/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/07/翻转矩阵后的f得分/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">交错字符串
+          <h1 class="post-title" itemprop="name headline">翻转矩阵后的得分
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-07-18 23:05:21 / 修改时间：23:30:38" itemprop="dateCreated datePublished" datetime="2020-07-18T23:05:21+08:00">2020-07-18</time>
+              <time title="创建时间：2020-12-07 10:51:33 / 修改时间：11:18:28" itemprop="dateCreated datePublished" datetime="2020-12-07T10:51:33+08:00">2020-12-07</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2k</span>
+              <span title="本文字数">2.5k</span>
             </span>
           
 
@@ -456,23 +456,27 @@
       
 
       
-        <p>LeetCode每日一题，97.  Interleaving String</p>
+        <p>LeetCode每日一题，861.  Score After Flipping Matrix</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/07/18/U2BDFs.png" alt></p>
-<p>大意就是给定三个字符串 s1, s2, s3，判断 s3 是否由 s1 和 s2 交错组成</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>第一反应是双指针，但尝试实现以后发现不行，看了题解才意识到这题用双指针就踩坑了，应该用动态规划</p>
-<p><strong>动态规划</strong></p>
+<p><img src="https://s3.ax1x.com/2020/12/07/Dv0kGj.png" alt="Dv0kGj.png"></p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>贪心算法</strong></p>
+<p>算法分三步走</p>
 <ul>
-<li>dp[i][j] 表示 s1 的前 i 个元素和 s2 的前 j 个元素能否交替组成 s3 的前 i + j 个元素，初始化 dp[0][0] = 0</li>
-<li>状态转移方程：dp[i][j] = dp[i - 1][j] &amp;&amp; s1[i - 1] == s3[p] || dp[i][j - 1] &amp;&amp; s2[j - 1] == s3[p]，其中 p = i +j -1</li>
-<li>最终返回 dp[s1.length()][s2.length()] 即可</li>
+<li>遍历每一行进行判断，判断该行是否需要翻转，若该行的第一个元素为 0， 则进行翻转，因为最优的情况下首列元素一定全为 1</li>
+<li>遍历每一列进行判断，判断该列是否需要翻转，若该列中 0 的个数多于 1 的个数，则进行翻转，保证取 1 的数量尽可能多</li>
+<li>计算结果并返回</li>
 </ul>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isInterleave</span><span class="params">(String s1, String s2, String s3)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = s1.length();</span><br><span class="line">        <span class="keyword">int</span> n = s2.length();</span><br><span class="line">        <span class="keyword">if</span> (m + n != s3.length()) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">boolean</span>[][] dp = <span class="keyword">new</span> <span class="keyword">boolean</span>[m + <span class="number">1</span>][n + <span class="number">1</span>];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= n; j++) &#123;</span><br><span class="line">                <span class="keyword">int</span> p = i + j - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    dp[i][j] = dp[i - <span class="number">1</span>][j] &amp;&amp; s1.charAt(i - <span class="number">1</span>) == s3.charAt(p);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (j &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    dp[i][j] = dp[i][j] || dp[i][j - <span class="number">1</span>] &amp;&amp; s2.charAt(j - <span class="number">1</span>) == s3.charAt(p);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">matrixScore</span><span class="params">(<span class="keyword">int</span>[][] A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = A.length;</span><br><span class="line">        <span class="keyword">int</span> n = A[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (A[i][<span class="number">0</span>] == <span class="number">0</span>) &#123;</span><br><span class="line">                changeRow(A, i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (hasMore0(A, j)) &#123;</span><br><span class="line">                changeCol(A, j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] cur : A) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> num : cur) &#123;</span><br><span class="line">                temp = (temp &lt;&lt; <span class="number">1</span>) + num;</span><br><span class="line">            &#125;</span><br><span class="line">            res += temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">changeRow</span><span class="params">(<span class="keyword">int</span>[][] A, <span class="keyword">int</span> row)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; A[row].length; i++) &#123;</span><br><span class="line">            A[row][i] = <span class="number">1</span> - A[row][i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">changeCol</span><span class="params">(<span class="keyword">int</span>[][] A, <span class="keyword">int</span> col)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; A.length; i++) &#123;</span><br><span class="line">            A[i][col] = <span class="number">1</span> - A[i][col];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">hasMore0</span><span class="params">(<span class="keyword">int</span>[][] A, <span class="keyword">int</span> col)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = A.length;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (A[i][col] == <span class="number">0</span>) &#123;</span><br><span class="line">                cnt++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cnt &gt; m - cnt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>使用滚动数组优化空间复杂度</strong>，因为这道题的 dp 数组里第 i 行只与第 i - 1 行有关，所以可以用动态数组优化空间，实现源码如下，类似的用动态数组优化空间的题可以看 <a href="[https://morichina.github.io/2020/07/14/%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/#more](https://morichina.github.io/2020/07/14/三角形最小路径和/#more)">三角形最小路径和</a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isInterleave</span><span class="params">(String s1, String s2, String s3)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s1.length(), m = s2.length(), t = s3.length();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (n + m != t) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">boolean</span>[] f = <span class="keyword">new</span> <span class="keyword">boolean</span>[m + <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        f[<span class="number">0</span>] = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= m; ++j) &#123;</span><br><span class="line">                <span class="keyword">int</span> p = i + j - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    f[j] = f[j] &amp;&amp; s1.charAt(i - <span class="number">1</span>) == s3.charAt(p);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (j &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    f[j] = f[j] || (f[j - <span class="number">1</span>] &amp;&amp; s2.charAt(j - <span class="number">1</span>) == s3.charAt(p));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> f[m];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：由于移位运算的优先级低于加法运算，所以 temp = (temp &lt;&lt; 1) + num 这的括号一定得加上，否则结果会出错</strong></p>
+<p>下面是官方题解的代码，整体思路其实是一致的，但具体到实现上和我写的代码差别挺大，官方题解的思路和代码如下所示</p>
+<ul>
+<li>对于最左边的列而言，由于最优情况下，它们的取值都为 1，因此每个元素对分数的贡献都为 $2^{n-1}$，总贡献为 $m×2^{n-1}$</li>
+<li>对于第 j 列（j &gt; 0，此处规定最左边的列是第 0 列）而言，我们统计这一列 0,1 的数量，令其中的最大值为 k，则 k 是列翻转后的 1 的数量，该列的总贡献为 $k×2^{n-j-1}$，需要注意的是，在统计 0,1 的数量的时候，<strong>要考虑最初进行的行反转</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">matrixScore</span><span class="params">(<span class="keyword">int</span>[][] A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = A.length, n = A[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span> ret = m * (<span class="number">1</span> &lt;&lt; (n - <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">            <span class="keyword">int</span> nOnes = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (A[i][<span class="number">0</span>] == <span class="number">1</span>) &#123;</span><br><span class="line">                    nOnes += A[i][j];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    nOnes += (<span class="number">1</span> - A[i][j]); <span class="comment">// 如果这一行进行了行反转，则该元素的实际取值为 1 - A[i][j]</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> k = Math.max(nOnes, m - nOnes);</span><br><span class="line">            ret += k * (<span class="number">1</span> &lt;&lt; (n - j - <span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -504,8 +508,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/15/不同的二叉搜索树/" rel="next" title="不同的二叉搜索树">
-                <i class="fa fa-chevron-left"></i> 不同的二叉搜索树
+              <a href="/2020/12/06/杨辉三角/" rel="next" title="杨辉三角">
+                <i class="fa fa-chevron-left"></i> 杨辉三角
               </a>
             
           </div>
@@ -513,10 +517,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/20/二数之和II-输入有序数组/" rel="prev" title="二数之和II-输入有序数组">
-                二数之和II-输入有序数组 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
