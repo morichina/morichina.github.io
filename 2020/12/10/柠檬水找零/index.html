@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，剑指 Offer 11.  旋转数组的最小数字">
+  <meta name="description" content="LeetCode每日一题，860.  Lemonade Change">
 <meta property="og:type" content="article">
-<meta property="og:title" content="旋转数组的最小数">
-<meta property="og:url" content="http://yoursite.com/2020/07/22/旋转数组的最小数/index.html">
+<meta property="og:title" content="柠檬水找零">
+<meta property="og:url" content="http://yoursite.com/2020/12/10/柠檬水找零/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，剑指 Offer 11.  旋转数组的最小数字">
+<meta property="og:description" content="LeetCode每日一题，860.  Lemonade Change">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/07/22/U7WpVS.png">
-<meta property="og:updated_time" content="2020-07-22T04:49:23.142Z">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/10/rPODOS.png">
+<meta property="og:updated_time" content="2020-12-10T02:27:10.081Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="旋转数组的最小数">
-<meta name="twitter:description" content="LeetCode每日一题，剑指 Offer 11.  旋转数组的最小数字">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/22/U7WpVS.png">
+<meta name="twitter:title" content="柠檬水找零">
+<meta name="twitter:description" content="LeetCode每日一题，860.  Lemonade Change">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/12/10/rPODOS.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/07/22/旋转数组的最小数/">
+  <link rel="canonical" href="http://yoursite.com/2020/12/10/柠檬水找零/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>旋转数组的最小数 | Morichina</title>
+  <title>柠檬水找零 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/22/旋转数组的最小数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/10/柠檬水找零/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">旋转数组的最小数
+          <h1 class="post-title" itemprop="name headline">柠檬水找零
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-07-22 11:47:50 / 修改时间：12:49:23" itemprop="dateCreated datePublished" datetime="2020-07-22T11:47:50+08:00">2020-07-22</time>
+              <time title="创建时间：2020-12-10 10:06:38 / 修改时间：10:27:10" itemprop="dateCreated datePublished" datetime="2020-12-10T10:06:38+08:00">2020-12-10</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">953</span>
+              <span title="本文字数">1.6k</span>
             </span>
           
 
@@ -456,23 +456,21 @@
       
 
       
-        <p>LeetCode每日一题，剑指 Offer 11.  旋转数组的最小数字</p>
+        <p>LeetCode每日一题，860.  Lemonade Change</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/07/22/U7WpVS.png" alt></p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>循环二分法</strong></p>
+<p><a href="https://imgchr.com/i/rPODOS" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/12/10/rPODOS.png" alt="rPODOS.png"></a></p>
+<p>题目大意就是给定一个数组 bills 代表顾客来购买柠檬水所会支付的钱的面额，一杯柠檬水的价格是 5 美元，商家一开始是没有零钱的，顾客支付的钱的面额有 5 美元，10 美元和 20 美元，让我们根据数组 bills 判断商家是否对于每个顾客都有足够的零钱来找零</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>模拟+贪心</strong></p>
+<p>这题很简单，对于顾客支付的钱的面额的三种情况进行不同处理即可，定义两个变量 count5 和 count10 来维护商家目前手上有的 5 美元零钱和 10 美元零钱数量即可，初始化 count5 和 count10 等于 0</p>
 <ul>
-<li>初始化三个指针 low = 0，high = numbers.length - 1，mid = （low + high) / 2</li>
-<li>开始循环二分<ul>
-<li>若 numbers[mid] &gt; numbers[high]，说明最小值在 mid 右边，即 [mid + 1, high] 区间，令 low = mid + 1</li>
-<li>若 numbers[mid] &lt; numbers[high]，说明最小值在 mid 左边，即 [low, mid] 区间，令 high = mid</li>
-<li>若 numbers[mid] = numbers[high]，则无法判断最小值在 mid 左边还是右边，则令 high = high - 1 缩小搜索范围</li>
+<li>若顾客支付 5 美元，则不用找零，直接将 count5 加 1 即可</li>
+<li>若顾客支付 10 美元，则要找零 5 美元，若此时 count5 等于 0，说明商家的钱不够找零，返回 false；若 count5 大于 0，则能够找零，将 count5 - 1，count10 + 1</li>
+<li>若顾客支付 20 美元，则要找零 15 美元，此时有两种组合方式，一种是一张 10 美元和 5 美元的钞票，另一种是三张 5 美元的钞票。此处采用贪心算法，贪心策略是优先采用第二种组合方式，第二种组合方式不行的话才考虑第一种组合方式。若 cout10 和 count5 均大于 0，说明可以采用第二种组合方式，将 count5 - 1，count10 - 1；若第二种组合方式不行的话，则考虑第一种组合方式，此时 count5 大于 2 的话就可以采用第一种组合方式，将 count5 - 3；否则，说明两种组合方式都不行，商家的钱不够找零，返回 false</li>
 </ul>
-</li>
-<li>当 low &gt;= high 时，退出循环二分，返回 numbers[low]</li>
-</ul>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minArray</span><span class="params">(<span class="keyword">int</span>[] numbers)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = numbers.length;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = len - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">while</span> (low &lt; high) &#123;</span><br><span class="line">            <span class="keyword">if</span> (numbers[mid] &gt; numbers[high]) &#123;</span><br><span class="line">                low = mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (numbers[mid] &lt; numbers[high]) &#123;</span><br><span class="line">                high = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                high--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> numbers[low];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>若遍历完 bills 后，商家都可以找零，则返回 true</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">lemonadeChange</span><span class="params">(<span class="keyword">int</span>[] bills)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count5 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> count10 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> bill : bills) &#123;</span><br><span class="line">            <span class="keyword">if</span> (bill == <span class="number">5</span>) &#123;</span><br><span class="line">                count5++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (bill == <span class="number">10</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (count5 == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                count10++;</span><br><span class="line">                count5--;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (count10 &gt; <span class="number">0</span> &amp;&amp; count5 &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    count5--;</span><br><span class="line">                    count10--;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (count5 &gt;= <span class="number">3</span>) &#123;</span><br><span class="line">                    count5 = count5 - <span class="number">3</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -504,8 +502,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/20/二数之和II-输入有序数组/" rel="next" title="二数之和II-输入有序数组">
-                <i class="fa fa-chevron-left"></i> 二数之和II-输入有序数组
+              <a href="/2020/12/09/不同路径/" rel="next" title="不同路径">
+                <i class="fa fa-chevron-left"></i> 不同路径
               </a>
             
           </div>
@@ -513,10 +511,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/25/分割数组的最大值/" rel="prev" title="分割数组的最大值">
-                分割数组的最大值 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
