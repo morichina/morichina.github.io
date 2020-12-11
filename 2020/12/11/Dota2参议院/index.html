@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，837.House Robber">
+  <meta name="description" content="LeetCode每日一题，649.  Dota2 Senate">
 <meta property="og:type" content="article">
-<meta property="og:title" content="新21点">
-<meta property="og:url" content="http://yoursite.com/2020/06/03/新21点/index.html">
+<meta property="og:title" content="Dota2参议院">
+<meta property="og:url" content="http://yoursite.com/2020/12/11/Dota2参议院/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，837.House Robber">
+<meta property="og:description" content="LeetCode每日一题，649.  Dota2 Senate">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/06/03/twiWIf.png">
-<meta property="og:updated_time" content="2020-06-03T15:28:13.121Z">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/11/rA8WNV.png">
+<meta property="og:updated_time" content="2020-12-11T07:41:16.643Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="新21点">
-<meta name="twitter:description" content="LeetCode每日一题，837.House Robber">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/03/twiWIf.png">
+<meta name="twitter:title" content="Dota2参议院">
+<meta name="twitter:description" content="LeetCode每日一题，649.  Dota2 Senate">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/12/11/rA8WNV.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/06/03/新21点/">
+  <link rel="canonical" href="http://yoursite.com/2020/12/11/Dota2参议院/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>新21点 | Morichina</title>
+  <title>Dota2参议院 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/03/新21点/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/11/Dota2参议院/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">新21点
+          <h1 class="post-title" itemprop="name headline">Dota2参议院
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-06-03 22:35:39 / 修改时间：23:28:13" itemprop="dateCreated datePublished" datetime="2020-06-03T22:35:39+08:00">2020-06-03</time>
+              <time title="创建时间：2020-12-11 15:28:18 / 修改时间：15:41:16" itemprop="dateCreated datePublished" datetime="2020-12-11T15:28:18+08:00">2020-12-11</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.2k</span>
+              <span title="本文字数">2.6k</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -456,21 +456,24 @@
       
 
       
-        <p>LeetCode每日一题，837.House Robber</p>
+        <p>LeetCode每日一题，649.  Dota2 Senate</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/06/03/twiWIf.png" alt></p>
-<p>题目大意是爱丽丝玩个游戏，游戏规则是这样：</p>
-<ol>
-<li>她可以从牌面为[1,W]的牌中选择任意一张，这张牌是可以无限重复的，也就是说无论她取多少次，每次取到2（假如2在[1,W]范围内）的概率都是 1/W</li>
-<li>如果她手上牌的总额小于 K，她就会抽牌，大于等于 K 时，就停止抽牌</li>
-<li>停止抽牌后，她的牌面小于等于 N 时，她就获胜了，求她获胜的概率</li>
-</ol>
-<p>这道题一直没有头绪，也有往动态规划那方面想，但一直想不到，后来看了题解才把代码实现，但觉得自己做的话是想不到那个动态规划方程的</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>假设 dp[x] 表示她手上牌面为 x 时，能获胜的概率，那么这个概率应该是：<br>dp[x] = 1/w * (dp[x+1]+dp[x+2]+dp[x+3]…+dp[x+w])<br>因为抽取的牌面机会都是均等的，她能抽取的面值在 [1,W] 之间，所以将概率之和平均一下就是 dp[x] 的概率。<br>x 最多能到 K-1，因为当大于等于 K 时，爱丽丝会停止抽牌，所以当游戏结束时，即爱丽丝停止抽牌时，她可能达到的最大牌面是 K+W-1 ，而一开始她的牌面是 0，所以我们用一个长度为 K+W 的 dp 数组来保存她在所有面值下的胜率。<br>最后返回 dp[0]，也就是最开始爱丽丝还没有抽牌，她的牌面为 0 时的胜率，这个就是我们的答案</p>
-<p>dp 数组可以分为两部分，当下标 i 大于等于 K 时，因为此时不能抽牌，则只需将 i 与 N 比较，若 i &lt;= N，则 dp[i] = 1，否则 dp[i] = 0，当下标 i 小于 K 时，就利用上面的动态规划方程来计算 dp[i]，而为了避免时间超出限制，我们不能每次计算时都累加，可以定义一个变量 s 保存累加结果，计算下一轮时只需减去右边的，加上左边的，更新 s 即可</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">new21Game</span><span class="params">(<span class="keyword">int</span> N, <span class="keyword">int</span> K, <span class="keyword">int</span> W)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span>[] dp = <span class="keyword">new</span> <span class="keyword">double</span>[K + W];</span><br><span class="line">        <span class="keyword">double</span> s = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = K + W - <span class="number">1</span>; i &gt;= K; i--) &#123;</span><br><span class="line">            dp[i] = i &lt;= N ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">            s += dp[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = K - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            dp[i] = s/W;</span><br><span class="line">            s = s + dp[i] - dp[i + W];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/rA8WNV" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/12/11/rA8WNV.png" alt="rA8WNV.png"></a></p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>贪心</strong></p>
+<p>贪心策略就是轮到一名议员行使权利时，每次都贪心的挑选下一个可以投票的对方阵营议员，使其在之后的轮次中丧失所有权利</p>
+<p>由于我们总要挑选投票顺序最早的议员，因此我们可以使用两个队列 radiants 和 dires 分别按照投票顺序存储天辉方和夜魇方每一名议员的投票时间。随后我们就可以开始模拟整个投票的过程：</p>
+<ul>
+<li>如果此时 radiants 或 dires 为空，那么就可以宣布令一个阵营获得胜利</li>
+<li>如果均不为空，那么比较这两个队列的首元素，就可以确定当前行使权利的是哪一名议员。如果 radiants 的首元素较小，那说明轮到天辉方的议员行使权利，其会挑选 dires 的首元素对应的那一名议员。因此，我们会将 dires 的首元素永久地弹出，并将 radiants 的首元素弹出，增加 n 之后再重新放回队列，这里 n 是给定的字符串 senate 的长度，即表示该议员会参与下一轮的投票。同理，如果 dires 的首元素较小，那么会永久弹出 radiants 的首元素，剩余的处理方法也是类似的</li>
+</ul>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">predictPartyVictory</span><span class="params">(String senate)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = senate.length();</span><br><span class="line">        <span class="keyword">char</span>[] seantes = senate.toCharArray();</span><br><span class="line">        Queue&lt;Integer&gt; radiants = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        Queue&lt;Integer&gt; dires = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (seantes[i] == <span class="string">'R'</span>) &#123;</span><br><span class="line">                radiants.offer(i);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                dires.offer(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (!radiants.isEmpty() &amp;&amp; !dires.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">int</span> radiant = radiants.poll();</span><br><span class="line">            <span class="keyword">int</span> dire = dires.poll();</span><br><span class="line">            <span class="keyword">if</span> (radiant &lt; dire) &#123;</span><br><span class="line">                radiants.offer(radiant + n);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                dires.offer(dire + n);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> radiants.isEmpty() ? <span class="string">"Dire"</span> : <span class="string">"Radiant"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面这个是看的执行时间效率比较靠前的代码，贪心策略是一样的，但具体实现不是使用两个队列，而是修改 senate 字符串，实现更加巧妙些</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">predictPartyVictory</span><span class="params">(String senate)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> hasR;</span><br><span class="line">        <span class="keyword">boolean</span> hasD;</span><br><span class="line">        <span class="keyword">int</span> ticketR = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> ticketD = <span class="number">0</span>;</span><br><span class="line">        StringBuilder sb;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            hasR = <span class="keyword">false</span>;</span><br><span class="line">            hasD = <span class="keyword">false</span>;</span><br><span class="line">            sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">char</span> c : senate.toCharArray()) &#123;</span><br><span class="line">                <span class="keyword">if</span> (c == <span class="string">'R'</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (ticketD == <span class="number">0</span>) &#123;</span><br><span class="line">                        hasR = <span class="keyword">true</span>;</span><br><span class="line">                        ticketR++;</span><br><span class="line">                        sb.append(c);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        ticketD--;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (ticketR == <span class="number">0</span>) &#123;</span><br><span class="line">                        hasD = <span class="keyword">true</span>;</span><br><span class="line">                        ticketD++;</span><br><span class="line">                        sb.append(c);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        ticketR--;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            senate = sb.toString();</span><br><span class="line">        &#125; <span class="keyword">while</span> (hasR &amp;&amp; hasD);</span><br><span class="line">        <span class="keyword">return</span> hasR ? <span class="string">"Radiant"</span> : <span class="string">"Dire"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
@@ -500,8 +503,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/02/求1-2-n/" rel="next" title="求1+2+...+n">
-                <i class="fa fa-chevron-left"></i> 求1+2+...+n
+              <a href="/2020/12/10/柠檬水找零/" rel="next" title="柠檬水找零">
+                <i class="fa fa-chevron-left"></i> 柠檬水找零
               </a>
             
           </div>
@@ -509,10 +512,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/05/顺时针打印矩阵/" rel="prev" title="顺时针打印矩阵">
-                顺时针打印矩阵 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
