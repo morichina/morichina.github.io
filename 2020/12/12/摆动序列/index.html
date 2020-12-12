@@ -94,19 +94,20 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，94.  Binary Tree Inorder Traversal">
+  <meta name="description" content="LeetCode每日一题，376.  Wiggle Subsequence">
 <meta property="og:type" content="article">
-<meta property="og:title" content="二叉树的中序遍历">
-<meta property="og:url" content="http://yoursite.com/2020/09/14/二叉树的中序遍历/index.html">
+<meta property="og:title" content="摆动序列">
+<meta property="og:url" content="http://yoursite.com/2020/12/12/摆动序列/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，94.  Binary Tree Inorder Traversal">
+<meta property="og:description" content="LeetCode每日一题，376.  Wiggle Subsequence">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/14/wsPftH.png">
-<meta property="og:updated_time" content="2020-09-14T14:17:06.005Z">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/12/rEvmgH.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/12/rVphlD.png">
+<meta property="og:updated_time" content="2020-12-12T02:11:18.619Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="二叉树的中序遍历">
-<meta name="twitter:description" content="LeetCode每日一题，94.  Binary Tree Inorder Traversal">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/09/14/wsPftH.png">
+<meta name="twitter:title" content="摆动序列">
+<meta name="twitter:description" content="LeetCode每日一题，376.  Wiggle Subsequence">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/12/12/rEvmgH.png">
 
 
 
@@ -114,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/09/14/二叉树的中序遍历/">
+  <link rel="canonical" href="http://yoursite.com/2020/12/12/摆动序列/">
 
 
 
@@ -124,7 +125,7 @@
   };
 </script>
 
-  <title>二叉树的中序遍历 | Morichina</title>
+  <title>摆动序列 | Morichina</title>
   
 
 
@@ -351,7 +352,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/14/二叉树的中序遍历/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/12/摆动序列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +369,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">二叉树的中序遍历
+          <h1 class="post-title" itemprop="name headline">摆动序列
 
               
             
@@ -394,7 +395,7 @@
                 
               
 
-              <time title="创建时间：2020-09-14 21:55:07 / 修改时间：22:17:06" itemprop="dateCreated datePublished" datetime="2020-09-14T21:55:07+08:00">2020-09-14</time>
+              <time title="创建时间：2020-12-12 09:32:24 / 修改时间：10:11:18" itemprop="dateCreated datePublished" datetime="2020-12-12T09:32:24+08:00">2020-12-12</time>
             </span>
           
 
@@ -425,7 +426,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.5k</span>
+              <span title="本文字数">2.4k</span>
             </span>
           
 
@@ -437,7 +438,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -456,21 +457,36 @@
       
 
       
-        <p>LeetCode每日一题，94.  Binary Tree Inorder Traversal</p>
+        <p>LeetCode每日一题，376.  Wiggle Subsequence</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/09/14/wsPftH.png" alt></p>
-<p>就是给定一个二叉树，让返回其中序遍历序列</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>递归</strong></p>
-<p>直接用递归的算法十分简单，定义 dfs(root) 表示当前遍历到 root 节点的答案，那么按照定义，我们只要递归调用 dfs(root.left) 来遍历root 节点的左子树，然后将 root 节点的值加入答案，再递归调用 dfs(root.right) 来遍历 root 节点的右子树即可，递归终止的条件为碰到空节点</p>
-<p><strong>栈</strong></p>
-<p>其实就是上一方法中的递归函数用迭代来实现，两种方式等价。区别在于递归的时候维护了一个隐形的栈，而在迭代的时候则是显式的将这个栈模拟出来</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>递归</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">inorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        inorder(root);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">        inorder(root.left);</span><br><span class="line">        res.add(root.val);</span><br><span class="line">        inorder(root.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/rEvmgH" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/12/12/rEvmgH.png" alt="rEvmgH.png"></a></p>
+<p>大意就是给定一个数组，让我们判断其中摆动序列的最大长度，当一个序列满足其中相邻元素的差值交替为正值和负值时，我们就称其为摆动序列</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>贪心算法</strong></p>
+<p>首先可以证明一定存在某个最长摆动序列，其中含有数组的第一个元素，这个通过反证法可以证明</p>
+<p>假定目前摆动序列中最后一个数是 nums[i]，那么往摆动序列中添加下一个数的贪心策略是：</p>
+<ul>
+<li>若 nums[i + 1] &gt; nums[i]，则找出接下来的最长递增子序列 [i+1, i+2，…, i+k]，满足 nums[i + 1] &lt;= nums[i + 2] &lt;= … &lt;= nums[i + k]，然后将 nums[i + k] 添加到摆动序列最后</li>
+<li>若 nums[i + 1 &lt; nums[i]，则找出接下来的最长递减子序列 [i+1, i+2，…, i+k]，满足 nums[i + 1] &gt;= nums[i + 2] &gt;= … &gt;= nums[i + k]，然后将 nums[i + k] 添加到摆动序列最后</li>
+<li>若 nums[i + 1] 与 nums[i] 相等，则跳过该数</li>
+</ul>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>贪心算法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">wiggleMaxLength</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">if</span> (len == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> pre = nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; ) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] &lt; pre) &#123;</span><br><span class="line">                <span class="keyword">while</span> (i &lt; len &amp;&amp; nums[i] &lt;= nums[i - <span class="number">1</span>]) &#123;</span><br><span class="line">                    i++;</span><br><span class="line">                &#125;</span><br><span class="line">                pre = nums[i - <span class="number">1</span>];</span><br><span class="line">                res++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[i] &gt; pre) &#123;</span><br><span class="line">                <span class="keyword">while</span> (i &lt; len &amp;&amp; nums[i] &gt;= nums[i - <span class="number">1</span>]) &#123;</span><br><span class="line">                    i++;</span><br><span class="line">                &#125;</span><br><span class="line">                pre = nums[i - <span class="number">1</span>];</span><br><span class="line">                res++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>栈</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">inorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        LinkedList&lt;TreeNode&gt; stk = <span class="keyword">new</span> LinkedList&lt;TreeNode&gt;();</span><br><span class="line">        <span class="keyword">while</span> (root != <span class="keyword">null</span> || !stk.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">while</span> (root != <span class="keyword">null</span>) &#123;</span><br><span class="line">                stk.add(root);</span><br><span class="line">                root = root.left;</span><br><span class="line">            &#125;</span><br><span class="line">            root = stk.pollLast();</span><br><span class="line">            res.add(root.val);</span><br><span class="line">            root = root.right;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这题自己的第一反应就是用贪心做，后来看题解，发现也可以用动态规划做，下面是题解实现的动态规划代码</p>
+<p><strong>动态规划</strong></p>
+<p>每当我们选择一个元素作为摆动序列的一部分时，这个元素要么是上升的，要么是下降的，这取决于前一个元素的大小。那么列出状态表达式为：</p>
+<ul>
+<li><p>up[i] 表示以前 i 个元素中的某一个为结尾的最长的「上升摆动序列」的长度</p>
+</li>
+<li><p>down[i] 表示以前 i 个元素中的某一个为结尾的最长的「下降摆动序列」的长度</p>
+</li>
+</ul>
+<p>状态转移方程为：</p>
+<p><a href="https://imgchr.com/i/rVphlD" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/12/12/rVphlD.png" alt="rVphlD.png"></a></p>
+<p>代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">wiggleMaxLength</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line">        <span class="keyword">if</span> (n &lt; <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> n;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] up = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">int</span>[] down = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        up[<span class="number">0</span>] = down[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] &gt; nums[i - <span class="number">1</span>]) &#123;</span><br><span class="line">                up[i] = Math.max(up[i - <span class="number">1</span>], down[i - <span class="number">1</span>] + <span class="number">1</span>);</span><br><span class="line">                down[i] = down[i - <span class="number">1</span>];</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[i] &lt; nums[i - <span class="number">1</span>]) &#123;</span><br><span class="line">                up[i] = up[i - <span class="number">1</span>];</span><br><span class="line">                down[i] = Math.max(up[i - <span class="number">1</span>] + <span class="number">1</span>, down[i - <span class="number">1</span>]);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                up[i] = up[i - <span class="number">1</span>];</span><br><span class="line">                down[i] = down[i - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Math.max(up[n - <span class="number">1</span>], down[n - <span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -502,8 +518,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/09/14/最长回文子串/" rel="next" title="最长回文子串">
-                <i class="fa fa-chevron-left"></i> 最长回文子串
+              <a href="/2020/12/11/Dota2参议院/" rel="next" title="Dota2参议院">
+                <i class="fa fa-chevron-left"></i> Dota2参议院
               </a>
             
           </div>
@@ -511,10 +527,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/09/15/解数独/" rel="prev" title="解数独">
-                解数独 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
