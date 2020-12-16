@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，1014.Best Sightseeing Pair">
+  <meta name="description" content="LeetCode每日一题，290.  Word Pattern">
 <meta property="og:type" content="article">
-<meta property="og:title" content="最佳观光组合">
-<meta property="og:url" content="http://yoursite.com/2020/06/17/最佳观光组合/index.html">
+<meta property="og:title" content="单词规律">
+<meta property="og:url" content="http://yoursite.com/2020/12/16/单词规律/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，1014.Best Sightseeing Pair">
+<meta property="og:description" content="LeetCode每日一题，290.  Word Pattern">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NAjLqO.png">
-<meta property="og:updated_time" content="2020-06-17T04:05:50.285Z">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/16/rQ4vwt.png">
+<meta property="og:updated_time" content="2020-12-16T01:58:58.641Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="最佳观光组合">
-<meta name="twitter:description" content="LeetCode每日一题，1014.Best Sightseeing Pair">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/17/NAjLqO.png">
+<meta name="twitter:title" content="单词规律">
+<meta name="twitter:description" content="LeetCode每日一题，290.  Word Pattern">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/12/16/rQ4vwt.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/06/17/最佳观光组合/">
+  <link rel="canonical" href="http://yoursite.com/2020/12/16/单词规律/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>最佳观光组合 | Morichina</title>
+  <title>单词规律 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/17/最佳观光组合/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/16/单词规律/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">最佳观光组合
+          <h1 class="post-title" itemprop="name headline">单词规律
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-06-17 11:38:26 / 修改时间：12:05:50" itemprop="dateCreated datePublished" datetime="2020-06-17T11:38:26+08:00">2020-06-17</time>
+              <time title="创建时间：2020-12-16 09:26:40 / 修改时间：09:58:58" itemprop="dateCreated datePublished" datetime="2020-12-16T09:26:40+08:00">2020-12-16</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.9k</span>
+              <span title="本文字数">2.3k</span>
             </span>
           
 
@@ -456,19 +456,27 @@
       
 
       
-        <p>LeetCode每日一题，1014.Best Sightseeing Pair</p>
+        <p>LeetCode每日一题，290.  Word Pattern</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/06/17/NAjLqO.png" alt></p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这道题遍历一遍 A 数组即可，关键是遍历到第 i 个元素时，要注意到 A[i] + i 是个定值，找到 A[j] - j 的最大值即可，这道题可正向遍历，也可反向遍历，正向遍历时把 A[j] - j 看作定值，遍历到景点 j 时，最大化 A[i] + i + A[j] - j 的值其实就等价于求 [0, j - 1] 中 A[i] + i 的最大值 max，景点 j 的答案即为 max + A[j] - j，在从前往后遍历的过程中一直维护 ans 和 max 的值即可；反向遍历时，把 A[i] + i 看成定值，遍历到景点 i 时，最大化 A[i] + i + A[j] - j 的值其实就等价于求 [i + 1, len - 1] 中 A[j] - j 的最大值 max，景点 i 的答案即为 A[i] + i + max，在从后往前遍历的过程中一直维护 ans 和 max 的值即可</p>
-<p>但是我一开始做时，想的是把 A[i] + i 看成定值，但用的却是从前往后遍历，于是维护 max 的过程就很麻烦，最后超出了时间限制</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p>下面会给出三种源码，分别是一开始超出时间限制的源码，正向遍历源码和反向遍历源码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxScoreSightseeingPair</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = A.length;</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[] B = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">            B[i] = A[i] - i;</span><br><span class="line">        &#125;</span><br><span class="line">        List&lt;Integer&gt;  values = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num: B) &#123;</span><br><span class="line">            values.add(num);</span><br><span class="line">        &#125;</span><br><span class="line">        Collections.sort(values);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            values.remove(values.indexOf(B[i]));</span><br><span class="line">            <span class="keyword">int</span> cur_max = A[i] + i + values.get(values.size()-<span class="number">1</span>);</span><br><span class="line">            max = Math.max(cur_max, max);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/rQ4vwt" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/12/16/rQ4vwt.png" alt="rQ4vwt.png"></a></p>
+<p>大意就是给定一个模式串 pattern 和一个字符串 s，让我们判断 s 是否能匹配 pattern</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>哈希表</strong></p>
+<p>我们可以使用哈希表，以 pattern 中的字母作为键，s 中的字符串作为值，来判断是否能匹配</p>
+<p><strong>算法流程</strong></p>
+<ul>
+<li>将 s 根据空格分割为一个字符串数组 ss，初始化一个哈希表 map，判断 ss 的长度与 pattern 的长度是否相等，不相等的话则直接返回 false</li>
+<li>用指针 i 来遍历 pattern 和 ss<ul>
+<li>将 pattern.charAt(i) 作为 key，若 map 的所有键中 key 不存在，再去判断 map 的所有 value 中是否存在 ss[i]，若存在则直接返回 false，不存在的话就将 key 和 ss[i] 作为键值对放入 map 中；若 map 的所有键中存在 key，则判断该键所对应的值是否与 ss[i] 相等，若不相等的话则直接返回 false</li>
+</ul>
+</li>
+<li>若最后遍历结束后也没返回，说明到达终态，s 与 pattern 能匹配，返回 true</li>
+</ul>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">wordPattern</span><span class="params">(String pattern, String s)</span> </span>&#123;</span><br><span class="line">        String[] ss = s.split(<span class="string">" "</span>);</span><br><span class="line">        <span class="keyword">if</span> (ss.length != pattern.length()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        Map&lt;Character, String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ss.length; i++) &#123;</span><br><span class="line">            Character key = pattern.charAt(i);</span><br><span class="line">            <span class="keyword">if</span> (!map.containsKey(key)) &#123;</span><br><span class="line">                <span class="keyword">if</span> (map.containsValue(ss[i])) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                map.put(key, ss[i]);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (!map.get(key).equals(ss[i])) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxScoreSightseeingPair</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = A.length;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> max = A[<span class="number">0</span>] + <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; len; j++) &#123;</span><br><span class="line">            ans = Math.max(ans, max + A[j] - j);</span><br><span class="line">            max = Math.max(max, A[j] + j);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxScoreSightseeingPair</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = A.length;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> max = A[len - <span class="number">1</span>] - (len - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = len - <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            ans = Math.max(ans, A[i] + i + max);</span><br><span class="line">            max = Math.max(max, A[i] - i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面是题解的代码，使用了两个哈希表，时间复杂度要低些</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">wordPattern</span><span class="params">(String pattern, String str)</span> </span>&#123;</span><br><span class="line">        Map&lt;String, Character&gt; str2ch = <span class="keyword">new</span> HashMap&lt;String, Character&gt;();</span><br><span class="line">        Map&lt;Character, String&gt; ch2str = <span class="keyword">new</span> HashMap&lt;Character, String&gt;();</span><br><span class="line">        <span class="keyword">int</span> m = str.length();</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> p = <span class="number">0</span>; p &lt; pattern.length(); ++p) &#123;</span><br><span class="line">            <span class="keyword">char</span> ch = pattern.charAt(p);</span><br><span class="line">            <span class="keyword">if</span> (i &gt;= m) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> j = i;</span><br><span class="line">            <span class="keyword">while</span> (j &lt; m &amp;&amp; str.charAt(j) != <span class="string">' '</span>) &#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            String tmp = str.substring(i, j);</span><br><span class="line">            <span class="keyword">if</span> (str2ch.containsKey(tmp) &amp;&amp; str2ch.get(tmp) != ch) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (ch2str.containsKey(ch) &amp;&amp; !tmp.equals(ch2str.get(ch))) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            str2ch.put(tmp, ch);</span><br><span class="line">            ch2str.put(ch, tmp);</span><br><span class="line">            i = j + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> i &gt;= m;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -500,8 +508,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/16/二叉树的序列化与反序列化/" rel="next" title="二叉树的序列化与反序列化">
-                <i class="fa fa-chevron-left"></i> 二叉树的序列化与反序列化
+              <a href="/2020/12/15/单调递增的数字/" rel="next" title="单调递增的数字">
+                <i class="fa fa-chevron-left"></i> 单调递增的数字
               </a>
             
           </div>
@@ -509,10 +517,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/18/从先序遍历还原二叉树/" rel="prev" title="从先序遍历还原二叉树">
-                从先序遍历还原二叉树 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
