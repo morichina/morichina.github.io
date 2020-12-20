@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，378.Kth Smallest Element in a Sorted Matrix">
+  <meta name="description" content="LeetCode每日一题，316.Remove Duplicate Letters">
 <meta property="og:type" content="article">
-<meta property="og:title" content="有序矩阵中第K小的元素">
-<meta property="og:url" content="http://yoursite.com/2020/07/02/有序矩阵中第K小的元素/index.html">
+<meta property="og:title" content="去除重复字母">
+<meta property="og:url" content="http://yoursite.com/2020/12/20/去除重复字母/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，378.Kth Smallest Element in a Sorted Matrix">
+<meta property="og:description" content="LeetCode每日一题，316.Remove Duplicate Letters">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/07/02/NbFBng.png">
-<meta property="og:updated_time" content="2020-07-02T03:19:12.059Z">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/20/ral74A.png">
+<meta property="og:updated_time" content="2020-12-20T07:31:46.413Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="有序矩阵中第K小的元素">
-<meta name="twitter:description" content="LeetCode每日一题，378.Kth Smallest Element in a Sorted Matrix">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/02/NbFBng.png">
+<meta name="twitter:title" content="去除重复字母">
+<meta name="twitter:description" content="LeetCode每日一题，316.Remove Duplicate Letters">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/12/20/ral74A.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/07/02/有序矩阵中第K小的元素/">
+  <link rel="canonical" href="http://yoursite.com/2020/12/20/去除重复字母/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>有序矩阵中第K小的元素 | Morichina</title>
+  <title>去除重复字母 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/02/有序矩阵中第K小的元素/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/20/去除重复字母/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">有序矩阵中第K小的元素
+          <h1 class="post-title" itemprop="name headline">去除重复字母
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-07-02 11:06:39 / 修改时间：11:19:12" itemprop="dateCreated datePublished" datetime="2020-07-02T11:06:39+08:00">2020-07-02</time>
+              <time title="创建时间：2020-12-20 15:01:48 / 修改时间：15:31:46" itemprop="dateCreated datePublished" datetime="2020-12-20T15:01:48+08:00">2020-12-20</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2.3k</span>
+              <span title="本文字数">1.6k</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">2 分钟</span>
+              <span title="阅读时长">1 分钟</span>
             </span>
           
 
@@ -456,19 +456,24 @@
       
 
       
-        <p>LeetCode每日一题，378.Kth Smallest Element in a Sorted Matrix</p>
+        <p>LeetCode每日一题，316.Remove Duplicate Letters</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/07/02/NbFBng.png" alt></p>
-<p>大意就是一个矩阵在每行和每列上都有序，返回第 K 小的元素</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这道题一开始只想得到暴力解法，就是变一维数组排序后再输出第 K 小的元素，运行效率十分感人</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">lass Solution &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">kthSmallest</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> rows = matrix.length, columns = matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span>[] sorted = <span class="keyword">new</span> <span class="keyword">int</span>[rows * columns];</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] row : matrix) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> num : row) &#123;</span><br><span class="line">                sorted[index++] = num;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        Arrays.sort(sorted);</span><br><span class="line">        <span class="keyword">return</span> sorted[k - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>后来看题解才知道还有归并排序法和二分查找法，尤其是二分查找法十分巧妙，而且运用到了题目中这个矩阵的特殊性质，感觉自己对二分查找法一直不太会用，还是得多学习二分法的用法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">kthSmallest</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        PriorityQueue&lt;<span class="keyword">int</span>[]&gt; pq = <span class="keyword">new</span> PriorityQueue&lt;<span class="keyword">int</span>[]&gt;(<span class="keyword">new</span> Comparator&lt;<span class="keyword">int</span>[]&gt;() &#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span>[] b)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> a[<span class="number">0</span>] - b[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">int</span> n = matrix.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            pq.offer(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;matrix[i][<span class="number">0</span>], i, <span class="number">0</span>&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span>[] now = pq.poll();</span><br><span class="line">            <span class="keyword">if</span> (now[<span class="number">2</span>] != n - <span class="number">1</span>) &#123;</span><br><span class="line">                pq.offer(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;matrix[now[<span class="number">1</span>]][now[<span class="number">2</span>] + <span class="number">1</span>], now[<span class="number">1</span>], now[<span class="number">2</span>] + <span class="number">1</span>&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pq.poll()[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">kthSmallest</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = matrix.length;</span><br><span class="line">        <span class="keyword">int</span> left = matrix[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> right = matrix[n - <span class="number">1</span>][n - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right -left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (check(matrix, k, mid)) &#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> k, <span class="keyword">int</span> mid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = matrix.length;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> i = n - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &gt;= <span class="number">0</span> &amp;&amp; j &lt; n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (matrix[i][j] &gt; mid) &#123;</span><br><span class="line">                i--;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                j++;</span><br><span class="line">                num += i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> num &gt;= k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/ral74A" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/12/20/ral74A.png" alt="ral74A.png"></a></p>
+<p>大意就是给定一个字符串 s，让我们去除其中的重复字母，要求返回结果的字典序最小，且不打乱字母的相对顺序</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>贪心+单调栈</strong></p>
+<p>这题的思路和 <a href="https://leetcode-cn.com/problems/remove-k-digits/" target="_blank" rel="noopener">402. 移除k位数字</a> 有点像，但还是有些区别</p>
+<p>对于两个相同长度的数字序列，最左边不同的数字决定了这两个数字的大小，例如，对于 A = 1axxx，B = 1bxxx，如果 a &gt; b 则 A &gt; B</p>
+<p>基于此，我们可以知道，若要使得剩下的数字最小，需要保证靠前的数字尽可能小</p>
+<p>贪心策略如下：</p>
+<ul>
+<li>用一个数组 count 记录 s 中每个字母的出现次数，布尔数组 exist 来记录栈中是否已存在某个字母</li>
+<li>遍历 s 中字母 c，若栈中已存在字母 c，则跳过；否则，若栈顶元素大于 c 且其剩余出现次数大于 0，则删除栈顶元素直至栈为空或栈顶元素小于 c 或栈顶元素的剩余出现次数为 0，然后将 c 添加至栈顶</li>
+<li>遍历了字母 c 后，注意要将 count 数组中维护的 c 的剩余出现次数 - 1，并修改 exist 数组来标记栈中已存在字母 c</li>
+</ul>
+<p>最后将栈中从栈底到栈顶的所有字母拼接成字符串，然后将结果返回即可</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">removeDuplicateLetters</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] count = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">boolean</span>[] exist = <span class="keyword">new</span> <span class="keyword">boolean</span>[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : s.toCharArray()) &#123;</span><br><span class="line">            count[c - <span class="string">'a'</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">        Deque&lt;Character&gt; deque = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : s.toCharArray()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!exist[c - <span class="string">'a'</span>]) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!deque.isEmpty()) &#123;</span><br><span class="line">                    <span class="keyword">while</span> (!deque.isEmpty() &amp;&amp; deque.peekLast() &gt; c &amp;&amp; count[deque.peekLast() - <span class="string">'a'</span>] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                        <span class="keyword">char</span> ch = deque.removeLast();</span><br><span class="line">                        exist[ch - <span class="string">'a'</span>] = <span class="keyword">false</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                deque.addLast(c);</span><br><span class="line">                exist[c - <span class="string">'a'</span>] = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            count[c - <span class="string">'a'</span>]--;</span><br><span class="line">        &#125;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">while</span> (!deque.isEmpty()) &#123;</span><br><span class="line">            sb.append(deque.removeFirst());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -500,8 +505,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/01/最长重复子数组/" rel="next" title="最长重复子数组">
-                <i class="fa fa-chevron-left"></i> 最长重复子数组
+              <a href="/2020/12/19/旋转图像/" rel="next" title="旋转图像">
+                <i class="fa fa-chevron-left"></i> 旋转图像
               </a>
             
           </div>
@@ -509,10 +514,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/03/将有序数组转化为二叉搜索树/" rel="prev" title="将有序数组转化为二叉搜索树">
-                将有序数组转化为二叉搜索树 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -651,7 +652,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
