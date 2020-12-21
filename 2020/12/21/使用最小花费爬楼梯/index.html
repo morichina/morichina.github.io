@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，9.Palindrome Number">
+  <meta name="description" content="LeetCode每日一题，746.  Min Cost Climbing Stairs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="回文数">
-<meta property="og:url" content="http://yoursite.com/2020/06/10/回文数/index.html">
+<meta property="og:title" content="使用最小花费爬楼梯">
+<meta property="og:url" content="http://yoursite.com/2020/12/21/使用最小花费爬楼梯/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，9.Palindrome Number">
+<meta property="og:description" content="LeetCode每日一题，746.  Min Cost Climbing Stairs">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/06/10/toSiNV.png">
-<meta property="og:updated_time" content="2020-06-10T01:42:42.607Z">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/21/r09mJe.png">
+<meta property="og:updated_time" content="2020-12-21T07:31:16.561Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="回文数">
-<meta name="twitter:description" content="LeetCode每日一题，9.Palindrome Number">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/10/toSiNV.png">
+<meta name="twitter:title" content="使用最小花费爬楼梯">
+<meta name="twitter:description" content="LeetCode每日一题，746.  Min Cost Climbing Stairs">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/12/21/r09mJe.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/06/10/回文数/">
+  <link rel="canonical" href="http://yoursite.com/2020/12/21/使用最小花费爬楼梯/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>回文数 | Morichina</title>
+  <title>使用最小花费爬楼梯 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/10/回文数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/21/使用最小花费爬楼梯/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">回文数
+          <h1 class="post-title" itemprop="name headline">使用最小花费爬楼梯
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-06-10 09:11:14 / 修改时间：09:42:42" itemprop="dateCreated datePublished" datetime="2020-06-10T09:11:14+08:00">2020-06-10</time>
+              <time title="创建时间：2020-12-21 14:58:03 / 修改时间：15:31:16" itemprop="dateCreated datePublished" datetime="2020-12-21T14:58:03+08:00">2020-12-21</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.1k</span>
+              <span title="本文字数">1.2k</span>
             </span>
           
 
@@ -456,25 +456,24 @@
       
 
       
-        <p>LeetCode每日一题，9.Palindrome Number</p>
+        <p>LeetCode每日一题，746.  Min Cost Climbing Stairs</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/06/10/toSiNV.png" alt></p>
-<p>大意就是给定一个整数，判断是否是回文数</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这道题要做出来很简单，先判断给定整数是否小于 0，小于 0 直接返回 false，若大于 0，则将整数转化为字符串，并定义一个 left 指针和 right 指针，然后两个指针同时往中间移动，依次判断两个指针指向的字符是否相同即可</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        String num = String.valueOf(x);</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = num.length() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (num.charAt(left) != num.charAt(right)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            left++;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/r09mJe" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/12/21/r09mJe.png" alt="r09mJe.png"></a></p>
+<p>大意就是给定一个数组代表爬每级阶梯的代价，爬阶梯时可以选择从 0 级阶梯开始，也可以从 1 级阶梯开始，每付出一次代价后，可以往上爬一级阶梯，也可以爬两级阶梯，问爬到阶梯顶部的最小花费是多少</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>动态规划</strong></p>
+<p>这题挺简单，用动态规划就可以，dp[i] 代表从第 i 级阶梯爬到楼梯顶的最小花费</p>
+<p>状态转移方程为：dp[i] = cost[i] + min{dp[i + 1]，dp[i + 2]}</p>
+<p>由于爬阶梯可以从 0 级阶梯或 1 级阶梯开始，最后返回 dp[0] 和 dp[1] 中的最小值即可</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>动态规划</strong></p>
+<p>实现动态规划算法的代码，只要状态转移方程没问题，并且注意好初始条件和边界条件，基本实现的代码都不会出问题</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minCostClimbingStairs</span><span class="params">(<span class="keyword">int</span>[] cost)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = cost.length;</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        dp[len - <span class="number">1</span>] = cost[len - <span class="number">1</span>];</span><br><span class="line">        dp[len - <span class="number">2</span>] = cost[len - <span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = len - <span class="number">3</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            dp[i] = cost[i] + Math.min(dp[i + <span class="number">1</span>], dp[i + <span class="number">2</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Math.min(dp[<span class="number">0</span>], dp[<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>之后看题解，看到一个解法，感觉更好一些</p>
-<p>以 1221 为例，</p>
-<ul>
-<li>通过计算 1221 / 1000， 得首位1</li>
-<li>通过计算 1221 % 10， 可得末位 1</li>
-<li>进行比较</li>
-<li>再将 22 取出来继续比较</li>
-</ul>
-<p>按照这个思路就可以把代码实现，源码如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> div = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(x / div &gt;= <span class="number">10</span>) div *= <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">while</span> (x &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> left = x / div;</span><br><span class="line">            <span class="keyword">int</span> right = x % <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">if</span> (left != right) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            x = (x % div) / <span class="number">10</span>;</span><br><span class="line">            div /= <span class="number">100</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面是用滚动数组的思想优化空间的写法的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minCostClimbingStairs</span><span class="params">(<span class="keyword">int</span>[] cost)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = cost.length;</span><br><span class="line">        <span class="keyword">int</span> nnext = cost[len - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span> next = cost[len - <span class="number">2</span>];</span><br><span class="line">        <span class="keyword">int</span> cur;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = len - <span class="number">3</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            cur = cost[i] + Math.min(next, nnext);</span><br><span class="line">            nnext = next;</span><br><span class="line">            next = cur;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Math.min(next, nnext);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
@@ -504,8 +503,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/09/把数字翻译成字符串/" rel="next" title="把数字翻译成字符串">
-                <i class="fa fa-chevron-left"></i> 把数字翻译成字符串
+              <a href="/2020/12/20/去除重复字母/" rel="next" title="去除重复字母">
+                <i class="fa fa-chevron-left"></i> 去除重复字母
               </a>
             
           </div>
@@ -513,10 +512,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/11/每日温度/" rel="prev" title="每日温度">
-                每日温度 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
