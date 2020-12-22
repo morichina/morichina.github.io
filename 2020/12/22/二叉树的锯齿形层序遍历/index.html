@@ -94,20 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，1030.  Matrix Cells in Distance Order">
+  <meta name="description" content="LeetCode每日一题，103.  Binary Tree Zigzag Level Order Traversal">
 <meta property="og:type" content="article">
-<meta property="og:title" content="距离顺序排列矩阵单元格">
-<meta property="og:url" content="http://yoursite.com/2020/11/18/距离顺序排列矩阵单元格/index.html">
+<meta property="og:title" content="二叉树的锯齿形层序遍历">
+<meta property="og:url" content="http://yoursite.com/2020/12/22/二叉树的锯齿形层序遍历/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，1030.  Matrix Cells in Distance Order">
+<meta property="og:description" content="LeetCode每日一题，103.  Binary Tree Zigzag Level Order Traversal">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s3.ax1x.com/2020/11/18/DmyF91.png">
-<meta property="og:image" content="https://assets.leetcode-cn.com/solution-static/1030/1.png">
-<meta property="og:updated_time" content="2020-11-18T08:13:52.640Z">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/22/rDnGkQ.png">
+<meta property="og:updated_time" content="2020-12-22T02:57:40.741Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="距离顺序排列矩阵单元格">
-<meta name="twitter:description" content="LeetCode每日一题，1030.  Matrix Cells in Distance Order">
-<meta name="twitter:image" content="https://s3.ax1x.com/2020/11/18/DmyF91.png">
+<meta name="twitter:title" content="二叉树的锯齿形层序遍历">
+<meta name="twitter:description" content="LeetCode每日一题，103.  Binary Tree Zigzag Level Order Traversal">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/12/22/rDnGkQ.png">
 
 
 
@@ -115,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/11/18/距离顺序排列矩阵单元格/">
+  <link rel="canonical" href="http://yoursite.com/2020/12/22/二叉树的锯齿形层序遍历/">
 
 
 
@@ -125,7 +124,7 @@
   };
 </script>
 
-  <title>距离顺序排列矩阵单元格 | Morichina</title>
+  <title>二叉树的锯齿形层序遍历 | Morichina</title>
   
 
 
@@ -352,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/18/距离顺序排列矩阵单元格/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/22/二叉树的锯齿形层序遍历/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -369,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">距离顺序排列矩阵单元格
+          <h1 class="post-title" itemprop="name headline">二叉树的锯齿形层序遍历
 
               
             
@@ -395,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-11-18 15:58:58 / 修改时间：16:13:52" itemprop="dateCreated datePublished" datetime="2020-11-18T15:58:58+08:00">2020-11-18</time>
+              <time title="创建时间：2020-12-22 10:02:33 / 修改时间：10:57:40" itemprop="dateCreated datePublished" datetime="2020-12-22T10:02:33+08:00">2020-12-22</time>
             </span>
           
 
@@ -426,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">3.1k</span>
+              <span title="本文字数">3.4k</span>
             </span>
           
 
@@ -457,29 +456,18 @@
       
 
       
-        <p>LeetCode每日一题，1030.  Matrix Cells in Distance Order</p>
+        <p>LeetCode每日一题，103.  Binary Tree Zigzag Level Order Traversal</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><a href="https://imgchr.com/i/DmyF91" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/18/DmyF91.png" alt="DmyF91.png"></a></p>
-<p>大意就是给定一个 R * C 的矩阵，再给定一个单元格 [r0, c0]，将矩阵中所有单元格按照距离 [r0，c0] 的曼哈顿距离进行排列，(r1, c1) 和 (r2, c2) 之间的曼哈顿距离的定义为 |r1 - r2| + |c1 - c2|</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>直接排序</strong></p>
-<p>思路就是先存储下矩阵内所有的点，然后重写排序规则使其按照距离 [r0, c0] 的曼哈顿距离进行排序</p>
-<p><strong>BFS</strong></p>
-<p>思路就是从 [r0, c0] 单元格开始进行广度优先搜索，然后将搜索到的单元格依次添加到结果数组中</p>
-<p><strong>几何法</strong></p>
-<p>这个是看题解才知道的方法</p>
-<p>我们也可以直接变换枚举矩阵的顺序，直接按照曼哈顿距离遍历该矩形即可</p>
-<p>注意到曼哈顿距离相同的位置恰好构成一个斜着的正方形边框，因此我们可以从小到大枚举曼哈顿距离，并使用循环来直接枚举该距离对应的边框。我们每次从该正方形边框的上顶点出发，依次经过右顶点、下顶点和左顶点，最后回到上顶点。这样即可完成当前层的遍历</p>
-<p><img src="https://assets.leetcode-cn.com/solution-static/1030/1.png" alt></p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>直接排序</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[][] allCellsDistOrder(<span class="keyword">int</span> R, <span class="keyword">int</span> C, <span class="keyword">int</span> r0, <span class="keyword">int</span> c0) &#123;</span><br><span class="line">        <span class="keyword">int</span> len = R * C;</span><br><span class="line">        <span class="keyword">int</span>[][] res = <span class="keyword">new</span> <span class="keyword">int</span>[len][];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; R; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; C; j++) &#123;</span><br><span class="line">                res[i * C + j] = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;i , j&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        Arrays.sort(res, (a, b) -&gt; (Math.abs(a[<span class="number">0</span>] - r0) + Math.abs(a[<span class="number">1</span>] - c0) - (Math.abs(b[<span class="number">0</span>] - r0) + Math.abs(b[<span class="number">1</span>] - c0))));</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/rDnGkQ" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/12/22/rDnGkQ.png" alt="rDnGkQ.png"></a></p>
+<p>大意就是给定一棵二叉树，让我们输出二叉树的层次遍历，不过偶数层是从左向右输出，奇数层是从右向左输出</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这题用广度优先搜索就可以，用 bfs 对树进行逐层遍历，由于要实现题目要求的锯齿形层次遍历，所以使用栈来维护当前层的所有元素，当栈不为空时，求出当前栈的长度 count，每次从栈中取出 count 个元素进行扩展，然后进行下一轮迭代</p>
+<p>需要注意的是，由于栈这个数据结构是后进先出，所以得遍历完上一层的 count 个节点后，再将下一层的节点添加至栈中，因此需要使用一个临时列表</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; zigzagLevelOrder(TreeNode root) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        Deque&lt;TreeNode&gt; stack = <span class="keyword">new</span> LinkedList&lt;TreeNode&gt;();</span><br><span class="line">        stack.add(root);</span><br><span class="line">        <span class="keyword">while</span> (!stack.isEmpty()) &#123;</span><br><span class="line">            count = stack.size();</span><br><span class="line">            List&lt;Integer&gt; temp = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">            List&lt;TreeNode&gt; nodes = <span class="keyword">new</span> ArrayList&lt;TreeNode&gt;();</span><br><span class="line">            <span class="keyword">if</span> (flag % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">                    TreeNode cur = stack.removeLast();</span><br><span class="line">                    temp.add(cur.val);</span><br><span class="line">                    <span class="keyword">if</span> (cur.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        nodes.add(cur.left);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (cur.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        nodes.add(cur.right);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">                    TreeNode cur = stack.removeLast();</span><br><span class="line">                    temp.add(cur.val);</span><br><span class="line">                    <span class="keyword">if</span> (cur.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        nodes.add(cur.right);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (cur.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        nodes.add(cur.left);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (TreeNode node : nodes) &#123;</span><br><span class="line">                stack.add(node);</span><br><span class="line">            &#125;</span><br><span class="line">            res.add(temp);</span><br><span class="line">            flag++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>BFS</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[][] allCellsDistOrder(<span class="keyword">int</span> R, <span class="keyword">int</span> C, <span class="keyword">int</span> r0, <span class="keyword">int</span> c0) &#123;</span><br><span class="line">        <span class="keyword">int</span> len = R * C;</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[] dx = &#123;<span class="number">1</span>, -<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span>[] dy = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, -<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span>[][] res = <span class="keyword">new</span> <span class="keyword">int</span>[len][];</span><br><span class="line">        <span class="keyword">boolean</span>[][] visited = <span class="keyword">new</span> <span class="keyword">boolean</span>[R][C];</span><br><span class="line">        Deque&lt;<span class="keyword">int</span>[]&gt; deque = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        deque.add(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;r0, c0&#125;);</span><br><span class="line">        visited[r0][c0] = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">while</span> (!deque.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">int</span>[] cur = deque.removeFirst();</span><br><span class="line">            res[index] = cur;</span><br><span class="line">            index++;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">                <span class="keyword">int</span> x = cur[<span class="number">0</span>] + dx[i];</span><br><span class="line">                <span class="keyword">int</span> y = cur[<span class="number">1</span>] + dy[i];</span><br><span class="line">                <span class="keyword">if</span> (x &gt;= <span class="number">0</span> &amp;&amp; x &lt; R &amp;&amp; y &gt;= <span class="number">0</span> &amp;&amp; y &lt; C &amp;&amp; !visited[x][y]) &#123;</span><br><span class="line">                    deque.add(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;x, y&#125;);</span><br><span class="line">                    visited[x][y] = <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>几何法</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[][] allCellsDistOrder(<span class="keyword">int</span> R, <span class="keyword">int</span> C, <span class="keyword">int</span> r0, <span class="keyword">int</span> c0) &#123;</span><br><span class="line">        <span class="keyword">int</span>[] dx = &#123;<span class="number">1</span>, <span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span>[] dy = &#123;<span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>, <span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> maxDist = Math.max(r0, R - <span class="number">1</span> - r0) + Math.max(c0, C - <span class="number">1</span> - c0);</span><br><span class="line">        <span class="keyword">int</span>[][] res = <span class="keyword">new</span> <span class="keyword">int</span>[R * C][];</span><br><span class="line">        res[<span class="number">0</span>] = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;r0, c0&#125;;</span><br><span class="line">        <span class="keyword">int</span> row = r0;</span><br><span class="line">        <span class="keyword">int</span> col = c0;</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> dist = <span class="number">1</span>; dist &lt;= maxDist; dist++) &#123;</span><br><span class="line">            row--;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">                <span class="keyword">while</span> (i % <span class="number">2</span> == <span class="number">0</span> &amp;&amp; row != r0 || i % <span class="number">2</span> == <span class="number">1</span> &amp;&amp; col != c0) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (row &gt;= <span class="number">0</span> &amp;&amp; row &lt; R &amp;&amp; col &gt;= <span class="number">0</span> &amp;&amp; col &lt; C) &#123;</span><br><span class="line">                        res[index++] = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;row, col&#125;;</span><br><span class="line">                    &#125;</span><br><span class="line">                    row += dx[i];</span><br><span class="line">                    col += dy[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面是是题解的代码，是用队列来进行层次遍历的，但是对于每一层的节点是使用双端队列的数据结构来维护当前层节点的输出顺序，根据当前层是奇数层还是偶数层来决定把节点放入双端队列的头部还是尾部，然后某层节点遍历完毕时便将存储该层节点的双端队列添加至答案数组中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; zigzagLevelOrder(TreeNode root) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; ans = <span class="keyword">new</span> LinkedList&lt;List&lt;Integer&gt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> ans;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Queue&lt;TreeNode&gt; nodeQueue = <span class="keyword">new</span> LinkedList&lt;TreeNode&gt;();</span><br><span class="line">        nodeQueue.offer(root);</span><br><span class="line">        <span class="keyword">boolean</span> isOrderLeft = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (!nodeQueue.isEmpty()) &#123;</span><br><span class="line">            Deque&lt;Integer&gt; levelList = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">            <span class="keyword">int</span> size = nodeQueue.size();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; ++i) &#123;</span><br><span class="line">                TreeNode curNode = nodeQueue.poll();</span><br><span class="line">                <span class="keyword">if</span> (isOrderLeft) &#123;</span><br><span class="line">                    levelList.offerLast(curNode.val);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    levelList.offerFirst(curNode.val);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (curNode.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    nodeQueue.offer(curNode.left);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (curNode.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    nodeQueue.offer(curNode.right);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ans.add(<span class="keyword">new</span> LinkedList&lt;Integer&gt;(levelList));</span><br><span class="line">            isOrderLeft = !isOrderLeft;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -511,8 +499,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/11/18/加油站/" rel="next" title="加油站">
-                <i class="fa fa-chevron-left"></i> 加油站
+              <a href="/2020/12/21/使用最小花费爬楼梯/" rel="next" title="使用最小花费爬楼梯">
+                <i class="fa fa-chevron-left"></i> 使用最小花费爬楼梯
               </a>
             
           </div>
@@ -520,10 +508,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/11/19/移动零/" rel="prev" title="移动零">
-                移动零 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
