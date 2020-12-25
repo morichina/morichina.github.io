@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，124.Binary Tree Maximum Path Sum">
+  <meta name="description" content="LeetCode每日一题，455.  Assign Cookies">
 <meta property="og:type" content="article">
-<meta property="og:title" content="二叉树中的最大路径和">
-<meta property="og:url" content="http://yoursite.com/2020/06/21/二叉树中的最大路径和/index.html">
+<meta property="og:title" content="分发饼干">
+<meta property="og:url" content="http://yoursite.com/2020/12/25/分发饼干/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，124.Binary Tree Maximum Path Sum">
+<meta property="og:description" content="LeetCode每日一题，455.  Assign Cookies">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/06/21/N3eU4x.png">
-<meta property="og:updated_time" content="2020-06-21T05:40:55.968Z">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/25/rRGx2R.png">
+<meta property="og:updated_time" content="2020-12-25T02:21:31.838Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="二叉树中的最大路径和">
-<meta name="twitter:description" content="LeetCode每日一题，124.Binary Tree Maximum Path Sum">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/21/N3eU4x.png">
+<meta name="twitter:title" content="分发饼干">
+<meta name="twitter:description" content="LeetCode每日一题，455.  Assign Cookies">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/12/25/rRGx2R.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/06/21/二叉树中的最大路径和/">
+  <link rel="canonical" href="http://yoursite.com/2020/12/25/分发饼干/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>二叉树中的最大路径和 | Morichina</title>
+  <title>分发饼干 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/21/二叉树中的最大路径和/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/25/分发饼干/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">二叉树中的最大路径和
+          <h1 class="post-title" itemprop="name headline">分发饼干
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-06-21 13:25:30 / 修改时间：13:40:55" itemprop="dateCreated datePublished" datetime="2020-06-21T13:25:30+08:00">2020-06-21</time>
+              <time title="创建时间：2020-12-25 09:45:58 / 修改时间：10:21:31" itemprop="dateCreated datePublished" datetime="2020-12-25T09:45:58+08:00">2020-12-25</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">946</span>
+              <span title="本文字数">1k</span>
             </span>
           
 
@@ -456,13 +456,26 @@
       
 
       
-        <p>LeetCode每日一题，124.Binary Tree Maximum Path Sum</p>
+        <p>LeetCode每日一题，455.  Assign Cookies</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/06/21/N3eU4x.png" alt></p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这道题是典型的子树递归，用 max 来维护全局最大路径和，每当递归到一个节点时，用 left 来表示递归求得的左边分支最大路径和，right 表示递归求得的右边分支最大路径和，root.val + left + right 与 max 进行比较来维护 max，然后返回经过 root 的单边分支最大值给上游，递归结束后返回 max 即为全局最大路径和</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> max = Integer.MIN_VALUE;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxPathSum</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        dfs(root);</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">dfs</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (root.left != <span class="keyword">null</span>) left = Math.max(dfs(root.left), <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span> (root.right != <span class="keyword">null</span>) right = Math.max(dfs(root.right), <span class="number">0</span>);</span><br><span class="line">        max = Math.max(max, left + right + root.val);</span><br><span class="line">        <span class="keyword">return</span> root.val + Math.max(left, right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/rRGx2R" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/12/25/rRGx2R.png" alt="rRGx2R.png"></a></p>
+<p>大意就是给定两个数组 g 和 s，g 中存储的元素代表每个孩子的胃口，s 中存储的元素代表每个饼干的尺寸，我们现在需要给孩子分发饼干，为了满足孩子，给孩子分配的饼干的尺寸必须不小于孩子的胃口，且最多给每个孩子分配一块饼干，问可以满足的孩子的最大数量是多少</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>贪心+排序+双指针</strong></p>
+<p>为了尽可能满足最多数量的孩子，从贪心的角度考虑，应该按照孩子的胃口从小到大的顺序依次满足每个孩子，对于每个孩子，应该选择可以满足这个孩子的胃口且尺寸最小的饼干</p>
+<p><strong>算法流程</strong></p>
+<ul>
+<li>将 g 数组和 s 数组按照升序排列</li>
+<li>设 g 数组和 s 数组的长度为 m 和 n，初始化两个指针 i 和 j 均等于 0，维护已满足孩子数量的变量 res 初始化为 0</li>
+<li>当 i &lt; m 且 j &lt; n 时执行循环：<ul>
+<li>若 g[i] &lt;= s[j]，说明该饼干能满足当前的孩子，将 res + 1，i 和 j 指针同时向右移动一位，去满足下一位孩子</li>
+<li>否则，说明该饼干不能满足当前的孩子，则将 j 指针右移，寻找可以满足当前孩子的胃口且尺寸最小的饼干</li>
+</ul>
+</li>
+<li>最后返回 res 即可</li>
+</ul>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findContentChildren</span><span class="params">(<span class="keyword">int</span>[] g, <span class="keyword">int</span>[] s)</span> </span>&#123;</span><br><span class="line">        Arrays.sort(g);</span><br><span class="line">        Arrays.sort(s);</span><br><span class="line">        <span class="keyword">int</span> m = g.length;</span><br><span class="line">        <span class="keyword">int</span> n = s.length;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; m &amp;&amp; j &lt; n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (g[i] &lt;= s[j]) &#123;</span><br><span class="line">                res++;</span><br><span class="line">                i++;</span><br><span class="line">                j++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -494,8 +507,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/20/正则表达式匹配/" rel="next" title="正则表达式匹配">
-                <i class="fa fa-chevron-left"></i> 正则表达式匹配
+              <a href="/2020/12/24/分发糖果/" rel="next" title="分发糖果">
+                <i class="fa fa-chevron-left"></i> 分发糖果
               </a>
             
           </div>
@@ -503,10 +516,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/22/模式匹配/" rel="prev" title="模式匹配">
-                模式匹配 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
