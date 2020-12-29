@@ -94,21 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，188.  Best Time to Buy and Sell Stock IV">
+  <meta name="description" content="LeetCode每日一题，330.  Patching Array">
 <meta property="og:type" content="article">
-<meta property="og:title" content="买卖股票的最佳时机IV">
-<meta property="og:url" content="http://yoursite.com/2020/12/28/买卖股票的最佳时机IV/index.html">
+<meta property="og:title" content="按要求补齐数组">
+<meta property="og:url" content="http://yoursite.com/2020/12/29/按要求补齐数组/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，188.  Best Time to Buy and Sell Stock IV">
+<meta property="og:description" content="LeetCode每日一题，330.  Patching Array">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s3.ax1x.com/2020/12/28/rTQbkV.png">
-<meta property="og:image" content="https://s3.ax1x.com/2020/12/28/rTYtuF.png">
-<meta property="og:image" content="https://s3.ax1x.com/2020/12/28/rTtpvT.png">
-<meta property="og:updated_time" content="2020-12-29T02:46:52.606Z">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/29/rHE6Fe.png">
+<meta property="og:updated_time" content="2020-12-29T04:13:32.412Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="买卖股票的最佳时机IV">
-<meta name="twitter:description" content="LeetCode每日一题，188.  Best Time to Buy and Sell Stock IV">
-<meta name="twitter:image" content="https://s3.ax1x.com/2020/12/28/rTQbkV.png">
+<meta name="twitter:title" content="按要求补齐数组">
+<meta name="twitter:description" content="LeetCode每日一题，330.  Patching Array">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/12/29/rHE6Fe.png">
 
 
 
@@ -116,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/12/28/买卖股票的最佳时机IV/">
+  <link rel="canonical" href="http://yoursite.com/2020/12/29/按要求补齐数组/">
 
 
 
@@ -126,7 +124,7 @@
   };
 </script>
 
-  <title>买卖股票的最佳时机IV | Morichina</title>
+  <title>按要求补齐数组 | Morichina</title>
   
 
 
@@ -353,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/28/买卖股票的最佳时机IV/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/29/按要求补齐数组/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -370,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">买卖股票的最佳时机IV
+          <h1 class="post-title" itemprop="name headline">按要求补齐数组
 
               
             
@@ -396,23 +394,13 @@
                 
               
 
-              <time title="创建时间：2020-12-28 15:55:51" itemprop="dateCreated datePublished" datetime="2020-12-28T15:55:51+08:00">2020-12-28</time>
+              <time title="创建时间：2020-12-29 10:45:03 / 修改时间：12:13:32" itemprop="dateCreated datePublished" datetime="2020-12-29T10:45:03+08:00">2020-12-29</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-12-29 10:46:52" itemprop="dateModified" datetime="2020-12-29T10:46:52+08:00">2020-12-29</time>
-              </span>
             
           
 
@@ -437,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2.5k</span>
+              <span title="本文字数">1.6k</span>
             </span>
           
 
@@ -449,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">2 分钟</span>
+              <span title="阅读时长">1 分钟</span>
             </span>
           
 
@@ -468,31 +456,33 @@
       
 
       
-        <p>LeetCode每日一题，188.  Best Time to Buy and Sell Stock IV</p>
+        <p>LeetCode每日一题，330.  Patching Array</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><a href="https://imgchr.com/i/rTQbkV" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/12/28/rTQbkV.png" alt="rTQbkV.png"></a></p>
-<p>大意就是给定一个数组 prices，代表股票每天的价格，再给定一个整数 k，表示最多能进行 k 次交易(一次买入和一次卖出为一次交易)，问最终能获得的最大利润</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这题不会做，是直接去看题解的</p>
-<p><strong>动态规划</strong></p>
-<p>与其余的股票问题类似，我们使用一系列变量存储「买入」的状态，再用一系列变量存储「卖出」的状态，通过动态规划的方法即可解决本题</p>
-<p>我们用 buy[i][j] 表示对于数组 prices[0..i] 中的价格而言，进行恰好 j 笔交易，并且当前手上持有一支股票，这种情况下的最大利润；用 sell[i][j] 表示恰好进行 j 笔交易，并且当前手上不持有股票，这种情况下的最大利润</p>
-<p>那么我们可以对状态转移方程进行推导。对于 buy[i][j]，我们考虑当前手上持有的股票是否是在第 i 天买入的。如果是第 i 天买入的，那么在第 i−1 天时，我们手上不持有股票，对应状态 sell[i−1][j]，并且需要扣除 prices[i] 的买入花费；如果不是第 i 天买入的，那么在第 i−1 天时，我们手上持有股票，对应状态 buy[i][j]。那么我们可以得到状态转移方程</p>
-<p>​                                         <a href="https://imgchr.com/i/rTYtuF" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/12/28/rTYtuF.png" alt="rTYtuF.png"></a></p>
-<p>同理对于 sell[i][j]，如果是第 i 天卖出的，那么在第 i−1 天时，我们手上持有股票，对应状态 buy[i−1][j−1]，并且需要增加 prices[i] 的卖出收益；如果不是第 i 天卖出的，那么在第 i−1 天时，我们手上不持有股票，对应状态 sell[i−1][j]。那么我们可以得到状态转移方程：</p>
-<p>​            <a href="https://imgchr.com/i/rTtpvT" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/12/28/rTtpvT.png" alt="rTtpvT.png"></a></p>
-<p>由于在所有的 n 天结束后，手上不持有股票对应的最大利润一定是严格由于手上持有股票对应的最大利润的，然而完成的交易数并不是越多越好（例如数组 prices 单调递减，我们不进行任何交易才是最优的），因此最终的答案即为 sell[n−1][0..k] 中的最大值</p>
-<p><strong>细节</strong></p>
-<p>在上述的状态转移方程中，确定边界条件是非常重要的步骤。我们可以考虑将所有的 buy[0][0..k] 以及 sell[0][0..k] 设置为边界</p>
-<p>对于 buy[0][0..k]，由于只有 prices[0] 唯一的股价，因此我们不可能进行过任何交易，那么我们可以将所有的 buy[0][1..k] 设置为一个非常小的值，表示不合法的状态。而对于 buy[0][0]，它的值为 −prices[0]，即「我们在第 0 天以 prices[0] 的价格买入股票」是唯一满足手上持有股票的方法</p>
-<p>对于 sell[0][0..k]，同理我们可以将所有的 sell[0][1..k] 设置为一个非常小的值，表示不合法的状态。而对于 sell[0][0]，它的值为 0，即「我们在第 0 天不做任何事」是唯一满足手上不持有股票的方法</p>
-<p>在设置完边界后，我们就可以使用二重循环对状态进行转移。需要注意的是，sell[i][j] 的状态转移方程中包含 buy[i−1][j−1]，在 j = 0 时其表示不合法的状态，因此在 j = 0 时，我们无需对 sell[i][j] 进行转移，让其保持值为 0 即可</p>
-<p>最后需要注意的是，因为 n 天最多只能进行 n / 2 笔交易，因此我们可以从 k 和 n / 2 中取较小值对 k 重新赋值之后再进行动态规划</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>动态规划</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = prices.length;</span><br><span class="line">        <span class="keyword">if</span> (len == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        k = Math.min(len / <span class="number">2</span>, k);</span><br><span class="line">        <span class="keyword">int</span> maxProfit = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[][] buy = <span class="keyword">new</span> <span class="keyword">int</span>[len][k + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span>[][] sell = <span class="keyword">new</span> <span class="keyword">int</span>[len][k + <span class="number">1</span>];</span><br><span class="line">        buy[<span class="number">0</span>][<span class="number">0</span>] = - prices[<span class="number">0</span>];</span><br><span class="line">        sell[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= k; i++) &#123;</span><br><span class="line">            buy[<span class="number">0</span>][i] = sell[<span class="number">0</span>][i] = Integer.MIN_VALUE / <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">            buy[i][<span class="number">0</span>] = Math.max(buy[i - <span class="number">1</span>][<span class="number">0</span>], -prices[i]);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= k; j++) &#123;</span><br><span class="line">                buy[i][j] = Math.max(buy[i - <span class="number">1</span>][j], sell[i - <span class="number">1</span>][j] - prices[i]);</span><br><span class="line">                sell[i][j] = Math.max(buy[i - <span class="number">1</span>][j - <span class="number">1</span>] + prices[i], sell[i - <span class="number">1</span>][j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> profit : sell[len - <span class="number">1</span>]) &#123;</span><br><span class="line">            maxProfit = Math.max(maxProfit, profit);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxProfit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+<p><a href="https://imgchr.com/i/rHE6Fe" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/12/29/rHE6Fe.png" alt="rHE6Fe.png"></a></p>
+<p>大意就是给定一个数组 nums 和 一个整数 n，让我们判断若想使 [1，n] 区间内的任何一个数字都可以用 nums 中某几个元素的和来表示，需要在 nums 中添加的元素的最小数量</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>今天这题又不会，连续两天困难提也太绝望了…今天的题和昨天的题都是看题解才明白的，感觉今天这题主要难在数学部分</p>
+<p><strong>贪心算法</strong></p>
+<p>对于正整数 x，如果区间 [1，x - 1] 内的所有数字都已经被覆盖，且 x 在数组中，则区间 [1，2x - 1] 内的所有数字也都被覆盖，证明如下：</p>
+<p>对于任意 1 &lt;= y &lt; x，y 已经被覆盖，x 在数组中，因此 y + x 也被覆盖，区间 [x + 1，2x - 1] (即区间 [1，x - 1] 内的每个数字加上 x 之后得到的区间) 内的所有数字也被覆盖，由此可得区间 [1，2x + 1] 内的所有数字都被覆盖</p>
+<p>假设数字 x 缺失，则至少需要在数组中补充一个小于或等于 x 的数，才能覆盖到 x，否则无法覆盖到 x</p>
+<p>如果区间 [1，x−1] 内的所有数字都已经被覆盖，则从贪心的角度考虑，补充 x 之后即可覆盖到 x，且满足补充的数字个数最少。在补充 x之后，区间 [1，2x−1] 内的所有数字都被覆盖，下一个缺失的数字一定不会小于 2x</p>
+<p>由此可以提出一个贪心的方案。每次找到未被数组 nums 覆盖的最小的整数 x，在数组中补充 x，然后寻找下一个未被覆盖的最小的整数，重复上述步骤直到区间 [1，n] 中的所有数字都被覆盖</p>
+<p>具体实现方面，任何时候都应满足区间 [1，x−1] 内的所有数字都被覆盖。令 x 的初始值为 1，数组下标 index 的初始值为 0，则初始状态下区间 [1，x−1] 为空区间，满足区间内的所有数字都被覆盖。进行如下操作：</p>
+<ul>
+<li>若 index 在数组 nums 的下标范围内且 nums[index] &lt;= x，则更新 x 为 x + nums[index]<ul>
+<li>被覆盖的区间从 [1，x - 1] 扩展到 [1，x + nums[index] - 1]，将 x 的值更新以后，被覆盖的区间为 [1，x - 1]</li>
+</ul>
+</li>
+<li>否则，x 没有被覆盖，根据贪心策略，此时需要在数组 nums 中补充 x，并更新 x 为 2x<ul>
+<li>在数组中补充 x 后，被覆盖的区间从 [1，x - 1] 扩展到 [1，2x - 1]，将 x 的值更新以后，被覆盖的区间为 [1，x - 1]</li>
+</ul>
+</li>
+<li>重复上述操作，直到 x 的值大于 n</li>
+</ul>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>贪心算法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minPatches</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> patchs = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">long</span> x = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (x &lt;= n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (index &lt; len &amp;&amp; nums[index] &lt;= x) &#123;</span><br><span class="line">                x += nums[index];</span><br><span class="line">                index++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                patchs++;</span><br><span class="line">                x *= <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> patchs;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -522,8 +512,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/12/27/同构字符串/" rel="next" title="同构字符串">
-                <i class="fa fa-chevron-left"></i> 同构字符串
+              <a href="/2020/12/28/买卖股票的最佳时机IV/" rel="next" title="买卖股票的最佳时机IV">
+                <i class="fa fa-chevron-left"></i> 买卖股票的最佳时机IV
               </a>
             
           </div>
@@ -531,10 +521,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/12/29/按要求补齐数组/" rel="prev" title="按要求补齐数组">
-                按要求补齐数组 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
