@@ -102,7 +102,7 @@
 <meta property="og:description" content="LeetCode每日一题，1046.  Last Stone Weight">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://s3.ax1x.com/2020/12/30/rqoxSJ.png">
-<meta property="og:updated_time" content="2020-12-30T02:49:00.138Z">
+<meta property="og:updated_time" content="2020-12-30T09:27:37.710Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最后一块石头的重量">
 <meta name="twitter:description" content="LeetCode每日一题，1046.  Last Stone Weight">
@@ -297,7 +297,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">207</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">208</span></a>
 
   </li>
 
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-12-30 10:08:42 / 修改时间：10:49:00" itemprop="dateCreated datePublished" datetime="2020-12-30T10:08:42+08:00">2020-12-30</time>
+              <time title="创建时间：2020-12-30 10:08:42 / 修改时间：17:27:37" itemprop="dateCreated datePublished" datetime="2020-12-30T10:08:42+08:00">2020-12-30</time>
             </span>
           
 
@@ -462,7 +462,7 @@
 <p>先看题目描述</p>
 <p><a href="https://imgchr.com/i/rqoxSJ" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/12/30/rqoxSJ.png" alt="rqoxSJ.png"></a></p>
 <p>大意就是给定一个数组代表许多石头的重量，每次我们选最重的两个石头来相撞，设这两个石头的重量分别为 x 和 y 且 x &lt;= y，若 x 和 y 相等，则这两个石头都被撞毁，若 x 小于 y，则会得到一个新的重量为 y - x 的石头，最后将会剩下至多一个石头，若没有石头则返回 0，若有一个石头则让我们返回该石头的重量</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>由于题目中说了每次都选出最重的两个石头进行相撞，且要将相撞后得到的新石头添加到石头集合中，我们很快就想到用一个最大堆来维护石头集合，最大堆会帮助我们自动维护石头集合按照降序排列。我们每次从最大堆中取出重量最大的两个石头，然后将这两个石头相撞，将产生的新石头再添加到最大堆中，即使取出的两个石头重量相等也没关系，我们视为产生的新石头重量为 0，添加到最大堆中，由于该石头重量为 0，且会置于堆底，对我们的最终结果其实并不会产生影响</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>由于题目中说了每次都选出最重的两个石头进行相撞，且要将相撞后得到的新石头添加到石头集合中，我们很快就想到用一个最大堆来维护石头集合，最大堆会帮助我们自动维护石头集合按照降序排列。我们每次从最大堆中取出重量最大的两个石头，然后将这两个石头相撞，将产生的新石头再添加到最大堆中，即使取出的两个石头重量相等也没关系，我们视产生的新石头重量为 0，添加到最大堆中，由于该石头重量为 0，且会置于堆底，对我们的最终结果其实并不会产生影响</p>
 <p>具体到实现上，算法流程如下：</p>
 <ul>
 <li>求得数组 stones 的长度 len，将 stones 中的所有元素添加到最大堆中</li>
@@ -516,6 +516,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/12/31/无重叠区间/" rel="prev" title="无重叠区间">
+                无重叠区间 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -586,7 +590,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">207</span>
+                    <span class="site-state-item-count">208</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -687,7 +691,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">407k</span>
+    <span title="站点总字数">408k</span>
   
 
   
@@ -696,7 +700,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">6:10</span>
+    <span title="站点阅读时长">6:11</span>
   
 </div>
 

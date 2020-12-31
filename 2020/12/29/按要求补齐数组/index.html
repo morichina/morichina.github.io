@@ -102,7 +102,7 @@
 <meta property="og:description" content="LeetCode每日一题，330.  Patching Array">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://s3.ax1x.com/2020/12/29/rHE6Fe.png">
-<meta property="og:updated_time" content="2020-12-29T04:13:32.412Z">
+<meta property="og:updated_time" content="2020-12-30T07:40:45.703Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="按要求补齐数组">
 <meta name="twitter:description" content="LeetCode每日一题，330.  Patching Array">
@@ -297,7 +297,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">207</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">208</span></a>
 
   </li>
 
@@ -394,13 +394,23 @@
                 
               
 
-              <time title="创建时间：2020-12-29 10:45:03 / 修改时间：12:13:32" itemprop="dateCreated datePublished" datetime="2020-12-29T10:45:03+08:00">2020-12-29</time>
+              <time title="创建时间：2020-12-29 10:45:03" itemprop="dateCreated datePublished" datetime="2020-12-29T10:45:03+08:00">2020-12-29</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-12-30 15:40:45" itemprop="dateModified" datetime="2020-12-30T15:40:45+08:00">2020-12-30</time>
+              </span>
             
           
 
@@ -462,7 +472,7 @@
 <p>先看题目描述</p>
 <p><a href="https://imgchr.com/i/rHE6Fe" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/12/29/rHE6Fe.png" alt="rHE6Fe.png"></a></p>
 <p>大意就是给定一个数组 nums 和 一个整数 n，让我们判断若想使 [1，n] 区间内的任何一个数字都可以用 nums 中某几个元素的和来表示，需要在 nums 中添加的元素的最小数量</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>今天这题又不会，连续两天困难提也太绝望了…今天的题和昨天的题都是看题解才明白的，感觉今天这题主要难在数学部分</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>今天这题又不会，连续两天困难题也太绝望了…今天的题和昨天的题都是看题解才明白的，感觉今天这题主要难在数学部分</p>
 <p><strong>贪心算法</strong></p>
 <p>对于正整数 x，如果区间 [1，x - 1] 内的所有数字都已经被覆盖，且 x 在数组中，则区间 [1，2x - 1] 内的所有数字也都被覆盖，证明如下：</p>
 <p>对于任意 1 &lt;= y &lt; x，y 已经被覆盖，x 在数组中，因此 y + x 也被覆盖，区间 [x + 1，2x - 1] (即区间 [1，x - 1] 内的每个数字加上 x 之后得到的区间) 内的所有数字也被覆盖，由此可得区间 [1，2x + 1] 内的所有数字都被覆盖</p>
@@ -595,7 +605,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">207</span>
+                    <span class="site-state-item-count">208</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -696,7 +706,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">407k</span>
+    <span title="站点总字数">408k</span>
   
 
   
@@ -705,7 +715,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">6:10</span>
+    <span title="站点阅读时长">6:11</span>
   
 </div>
 

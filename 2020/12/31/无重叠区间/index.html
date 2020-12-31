@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，404.  Sum Of Left Leaves">
+  <meta name="description" content="LeetCode每日一题，435.  Non-overlapping Intervals">
 <meta property="og:type" content="article">
-<meta property="og:title" content="左叶子之和">
-<meta property="og:url" content="http://yoursite.com/2020/09/19/左叶子之和/index.html">
+<meta property="og:title" content="无重叠区间">
+<meta property="og:url" content="http://yoursite.com/2020/12/31/无重叠区间/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，404.  Sum Of Left Leaves">
+<meta property="og:description" content="LeetCode每日一题，435.  Non-overlapping Intervals">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/19/wItgh9.png">
-<meta property="og:updated_time" content="2020-09-19T10:43:31.525Z">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/31/rXyxu8.png">
+<meta property="og:updated_time" content="2020-12-31T06:09:47.235Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="左叶子之和">
-<meta name="twitter:description" content="LeetCode每日一题，404.  Sum Of Left Leaves">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/09/19/wItgh9.png">
+<meta name="twitter:title" content="无重叠区间">
+<meta name="twitter:description" content="LeetCode每日一题，435.  Non-overlapping Intervals">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/12/31/rXyxu8.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/09/19/左叶子之和/">
+  <link rel="canonical" href="http://yoursite.com/2020/12/31/无重叠区间/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>左叶子之和 | Morichina</title>
+  <title>无重叠区间 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/19/左叶子之和/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/31/无重叠区间/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">左叶子之和
+          <h1 class="post-title" itemprop="name headline">无重叠区间
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-09-19 16:31:29 / 修改时间：18:43:31" itemprop="dateCreated datePublished" datetime="2020-09-19T16:31:29+08:00">2020-09-19</time>
+              <time title="创建时间：2020-12-31 09:55:31 / 修改时间：14:09:47" itemprop="dateCreated datePublished" datetime="2020-12-31T09:55:31+08:00">2020-12-31</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1k</span>
+              <span title="本文字数">1.2k</span>
             </span>
           
 
@@ -456,15 +456,21 @@
       
 
       
-        <p>LeetCode每日一题，404.  Sum Of Left Leaves</p>
+        <p>LeetCode每日一题，435.  Non-overlapping Intervals</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/09/19/wItgh9.png" alt></p>
-<p>大意就是给定一颗二叉树，让我们返回二叉树里所有的左叶子节点的和</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这题很简单，从上往下使用递归计算就可以</p>
-<p><strong>以 root 为根的二叉树中所有的左叶子节点的和等于其左子树中所有的左叶子节点之和加上其右子树中所有的左叶子节点之和</strong>，为了实现要求，我们定义一个方法 dfs(root, flag)来实现该功能，当 root为空时，直接返回 0；若 root 为叶子节点时，不能直接返回其值，因为题目要的是左叶子节点，所以添加一个标志位 flag 标识该节点是其父节点的左子节点还是右子节点，用 flag = 1 表示为左子节点，flag = 0 表示为右子节点。所以若 root 为叶子节点且 flag = 1 时，则直接返回其值；若 root 为叶子节点且 flag = 0 时，则直接返回 0；若不是上述三种情况之一，则返回 dfs(root.left, 1) + dfs(root.right, 0)</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sumOfLeftLeaves</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> dfs(root, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">dfs</span><span class="params">(TreeNode root, <span class="keyword">int</span> flag)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (flag == <span class="number">1</span> &amp;&amp; root.left == <span class="keyword">null</span> &amp;&amp; root.right == <span class="keyword">null</span>) <span class="keyword">return</span> root.val;</span><br><span class="line">        <span class="keyword">return</span> dfs(root.left, <span class="number">1</span>) + dfs(root.right, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/rXyxu8" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/12/31/rXyxu8.png" alt="rXyxu8.png"></a></p>
+<p>大意就是给定一个数组 intetvals  代表多个时间区间的集合，问要让时间区间没有重叠，最少需要删除多少个时间区间</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>看到这题是有关区间的，很容易就想到以前在算法课上学过的区间调度问题，想到可以用贪心算法解决类似问题</p>
+<p><strong>贪心算法</strong></p>
+<p>贪心策略是：</p>
+<ul>
+<li>每次从区间集合中选出结束时间最早的区间 x</li>
+<li>将与 x 相交的区间从区间集合中删除</li>
+</ul>
+<p>具体到实现上，因为每次都要从集合中选出结束时间最早的区间，我们可以先将区间按照结束时间升序排列，首先以第一个区间作为当前选中的区间，然后按顺序遍历区间集合，对于当前选中的区间 x，我们将与 x 相交的区间从集合中删除，由于区间已按结束时间升序排列，我们只需比较当前遍历的区间的开始时间与 x 的结束时间即可。若当前遍历的区间的开始时间小于 x 的结束时间，说明该区间与 x 相交，将该区间删除，转而用下一个区间与 x 比较；否则，说明当前遍历的区间与 x 不相交，则将当前遍历的区间作为当前选中的区间 x。遍历完后返回删除的区间数量即可</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">eraseOverlapIntervals</span><span class="params">(<span class="keyword">int</span>[][] intervals)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = intervals.length;</span><br><span class="line">        <span class="keyword">if</span> (len &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> res = -<span class="number">1</span>;</span><br><span class="line">        Arrays.sort(intervals, <span class="keyword">new</span> Comparator&lt;<span class="keyword">int</span>[]&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(<span class="keyword">int</span>[] o1, <span class="keyword">int</span>[] o2)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> o1[<span class="number">1</span>] == o2[<span class="number">1</span>] ?  o2[<span class="number">0</span>] - o1[<span class="number">0</span>] : o1[<span class="number">1</span>] - o2[<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">int</span> preEnd = intervals[<span class="number">0</span>][<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] interval : intervals) &#123;</span><br><span class="line">            <span class="keyword">if</span> (interval[<span class="number">0</span>] &lt; preEnd) &#123;</span><br><span class="line">                res++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                preEnd = interval[<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -496,8 +502,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/09/16/翻转二叉树/" rel="next" title="翻转二叉树">
-                <i class="fa fa-chevron-left"></i> 翻转二叉树
+              <a href="/2020/12/30/最后一块石头的重量/" rel="next" title="最后一块石头的重量">
+                <i class="fa fa-chevron-left"></i> 最后一块石头的重量
               </a>
             
           </div>
@@ -505,10 +511,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/09/20/子集/" rel="prev" title="子集">
-                子集 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
