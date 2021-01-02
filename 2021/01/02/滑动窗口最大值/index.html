@@ -94,20 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode题目，201.  Construct Binary Tree from Inorder and Postorder Treversal">
+  <meta name="description" content="LeetCode每日一题，239.  Sliding Window Maximum">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数字范围按位与">
-<meta property="og:url" content="http://yoursite.com/2020/09/26/数字范围按位与/index.html">
+<meta property="og:title" content="滑动窗口最大值">
+<meta property="og:url" content="http://yoursite.com/2021/01/02/滑动窗口最大值/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode题目，201.  Construct Binary Tree from Inorder and Postorder Treversal">
+<meta property="og:description" content="LeetCode每日一题，239.  Sliding Window Maximum">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/26/0i6rNQ.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/26/0igAzR.png">
-<meta property="og:updated_time" content="2020-09-26T12:25:05.578Z">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/02/rzL7PH.png">
+<meta property="og:updated_time" content="2021-01-02T04:54:06.597Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数字范围按位与">
-<meta name="twitter:description" content="LeetCode题目，201.  Construct Binary Tree from Inorder and Postorder Treversal">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/09/26/0i6rNQ.png">
+<meta name="twitter:title" content="滑动窗口最大值">
+<meta name="twitter:description" content="LeetCode每日一题，239.  Sliding Window Maximum">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/01/02/rzL7PH.png">
 
 
 
@@ -115,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/09/26/数字范围按位与/">
+  <link rel="canonical" href="http://yoursite.com/2021/01/02/滑动窗口最大值/">
 
 
 
@@ -125,7 +124,7 @@
   };
 </script>
 
-  <title>数字范围按位与 | Morichina</title>
+  <title>滑动窗口最大值 | Morichina</title>
   
 
 
@@ -352,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/26/数字范围按位与/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/02/滑动窗口最大值/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -369,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">数字范围按位与
+          <h1 class="post-title" itemprop="name headline">滑动窗口最大值
 
               
             
@@ -395,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-09-26 19:56:34 / 修改时间：20:25:05" itemprop="dateCreated datePublished" datetime="2020-09-26T19:56:34+08:00">2020-09-26</time>
+              <time title="创建时间：2021-01-02 12:29:07 / 修改时间：12:54:06" itemprop="dateCreated datePublished" datetime="2021-01-02T12:29:07+08:00">2021-01-02</time>
             </span>
           
 
@@ -426,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">853</span>
+              <span title="本文字数">1.7k</span>
             </span>
           
 
@@ -438,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -457,19 +456,20 @@
       
 
       
-        <p>LeetCode题目，201.  Construct Binary Tree from Inorder and Postorder Treversal</p>
+        <p>LeetCode每日一题，239.  Sliding Window Maximum</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/09/26/0i6rNQ.png" alt></p>
-<p>大意就是给定两个数表示一个范围，让我们返回该范围内所有数按位与的结果</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>刚看到这道题的时候，基本思毫无头绪，不知道怎么做，后来看题解，发现这个应该算是个数学题，只要看出题目本质就很好做</p>
-<p><strong>统计最长公共前缀</strong></p>
-<p>假设两个数在第 i 位及之前都相同，那么必定一个第 i + 1 位为 0，一个第 i + 1 位为 1，则这两个数之间一定存在一个数，这个数的第 i + 1 位为 1，且后面全都是 0，这样按位与以后第 i + 1 位以及之后全都为 0 了</p>
-<p>例如 m 和 n 的最长公共前缀为 00101，假设 m &gt; n，那么 m 可以表示为 001011XXXX，n表示为 001010XXXX，这两个数之间一定存在一个数为 0010110000，这样按位与以后的结果就为 0010100000</p>
-<p>所以求两个数的公共前缀即可，通过两个数不断右移，直到两个数相等，再左移相应位数。例如 m 和 n 一起右移 5 位后得到两个数相等为 00101，那么再将这个数左移 5 位得到 0010100000，这个数转成十进制就是要返回的结果</p>
-<p><img src="https://s1.ax1x.com/2020/09/26/0igAzR.png" alt></p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">rangeBitwiseAnd</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (m == n) <span class="keyword">return</span> m;</span><br><span class="line">        <span class="keyword">int</span> shift = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (m != n) &#123;</span><br><span class="line">            m = m &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            n = n &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            shift++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> m &lt;&lt; shift;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/rzL7PH" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/02/rzL7PH.png" alt="rzL7PH.png"></a></p>
+<p>大意就是给定一个数组 nums，还有一个大小为 k 的窗口从最左侧滑到最右侧，滑动窗口每次只向右移动一位，返回滑动窗口中的最大值</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>优先队列</strong></p>
+<p>看到最大值，很容易就想到用优先队列，可以用优先队列中的大根堆来实时维护一系列元素中的最大值</p>
+<p>大致思路就是先将 nums 中的前 k 个元素放入大根堆中，每当我们向右移动滑动窗口时，就把一个新的元素放入大根堆中，此时堆顶元素就是堆中所有元素的最大值，但是堆顶元素不一定在滑动窗口中，若堆顶元素在滑动窗口左边界的左侧，就不在滑动窗口中，此时就不断删除堆顶元素直至堆顶元素在滑动窗口中，然后就找到了此时的滑动窗口中的最大值。每次向右移动滑动窗口时重复此过程即可。为了判断堆顶元素是否在滑动窗口中，我们需要在堆中存储二元组，二元组中放元素的下标和值</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>优先队列</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] maxSlidingWindow(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k) &#123;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        k = Math.min(k, len);</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[len + <span class="number">1</span> - k];</span><br><span class="line">        PriorityQueue&lt;<span class="keyword">int</span>[]&gt; prior = <span class="keyword">new</span> PriorityQueue&lt;&gt;((a, b) -&gt; b[<span class="number">0</span>] - a[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">            prior.add(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;nums[i], i&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        res[<span class="number">0</span>] = prior.peek()[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = k; i &lt; len; i++) &#123;</span><br><span class="line">            prior.add(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;nums[i], i&#125;);</span><br><span class="line">            <span class="keyword">while</span> (prior.peek()[<span class="number">1</span>] &lt;= i - k) &#123;</span><br><span class="line">                prior.poll();</span><br><span class="line">            &#125;</span><br><span class="line">            res[i - k + <span class="number">1</span>] = prior.peek()[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面是一开始实现的优先队列方法的代码，但是提交的时候跑超时了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] maxSlidingWindow(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k) &#123;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        k = Math.min(k, len);</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[len + <span class="number">1</span> - k];</span><br><span class="line">        PriorityQueue&lt;Integer&gt; prior = <span class="keyword">new</span> PriorityQueue&lt;&gt;((a, b) -&gt; b - a);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            prior.add(nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len + <span class="number">1</span> - k; i++) &#123;</span><br><span class="line">            prior.add(nums[i + k - <span class="number">1</span>]);</span><br><span class="line">            res[i] = prior.peek();</span><br><span class="line">            prior.remove(nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -501,8 +501,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/09/25/从中序与后序遍历序列构造二叉树/" rel="next" title="从中序与后序遍历序列构造二叉树">
-                <i class="fa fa-chevron-left"></i> 从中序与后序遍历序列构造二叉树
+              <a href="/2021/01/01/种花问题/" rel="next" title="种花问题">
+                <i class="fa fa-chevron-left"></i> 种花问题
               </a>
             
           </div>
@@ -510,10 +510,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/09/26/路径总和II/" rel="prev" title="路径总和II">
-                路径总和II <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
