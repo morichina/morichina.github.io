@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode题目，22.  Generate Parentheses">
+  <meta name="description" content="LeetCode每日一题，830.  Position of Large Groups">
 <meta property="og:type" content="article">
-<meta property="og:title" content="括号生成">
-<meta property="og:url" content="http://yoursite.com/2020/10/28/括号生成/index.html">
+<meta property="og:title" content="较大分组的位置">
+<meta property="og:url" content="http://yoursite.com/2021/01/05/较大分组的位置/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode题目，22.  Generate Parentheses">
+<meta property="og:description" content="LeetCode每日一题，830.  Position of Large Groups">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/10/28/B1xRv6.png">
-<meta property="og:updated_time" content="2020-10-28T07:11:34.022Z">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/05/skUU4U.png">
+<meta property="og:updated_time" content="2021-01-05T09:06:26.298Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="括号生成">
-<meta name="twitter:description" content="LeetCode题目，22.  Generate Parentheses">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/28/B1xRv6.png">
+<meta name="twitter:title" content="较大分组的位置">
+<meta name="twitter:description" content="LeetCode每日一题，830.  Position of Large Groups">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/01/05/skUU4U.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/10/28/括号生成/">
+  <link rel="canonical" href="http://yoursite.com/2021/01/05/较大分组的位置/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>括号生成 | Morichina</title>
+  <title>较大分组的位置 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/28/括号生成/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/05/较大分组的位置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">括号生成
+          <h1 class="post-title" itemprop="name headline">较大分组的位置
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-10-28 12:07:00 / 修改时间：15:11:34" itemprop="dateCreated datePublished" datetime="2020-10-28T12:07:00+08:00">2020-10-28</time>
+              <time title="创建时间：2021-01-05 16:34:34 / 修改时间：17:06:26" itemprop="dateCreated datePublished" datetime="2021-01-05T16:34:34+08:00">2021-01-05</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2.1k</span>
+              <span title="本文字数">1.1k</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">2 分钟</span>
+              <span title="阅读时长">1 分钟</span>
             </span>
           
 
@@ -456,26 +456,14 @@
       
 
       
-        <p>LeetCode题目，22.  Generate Parentheses</p>
+        <p>LeetCode每日一题，830.  Position of Large Groups</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><a href="https://imgchr.com/i/B1xRv6" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/28/B1xRv6.png" alt="B1xRv6.png"></a></p>
-<p>大意就是给定一个数字 n 代表生成括号的对数，让我们返回所有可能的并且有效的括号组合</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>回溯</strong></p>
-<ul>
-<li>当前左右括号都有大于 0 个可以使用的时候，才产生分支；</li>
-<li>产生左分支的时候，只看当前是否还有左括号可以使用；</li>
-<li>产生右分支的时候，还受到左分支的限制，右边剩余可以使用的括号数量一定得在严格大于左边剩余的数量的时候，才可以产生分支；</li>
-<li>在左边和右边剩余的括号数都等于 0 的时候结算</li>
-</ul>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p>dfs(cur + “)”, left, right - 1, res); 前面不需要对 right &gt; 0 进行判断是因为 right 一定大于等于 left，left又一定大于等于 0，而 left 和 right 均为 0 时会结束递归，故 right 一定大于 0，则不需要对 right &gt; 0 进行判断</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        dfs(<span class="string">""</span>, n, n, res);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(String cur, <span class="keyword">int</span> left, <span class="keyword">int</span> right, List&lt;String&gt; res)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (left == <span class="number">0</span> &amp;&amp; right == <span class="number">0</span>) &#123;</span><br><span class="line">            res.add(cur);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (left &gt; right) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (left &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            dfs(cur + <span class="string">"("</span>, left - <span class="number">1</span>, right, res);</span><br><span class="line">        &#125; </span><br><span class="line">        dfs(cur + <span class="string">")"</span>, left, right - <span class="number">1</span>, res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但这个代码其实并不是严格的回溯法的写法，回溯算法重点如下：</p>
-<p><strong>「回溯算法」强调了在状态空间特别大的时候，只用一份状态变量去搜索所有可能的状态，在搜索到符合条件的解的时候，通常会做一个拷贝，这就是为什么经常在递归终止条件的时候，有 res.add(new ArrayList&lt;&gt;(path)); 这样的代码。正是因为全程使用一份状态变量，因此它就有「恢复现场」和「撤销选择」的需要</strong></p>
-<p>严格按照回溯法实现的代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        StringBuilder cur = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        dfs(cur, n, n, res);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(StringBuilder cur, <span class="keyword">int</span> left, <span class="keyword">int</span> right, List&lt;String&gt; res)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (left == <span class="number">0</span> &amp;&amp; right == <span class="number">0</span>) &#123;</span><br><span class="line">            res.add(cur.toString());</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (left &gt; right) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (left &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            cur.append(<span class="string">"("</span>);</span><br><span class="line">            dfs(cur, left - <span class="number">1</span>, right, res);</span><br><span class="line">            cur.deleteCharAt(cur.length() - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        cur.append(<span class="string">")"</span>);</span><br><span class="line">        dfs(cur, left, right - <span class="number">1</span>, res);</span><br><span class="line">        cur.deleteCharAt(cur.length() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/skUU4U" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/05/skUU4U.png" alt="skUU4U.png"></a></p>
+<p>大意就是给定一个由小写字母组成的字符串 s，包含一些由连续相同字母组成的分组，将所有包含三个或以上相同连续字母的分组称为较大分组，让我按起始位置下标的递增顺序们返回所有的较大分组</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这题的思路很简单，我们可以遍历该字符串，并记录当前分组的长度和起始坐标，如果当前字符与上一个字符不相同，那么我们就找到了当前分组的尾部，若该分组的长度达到 3，则将其加到答案中，并接着维护下一个分组的长度和起始坐标。需要注意的是，对于字符串尾部的分组，需要特殊处理</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; largeGroupPositions(String s) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> len = s.length();</span><br><span class="line">        <span class="keyword">if</span> (len &lt; <span class="number">3</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">char</span>[] ss = s.toCharArray();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (ss[i] == ss[i - <span class="number">1</span>]) &#123;</span><br><span class="line">                cnt++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (cnt &gt;= <span class="number">3</span>) &#123;</span><br><span class="line">                    res.add(Arrays.asList(start, i - <span class="number">1</span>));</span><br><span class="line">                &#125;</span><br><span class="line">                cnt = <span class="number">1</span>;</span><br><span class="line">                start = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (cnt &gt;= <span class="number">3</span>) &#123;</span><br><span class="line">            res.add(Arrays.asList(start, len - <span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -507,8 +495,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/10/28/独一无二的出现次数/" rel="next" title="独一无二的出现次数">
-                <i class="fa fa-chevron-left"></i> 独一无二的出现次数
+              <a href="/2021/01/04/K个一组翻转链表/" rel="next" title="K个一组翻转链表">
+                <i class="fa fa-chevron-left"></i> K个一组翻转链表
               </a>
             
           </div>
@@ -516,10 +504,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/10/28/合并两个有序链表/" rel="prev" title="合并两个有序链表">
-                合并两个有序链表 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
