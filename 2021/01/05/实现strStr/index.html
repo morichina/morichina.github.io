@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，144.  Binary Tree Preorder Traversal">
+  <meta name="description" content="LeetCode题目，28.  Implement strStr()">
 <meta property="og:type" content="article">
-<meta property="og:title" content="二叉树的前序遍历">
-<meta property="og:url" content="http://yoursite.com/2020/10/27/二叉树的前序遍历/index.html">
+<meta property="og:title" content="实现strStr()">
+<meta property="og:url" content="http://yoursite.com/2021/01/05/实现strStr/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，144.  Binary Tree Preorder Traversal">
+<meta property="og:description" content="LeetCode题目，28.  Implement strStr()">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/10/27/BQmsmR.png">
-<meta property="og:updated_time" content="2020-10-27T07:24:46.473Z">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/05/skxDbD.png">
+<meta property="og:updated_time" content="2021-01-05T12:42:37.312Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="二叉树的前序遍历">
-<meta name="twitter:description" content="LeetCode每日一题，144.  Binary Tree Preorder Traversal">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/27/BQmsmR.png">
+<meta name="twitter:title" content="实现strStr()">
+<meta name="twitter:description" content="LeetCode题目，28.  Implement strStr()">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/01/05/skxDbD.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/10/27/二叉树的前序遍历/">
+  <link rel="canonical" href="http://yoursite.com/2021/01/05/实现strStr/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>二叉树的前序遍历 | Morichina</title>
+  <title>实现strStr() | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/27/二叉树的前序遍历/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/05/实现strStr/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">二叉树的前序遍历
+          <h1 class="post-title" itemprop="name headline">实现strStr()
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-10-27 15:02:38 / 修改时间：15:24:46" itemprop="dateCreated datePublished" datetime="2020-10-27T15:02:38+08:00">2020-10-27</time>
+              <time title="创建时间：2021-01-05 19:25:44 / 修改时间：20:42:37" itemprop="dateCreated datePublished" datetime="2021-01-05T19:25:44+08:00">2021-01-05</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.6k</span>
+              <span title="本文字数">2.1k</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -456,21 +456,18 @@
       
 
       
-        <p>LeetCode每日一题，144.  Binary Tree Preorder Traversal</p>
+        <p>LeetCode题目，28.  Implement strStr()</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><a href="https://imgchr.com/i/BQmsmR" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/27/BQmsmR.png" alt="BQmsmR.png"></a></p>
-<p>大意就是给定一个二叉树，让我们返回其先序遍历序列</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>递归</strong></p>
-<p>直接用递归的算法十分简单，定义 dfs(root, res) 表示当前遍历到 root 节点的答案，那么按照定义，我们只要递归调用 dfs(root.left, res) 来遍历root 节点的左子树，然后将 root 节点的值加入答案，再递归调用 dfs(root.right, res) 来遍历 root 节点的右子树即可，递归终止的条件为碰到空节点</p>
-<p><strong>栈</strong></p>
-<p>其实就是上一方法中的递归函数用迭代来实现，两种方式等价。区别在于递归的时候维护了一个隐形的栈，而在迭代的时候则是显式的将这个栈模拟出来</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>递归</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        dfs(root, res);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode root, List&lt;Integer&gt; res)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">        res.add(root.val);</span><br><span class="line">        dfs(root.left, res);</span><br><span class="line">        dfs(root.right, res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/skxDbD" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/05/skxDbD.png" alt="skxDbD.png"></a></p>
+<p>大意就是给定一个 haystack 字符串和一个 needle 字符串，让我们在 haystack 字符串中找出 needle 字符串出现的第一个位置，如果不存在，则返回 -1</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这题是一道典型的子串匹配问题，解决子串匹配问题比较经典的算法有 KMP算法，Sunday算法等，核心思路就是尽量增大模式串的移动步数，核心思路是这个，具体实现看下面代码吧，下面的代码实现的是 Sunday 算法</p>
+<h2 id="算法和源码"><a href="#算法和源码" class="headerlink" title="算法和源码"></a>算法和源码</h2><p><strong>Sunday算法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">strStr</span><span class="params">(String haystack, String needle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = needle.length();</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> m = haystack.length();</span><br><span class="line">        <span class="keyword">if</span> (m &lt; n) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">char</span>[] hs = haystack.toCharArray();</span><br><span class="line">        <span class="keyword">char</span>[] ns = needle.toCharArray();</span><br><span class="line">        <span class="keyword">int</span>[] offest = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = n - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">                <span class="keyword">if</span> (ns[j] - <span class="string">'a'</span> == i) &#123;</span><br><span class="line">                    offest[i] = n - j;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (start &lt;= m - n  &amp;&amp; hs[start] != ns[<span class="number">0</span>]) &#123;</span><br><span class="line">            start++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (start &lt;= m - n) &#123;</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (; i &lt; n; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (hs[i + start] != ns[i]) &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (i == n) &#123;</span><br><span class="line">                <span class="keyword">return</span> start;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> index = start + n;</span><br><span class="line">            <span class="keyword">if</span> (index &gt;= m) &#123;</span><br><span class="line">                <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">char</span> c = hs[index];</span><br><span class="line">            <span class="keyword">if</span> (offest[c - <span class="string">'a'</span>] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                start += offest[c - <span class="string">'a'</span>];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                start = index + <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">while</span> (start &lt;= m - n &amp;&amp; hs[start] != ns[<span class="number">0</span>]) &#123;</span><br><span class="line">                    start++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>栈</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        Deque&lt;TreeNode&gt; stack = <span class="keyword">new</span> LinkedList&lt;TreeNode&gt;();</span><br><span class="line">        List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> res;</span><br><span class="line">        stack.add(root);</span><br><span class="line">        <span class="keyword">while</span> (!stack.isEmpty()) &#123;</span><br><span class="line">            root = stack.removeLast();</span><br><span class="line">            res.add(root.val);</span><br><span class="line">            <span class="keyword">if</span> (root.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                stack.add(root.right);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (root.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                stack.add(root.left);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为这道题我第一反应是拿 Sunday 算法做，然后手写了个 Sunday 算法提交的，所以我还疑惑这题为什么是个简单题，后来看了别人的代码，发现可以直接调用内置函数，嗯那么这确实是道简单题</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">strStr</span><span class="params">(String haystack, String needle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> haystack.indexOf(needle);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -502,8 +499,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/10/26/有多少小于当前数字的数字/" rel="next" title="有多少小于当前数字的数字">
-                <i class="fa fa-chevron-left"></i> 有多少小于当前数字的数字
+              <a href="/2021/01/05/较大分组的位置/" rel="next" title="较大分组的位置">
+                <i class="fa fa-chevron-left"></i> 较大分组的位置
               </a>
             
           </div>
@@ -511,10 +508,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/10/27/罗马数字转整数/" rel="prev" title="罗马数字转整数">
-                罗马数字转整数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -653,7 +646,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和源码"><span class="nav-number">2.</span> <span class="nav-text">算法和源码</span></a></li></ol></div>
             
 
           </div>
