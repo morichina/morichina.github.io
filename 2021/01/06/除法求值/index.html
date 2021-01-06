@@ -94,20 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode题目，12.  Integer to Rooman">
+  <meta name="description" content="LeetCode每日一题，399. Evaluate Division">
 <meta property="og:type" content="article">
-<meta property="og:title" content="整数转罗马数字">
-<meta property="og:url" content="http://yoursite.com/2020/10/21/整数转罗马数字/index.html">
+<meta property="og:title" content="除法求值">
+<meta property="og:url" content="http://yoursite.com/2021/01/06/除法求值/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode题目，12.  Integer to Rooman">
+<meta property="og:description" content="LeetCode每日一题，399. Evaluate Division">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/10/21/BPwCJe.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/10/21/BPBgRe.png">
-<meta property="og:updated_time" content="2020-10-21T14:06:19.969Z">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/06/sEniCt.png">
+<meta property="og:updated_time" content="2021-01-06T04:28:42.872Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="整数转罗马数字">
-<meta name="twitter:description" content="LeetCode题目，12.  Integer to Rooman">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/21/BPwCJe.png">
+<meta name="twitter:title" content="除法求值">
+<meta name="twitter:description" content="LeetCode每日一题，399. Evaluate Division">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/01/06/sEniCt.png">
 
 
 
@@ -115,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/10/21/整数转罗马数字/">
+  <link rel="canonical" href="http://yoursite.com/2021/01/06/除法求值/">
 
 
 
@@ -125,7 +124,7 @@
   };
 </script>
 
-  <title>整数转罗马数字 | Morichina</title>
+  <title>除法求值 | Morichina</title>
   
 
 
@@ -352,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/21/整数转罗马数字/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/06/除法求值/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -369,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">整数转罗马数字
+          <h1 class="post-title" itemprop="name headline">除法求值
 
               
             
@@ -395,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-10-21 17:34:18 / 修改时间：22:06:19" itemprop="dateCreated datePublished" datetime="2020-10-21T17:34:18+08:00">2020-10-21</time>
+              <time title="创建时间：2021-01-06 12:06:37 / 修改时间：12:28:42" itemprop="dateCreated datePublished" datetime="2021-01-06T12:06:37+08:00">2021-01-06</time>
             </span>
           
 
@@ -426,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2.5k</span>
+              <span title="本文字数">2.4k</span>
             </span>
           
 
@@ -457,40 +456,19 @@
       
 
       
-        <p>LeetCode题目，12.  Integer to Rooman</p>
+        <p>LeetCode每日一题，399. Evaluate Division</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><a href="https://imgchr.com/i/BPwCJe" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/21/BPwCJe.png" alt="BPwCJe.png"></a></p>
-<p>大意就是给定一个整数，让我们将其转为罗马数字</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>哈希表</strong></p>
-<p>大致思路就是先用一个哈希表将各整数对应的罗马数字储存起来，然后从左到右一层层的转化为罗马数字</p>
-<p>算法流程如下：</p>
-<ul>
-<li>先计算出整数的长度 len</li>
-<li>令 i 从 len - 1 到 0 进行 len -1 次循环：<ul>
-<li>令 con 等于 10 的 len - 1 次方，cur = num / con</li>
-<li>若 cur 等于 4 或 9，则直接在 res 后添加 con × cur 对应的罗马字符</li>
-<li>否则：<ul>
-<li>若 cur 大于等于 5，则先在 res 后添加 con × 5 对应的罗马字符，再将 cur - 5</li>
-<li>在 res 后添加 cur 个 con 对应的罗马字符</li>
-</ul>
-</li>
-<li>num = num % con</li>
-</ul>
-</li>
-<li>最终返回 res</li>
-</ul>
-<p><strong>贪心算法</strong></p>
-<p>这题的背景类似找零钱问题，罗马数字与阿拉伯数字的对应关系从大到小排列如下图所示</p>
-<p><a href="https://imgchr.com/i/BPBgRe" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/21/BPBgRe.png" alt="BPBgRe.png"></a></p>
-<p>于是，“将整数转换为罗马数字”的过程，就是用上面这张表中右边的数字作为“加法因子”去分解一个整数，目的是“分解的整数个数”尽可能少，因此，对于这道问题，类似于用最少的纸币凑成一个整数，贪心算法的规则如下：</p>
-<p><strong>每一步都使用当前较大的罗马数字作为加法因子，最后得到罗马数字表示就是长度最少的。</strong></p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>哈希表</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;Integer, String&gt; map = <span class="keyword">new</span> HashMap&lt;Integer, String&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">intToRoman</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        map.put(<span class="number">1</span>, <span class="string">"I"</span>);</span><br><span class="line">        map.put(<span class="number">5</span>, <span class="string">"V"</span>);</span><br><span class="line">        map.put(<span class="number">10</span>, <span class="string">"X"</span>);</span><br><span class="line">        map.put(<span class="number">50</span>, <span class="string">"L"</span>);</span><br><span class="line">        map.put(<span class="number">100</span>, <span class="string">"C"</span>);</span><br><span class="line">        map.put(<span class="number">500</span>, <span class="string">"D"</span>);</span><br><span class="line">        map.put(<span class="number">1000</span>, <span class="string">"M"</span>);</span><br><span class="line">        map.put(<span class="number">4</span>, <span class="string">"IV"</span>);</span><br><span class="line">        map.put(<span class="number">9</span>, <span class="string">"IX"</span>);</span><br><span class="line">        map.put(<span class="number">40</span>, <span class="string">"XL"</span>);</span><br><span class="line">        map.put(<span class="number">90</span>, <span class="string">"XC"</span>);</span><br><span class="line">        map.put(<span class="number">400</span>, <span class="string">"CD"</span>);</span><br><span class="line">        map.put(<span class="number">900</span>, <span class="string">"CM"</span>);</span><br><span class="line">        StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">int</span> temp = num;</span><br><span class="line">        <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (temp != <span class="number">0</span>) &#123;</span><br><span class="line">            temp /= <span class="number">10</span>;</span><br><span class="line">            len++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">int</span> con = (<span class="keyword">int</span>)Math.pow(<span class="number">10</span>, i);</span><br><span class="line">            <span class="keyword">int</span> cur = num / con;</span><br><span class="line">            <span class="keyword">if</span> (cur % <span class="number">5</span> == <span class="number">4</span>) &#123;</span><br><span class="line">                res.append(map.get(con * cur));</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (cur &gt;= <span class="number">5</span>) &#123;</span><br><span class="line">                    res.append(map.get(con * <span class="number">5</span>));</span><br><span class="line">                    cur = cur - <span class="number">5</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; cur; j++) &#123;</span><br><span class="line">                    res.append(map.get(con));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            num = num % con;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>贪心算法</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">intToRoman</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="comment">// 把阿拉伯数字与罗马数字可能出现的所有情况和对应关系，放在两个数组中</span></span><br><span class="line">        <span class="comment">// 并且按照阿拉伯数字的大小降序排列，这是贪心选择思想</span></span><br><span class="line">        <span class="keyword">int</span>[] nums = &#123;<span class="number">1000</span>, <span class="number">900</span>, <span class="number">500</span>, <span class="number">400</span>, <span class="number">100</span>, <span class="number">90</span>, <span class="number">50</span>, <span class="number">40</span>, <span class="number">10</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">1</span>&#125;;</span><br><span class="line">        String[] romans = &#123;<span class="string">"M"</span>, <span class="string">"CM"</span>, <span class="string">"D"</span>, <span class="string">"CD"</span>, <span class="string">"C"</span>, <span class="string">"XC"</span>, <span class="string">"L"</span>, <span class="string">"XL"</span>, <span class="string">"X"</span>, <span class="string">"IX"</span>, <span class="string">"V"</span>, <span class="string">"IV"</span>, <span class="string">"I"</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (index &lt; <span class="number">13</span>) &#123;</span><br><span class="line">            <span class="keyword">while</span> (num &gt;= nums[index]) &#123;</span><br><span class="line">                res.append(romans[index]);</span><br><span class="line">                num -= nums[index];</span><br><span class="line">            &#125;</span><br><span class="line">            index++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/sEniCt" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/06/sEniCt.png" alt="sEniCt.png"></a></p>
+<p>大意就是首先给定一个 equations 和一个 value，其中 equations[i] = [a，b] 和 values[i] 共同表示等式 a / b = values[i]，再给定一个问题数组 queries，queries[j] = [c，d] 表示第 j 个问题，让我们根据已知条件求出 c / d 的值，让我们将所有问题的答案返回，求不出答案的问题就在结果的相应位置填上 -1</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这题看了好久不会做，就去看题解了，看了题解才知道这是道图论的题，自己还没怎么接触过图论的题</p>
+<p><strong>Floyd算法</strong></p>
+<p>我们可以将整个问题建模成一张图：给定图中的一些点（变量），以及某些边的权值（两个变量的比值），试对任意两点（两个变量）求出其路径长（两个变量的比值）</p>
+<p>因此，我们首先需要遍历 equations 数组，找出其中所有不同的字符串，并通过哈希表将每个不同的字符串映射成整数</p>
+<p>在构建完图之后，我们就可以使用 Floyd 算法，预先计算出任意两点之间的距离，最后根据 queries 去查找距离，返回结果即可</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>Floyd算法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">double</span>[] calcEquation(List&lt;List&lt;String&gt;&gt; equations, <span class="keyword">double</span>[] values, List&lt;List&lt;String&gt;&gt; queries) &#123;</span><br><span class="line">        Map&lt;String, Integer&gt; nodes = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> len = values.length;</span><br><span class="line">        <span class="keyword">for</span> (List&lt;String&gt; equation : equations) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!nodes.containsKey(equation.get(<span class="number">0</span>))) &#123;</span><br><span class="line">                nodes.put(equation.get(<span class="number">0</span>), n++);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (!nodes.containsKey(equation.get(<span class="number">1</span>))) &#123;</span><br><span class="line">                nodes.put(equation.get(<span class="number">1</span>), n++);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">double</span>[][] graph = <span class="keyword">new</span> <span class="keyword">double</span>[n][n];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">double</span>[] g : graph) &#123;</span><br><span class="line">            Arrays.fill(g, -<span class="number">1.0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            graph[i][i] = <span class="number">1.0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> ia = nodes.get(equations.get(i).get(<span class="number">0</span>));</span><br><span class="line">            <span class="keyword">int</span> ib = nodes.get(equations.get(i).get(<span class="number">1</span>));</span><br><span class="line">            graph[ia][ib] = values[i];</span><br><span class="line">            graph[ib][ia] = <span class="number">1.0</span> / values[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; n; k++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (graph[i][j] &gt; <span class="number">0</span> &amp;&amp; graph[k][i] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                        graph[k][j] = graph[k][i] * graph[i][j];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> cnt = queries.size();</span><br><span class="line">        <span class="keyword">double</span>[] res = <span class="keyword">new</span> <span class="keyword">double</span>[cnt];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; cnt; i++) &#123;</span><br><span class="line">            <span class="keyword">double</span> ret = -<span class="number">1.0</span>;</span><br><span class="line">            <span class="keyword">if</span> (nodes.containsKey(queries.get(i).get(<span class="number">0</span>)) &amp;&amp; nodes.containsKey(queries.get(i).get(<span class="number">1</span>))) &#123;</span><br><span class="line">                ret = graph[nodes.get(queries.get(i).get(<span class="number">0</span>))][nodes.get(queries.get(i).get(<span class="number">1</span>))];</span><br><span class="line">            &#125;</span><br><span class="line">            res[i] = ret;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -522,8 +500,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/10/21/长按键入/" rel="next" title="长按键入">
-                <i class="fa fa-chevron-left"></i> 长按键入
+              <a href="/2021/01/05/实现strStr/" rel="next" title="实现strStr()">
+                <i class="fa fa-chevron-left"></i> 实现strStr()
               </a>
             
           </div>
@@ -531,10 +509,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/10/22/划分字母区间/" rel="prev" title="划分字母区间">
-                划分字母区间 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
