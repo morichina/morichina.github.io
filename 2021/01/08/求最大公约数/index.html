@@ -94,17 +94,17 @@
 
 
 
-  <meta name="description" content="辗转相除法求最大公约数的代码">
+  <meta name="description" content="辗转相除法求两数最大公约数和最小公倍数的代码">
 <meta property="og:type" content="article">
-<meta property="og:title" content="求最大公约数">
+<meta property="og:title" content="求两数的最大公约数和最小公倍数">
 <meta property="og:url" content="http://yoursite.com/2021/01/08/求最大公约数/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="辗转相除法求最大公约数的代码">
+<meta property="og:description" content="辗转相除法求两数最大公约数和最小公倍数的代码">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-01-08T03:12:56.805Z">
+<meta property="og:updated_time" content="2021-01-08T04:04:26.299Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="求最大公约数">
-<meta name="twitter:description" content="辗转相除法求最大公约数的代码">
+<meta name="twitter:title" content="求两数的最大公约数和最小公倍数">
+<meta name="twitter:description" content="辗转相除法求两数最大公约数和最小公倍数的代码">
 
 
 
@@ -122,7 +122,7 @@
   };
 </script>
 
-  <title>求最大公约数 | Morichina</title>
+  <title>求两数的最大公约数和最小公倍数 | Morichina</title>
   
 
 
@@ -366,7 +366,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">求最大公约数
+          <h1 class="post-title" itemprop="name headline">求两数的最大公约数和最小公倍数
 
               
             
@@ -392,7 +392,7 @@
                 
               
 
-              <time title="创建时间：2021-01-08 11:04:29 / 修改时间：11:12:56" itemprop="dateCreated datePublished" datetime="2021-01-08T11:04:29+08:00">2021-01-08</time>
+              <time title="创建时间：2021-01-08 11:04:29 / 修改时间：12:04:26" itemprop="dateCreated datePublished" datetime="2021-01-08T11:04:29+08:00">2021-01-08</time>
             </span>
           
 
@@ -423,7 +423,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">212</span>
+              <span title="本文字数">370</span>
             </span>
           
 
@@ -454,12 +454,12 @@
       
 
       
-        <p>辗转相除法求最大公约数的代码</p>
+        <p>辗转相除法求两数最大公约数和最小公倍数的代码</p>
 <a id="more"></a>
 
-<p>突然想不起来给定两个数，然后让求最大公约数，该怎么求了</p>
-<p>于是去网上搜索，才想起来可以用<strong>辗转相除法</strong>求两个数的最大公约数，算法实现代码如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> b == <span class="number">0</span> ? a : gcd(b, a % b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>突然想不起来给定两个数，然后让求最大公约数和最小公倍数，该怎么求了</p>
+<p>于是去网上搜索，才想起来可以用<strong>辗转相除法</strong>求两个数的最大公约数，而求两个数的最小公倍数就是将这两个数相乘然后除以最大公约数，算法实现代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 求两数的最大公约数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> b == <span class="number">0</span> ? a : gcd(b, a % b);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 求两数的最小公倍数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lcm</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a * b / gcd(a, b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
