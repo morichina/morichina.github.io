@@ -94,20 +94,19 @@
 
 
 
-  <meta name="description" content="转自Python3新特性：类型注解">
+  <meta name="description" content="LeetCode每日一题，123.  Best Time to Buy and Sell Stock III">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python中给函数添加注解">
-<meta property="og:url" content="http://yoursite.com/2019/07/30/Python中给函数添加注解/index.html">
+<meta property="og:title" content="买卖股票的最佳时机III">
+<meta property="og:url" content="http://yoursite.com/2021/01/09/买卖股票的最佳时机III/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="转自Python3新特性：类型注解">
+<meta property="og:description" content="LeetCode每日一题，123.  Best Time to Buy and Sell Stock III">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/30/eJkXJx.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/07/30/eJVlR0.png">
-<meta property="og:updated_time" content="2019-07-30T09:04:11.761Z">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/09/sMVf5F.png">
+<meta property="og:updated_time" content="2021-01-09T02:31:43.387Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python中给函数添加注解">
-<meta name="twitter:description" content="转自Python3新特性：类型注解">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/07/30/eJkXJx.png">
+<meta name="twitter:title" content="买卖股票的最佳时机III">
+<meta name="twitter:description" content="LeetCode每日一题，123.  Best Time to Buy and Sell Stock III">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/01/09/sMVf5F.png">
 
 
 
@@ -115,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/30/Python中给函数添加注解/">
+  <link rel="canonical" href="http://yoursite.com/2021/01/09/买卖股票的最佳时机III/">
 
 
 
@@ -125,7 +124,7 @@
   };
 </script>
 
-  <title>Python中给函数添加注解 | Morichina</title>
+  <title>买卖股票的最佳时机III | Morichina</title>
   
 
 
@@ -352,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/30/Python中给函数添加注解/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/09/买卖股票的最佳时机III/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -369,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python中给函数添加注解
+          <h1 class="post-title" itemprop="name headline">买卖股票的最佳时机III
 
               
             
@@ -395,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2019-07-30 16:32:22 / 修改时间：17:04:11" itemprop="dateCreated datePublished" datetime="2019-07-30T16:32:22+08:00">2019-07-30</time>
+              <time title="创建时间：2021-01-09 10:06:54 / 修改时间：10:31:43" itemprop="dateCreated datePublished" datetime="2021-01-09T10:06:54+08:00">2021-01-09</time>
             </span>
           
 
@@ -426,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.6k</span>
+              <span title="本文字数">1.9k</span>
             </span>
           
 
@@ -438,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -457,55 +456,27 @@
       
 
       
-        <p>转自<a href="https://zhuanlan.zhihu.com/p/37239021" target="_blank" rel="noopener">Python3新特性：类型注解</a></p>
+        <p>LeetCode每日一题，123.  Best Time to Buy and Sell Stock III</p>
 <a id="more"></a>
 
-<p>这几天在看别人的算法源码时，发现有这样的代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> sys.version_info &gt;= (<span class="number">3</span>, <span class="number">6</span>):</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, days: float = ..., seconds: float = ..., microseconds: float = ...,</span></span></span><br><span class="line"><span class="function"><span class="params">                 milliseconds: float = ..., minutes: float = ..., hours: float = ...,</span></span></span><br><span class="line"><span class="function"><span class="params">                 weeks: float = ..., *, fold: int = ...)</span> -&gt; <span class="keyword">None</span>:</span> ...</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, days: float = ..., seconds: float = ..., microseconds: float = ...,</span></span></span><br><span class="line"><span class="function"><span class="params">                 milliseconds: float = ..., minutes: float = ..., hours: float = ...,</span></span></span><br><span class="line"><span class="function"><span class="params">                 weeks: float = ...)</span> -&gt; <span class="keyword">None</span>:</span> ...</span><br></pre></td></tr></table></figure>
+<p>先看题目描述</p>
+<p><a href="https://imgchr.com/i/sMVf5F" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/09/sMVf5F.png" alt="sMVf5F.png"></a></p>
+<p>还是股票交易问题，给定数组 prices 表示股票每天的价格，限制最多进行两笔交易，问最大收益是多少</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>动态规划</strong></p>
+<p>这题实际上是 <a href="https://morichina.github.io/2020/12/28/%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BAIV/#more" target="_blank" rel="noopener">买卖股票的最佳时机IV</a> 中 k = 2 的情况，是那道题的简化版，直接套用里面的代码，令 k = 2 就可以</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>动态规划</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">int</span> len = prices.length;</span><br><span class="line">        k = Math.min(k, len / <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">if</span> (k == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[][] buy = <span class="keyword">new</span> <span class="keyword">int</span>[len][k + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span>[][] sell = <span class="keyword">new</span> <span class="keyword">int</span>[len][k + <span class="number">1</span>];</span><br><span class="line">        Arrays.fill(buy[<span class="number">0</span>], Integer.MIN_VALUE / <span class="number">2</span>);</span><br><span class="line">        Arrays.fill(sell[<span class="number">0</span>], Integer.MIN_VALUE / <span class="number">2</span>);</span><br><span class="line">        buy[<span class="number">0</span>][<span class="number">0</span>] = -prices[<span class="number">0</span>];</span><br><span class="line">        sell[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">            buy[i][<span class="number">0</span>] = Math.max(buy[i - <span class="number">1</span>][<span class="number">0</span>], -prices[i]);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= k; j++) &#123;</span><br><span class="line">                buy[i][j] = Math.max(buy[i - <span class="number">1</span>][j], sell[i - <span class="number">1</span>][j] - prices[i]);</span><br><span class="line">                sell[i][j] = Math.max(buy[i - <span class="number">1</span>][j - <span class="number">1</span>] + prices[i], sell[i - <span class="number">1</span>][j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> profit : sell[len - <span class="number">1</span>]) &#123;</span><br><span class="line">            res = Math.max(profit, res);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>一开始不知道参数后面的float=…是什么意思，后来查找资料才知道这是函数注解</p>
-<p>我们都知道Python是一种动态语言，变量以及函数的参数是不区分类型的，这样的好处是有极大的灵活性，但坏处就是对于别人的代码，无法一眼判断出参数的类型，IDE也无法给出正确的提示</p>
-<p>于是Python3中引入了新的特性：函数注解</p>
-<p>就是类似这样的代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x: int, y: int)</span> -&gt; int:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br></pre></td></tr></table></figure>
+<p>下面是题解的代码，维护了四个状态：只进行过一次买操作；进行过一次买操作和一次卖操作；在完成了第一笔交易的前提下，进行了第二次买操作；完成了全部两笔交易。分别用 buy1，sell1，buy2，sell2 维护这四个状态的最大利润，状态转移方程如下：</p>
+<ul>
+<li>buy1 = max{buy1，-prices[i]}</li>
+<li>sell1 = max{buy1 + prices[i]，sell1}</li>
+<li>buy2 = max{buy2，sell1 - prices[i]}</li>
+<li>sell2 = max{buy2 + prices[i]，sell2}</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = prices.length;</span><br><span class="line">        <span class="keyword">int</span> buy1 = -prices[<span class="number">0</span>], sell1 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> buy2 = -prices[<span class="number">0</span>], sell2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            buy1 = Math.max(buy1, -prices[i]);</span><br><span class="line">            sell1 = Math.max(sell1, buy1 + prices[i]);</span><br><span class="line">            buy2 = Math.max(buy2, sell1 - prices[i]);</span><br><span class="line">            sell2 = Math.max(sell2, buy2 + prices[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sell2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>用 : 指定参数类型，用 -&gt; 指定函数返回值的类型</p>
-<p>不过特别要强调的是，Python 解释器并不会因为这些注解而提供额外的校验，没有任何的类型检查工作，也就是说，这些类型注解加不加，对你的代码来说没有任何影响</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x: int, y: int)</span> -&gt; int:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line"></span><br><span class="line">print(add(<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">print(add(<span class="number">3.5</span>, <span class="number">4.3</span>))</span><br><span class="line">print(add(<span class="string">"py"</span>, <span class="string">"thon"</span>))</span><br></pre></td></tr></table></figure>
-
-<p>输出是</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">7.8</span></span><br><span class="line">python</span><br></pre></td></tr></table></figure>
-
-<p>但这么做的好处是：</p>
-<ol>
-<li><p>让别的程序员看得更明白</p>
-</li>
-<li><p>让 IDE 了解类型，从而提供更准确的代码提示、补全和语法检查（包括类型检查，可以看到 str 和 float 类型的参数被高亮提示）</p>
-</li>
-</ol>
-<p><img src="https://s2.ax1x.com/2019/07/30/eJkXJx.png" alt></p>
-<p>在函数的  __annotations__   会有自己设定的注解</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x: int, y: int)</span> -&gt; int:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line"></span><br><span class="line">print(add.__annotations__)</span><br></pre></td></tr></table></figure>
-
-<p>输出为</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;'x': &lt;class 'int'&gt;, 'y': &lt;class 'int'&gt;, 'return': &lt;class 'int'&gt;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在Python 3.6中，又引入了对变量类型进行注解的方法:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a: int = <span class="number">123</span></span><br><span class="line">b: str = <span class="string">"python"</span></span><br></pre></td></tr></table></figure>
-
-<p>更进一步，如果你需要指明一个全部由整数组成的列表：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> List</span><br><span class="line">l: List[int] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
-
-<p>但同样，这些仅仅是注解，不会对代码产生任何影响</p>
-<p>不过，你可以通过 mypy 库来检验最终代码是否符合注解</p>
-<p>安装mypy</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install mypy</span><br></pre></td></tr></table></figure>
-
-<p>执行代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mypy test.py</span><br></pre></td></tr></table></figure>
-
-<p>如果类型都符合，则不会有任何输出，否则就会给出类似输出：</p>
-<p><img src="https://s2.ax1x.com/2019/07/30/eJVlR0.png" alt></p>
+<p>题解的代码运行效率明显更高</p>
 
       
     </div>
@@ -536,8 +507,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/30/Python的类中设置私有变量的实质/" rel="next" title="Python的类中设置私有变量的实质">
-                <i class="fa fa-chevron-left"></i> Python的类中设置私有变量的实质
+              <a href="/2021/01/08/求最大公约数/" rel="next" title="求两数的最大公约数和最小公倍数">
+                <i class="fa fa-chevron-left"></i> 求两数的最大公约数和最小公倍数
               </a>
             
           </div>
@@ -545,10 +516,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/11/Python格式化字符串f-string的简单实用/" rel="prev" title="Python格式化字符串f-string的简单使用">
-                Python格式化字符串f-string的简单使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -592,8 +559,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -667,6 +643,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
