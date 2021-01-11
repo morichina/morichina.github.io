@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，147.  Insertion Sort List">
+  <meta name="description" content="LeetCode每日一题，1202.  Smallest String With Swaps">
 <meta property="og:type" content="article">
-<meta property="og:title" content="对链表进行插入排序">
-<meta property="og:url" content="http://yoursite.com/2020/11/20/对链表进行插入排序/index.html">
+<meta property="og:title" content="交换字符串中的元素">
+<meta property="og:url" content="http://yoursite.com/2021/01/11/交换字符串中的元素/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，147.  Insertion Sort List">
+<meta property="og:description" content="LeetCode每日一题，1202.  Smallest String With Swaps">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s3.ax1x.com/2020/11/20/DQmQr6.png">
-<meta property="og:updated_time" content="2020-11-20T10:21:13.202Z">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/11/s8KZTJ.png">
+<meta property="og:updated_time" content="2021-01-11T08:54:31.870Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="对链表进行插入排序">
-<meta name="twitter:description" content="LeetCode每日一题，147.  Insertion Sort List">
-<meta name="twitter:image" content="https://s3.ax1x.com/2020/11/20/DQmQr6.png">
+<meta name="twitter:title" content="交换字符串中的元素">
+<meta name="twitter:description" content="LeetCode每日一题，1202.  Smallest String With Swaps">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/01/11/s8KZTJ.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/11/20/对链表进行插入排序/">
+  <link rel="canonical" href="http://yoursite.com/2021/01/11/交换字符串中的元素/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>对链表进行插入排序 | Morichina</title>
+  <title>交换字符串中的元素 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/20/对链表进行插入排序/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/11/交换字符串中的元素/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">对链表进行插入排序
+          <h1 class="post-title" itemprop="name headline">交换字符串中的元素
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-11-20 15:12:57 / 修改时间：18:21:13" itemprop="dateCreated datePublished" datetime="2020-11-20T15:12:57+08:00">2020-11-20</time>
+              <time title="创建时间：2021-01-11 16:18:09 / 修改时间：16:54:31" itemprop="dateCreated datePublished" datetime="2021-01-11T16:18:09+08:00">2021-01-11</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.8k</span>
+              <span title="本文字数">2.4k</span>
             </span>
           
 
@@ -456,34 +456,18 @@
       
 
       
-        <p>LeetCode每日一题，147.  Insertion Sort List</p>
+        <p>LeetCode每日一题，1202.  Smallest String With Swaps</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><a href="https://imgchr.com/i/DQmQr6" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DQmQr6.png" alt="DQmQr6.png"></a></p>
-<p>大意就是使用插入排序对链表进行排序</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>插入排序的基本思想是，维护一个有序序列，初始时有序序列只有一个元素，每次将一个新的元素插入到有序序列中，将有序序列的长度增加 1，直到全部元素都加入到有序序列中</p>
-<p>若是数组的插入排序，则每次从后往前寻找插入位置，并将插入位置之后的元素都向后移一位即可；题目中是链表的插入排序，而每个节点指向的都是其后一个节点，所以我们每次要从前往后寻找插入位置，然后将当前节点插入到该位置即可，就这样不断维护前面的有序链表</p>
-<p><strong>算法流程</strong></p>
-<ul>
-<li>初始化一个哑节点 dump， 使其值为整数最小值，next 指向 head；定义一个指针 tail 指向当前有序链表的尾部，初始化其指向 head；初始化一个指针 cur = head.next，用于遍历链表的未排序部分</li>
-<li>移动 cur 来遍历链表的未排序部分：<ul>
-<li>若 tail.val &lt;= cur.val：<ul>
-<li>说明 cur 应插入到目前有序链表的尾部，令 tail = cur</li>
-</ul>
-</li>
-<li>若 tail.val &gt; cur.val，则从前往后寻找 cur 应插入的位置：<ul>
-<li>初始化指针 temp = dump.next，prev = dump</li>
-<li>移动 prev 和 temp 指针，令 prev = temp，temp = temp.next 直至 temp.val &gt; cur.val</li>
-<li>此时 prev 指针就指向 cur 应插入位置的前一个节点，将 cur 插入到 prev 和 temp 之间，令 tail.next = cur.next，prev.next = cur，cur.nex = temp</li>
-</ul>
-</li>
-<li>移动 cur 指针使其指向未排序链表的第一个元素，令 cur = tail.next</li>
-</ul>
-</li>
-<li>最后返回 dump.next</li>
-</ul>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">insertionSortList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        ListNode dump = <span class="keyword">new</span> ListNode(Integer.MIN_VALUE);</span><br><span class="line">        dump.next = head;</span><br><span class="line">        ListNode tail = head;</span><br><span class="line">        ListNode cur = tail.next;</span><br><span class="line">        <span class="keyword">while</span> (cur != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (tail.val &lt;= cur.val) &#123;</span><br><span class="line">                tail = cur;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                ListNode temp = dump.next;</span><br><span class="line">                ListNode prev = dump;</span><br><span class="line">                <span class="keyword">while</span> (temp.val &lt;= cur.val) &#123;</span><br><span class="line">                    prev = temp;</span><br><span class="line">                    temp = temp.next;</span><br><span class="line">                &#125;</span><br><span class="line">                tail.next= cur.next;</span><br><span class="line">                prev.next = cur;</span><br><span class="line">                cur.next = temp;</span><br><span class="line">            &#125;</span><br><span class="line">            cur = tail.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dump.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/s8KZTJ" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/11/s8KZTJ.png" alt="s8KZTJ.png"></a></p>
+<p>大意就是给定一个字符串 s，数组 pairs 代表字符串的多个索引对，我们可以任意次数的交换索引对中索引对应的字母，让我们返回经交换后可以得到的最小字符串</p>
+<h2 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h2><p><strong>并查集</strong></p>
+<p>我们将可以互相交换的字符视为一个连通分量，一个连通分量内的字符可以任意的互相交换位置。于是我们可以通过给定的字符串 s 和数组 pairs，求出字符串的各连通分量，将各连通分量内的字符按照升序排列后，将字符串重新组装起来，然后返回组装的字符串即可</p>
+<p>求连通分量我们可以通过并查集完成，而将连通分量内的字符按照升序排列，我们可以使用小根堆自动完成升序排列的过程</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>并查集</strong></p>
+<p>将并查集部分的代码写好后，发现后面不知道该怎么写了，于是去看题解，才知道后面该怎么求连通分量，以及可以使用小根堆来将连通分量内字符自动按照升序排列，map.computeIfAbsent(root, key -&gt; new PriorityQueue&lt;&gt;()).offer(cs[i])  这种写法也是第一次见，值得学习</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">smallestStringWithSwaps</span><span class="params">(String s, List&lt;List&lt;Integer&gt;&gt; pairs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.length();</span><br><span class="line">        <span class="keyword">int</span>[] parent = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">int</span>[] rank = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            parent[i] = i;</span><br><span class="line">            rank[i] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (List&lt;Integer&gt; pair : pairs) &#123;</span><br><span class="line">            <span class="keyword">int</span> a = pair.get(<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">int</span> b = pair.get(<span class="number">1</span>);</span><br><span class="line">            union(a, b, parent, rank);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">char</span>[] cs = s.toCharArray();</span><br><span class="line">        Map&lt;Integer, PriorityQueue&lt;Character&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> root = find(i, parent);</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">            if (map.containsKey(root)) &#123;</span></span><br><span class="line"><span class="comment">                map.get(root).offer(cs[i]);</span></span><br><span class="line"><span class="comment">            &#125; else &#123;</span></span><br><span class="line"><span class="comment">                PriorityQueue prior = new PriorityQueue();</span></span><br><span class="line"><span class="comment">                prior.offer(cs[i]);</span></span><br><span class="line"><span class="comment">                map.put(root, prior);</span></span><br><span class="line"><span class="comment">            &#125;</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">            <span class="comment">// 上面六行代码等价于下面一行代码，JDK 1.8 以及以后支持下面的写法</span></span><br><span class="line">            map.computeIfAbsent(root, key -&gt; <span class="keyword">new</span> PriorityQueue&lt;&gt;()).offer(cs[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> root = find(i, parent);</span><br><span class="line">            sb.append(map.get(root).poll());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span>[] parent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x != parent[x]) &#123;</span><br><span class="line">            parent[x] = find(parent[x], parent);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> parent[x];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span>[] parent, <span class="keyword">int</span>[] rank)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> x = find(a, parent);</span><br><span class="line">        <span class="keyword">int</span> y = find(b, parent);</span><br><span class="line">        <span class="keyword">if</span> (rank[x] &lt; rank[y]) &#123;</span><br><span class="line">            parent[x] = y;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            parent[y] = x;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (rank[x] == rank[y]) &#123;</span><br><span class="line">            rank[x]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -515,8 +499,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/11/19/移动零/" rel="next" title="移动零">
-                <i class="fa fa-chevron-left"></i> 移动零
+              <a href="/2021/01/10/解码异或后的数组/" rel="next" title="解码异或后的数组">
+                <i class="fa fa-chevron-left"></i> 解码异或后的数组
               </a>
             
           </div>
@@ -524,10 +508,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/11/25/排序链表/" rel="prev" title="排序链表">
-                排序链表 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -666,7 +646,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法思路"><span class="nav-number">1.</span> <span class="nav-text">算法思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
