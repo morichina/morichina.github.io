@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，133.  Clone Graph">
+  <meta name="description" content="LeetCode每日一题，1018.  Binary Prefix Divisible By 5">
 <meta property="og:type" content="article">
-<meta property="og:title" content="克隆图">
-<meta property="og:url" content="http://yoursite.com/2020/08/12/克隆图/index.html">
+<meta property="og:title" content="可被5整除的二进制前缀">
+<meta property="og:url" content="http://yoursite.com/2021/01/14/可被5整除的二进制前缀/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，133.  Clone Graph">
+<meta property="og:description" content="LeetCode每日一题，1018.  Binary Prefix Divisible By 5">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/08/12/aj6ZtJ.png">
-<meta property="og:updated_time" content="2020-08-12T04:35:54.351Z">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/14/saoEtJ.png">
+<meta property="og:updated_time" content="2021-01-14T08:30:12.134Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="克隆图">
-<meta name="twitter:description" content="LeetCode每日一题，133.  Clone Graph">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/08/12/aj6ZtJ.png">
+<meta name="twitter:title" content="可被5整除的二进制前缀">
+<meta name="twitter:description" content="LeetCode每日一题，1018.  Binary Prefix Divisible By 5">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/01/14/saoEtJ.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/08/12/克隆图/">
+  <link rel="canonical" href="http://yoursite.com/2021/01/14/可被5整除的二进制前缀/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>克隆图 | Morichina</title>
+  <title>可被5整除的二进制前缀 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/12/克隆图/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/14/可被5整除的二进制前缀/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">克隆图
+          <h1 class="post-title" itemprop="name headline">可被5整除的二进制前缀
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-08-12 12:16:01 / 修改时间：12:35:54" itemprop="dateCreated datePublished" datetime="2020-08-12T12:16:01+08:00">2020-08-12</time>
+              <time title="创建时间：2021-01-14 16:21:33 / 修改时间：16:30:12" itemprop="dateCreated datePublished" datetime="2021-01-14T16:21:33+08:00">2021-01-14</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.9k</span>
+              <span title="本文字数">777</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">2 分钟</span>
+              <span title="阅读时长">1 分钟</span>
             </span>
           
 
@@ -456,19 +456,14 @@
       
 
       
-        <p>LeetCode每日一题，133.  Clone Graph</p>
+        <p>LeetCode每日一题，1018.  Binary Prefix Divisible By 5</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/08/12/aj6ZtJ.png" alt></p>
-<p>大意就是给定一个无向图，让我们克隆这个无向图</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这道题实际上就是让我们遍历这个无向图，所以遍历时候要记录已经访问点，我们用一个字典记录</p>
-<p>遍历方法有两种，分别是深度优先遍历和广度优先遍历</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>深度优先遍历</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// Definition for a Node.</span></span><br><span class="line"><span class="comment">class Node &#123;</span></span><br><span class="line"><span class="comment">    public int val;</span></span><br><span class="line"><span class="comment">    public List&lt;Node&gt; neighbors;</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment">    public Node() &#123;</span></span><br><span class="line"><span class="comment">        val = 0;</span></span><br><span class="line"><span class="comment">        neighbors = new ArrayList&lt;Node&gt;();</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment">    public Node(int _val) &#123;</span></span><br><span class="line"><span class="comment">        val = _val;</span></span><br><span class="line"><span class="comment">        neighbors = new ArrayList&lt;Node&gt;();</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment">    public Node(int _val, ArrayList&lt;Node&gt; _neighbors) &#123;</span></span><br><span class="line"><span class="comment">        val = _val;</span></span><br><span class="line"><span class="comment">        neighbors = _neighbors;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    HashMap&lt;Node, Node&gt; visited = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Node <span class="title">cloneGraph</span><span class="params">(Node node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) <span class="keyword">return</span> node;</span><br><span class="line">        <span class="keyword">if</span> (visited.containsKey(node)) <span class="keyword">return</span> visited.get(node);</span><br><span class="line">        Node cloneNode = <span class="keyword">new</span> Node(node.val, <span class="keyword">new</span> ArrayList&lt;&gt;());</span><br><span class="line">        visited.put(node, cloneNode);</span><br><span class="line">        <span class="keyword">for</span> (Node neighbor: node.neighbors) &#123;</span><br><span class="line">            cloneNode.neighbors.add(cloneGraph(neighbor));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cloneNode;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>广度优先遍历</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Node <span class="title">cloneGraph</span><span class="params">(Node node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        Map&lt;Node, Node&gt; lookup = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        Node clone = <span class="keyword">new</span> Node(node.val, <span class="keyword">new</span> ArrayList&lt;&gt;());</span><br><span class="line">        lookup.put(node, clone);</span><br><span class="line">        Deque&lt;Node&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        queue.offer(node);</span><br><span class="line">        <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">            Node tmp = queue.poll();</span><br><span class="line">            <span class="keyword">for</span> (Node n : tmp.neighbors) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!lookup.containsKey(n)) &#123;</span><br><span class="line">                    lookup.put(n, <span class="keyword">new</span> Node(n.val, <span class="keyword">new</span> ArrayList&lt;&gt;()));</span><br><span class="line">                    queue.offer(n);</span><br><span class="line">                &#125;</span><br><span class="line">                lookup.get(tmp).neighbors.add(lookup.get(n));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> clone;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/saoEtJ" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/14/saoEtJ.png" alt="saoEtJ.png"></a></p>
+<p>大意就是给定一个只包含 0 和 1 的数组 A，让我们返回一个相同长度的布尔数组 answer，answer[i] 的值为 true 当且仅当 A[0] 到 A[i] 构成的二进制数可被 5 整除</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这题比较简单，我们从头到尾遍历 A 数组，用一个变量 cur 保存当前的二进制前缀数，当遍历到 A[i] 时，若当前保存的二进制前缀数可被 5 整除，则令 res[i] = true，否则为 false。考虑到数组 A 可能很长，若用 cur 保存当前的二进制前缀数的话，可能导致溢出，于是改为用 cur 保存当前的二进制前缀数对 5 的余数，然后每次判断 cur 是否为 0 即可</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Boolean&gt; <span class="title">prefixesDivBy5</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        List&lt;Boolean&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> cur = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> a : A) &#123;</span><br><span class="line">            cur = (cur * <span class="number">2</span> + a) % <span class="number">5</span>;</span><br><span class="line">            <span class="keyword">if</span> (cur == <span class="number">0</span>) &#123;</span><br><span class="line">                res.add(<span class="keyword">true</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                res.add(<span class="keyword">false</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -500,8 +495,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/08/11/被围绕的区域/" rel="next" title="被围绕的区域">
-                <i class="fa fa-chevron-left"></i> 被围绕的区域
+              <a href="/2021/01/13/冗余连接/" rel="next" title="冗余连接">
+                <i class="fa fa-chevron-left"></i> 冗余连接
               </a>
             
           </div>
@@ -509,10 +504,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/08/13/字符串相乘/" rel="prev" title="字符串相乘">
-                字符串相乘 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
