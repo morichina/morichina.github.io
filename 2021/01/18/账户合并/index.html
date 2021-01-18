@@ -94,17 +94,19 @@
 
 
 
-  <meta name="description" content="最近看 《java核心技术》的时候，有看到一些关于 java 的基础知识，感觉自己对于 java 的一些基础知识还不太了解，在此做一些记录">
+  <meta name="description" content="LeetCode每日一题，721. Accounts Merge">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java中八种基本类型数据占据内存的大小">
-<meta property="og:url" content="http://yoursite.com/2020/11/26/Java中八种基本类型数据占据内存的大小/index.html">
+<meta property="og:title" content="账户合并">
+<meta property="og:url" content="http://yoursite.com/2021/01/18/账户合并/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="最近看 《java核心技术》的时候，有看到一些关于 java 的基础知识，感觉自己对于 java 的一些基础知识还不太了解，在此做一些记录">
+<meta property="og:description" content="LeetCode每日一题，721. Accounts Merge">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-11-26T03:13:39.851Z">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/18/syxppd.png">
+<meta property="og:updated_time" content="2021-01-18T05:45:21.524Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java中八种基本类型数据占据内存的大小">
-<meta name="twitter:description" content="最近看 《java核心技术》的时候，有看到一些关于 java 的基础知识，感觉自己对于 java 的一些基础知识还不太了解，在此做一些记录">
+<meta name="twitter:title" content="账户合并">
+<meta name="twitter:description" content="LeetCode每日一题，721. Accounts Merge">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/01/18/syxppd.png">
 
 
 
@@ -112,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/11/26/Java中八种基本类型数据占据内存的大小/">
+  <link rel="canonical" href="http://yoursite.com/2021/01/18/账户合并/">
 
 
 
@@ -122,7 +124,7 @@
   };
 </script>
 
-  <title>Java中八种基本类型数据占据内存的大小 | Morichina</title>
+  <title>账户合并 | Morichina</title>
   
 
 
@@ -349,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/26/Java中八种基本类型数据占据内存的大小/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/18/账户合并/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -366,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java中八种基本类型数据占据内存的大小
+          <h1 class="post-title" itemprop="name headline">账户合并
 
               
             
@@ -392,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-11-26 10:40:14 / 修改时间：11:13:39" itemprop="dateCreated datePublished" datetime="2020-11-26T10:40:14+08:00">2020-11-26</time>
+              <time title="创建时间：2021-01-18 13:23:05 / 修改时间：13:45:21" itemprop="dateCreated datePublished" datetime="2021-01-18T13:23:05+08:00">2021-01-18</time>
             </span>
           
 
@@ -423,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.5k</span>
+              <span title="本文字数">3k</span>
             </span>
           
 
@@ -435,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">3 分钟</span>
             </span>
           
 
@@ -454,38 +456,20 @@
       
 
       
-        <p>最近看 《java核心技术》的时候，有看到一些关于 java 的基础知识，感觉自己对于 java 的一些基础知识还不太了解，在此做一些记录</p>
+        <p>LeetCode每日一题，721. Accounts Merge</p>
 <a id="more"></a>
 
-<h2 id="Java中八种基本类型占用内存的大小"><a href="#Java中八种基本类型占用内存的大小" class="headerlink" title="Java中八种基本类型占用内存的大小"></a>Java中八种基本类型占用内存的大小</h2><p>Java 中主要有八种基本类型，其中有4种整型，2种浮点类型，1种用于表示 Unicode 编码的字符类型，一种用于表示真值的类型</p>
-<p><strong>整型</strong></p>
-<ul>
-<li>int：占用 4 字节，取值范围为 -2 147 483 648 ~ 2 147 483 647</li>
-<li>short：占用 2 字节，取值范围为 -32 768 ~ 32 767</li>
-<li>long：占用 8 字节，取值范围为 -9 223 372 036 854 775 808 ~ 9 223 372 036 854 775 807</li>
-<li>byte：占用 1 字节，取值范围为 -128 ~ 127</li>
-</ul>
-<p><strong>浮点类型</strong></p>
-<ul>
-<li>float：占用 4 字节，取值范围约为 正负3.402 823 47E+38F (有效位数为 6 ~ 7 位)</li>
-<li>double：占用 8 字节，取值范围约为 正负1.797 693 134 862 315 70E+308(有效位数为 15 位)</li>
-</ul>
-<p><strong>字符类型</strong></p>
-<ul>
-<li>char：占用 2 字节，因为 char 类型描述了 UTF-16 编码中的一个代码单元，但是某些字符需要用两个 char 来表示，所以一个字符可能会占用 2 个或 4 个字节，但一个 char 是占用 2 个字节</li>
-</ul>
-<p><strong>布尔类型</strong></p>
-<ul>
-<li><p>boolean：这个是最特殊的，其他七种基本类型都给出了明确的内存占用字节数，就 boolean 类型没有给出精确的定义。因为对虚拟机来说根本不存在 boolean 这个类型，boolean 类型在编译后会使用其他数据类型表示，关于 boolean 类型究竟占用多少个字节有以下三种说法：</p>
-<ul>
-<li>1 个 bit(即 1/8 个字节)，理由是 boolean 类型的值只有 true 和 false 两种逻辑值，在编译后会使用 1 和 0 来表示，这两个数在内存中只需要 1 位（bit）即可存储，位是计算机最小的存储单位</li>
-<li>1 个字节，理由是虽然编译后 1 和 0 只需占用 1 位空间，但计算机处理数据的最小单位是 1 个字节，1 个字节等于 8 位，实际存储的空间是：用 1 个字节的最低位存储，其他 7 位用 0 填补，如果值是 true 的话则存储的二进制为：0000 0001，如果是 false 的话则存储的二进制为：0000 0000</li>
-<li>4 个字节，理由来源是《Java虚拟机规范》一书中的描述：“虽然定义了 boolean 这种数据类型，但是只对它提供了非常有限的支持。在Java虚拟机中没有任何供 boolean 值专用的字节码指令，Java 语言表达式所操作的 boolean 值，在编译之后都使用 Java 虚拟机中的 int 数据类型来代替，而 boolean 数组将会被编码成 Java 虚拟机的 byte 数组，每个 boolean 元素占 8 位”。这样我们可以得出 boolean 类型单独使用是 4 个字节，在数组中又是 1 个字节的结论。关于为什么使用 int 来代替 boolean，原因是对于当下 32 位的处理器（CPU）来说，一次处理数据是 32 位（这里不是指的是 32/64 位系统，而是指 CPU 硬件层面），具有高效存取的特点</li>
-</ul>
-</li>
-<li><p>总结：boolean 类型没有给出精确的定义，《Java虚拟机规范》给出了单独使用时 4 个字节，和在 boolean 数组中 1 个字节的定义，具体占用多少内存还要看虚拟机实现是否按照规范来，所以 1 个字节、4 个字节都是有可能的。这其实是运算效率和存储空间之间的博弈，两者都非常的重要</p>
-</li>
-</ul>
+<p>先看题目描述</p>
+<p><a href="https://imgchr.com/i/syxppd" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/18/syxppd.png" alt="syxppd.png"></a></p>
+<p>大意就是给定的列表包含账户的用户名和邮箱，让我们将属于同一个人的账户合并，并将合并后的账户返回，要求按照给定的格式返回账户</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>并查集 + 哈希表</strong></p>
+<p>两个账户需要合并，当且仅当两个账户至少有一个共同的邮箱地址，因此这道题的实质是判断所有的邮箱地址中有哪些邮箱地址必定属于同一人，可以使用并查集实现</p>
+<p>我们需要三个哈希表 names，nodes 和 emails，nodes 是为邮箱地址编号，将邮箱地址映射到某个唯一的编号，names 是将邮箱编号映射到账户的用户名，emalis 是将根邮箱编号映射到该邮箱所属人拥有的所有邮箱地址，names 和 emails 是用与构造最后的答案的</p>
+<p>首先遍历每个账户，为每个邮箱地址进行编号；然后再次遍历每个账户，由于同一个账户中的邮箱地址一定属于同一个人，于是用并查集将同一个邮箱地址均合并</p>
+<p>完成并查集的合并操作后，即可知道合并后有多少个不同的账户，再遍历每个邮箱地址，获取该邮箱对应的根邮箱的编号，将该邮箱地址存储到对应的优先级队列中，最后构造结果并返回即可</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>并查集 + 哈希表</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] parent;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;String&gt;&gt; accountsMerge(List&lt;List&lt;String&gt;&gt; accounts) &#123;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">        Map&lt;Integer, String&gt; names = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        Map&lt;String, Integer&gt; nodes = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        Map&lt;Integer, PriorityQueue&lt;String&gt;&gt; emails = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        List&lt;List&lt;String&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (List&lt;String&gt; account : accounts) &#123;</span><br><span class="line">             <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; account.size(); i++) &#123;</span><br><span class="line">                 <span class="keyword">if</span> (!nodes.containsKey(account.get(i))) &#123;</span><br><span class="line">                     names.put(num, account.get(<span class="number">0</span>));</span><br><span class="line">                     nodes.put(account.get(i), num++);</span><br><span class="line">                 &#125;</span><br><span class="line">             &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.parent = <span class="keyword">new</span> <span class="keyword">int</span>[num];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">            <span class="keyword">this</span>.parent[i] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (List&lt;String&gt; account : accounts) &#123;</span><br><span class="line">            <span class="keyword">if</span> (account.size() &lt; <span class="number">3</span>) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> root = nodes.get(account.get(<span class="number">1</span>));</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; account.size(); i++) &#123;</span><br><span class="line">                union(root, nodes.get(account.get(i)));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;String, Integer&gt; entry : nodes.entrySet()) &#123;</span><br><span class="line">            <span class="keyword">int</span> root = find(entry.getValue());</span><br><span class="line">            <span class="keyword">if</span> (!emails.containsKey(root)) &#123;</span><br><span class="line">                PriorityQueue&lt;String&gt; prior = <span class="keyword">new</span> PriorityQueue&lt;&gt;();</span><br><span class="line">                prior.offer(entry.getKey());</span><br><span class="line">                emails.put(root, prior);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                emails.get(root).offer(entry.getKey());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;Integer, PriorityQueue&lt;String&gt;&gt; entry : emails.entrySet()) &#123;</span><br><span class="line">            List&lt;String&gt; cur = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">            cur.add(names.get(entry.getKey()));</span><br><span class="line">            PriorityQueue&lt;String&gt; prior = entry.getValue();</span><br><span class="line">            <span class="keyword">while</span> (!prior.isEmpty()) &#123;</span><br><span class="line">                cur.add(prior.poll());</span><br><span class="line">            &#125;</span><br><span class="line">            res.add(cur);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x != <span class="keyword">this</span>.parent[x]) &#123;</span><br><span class="line">            <span class="keyword">this</span>.parent[x] = find(<span class="keyword">this</span>.parent[x]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.parent[x];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> x = find(a);</span><br><span class="line">        <span class="keyword">int</span> y = find(b);</span><br><span class="line">        <span class="keyword">this</span>.parent[y] = x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -516,8 +500,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/11/26/最大间距/" rel="next" title="最大间距">
-                <i class="fa fa-chevron-left"></i> 最大间距
+              <a href="/2021/01/17/缀点成线/" rel="next" title="缀点成线">
+                <i class="fa fa-chevron-left"></i> 缀点成线
               </a>
             
           </div>
@@ -525,10 +509,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/11/27/四数相加-II/" rel="prev" title="四数相加 II">
-                四数相加 II <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -667,7 +647,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中八种基本类型占用内存的大小"><span class="nav-number">1.</span> <span class="nav-text">Java中八种基本类型占用内存的大小</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
