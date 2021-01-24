@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode，8.  String to Integer (aoti)">
+  <meta name="description" content="LeetCode每日一题，674 Longest Continuous Increasing Subsequence">
 <meta property="og:type" content="article">
-<meta property="og:title" content="字符串转换整数">
-<meta property="og:url" content="http://yoursite.com/2020/10/12/字符串转换整数/index.html">
+<meta property="og:title" content="最长连续递增序列">
+<meta property="og:url" content="http://yoursite.com/2021/01/24/最长连续递增序列/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode，8.  String to Integer (aoti)">
+<meta property="og:description" content="LeetCode每日一题，674 Longest Continuous Increasing Subsequence">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/10/12/025d4e.png">
-<meta property="og:updated_time" content="2020-10-12T05:16:59.536Z">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sHrHr6.png">
+<meta property="og:updated_time" content="2021-01-24T03:49:42.813Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="字符串转换整数">
-<meta name="twitter:description" content="LeetCode，8.  String to Integer (aoti)">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/12/025d4e.png">
+<meta name="twitter:title" content="最长连续递增序列">
+<meta name="twitter:description" content="LeetCode每日一题，674 Longest Continuous Increasing Subsequence">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/01/24/sHrHr6.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/10/12/字符串转换整数/">
+  <link rel="canonical" href="http://yoursite.com/2021/01/24/最长连续递增序列/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>字符串转换整数 | Morichina</title>
+  <title>最长连续递增序列 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/12/字符串转换整数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/24/最长连续递增序列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">字符串转换整数
+          <h1 class="post-title" itemprop="name headline">最长连续递增序列
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-10-12 12:45:32 / 修改时间：13:16:59" itemprop="dateCreated datePublished" datetime="2020-10-12T12:45:32+08:00">2020-10-12</time>
+              <time title="创建时间：2021-01-24 11:37:55 / 修改时间：11:49:42" itemprop="dateCreated datePublished" datetime="2021-01-24T11:37:55+08:00">2021-01-24</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.9k</span>
+              <span title="本文字数">959</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">2 分钟</span>
+              <span title="阅读时长">1 分钟</span>
             </span>
           
 
@@ -456,26 +456,22 @@
       
 
       
-        <p>LeetCode，8.  String to Integer (aoti)</p>
+        <p>LeetCode每日一题，674 Longest Continuous Increasing Subsequence</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/10/12/025d4e.png" alt></p>
-<p>大意就是给定一个字符串，实现一个将其转换成整数的函数，该函数会丢弃开头无用的空格字符，直到碰到第一个非空字符，若第一个非空字符不为 ‘+’ 或 ‘-‘ 或 数字，则直接返回0；然后将之后的部分转化为整数，直至碰到不是数字的字符</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>算法流程</strong>：</p>
+<p><a href="https://imgchr.com/i/sHrHr6" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/24/sHrHr6.png" alt="sHrHr6.png"></a></p>
+<p>题目大意是给定一个数组 nums，让我们求出 nums 中最长连续递增子数组的长度并返回</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>贪心算法</strong></p>
+<p>这题比较简单，用贪心算法从前往后遍历就可以，要初始化几个变量，ans 维护当前的最长连续递增子数组长度，pre 维护上一个数字的值，cur 维护当前正在遍历的连续递增子数组长度</p>
+<p>当遍历到数字 num 时：</p>
 <ul>
-<li><p>初始化 ans = 0，flag = true</p>
-</li>
-<li><p>定义 left 和 right 两个指针分别指向字符串一头一尾，然后 left 和 rright 向内移动，直至遇到非空字符，若 left 和 right 停止移动时，left &gt; right，说明字符串内全是空格，返回 0</p>
-</li>
-<li><p>left 和 right 停止移动时，判断此时 s[left] 是否为 ‘+’ 或 ‘-‘ 或数字，若均不是的话，则直接返回 0；若是 + 或 - 的话，则将 left + 1；若是 - 的话，则同时将 flag 置为 false</p>
-</li>
-<li><p>右移 left 指针来遍历 left 和 right 之间部分，若 s[left] 是数字，则 pre = ans，ans = ans * 10 + s[left]；同时还要比较此时的 pre 与 ans / 10，若不相等，则说明 ans 溢出了，根据 flag 的值来返回 Integer.MAX_VALUE 或 Integer.MIN_VALUE；若 s[left] 不为数字，则跳出循环</p>
-</li>
-<li><p>若 flag 为 true，则返回 ans；否则，返回 -ans</p>
-</li>
+<li>若 num &gt; pre，说明当前的连续递增子数组长度可以继续增加，将 cur + 1，pre = num</li>
+<li>若 num &lt;= pre，说明该连续递增子数组结束，将开始下一个连续递增子数组的判断，令 ans 取 ans 和 cur 之间的最大值，cur = 1，pre = num</li>
 </ul>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">myAtoi</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = s.length();</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = len - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; len &amp;&amp; s.charAt(left) == <span class="string">' '</span>) &#123;</span><br><span class="line">            left++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (right &gt;= <span class="number">0</span> &amp;&amp; s.charAt(right) == <span class="string">' '</span>) &#123;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (left &gt; right) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">char</span> c = s.charAt(left);</span><br><span class="line">        <span class="keyword">if</span> (c - <span class="string">'0'</span> != -<span class="number">3</span> &amp;&amp; c- <span class="string">'0'</span> != -<span class="number">5</span> &amp;&amp; !isValid(c)) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (c - <span class="string">'0'</span> == -<span class="number">3</span>) flag = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (!isValid(c)) left++;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">int</span> num = s.charAt(left) - <span class="string">'0'</span>;</span><br><span class="line">            <span class="keyword">if</span> (num &lt; <span class="number">0</span> || num &gt; <span class="number">9</span>) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> pre = ans;</span><br><span class="line">            ans = ans * <span class="number">10</span> + num;</span><br><span class="line">            <span class="keyword">if</span> (pre != ans / <span class="number">10</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (flag) <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">return</span> Integer.MIN_VALUE;</span><br><span class="line">            &#125;</span><br><span class="line">            left++;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (flag) <span class="keyword">return</span> ans;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> -ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(<span class="keyword">char</span> c)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> c -<span class="string">'0'</span> &gt;= <span class="number">0</span> &amp;&amp; c - <span class="string">'0'</span> &lt;= <span class="number">9</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>遍历结束时，可能还有一个连续递增子数组未结束判断，该连续递增子数组的长度可能是最大的，因此也得考虑，令 ans 取 ans 和 cur 之间的最大值，最终返回 ans 即可</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>贪心算法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findLengthOfLCIS</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> pre = Integer.MIN_VALUE;</span><br><span class="line">        <span class="keyword">int</span> cur = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num : nums) &#123;</span><br><span class="line">            <span class="keyword">if</span> (num &gt; pre) &#123;</span><br><span class="line">                cur++;</span><br><span class="line">                pre = num;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                ans = Math.max(cur, ans);</span><br><span class="line">                cur = <span class="number">1</span>;</span><br><span class="line">                pre = num;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ans = Math.max(ans, cur);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -507,8 +503,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/10/12/二叉搜索树的最小绝对差/" rel="next" title="二叉搜索树的最小绝对差">
-                <i class="fa fa-chevron-left"></i> 二叉搜索树的最小绝对差
+              <a href="/2021/01/23/连通网格的操作次数/" rel="next" title="连通网格的操作次数">
+                <i class="fa fa-chevron-left"></i> 连通网格的操作次数
               </a>
             
           </div>
@@ -516,10 +512,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/10/13/两两交换链表中的节点/" rel="prev" title="两两交换链表中的节点">
-                两两交换链表中的节点 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
