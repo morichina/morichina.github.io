@@ -94,19 +94,21 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，976.  Largest Perimeter Triangle">
+  <meta name="description" content="LeetCode每日一题，959.  Regions Cut By Slashes">
 <meta property="og:type" content="article">
-<meta property="og:title" content="三角形的最大周长">
-<meta property="og:url" content="http://yoursite.com/2020/11/29/三角形的最大周长/index.html">
+<meta property="og:title" content="由斜杠划分区域">
+<meta property="og:url" content="http://yoursite.com/2021/01/26/由斜杠划分区域/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，976.  Largest Perimeter Triangle">
+<meta property="og:description" content="LeetCode每日一题，959.  Regions Cut By Slashes">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s3.ax1x.com/2020/11/29/D6jgQf.png">
-<meta property="og:updated_time" content="2020-11-29T01:54:58.516Z">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/26/sX835R.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/26/sXGly8.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/26/sXJ7uT.png">
+<meta property="og:updated_time" content="2021-01-26T03:59:20.794Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="三角形的最大周长">
-<meta name="twitter:description" content="LeetCode每日一题，976.  Largest Perimeter Triangle">
-<meta name="twitter:image" content="https://s3.ax1x.com/2020/11/29/D6jgQf.png">
+<meta name="twitter:title" content="由斜杠划分区域">
+<meta name="twitter:description" content="LeetCode每日一题，959.  Regions Cut By Slashes">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/01/26/sX835R.png">
 
 
 
@@ -114,7 +116,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/11/29/三角形的最大周长/">
+  <link rel="canonical" href="http://yoursite.com/2021/01/26/由斜杠划分区域/">
 
 
 
@@ -124,7 +126,7 @@
   };
 </script>
 
-  <title>三角形的最大周长 | Morichina</title>
+  <title>由斜杠划分区域 | Morichina</title>
   
 
 
@@ -351,7 +353,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/29/三角形的最大周长/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/26/由斜杠划分区域/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +370,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">三角形的最大周长
+          <h1 class="post-title" itemprop="name headline">由斜杠划分区域
 
               
             
@@ -394,7 +396,7 @@
                 
               
 
-              <time title="创建时间：2020-11-29 09:41:27 / 修改时间：09:54:58" itemprop="dateCreated datePublished" datetime="2020-11-29T09:41:27+08:00">2020-11-29</time>
+              <time title="创建时间：2021-01-26 11:45:13 / 修改时间：11:59:20" itemprop="dateCreated datePublished" datetime="2021-01-26T11:45:13+08:00">2021-01-26</time>
             </span>
           
 
@@ -425,7 +427,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">853</span>
+              <span title="本文字数">2.7k</span>
             </span>
           
 
@@ -437,7 +439,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -456,17 +458,30 @@
       
 
       
-        <p>LeetCode每日一题，976.  Largest Perimeter Triangle</p>
+        <p>LeetCode每日一题，959.  Regions Cut By Slashes</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><a href="https://imgchr.com/i/D6jgQf" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/29/D6jgQf.png" alt="D6jgQf.png"></a></p>
-<p>大意就是给定一个数组 A，其中元素代表不同边的长度，让我们返回其中三条边能组成的三角形的最大周长</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>贪心+排序</strong></p>
-<p>我们假设三角形的边长满足 a &lt;= b &lt;= c，那么这三条边组成面积不为零的三角形的充分必要条件为 a + b &gt; c</p>
-<p>我们可以选择枚举三角形的最长边 c，从贪心策略的角度考虑，我们一定是选小于 c 的最大的两个数作为边长 a 和 b，此时最有可能满足 a + b &gt; c，使得三条边能够组成一个三角形，且此时的三角形的周长最大</p>
-<p>具体地，我们先对数组 A 进行排序，倒序枚举第 i 个数作为最长边，那么我们只需看其前两个数 A[i - 1] 和 A[i - 2]，判断 A[i - 1] + A[i - 2] 是否大于 A[i] 即可，如果能组成三角形那么我们就找到了周长最大的三角形，返回答案 A[i] + A[i- 1] + A[i - 2] 即可，如果对于任何数作为最长边都不存在面积不为零的三角形，那么就返回 0</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">largestPerimeter</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = A.length;</span><br><span class="line">        Arrays.sort(A);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = len - <span class="number">3</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (A[i] + A[i + <span class="number">1</span>] &gt; A[i + <span class="number">2</span>]) &#123;</span><br><span class="line">                <span class="keyword">return</span> A[i] + A[i + <span class="number">1</span>] + A[i + <span class="number">2</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/sX835R" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/26/sX835R.png" alt="sX835R.png"></a></p>
+<p>大意就是给定一个 N * N 的网格，网格会被斜杠或反斜杠给划分成不同的区域，让我们返回区域的个数</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>并查集</strong></p>
+<p>看到这题，我们很容易就想到可以使用并查集来求连通分量的个数</p>
+<p>斜杠、反斜杠把单元格拆分成两个三角形的形态，在做合并的时候需要分类讨论。根据斜杠与反斜杠分割的特点，我们把一个单元格分成逻辑上的四部分，如下所示：</p>
+<p><a href="https://imgchr.com/i/sXGly8" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/26/sXGly8.png" alt="sXGly8.png"></a></p>
+<p>我们需要遍历一次输入的二维网格 grid，在单元格内和单元格间进行合并</p>
+<p>接下来我们考虑在单元格内和单元格间合并的情况</p>
+<p>单元格内合并：</p>
+<ul>
+<li>若此时该单元格内是 “/“，则将 0、3 合并，1、2 合并</li>
+<li>若此时单元格内是 “\\“，则将 0、1 合并，2、3 合并</li>
+<li>若单元格内为空，则直接 0、1、2、3 一起合并</li>
+</ul>
+<p>单元格间合并：</p>
+<p>单元格间的合并就考虑将每个单元格向右和向下合并，即将当前单元格的 1 和右边单元格的 3 合并，当前单元格的 2 和下方单元格的 0 合并，如下图所示</p>
+<p><a href="https://imgchr.com/i/sXJ7uT" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/26/sXJ7uT.png" alt="sXJ7uT.png"></a></p>
+<p>合并完成以后，返回连通分量的个数即可，连通分量的个数就是划分区域的个数</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>并查集</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">regionsBySlashes</span><span class="params">(String[] grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">int</span> N = grid.length;</span><br><span class="line">        <span class="keyword">int</span> size = <span class="number">4</span> * N * N;</span><br><span class="line">        </span><br><span class="line">        UnionFind unionFind = <span class="keyword">new</span> UnionFind(size);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N; j++) &#123;</span><br><span class="line">                <span class="comment">// 二维表格转化为一维表格</span></span><br><span class="line">                <span class="keyword">int</span> index = <span class="number">4</span> * (i * N + j);</span><br><span class="line">                <span class="keyword">char</span> c = grid[i].charAt(j);</span><br><span class="line">                <span class="comment">// 单元格内合并</span></span><br><span class="line">                <span class="keyword">if</span> (c == <span class="string">'/'</span>) &#123;</span><br><span class="line">                    unionFind.union(index, index + <span class="number">3</span>);</span><br><span class="line">                    unionFind.union(index + <span class="number">1</span>, index + <span class="number">2</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">'\\'</span>) &#123;</span><br><span class="line">                    unionFind.union(index, index + <span class="number">1</span>);</span><br><span class="line">                    unionFind.union(index + <span class="number">2</span>, index + <span class="number">3</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    unionFind.union(index, index + <span class="number">1</span>);</span><br><span class="line">                    unionFind.union(index + <span class="number">1</span>, index + <span class="number">2</span>);</span><br><span class="line">                    unionFind.union(index + <span class="number">2</span>, index + <span class="number">3</span>);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 单元格间合并</span></span><br><span class="line">                <span class="comment">// 向右合并：1（当前）、3（右一列）</span></span><br><span class="line">                <span class="keyword">if</span> (j &lt; N - <span class="number">1</span>) &#123;</span><br><span class="line">                    unionFind.union(index + <span class="number">1</span>, index + <span class="number">7</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 向下合并：2（当前）、0（下一行）</span></span><br><span class="line">                <span class="keyword">if</span> (i &lt; N - <span class="number">1</span>) &#123;</span><br><span class="line">                    unionFind.union(index + <span class="number">2</span>, index + <span class="number">4</span> * N);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> unionFind.getCount();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">UnionFind</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count;</span><br><span class="line">        <span class="keyword">int</span>[] parent;</span><br><span class="line"></span><br><span class="line">        UnionFind(<span class="keyword">int</span> count) &#123;</span><br><span class="line">            <span class="keyword">this</span>.count = count;</span><br><span class="line">            <span class="keyword">this</span>.parent = <span class="keyword">new</span> <span class="keyword">int</span>[count];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">                <span class="keyword">this</span>.parent[i] = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (x != <span class="keyword">this</span>.parent[x]) &#123;</span><br><span class="line">                <span class="keyword">this</span>.parent[x] = find(<span class="keyword">this</span>.parent[x]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.parent[x];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> x = find(a);</span><br><span class="line">            <span class="keyword">int</span> y = find(b);</span><br><span class="line">            <span class="keyword">if</span> (x == y) &#123;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">this</span>.parent[y] = x;</span><br><span class="line">            <span class="keyword">this</span>.count--;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.count;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -498,8 +513,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/11/28/翻转对/" rel="next" title="翻转对">
-                <i class="fa fa-chevron-left"></i> 翻转对
+              <a href="/2021/01/24/最长连续递增序列/" rel="next" title="最长连续递增序列">
+                <i class="fa fa-chevron-left"></i> 最长连续递增序列
               </a>
             
           </div>
@@ -507,10 +522,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/11/30/重构字符串/" rel="prev" title="重构字符串">
-                重构字符串 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
