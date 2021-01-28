@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，733.  FloodFill">
+  <meta name="description" content="LeetCode每日一题，742.  Find Pivot Index">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图像渲染">
-<meta property="og:url" content="http://yoursite.com/2020/08/16/图像渲染/index.html">
+<meta property="og:title" content="寻找数组的中心索引">
+<meta property="og:url" content="http://yoursite.com/2021/01/28/寻找数组的中心索引/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，733.  FloodFill">
+<meta property="og:description" content="LeetCode每日一题，742.  Find Pivot Index">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/08/16/dEYV8e.png">
-<meta property="og:updated_time" content="2020-08-16T06:35:41.793Z">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/28/ySB4XD.png">
+<meta property="og:updated_time" content="2021-01-28T02:55:19.360Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="图像渲染">
-<meta name="twitter:description" content="LeetCode每日一题，733.  FloodFill">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/08/16/dEYV8e.png">
+<meta name="twitter:title" content="寻找数组的中心索引">
+<meta name="twitter:description" content="LeetCode每日一题，742.  Find Pivot Index">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/01/28/ySB4XD.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/08/16/图像渲染/">
+  <link rel="canonical" href="http://yoursite.com/2021/01/28/寻找数组的中心索引/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>图像渲染 | Morichina</title>
+  <title>寻找数组的中心索引 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/16/图像渲染/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/28/寻找数组的中心索引/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">图像渲染
+          <h1 class="post-title" itemprop="name headline">寻找数组的中心索引
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-08-16 14:11:45 / 修改时间：14:35:41" itemprop="dateCreated datePublished" datetime="2020-08-16T14:11:45+08:00">2020-08-16</time>
+              <time title="创建时间：2021-01-28 10:46:09 / 修改时间：10:55:19" itemprop="dateCreated datePublished" datetime="2021-01-28T10:46:09+08:00">2021-01-28</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1k</span>
+              <span title="本文字数">698</span>
             </span>
           
 
@@ -456,14 +456,17 @@
       
 
       
-        <p>LeetCode每日一题，733.  FloodFill</p>
+        <p>LeetCode每日一题，742.  Find Pivot Index</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/08/16/dEYV8e.png" alt></p>
-<p>大意就是给定一个二维数组表示的图像，初始坐标和一个新的颜色值，将和初始坐标像素值相同的点重新用新的颜色值上色，并将新图像返回</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这题和前几天做过的被围绕的区域类似，但比那道题简单，那道题是需要找出所有与边界相连的字母，然后修改；这题只需要找出所有与初始坐标相连且像素值一样的像素点，并修改其颜色值。算法就是用 dfs深度优先搜索，从初始坐标点开始，找出所有与其连通且像素值一样的像素点，然后用新颜色填充，最后把新的二维数组返回即可。需要注意的是，若新颜色与初始坐标的颜色相同，则直接返回原图</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[][] floodFill(<span class="keyword">int</span>[][] image, <span class="keyword">int</span> sr, <span class="keyword">int</span> sc, <span class="keyword">int</span> newColor) &#123;</span><br><span class="line">        <span class="keyword">if</span> (image[sr][sc] == newColor) <span class="keyword">return</span> image;</span><br><span class="line">        dfs(image, sr, sc, newColor, image[sr][sc]);</span><br><span class="line">        <span class="keyword">return</span> image;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[][] image, <span class="keyword">int</span> i , <span class="keyword">int</span> j, <span class="keyword">int</span> newColor,<span class="keyword">int</span> oldColor)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (i &lt; <span class="number">0</span> || j &lt; <span class="number">0</span> || i &gt;= image.length || j &gt;= image[<span class="number">0</span>].length || image[i][j] != oldColor || image[i][j] == newColor) <span class="keyword">return</span>;</span><br><span class="line">        image[i][j] = newColor;</span><br><span class="line">        dfs(image, i - <span class="number">1</span>, j, newColor, oldColor);</span><br><span class="line">        dfs(image, i + <span class="number">1</span>, j, newColor, oldColor);</span><br><span class="line">        dfs(image, i, j - <span class="number">1</span>, newColor, oldColor);</span><br><span class="line">        dfs(image, i, j + <span class="number">1</span>, newColor, oldColor);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/ySB4XD" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/28/ySB4XD.png" alt="ySB4XD.png"></a></p>
+<p>大意就是给定一个数组 nums，让我们求它的中心索引并返回，中心索引的定义是左边的元素之和等于右边的元素之和</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>前缀和</strong></p>
+<p>使用前缀和，然后遍历数组即可</p>
+<p>设数组的所有元素之和为 sum，遍历到第 i 个元素时，设其左边元素之和为 cur，要判断其左边元素之和是否与右边元素之和相等，只需比较 cur 与 sum - cur - nums[i] 即可，即 2 * cur + nums[i] 是否等于 sum</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>前缀和</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pivotIndex</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> cur = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="number">2</span> * cur + nums[i] == sum) &#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">            cur += nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -495,8 +498,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/08/14/有效的括号/" rel="next" title="有效的括号">
-                <i class="fa fa-chevron-left"></i> 有效的括号
+              <a href="/2021/01/27/保证图可完全遍历/" rel="next" title="保证图可完全遍历">
+                <i class="fa fa-chevron-left"></i> 保证图可完全遍历
               </a>
             
           </div>
@@ -504,10 +507,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/08/17/平衡二叉树/" rel="prev" title="平衡二叉树">
-                平衡二叉树 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
