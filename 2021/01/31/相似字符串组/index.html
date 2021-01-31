@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，110.  Balanced Binary Tree">
+  <meta name="description" content="LeetCode每日一题，839. Similar String Groups">
 <meta property="og:type" content="article">
-<meta property="og:title" content="平衡二叉树">
-<meta property="og:url" content="http://yoursite.com/2020/08/17/平衡二叉树/index.html">
+<meta property="og:title" content="相似字符串组">
+<meta property="og:url" content="http://yoursite.com/2021/01/31/相似字符串组/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，110.  Balanced Binary Tree">
+<meta property="og:description" content="LeetCode每日一题，839. Similar String Groups">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/08/17/dZWzfU.png">
-<meta property="og:updated_time" content="2020-08-17T03:23:58.942Z">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/31/yAb3c9.png">
+<meta property="og:updated_time" content="2021-01-31T04:39:57.851Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="平衡二叉树">
-<meta name="twitter:description" content="LeetCode每日一题，110.  Balanced Binary Tree">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/08/17/dZWzfU.png">
+<meta name="twitter:title" content="相似字符串组">
+<meta name="twitter:description" content="LeetCode每日一题，839. Similar String Groups">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/01/31/yAb3c9.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/08/17/平衡二叉树/">
+  <link rel="canonical" href="http://yoursite.com/2021/01/31/相似字符串组/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>平衡二叉树 | Morichina</title>
+  <title>相似字符串组 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/17/平衡二叉树/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/31/相似字符串组/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">平衡二叉树
+          <h1 class="post-title" itemprop="name headline">相似字符串组
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-08-17 10:54:32 / 修改时间：11:23:58" itemprop="dateCreated datePublished" datetime="2020-08-17T10:54:32+08:00">2020-08-17</time>
+              <time title="创建时间：2021-01-31 12:27:36 / 修改时间：12:39:57" itemprop="dateCreated datePublished" datetime="2021-01-31T12:27:36+08:00">2021-01-31</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.5k</span>
+              <span title="本文字数">2.3k</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -456,21 +456,17 @@
       
 
       
-        <p>LeetCode每日一题，110.  Balanced Binary Tree</p>
+        <p>LeetCode每日一题，839. Similar String Groups</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/08/17/dZWzfU.png" alt></p>
-<p>大意就是让我们判断一颗二叉树是否是平衡二叉树</p>
-<h2 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h2><p><strong>自顶向下</strong></p>
-<p>思路是构造一个计算二叉树深度的方法，通过比较此子树的左右子树的最大高度差，来判断当前子树是否是平衡二叉树，再去判断其左右子树是否是平衡二叉树，若树的所有子树都平衡，此树才平衡**</p>
-<p><strong>自底向上</strong></p>
-<p>这是看了题解才知道的方法，思路是对二叉树做先序遍历，自底向上返回子树最大高度，若判定某子树不是平衡树则 “剪枝” ，直接向上返回，这个方法代码的关键在于 recur 方法，既起到返回子树高度的作用，又起到体现子树是否平衡的作用。当 recur(root) 返回值为 -1 时，代表以 root 为根节点的子树不平衡，返回值为 0 时，代表 root 为空，返回值大于 0 时，则代表以 root 为根节点的子树平衡且返回的是该子树的高度</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>自顶向下</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">return</span> Math.abs(getDepth(root.left) - getDepth(root.right)) &lt;= <span class="number">1</span> &amp;&amp; isBalanced(root.left) &amp;&amp; isBalanced(root.right);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> Math.max(getDepth(root.left), getDepth(root.right)) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>自底向上</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> recur(root) != -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">recur</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = recur(root.left);</span><br><span class="line">        <span class="keyword">if</span>(left == -<span class="number">1</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> right = recur(root.right);</span><br><span class="line">        <span class="keyword">if</span>(right == -<span class="number">1</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> Math.abs(left - right) &lt; <span class="number">2</span> ? Math.max(left, right) + <span class="number">1</span> : -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/yAb3c9" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/31/yAb3c9.png" alt="yAb3c9.png"></a></p>
+<p>大意就是给定一个字符串列表 strs，让我们返回其中相似字符串组的个数，字符串相似的定义是：有两个字符串 X 和 Y，若交换 X 中两个字母的位置，可以使得 X 和 Y 相等，或者 X 和 Y 本身就相等，那么就可以说 X 和 Y 相似。至于相似字符串组，以 Example1 为例，tars 和 rats 相似，rats 和 arts 相似，那么 tars，rats 和 arts 就构成了一个相似字符串组，虽然 tars 和 arts 并不相似</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>并查集</strong></p>
+<p>这题我们可以当作图论的题来解决，将字符串看作节点，若两字符串相似，就视作两节点之间存在一条边，那么题目就可以看作是给定一张图，让我们求出图中连通分量的个数。我们可以使用并查集来实时维护图的连通性，求出连通分量的个数并返回</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>并查集</strong></p>
+<p>代码中把字符串转化成了字符数组来处理，这样可以提高代码的运行效率</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> count;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numSimilarGroups</span><span class="params">(String[] strs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = strs.length;</span><br><span class="line">        <span class="keyword">int</span> n = strs[<span class="number">0</span>].length();</span><br><span class="line">        <span class="keyword">this</span>.count = m;</span><br><span class="line">        <span class="keyword">char</span>[][] css = <span class="keyword">new</span> <span class="keyword">char</span>[m][n];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            css[i] = strs[i].toCharArray();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] parent = <span class="keyword">new</span> <span class="keyword">int</span>[m];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;m; i++) &#123;</span><br><span class="line">            parent[i] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (isSimilar(css[i], css[j])) &#123;</span><br><span class="line">                    union(i, j, parent);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isSimilar</span><span class="params">(<span class="keyword">char</span>[] a, <span class="keyword">char</span>[] b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">int</span> len = a.length;</span><br><span class="line">        <span class="keyword">char</span> preA = <span class="string">'a'</span>;</span><br><span class="line">        <span class="keyword">char</span> preB = <span class="string">'a'</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[i] != b[i]) &#123;</span><br><span class="line">                <span class="keyword">if</span> (cnt == <span class="number">2</span>) &#123;</span><br><span class="line">                    preA = a[i];</span><br><span class="line">                    preB = b[i];</span><br><span class="line">                    cnt--;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (cnt == <span class="number">1</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (a[i] != preB || b[i] != preA) &#123;</span><br><span class="line">                        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    cnt--;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span>[] parent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x != parent[x]) &#123;</span><br><span class="line">            parent[x] = find(parent[x], parent);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> parent[x];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span>[] parent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> x = find(a, parent);</span><br><span class="line">        <span class="keyword">int</span> y = find(b, parent);</span><br><span class="line">        <span class="keyword">if</span> (x == y) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        parent[y] = x;</span><br><span class="line">        <span class="keyword">this</span>.count--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -502,8 +498,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/08/16/图像渲染/" rel="next" title="图像渲染">
-                <i class="fa fa-chevron-left"></i> 图像渲染
+              <a href="/2021/01/30/水位上升的泳池中游泳/" rel="next" title="水位上升的泳池中游泳">
+                <i class="fa fa-chevron-left"></i> 水位上升的泳池中游泳
               </a>
             
           </div>
@@ -511,10 +507,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/08/20/扫雷游戏/" rel="prev" title="扫雷游戏">
-                扫雷游戏 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -653,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法思路"><span class="nav-number">1.</span> <span class="nav-text">算法思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
