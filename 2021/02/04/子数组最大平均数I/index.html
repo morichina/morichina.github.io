@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，392.  Is Subsequence">
+  <meta name="description" content="LeetCode每日一题，643.  Maximum Average Subarray I">
 <meta property="og:type" content="article">
-<meta property="og:title" content="判断子序列">
-<meta property="og:url" content="http://yoursite.com/2020/07/27/判断子序列/index.html">
+<meta property="og:title" content="子数组最大平均数I">
+<meta property="og:url" content="http://yoursite.com/2021/02/04/子数组最大平均数I/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，392.  Is Subsequence">
+<meta property="og:description" content="LeetCode每日一题，643.  Maximum Average Subarray I">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/07/27/aPhQXR.png">
-<meta property="og:updated_time" content="2020-07-27T06:14:02.110Z">
+<meta property="og:image" content="https://s3.ax1x.com/2021/02/04/y1k9g0.png">
+<meta property="og:updated_time" content="2021-02-04T04:07:13.809Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="判断子序列">
-<meta name="twitter:description" content="LeetCode每日一题，392.  Is Subsequence">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/27/aPhQXR.png">
+<meta name="twitter:title" content="子数组最大平均数I">
+<meta name="twitter:description" content="LeetCode每日一题，643.  Maximum Average Subarray I">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/02/04/y1k9g0.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/07/27/判断子序列/">
+  <link rel="canonical" href="http://yoursite.com/2021/02/04/子数组最大平均数I/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>判断子序列 | Morichina</title>
+  <title>子数组最大平均数I | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/27/判断子序列/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/04/子数组最大平均数I/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">判断子序列
+          <h1 class="post-title" itemprop="name headline">子数组最大平均数I
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-07-27 11:35:51 / 修改时间：14:14:02" itemprop="dateCreated datePublished" datetime="2020-07-27T11:35:51+08:00">2020-07-27</time>
+              <time title="创建时间：2021-02-04 12:01:38 / 修改时间：12:07:13" itemprop="dateCreated datePublished" datetime="2021-02-04T12:01:38+08:00">2021-02-04</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2k</span>
+              <span title="本文字数">706</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">2 分钟</span>
+              <span title="阅读时长">1 分钟</span>
             </span>
           
 
@@ -456,26 +456,17 @@
       
 
       
-        <p>LeetCode每日一题，392.  Is Subsequence</p>
+        <p>LeetCode每日一题，643.  Maximum Average Subarray I</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/07/27/aPhQXR.png" alt></p>
-<p>题目大意就是判断 s 是否为 t 的子序列，子序列的定义是原始字符串删除一些（也可以不删除）字符而不改变剩余字符相对位置形成的新字符串</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>双指针法</strong></p>
-<p>第一反应就是双指针法，两个指针 left 和 right 起始分别指向字符串 s 和 t 的第 0 个字符，若 left 和 right 能匹配，就同时右移指针，若不匹配，就仅将 right 右移，若匹配中途 left 的值等于 s 长度，就直接返回 true；若最终 left 的值扔小于 s 长度，则返回 false</p>
-<p><strong>动态规划</strong></p>
-<p>看了题解才知道这题竟然还可以用动态规划，虽然性能不如双指针法，但这题可以用动态规划还是很惊讶的</p>
-<ul>
-<li>令 dp[i][j] 表示字符串 t 中从位置 i 开始往后字符 j 第一次出现的位置。在进行状态转移时，如果 t 中位置 i 的字符就是 j，那么  dp[i][j] = i，否则 j 出现在位置 i+1 开始往后，即 dp[i][j] = dp[i + 1][j]，因此我们要倒过来进行动态规划，从后往前枚举 i</li>
-<li>状态转移方程：若 t[i] = j，dp[i][j] = i；否则，dp[i][j] = dp[i + 1][j]</li>
-<li>用 n 表示字符串 t 长度，下标从 0 开始，那么应有 0 &lt;= i &lt; n，对于边界状态 dp[n - 1][…]，我们置 dp[n][…] 为 n，让 dp[n - 1][…] 能够正常转移，这样如果 dp[i][j] = n，就表示从位置 i 开始往后字符串 t 中不存在字符 j</li>
-</ul>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>双指针法</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSubsequence</span><span class="params">(String s, String t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (s.length() &gt; t.length()) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; t.length()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (t.charAt(right) == s.charAt(left)) left++;</span><br><span class="line">            right++;</span><br><span class="line">            <span class="keyword">if</span> (left == s.length()) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>动态规划</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSubsequence</span><span class="params">(String s, String t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = s.length();</span><br><span class="line">        <span class="keyword">int</span> n = t.length();</span><br><span class="line">        <span class="keyword">if</span> (m == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (m &gt; n) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n+ <span class="number">1</span>][<span class="number">26</span>];</span><br><span class="line">        Arrays.fill(dp[n], n);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = n-<span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">26</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (t.charAt(i) - <span class="string">'a'</span> == j) &#123;</span><br><span class="line">                    dp[i][j] = i;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    dp[i][j] = dp[i + <span class="number">1</span>][j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> add = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (dp[add][s.charAt(i) - <span class="string">'a'</span>] == n) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">else</span> add = dp[add][s.charAt(i) - <span class="string">'a'</span>] + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/y1k9g0" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/02/04/y1k9g0.png" alt="y1k9g0.png"></a></p>
+<p>大意就是给定一个数组 nums 和一个整数 k，让我们求出 nums 中长度为 k 的子数组的最大平均值并返回</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>滑动窗口</strong></p>
+<p>这题很简单，使用滑动窗口即可</p>
+<p>使用长度为 k 的滑动窗口，然后一直向右移动滑动窗口直至窗口到达数组最右边，移动滑动窗口的过程中使用变量 cur 维护当前滑动窗口内的元素之和，使用变量 max 来维护移动过程中的滑动窗口内的最大元素和，最后返回 max / k 即可</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>滑动窗口</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">findMaxAverage</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">int</span> cur = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">            cur += nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> max = cur;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = k; i &lt; len; i++) &#123;</span><br><span class="line">            cur += nums[i];</span><br><span class="line">            cur -= nums[i - k];</span><br><span class="line">            max = Math.max(max, cur);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">double</span>)max / k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -507,8 +498,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/25/分割数组的最大值/" rel="next" title="分割数组的最大值">
-                <i class="fa fa-chevron-left"></i> 分割数组的最大值
+              <a href="/2021/02/02/替换后的最长重复字串/" rel="next" title="替换后的最长重复字串">
+                <i class="fa fa-chevron-left"></i> 替换后的最长重复字串
               </a>
             
           </div>
@@ -516,10 +507,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/28/二叉树的最大深度/" rel="prev" title="二叉树的最大深度">
-                二叉树的最大深度 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
