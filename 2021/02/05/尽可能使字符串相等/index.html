@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，面试题17.13. Re-Space LCCI">
+  <meta name="description" content="LeetCode每日一题，1208.  Get Equal Substrings Within Budget">
 <meta property="og:type" content="article">
-<meta property="og:title" content="恢复空格">
-<meta property="og:url" content="http://yoursite.com/2020/07/09/恢复空格/index.html">
+<meta property="og:title" content="尽可能使字符串相等">
+<meta property="og:url" content="http://yoursite.com/2021/02/05/尽可能使字符串相等/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，面试题17.13. Re-Space LCCI">
+<meta property="og:description" content="LeetCode每日一题，1208.  Get Equal Substrings Within Budget">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/07/09/UmeFit.png">
-<meta property="og:updated_time" content="2020-07-09T06:18:04.333Z">
+<meta property="og:image" content="https://s3.ax1x.com/2021/02/05/y84vuV.png">
+<meta property="og:updated_time" content="2021-02-05T05:48:36.455Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="恢复空格">
-<meta name="twitter:description" content="LeetCode每日一题，面试题17.13. Re-Space LCCI">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/09/UmeFit.png">
+<meta name="twitter:title" content="尽可能使字符串相等">
+<meta name="twitter:description" content="LeetCode每日一题，1208.  Get Equal Substrings Within Budget">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/02/05/y84vuV.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/07/09/恢复空格/">
+  <link rel="canonical" href="http://yoursite.com/2021/02/05/尽可能使字符串相等/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>恢复空格 | Morichina</title>
+  <title>尽可能使字符串相等 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/09/恢复空格/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/05/尽可能使字符串相等/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">恢复空格
+          <h1 class="post-title" itemprop="name headline">尽可能使字符串相等
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-07-09 13:44:01 / 修改时间：14:18:04" itemprop="dateCreated datePublished" datetime="2020-07-09T13:44:01+08:00">2020-07-09</time>
+              <time title="创建时间：2021-02-05 13:31:15 / 修改时间：13:48:36" itemprop="dateCreated datePublished" datetime="2021-02-05T13:31:15+08:00">2021-02-05</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2.6k</span>
+              <span title="本文字数">1.2k</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">2 分钟</span>
+              <span title="阅读时长">1 分钟</span>
             </span>
           
 
@@ -456,23 +456,22 @@
       
 
       
-        <p>LeetCode每日一题，面试题17.13. Re-Space LCCI</p>
+        <p>LeetCode每日一题，1208.  Get Equal Substrings Within Budget</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/07/09/UmeFit.png" alt></p>
-<p>大意就是给定 sentence 和 dictionary，依赖 dictionary 来识别单词，让我们返回 sentence 中未识别的字符数</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>第一反应就是动态规划</p>
+<p><a href="https://imgchr.com/i/y84vuV" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/02/05/y84vuV.png" alt="y84vuV.png"></a></p>
+<p>大意就是给定两个字符串 s 和 t，将 s 中的字符 s[i] 替换成 t 中的字符 t[i] 需要的开销是两个字符的 ASCII 码值之差的绝对值，我们要保证替换字符的开销总和小于等于 maxCost，问 s 可以替换的子串最大长度是多少</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>滑动窗口</strong></p>
+<p>我们先进行预处理，用一个数组 cost 维护替换字符的开销，cost[i] 就表示将字符 s[i] 替换成 t[i] 需要的开销，我们用 cur 表示当前滑动窗口内替换字符的总开销，left 表示滑动窗口的左边界(闭区间)，right 表示滑动窗口的右边界(开区间)，每次通过判断 cur 是否大于 maxCost 来决定将滑动窗口移动还是扩张</p>
 <ul>
-<li>初始化 dp[0] = 0，dp[i + 1] 表示子串 sentence[0: i] 中未识别的字符个数</li>
-<li>状态转移方程：若 dictionary 中存在子串 sectence[j: i]，dp[i + 1] = min(dp[i + 1], dp[j])，否则 dp[i + 1] = dp[i] + 1</li>
+<li>若 cur &lt;= maxCost，说明此时滑动窗口的字符均可以替换，则将 right 右移，扩张当前滑动窗口</li>
+<li>若 cur &gt; maxCost，则说明此时滑动窗口内的字符不可以全部替换，则将 left 和 right 加 1，将滑动窗口右移</li>
 </ul>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">respace</span><span class="params">(String[] dictionary, String sentence)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[sentence.length() + <span class="number">1</span>];</span><br><span class="line">        List&lt;String&gt; dict = Arrays.asList(dictionary);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sentence.length(); i++) &#123;</span><br><span class="line">            dp[i + <span class="number">1</span>] = dp[i] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (dict.contains(sentence.substring(j, i + <span class="number">1</span>))) &#123;</span><br><span class="line">                    dp[i + <span class="number">1</span>] = Math.min(dp[i + <span class="number">1</span>], dp[j]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[sentence.length()];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后返回滑动窗口的长度即可</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>滑动窗口</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">equalSubstring</span><span class="params">(String s, String t, <span class="keyword">int</span> maxCost)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = s.length();</span><br><span class="line">        <span class="keyword">int</span>[] cost = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        <span class="keyword">char</span>[] ss = s.toCharArray();</span><br><span class="line">        <span class="keyword">char</span>[] tt = t.toCharArray();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            cost[i] = Math.abs(ss[i] - tt[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> cur = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; len) &#123;</span><br><span class="line">            cur += cost[right];</span><br><span class="line">            right++;</span><br><span class="line">            <span class="keyword">if</span> (cur &gt; maxCost) &#123;</span><br><span class="line">                cur -= cost[left];</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> right - left;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>然后提交上去就超时了，而且不知道怎么改善运行时间，毫无头绪。后来看了题解才知道可以使用字典树 Trie 来优化查找，Trie 是一种最大程度利用多个字符串前缀信息的数据结构，它可以在 O(w) 的时间复杂度内判断一个字符串是否是一个字符串集合中某个字符串的前缀，其中 w 代表字符串的长度</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">respace</span><span class="params">(String[] dictionary, String sentence)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = sentence.length();</span><br><span class="line"></span><br><span class="line">        Trie root = <span class="keyword">new</span> Trie();</span><br><span class="line">        <span class="keyword">for</span> (String word: dictionary) &#123;</span><br><span class="line">            root.insert(word);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>];</span><br><span class="line">        Arrays.fill(dp, Integer.MAX_VALUE);</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            dp[i] = dp[i - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">            Trie curPos = root;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &gt;= <span class="number">1</span>; --j) &#123;</span><br><span class="line">                <span class="keyword">int</span> t = sentence.charAt(j - <span class="number">1</span>) - <span class="string">'a'</span>;</span><br><span class="line">                <span class="keyword">if</span> (curPos.next[t] == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (curPos.next[t].isEnd) &#123;</span><br><span class="line">                    dp[i] = Math.min(dp[i], dp[j - <span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (dp[i] == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                curPos = curPos.next[t];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trie</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> Trie[] next;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">boolean</span> isEnd;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Trie</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        next = <span class="keyword">new</span> Trie[<span class="number">26</span>];</span><br><span class="line">        isEnd = <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        Trie curPos = <span class="keyword">this</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = s.length() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i) &#123;</span><br><span class="line">            <span class="keyword">int</span> t = s.charAt(i) - <span class="string">'a'</span>;</span><br><span class="line">            <span class="keyword">if</span> (curPos.next[t] == <span class="keyword">null</span>) &#123;</span><br><span class="line">                curPos.next[t] = <span class="keyword">new</span> Trie();</span><br><span class="line">            &#125;</span><br><span class="line">            curPos = curPos.next[t];</span><br><span class="line">        &#125;</span><br><span class="line">        curPos.isEnd = <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>感觉解这道题的关键就在于如何快速判断当前子串是否存在于字典中，而使用字典树 Trie 就可以优化查找，需要掌握字典树 Trie 这种数据结构</p>
 
       
     </div>
@@ -503,8 +502,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/08/跳水板/" rel="next" title="跳水板">
-                <i class="fa fa-chevron-left"></i> 跳水板
+              <a href="/2021/02/04/子数组最大平均数I/" rel="next" title="子数组最大平均数I">
+                <i class="fa fa-chevron-left"></i> 子数组最大平均数I
               </a>
             
           </div>
@@ -512,10 +511,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/10/最佳买卖股票时机含冷冻期/" rel="prev" title="最佳买卖股票时机含冷冻期">
-                最佳买卖股票时机含冷冻期 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
