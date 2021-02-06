@@ -94,20 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，922.  Sort Array By Parity II">
+  <meta name="description" content="LeetCode每日一题，1423.  Maximum Points You Can Obtain From Cards">
 <meta property="og:type" content="article">
-<meta property="og:title" content="不同路径">
-<meta property="og:url" content="http://yoursite.com/2020/12/09/不同路径/index.html">
+<meta property="og:title" content="可获得的最大点数">
+<meta property="og:url" content="http://yoursite.com/2021/02/06/可获得的最大点数/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，922.  Sort Array By Parity II">
+<meta property="og:description" content="LeetCode每日一题，1423.  Maximum Points You Can Obtain From Cards">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s3.ax1x.com/2020/12/09/rComz4.png">
-<meta property="og:image" content="https://s3.ax1x.com/2020/12/09/rC7crj.png">
-<meta property="og:updated_time" content="2020-12-09T10:31:21.948Z">
+<meta property="og:image" content="https://s3.ax1x.com/2021/02/06/yYyUKO.png">
+<meta property="og:updated_time" content="2021-02-06T09:17:34.102Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="不同路径">
-<meta name="twitter:description" content="LeetCode每日一题，922.  Sort Array By Parity II">
-<meta name="twitter:image" content="https://s3.ax1x.com/2020/12/09/rComz4.png">
+<meta name="twitter:title" content="可获得的最大点数">
+<meta name="twitter:description" content="LeetCode每日一题，1423.  Maximum Points You Can Obtain From Cards">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/02/06/yYyUKO.png">
 
 
 
@@ -115,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/12/09/不同路径/">
+  <link rel="canonical" href="http://yoursite.com/2021/02/06/可获得的最大点数/">
 
 
 
@@ -125,7 +124,7 @@
   };
 </script>
 
-  <title>不同路径 | Morichina</title>
+  <title>可获得的最大点数 | Morichina</title>
   
 
 
@@ -352,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/09/不同路径/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/06/可获得的最大点数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -369,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">不同路径
+          <h1 class="post-title" itemprop="name headline">可获得的最大点数
 
               
             
@@ -395,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-12-09 17:55:10 / 修改时间：18:31:21" itemprop="dateCreated datePublished" datetime="2020-12-09T17:55:10+08:00">2020-12-09</time>
+              <time title="创建时间：2021-02-06 17:07:23 / 修改时间：17:17:34" itemprop="dateCreated datePublished" datetime="2021-02-06T17:07:23+08:00">2021-02-06</time>
             </span>
           
 
@@ -426,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.9k</span>
+              <span title="本文字数">901</span>
             </span>
           
 
@@ -438,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">2 分钟</span>
+              <span title="阅读时长">1 分钟</span>
             </span>
           
 
@@ -457,28 +456,16 @@
       
 
       
-        <p>LeetCode每日一题，922.  Sort Array By Parity II</p>
+        <p>LeetCode每日一题，1423.  Maximum Points You Can Obtain From Cards</p>
 <a id="more"></a>
 
-<p>先看题目描述</p>
-<p><a href="https://imgchr.com/i/rComz4" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/12/09/rComz4.png" alt="rComz4.png"></a></p>
-<p>大意就是给定一个 m × n 的矩阵，一个机器人只能向右走或向下走，问从左上角走到右下角共有多少条路径</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>动态规划</strong></p>
-<p>我们用 f[i, j] 表示从左上角走到 [i, j] 的路径数量，其中 i 和 j 的范围分别是 [0, m) 和 [0, n)</p>
-<p>由于规定机器人只能向右走或向下走，那么机器人走到 [i, j] 经过的前一个格子是 [i -1, j] 或 [i, j - 1]</p>
-<p>状态转移方程为：f[i, j] = f[i - 1, j] + f[i, j - 1]，最后返回 f[m - 1, n - 1] 即可</p>
-<p><strong>数学组合</strong></p>
-<p>这题最开始想到的是用排列组合来做，在一个 m × n 的矩阵里，从左上角走到右下角，一共需要走 m+ n - 2 步，其中要往下走 m - 1 步，往右走 n - 1 步。那么问题就转化成了 m + n - 2 次的总移动里选 m - 1 次往下移动的方案数，就变成了数学中的排列组合问题</p>
-<p>组合数如下图所示</p>
-<p><a href="https://imgchr.com/i/rC7crj" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/12/09/rC7crj.png" alt="rC7crj.png"></a></p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>动态规划</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[][] f = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; ++i) &#123;</span><br><span class="line">            f[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; ++j) &#123;</span><br><span class="line">            f[<span class="number">0</span>][j] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; n; ++j) &#123;</span><br><span class="line">                f[i][j] = f[i - <span class="number">1</span>][j] + f[i][j - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> f[m - <span class="number">1</span>][n - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>数学组合</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (m == <span class="number">1</span> || n == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (m &gt; n) &#123;</span><br><span class="line">            <span class="keyword">return</span> calCum(m + n - <span class="number">2</span>, n - <span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> calCum(m + n - <span class="number">2</span>, m - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">calCum</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num1 = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> num2 = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; y; i++) &#123;</span><br><span class="line">            num1 *= (x - i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= y; i++) &#123;</span><br><span class="line">            num2 *= i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> num1 / num2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>下面是题解的实现这个算法的源码，感觉题解的这个代码要更巧妙些</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> ans = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> x = n, y = <span class="number">1</span>; y &lt; m; ++x, ++y) &#123;</span><br><span class="line">            ans = ans * x / y;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>) ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>先看题目描述 </p>
+<p><a href="https://imgchr.com/i/yYyUKO" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/02/06/yYyUKO.png" alt="yYyUKO.png"></a></p>
+<p>大意就是给定一个数组 cardPoints 代表牌的点数，我们每次只能取出第一张牌或最后一张牌，一共能取 k 次，问可获得的最大点数是多少</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>滑动窗口</strong></p>
+<p>由于每次只能取起始或末尾的牌，一共能取 k 次，因此取出的牌一定是连续的 k 张牌，且必然包含第一张牌或最后一张牌。于是只需要先构建一个以第一张牌为起点的长度为 k 的滑动窗口，然后将其逆向滑动 k 次，滑动过程中维护可获得点数的最大值，最后将最大点数返回即可</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>滑动窗口</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxScore</span><span class="params">(<span class="keyword">int</span>[] cardPoints, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = cardPoints.length;</span><br><span class="line">        <span class="keyword">int</span> cur = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = len - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> right = k - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">            cur += cardPoints[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (len == k) &#123;</span><br><span class="line">            <span class="keyword">return</span> cur;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> max = cur;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">            cur -= cardPoints[right];</span><br><span class="line">            right--;</span><br><span class="line">            cur += cardPoints[left];</span><br><span class="line">            left--;</span><br><span class="line">            max = Math.max(cur, max);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -510,8 +497,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/12/08/将数组拆分成斐波那契序列/" rel="next" title="将数组拆分成斐波那契序列">
-                <i class="fa fa-chevron-left"></i> 将数组拆分成斐波那契序列
+              <a href="/2021/02/05/尽可能使字符串相等/" rel="next" title="尽可能使字符串相等">
+                <i class="fa fa-chevron-left"></i> 尽可能使字符串相等
               </a>
             
           </div>
@@ -519,10 +506,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/12/10/柠檬水找零/" rel="prev" title="柠檬水找零">
-                柠檬水找零 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
