@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，378.Kth Smallest Element in a Sorted Matrix">
+  <meta name="description" content="LeetCode每日一题，665.  Non-decreasing Array">
 <meta property="og:type" content="article">
-<meta property="og:title" content="有序矩阵中第K小的元素">
-<meta property="og:url" content="http://yoursite.com/2020/07/02/有序矩阵中第K小的元素/index.html">
+<meta property="og:title" content="非递减数列">
+<meta property="og:url" content="http://yoursite.com/2021/02/07/非递减数列/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，378.Kth Smallest Element in a Sorted Matrix">
+<meta property="og:description" content="LeetCode每日一题，665.  Non-decreasing Array">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/07/02/NbFBng.png">
-<meta property="og:updated_time" content="2020-07-02T03:19:12.059Z">
+<meta property="og:image" content="https://s3.ax1x.com/2021/02/07/ytRDSA.png">
+<meta property="og:updated_time" content="2021-02-07T05:25:17.199Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="有序矩阵中第K小的元素">
-<meta name="twitter:description" content="LeetCode每日一题，378.Kth Smallest Element in a Sorted Matrix">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/02/NbFBng.png">
+<meta name="twitter:title" content="非递减数列">
+<meta name="twitter:description" content="LeetCode每日一题，665.  Non-decreasing Array">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/02/07/ytRDSA.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/07/02/有序矩阵中第K小的元素/">
+  <link rel="canonical" href="http://yoursite.com/2021/02/07/非递减数列/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>有序矩阵中第K小的元素 | Morichina</title>
+  <title>非递减数列 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/02/有序矩阵中第K小的元素/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/07/非递减数列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">有序矩阵中第K小的元素
+          <h1 class="post-title" itemprop="name headline">非递减数列
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-07-02 11:06:39 / 修改时间：11:19:12" itemprop="dateCreated datePublished" datetime="2020-07-02T11:06:39+08:00">2020-07-02</time>
+              <time title="创建时间：2021-02-07 12:49:08 / 修改时间：13:25:17" itemprop="dateCreated datePublished" datetime="2021-02-07T12:49:08+08:00">2021-02-07</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2.3k</span>
+              <span title="本文字数">1.8k</span>
             </span>
           
 
@@ -456,19 +456,25 @@
       
 
       
-        <p>LeetCode每日一题，378.Kth Smallest Element in a Sorted Matrix</p>
+        <p>LeetCode每日一题，665.  Non-decreasing Array</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><img src="https://s1.ax1x.com/2020/07/02/NbFBng.png" alt></p>
-<p>大意就是一个矩阵在每行和每列上都有序，返回第 K 小的元素</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这道题一开始只想得到暴力解法，就是变一维数组排序后再输出第 K 小的元素，运行效率十分感人</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">lass Solution &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">kthSmallest</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> rows = matrix.length, columns = matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span>[] sorted = <span class="keyword">new</span> <span class="keyword">int</span>[rows * columns];</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] row : matrix) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> num : row) &#123;</span><br><span class="line">                sorted[index++] = num;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        Arrays.sort(sorted);</span><br><span class="line">        <span class="keyword">return</span> sorted[k - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>后来看题解才知道还有归并排序法和二分查找法，尤其是二分查找法十分巧妙，而且运用到了题目中这个矩阵的特殊性质，感觉自己对二分查找法一直不太会用，还是得多学习二分法的用法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">kthSmallest</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        PriorityQueue&lt;<span class="keyword">int</span>[]&gt; pq = <span class="keyword">new</span> PriorityQueue&lt;<span class="keyword">int</span>[]&gt;(<span class="keyword">new</span> Comparator&lt;<span class="keyword">int</span>[]&gt;() &#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span>[] b)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> a[<span class="number">0</span>] - b[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">int</span> n = matrix.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            pq.offer(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;matrix[i][<span class="number">0</span>], i, <span class="number">0</span>&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span>[] now = pq.poll();</span><br><span class="line">            <span class="keyword">if</span> (now[<span class="number">2</span>] != n - <span class="number">1</span>) &#123;</span><br><span class="line">                pq.offer(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;matrix[now[<span class="number">1</span>]][now[<span class="number">2</span>] + <span class="number">1</span>], now[<span class="number">1</span>], now[<span class="number">2</span>] + <span class="number">1</span>&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pq.poll()[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">kthSmallest</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = matrix.length;</span><br><span class="line">        <span class="keyword">int</span> left = matrix[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> right = matrix[n - <span class="number">1</span>][n - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right -left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (check(matrix, k, mid)) &#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> k, <span class="keyword">int</span> mid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = matrix.length;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> i = n - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &gt;= <span class="number">0</span> &amp;&amp; j &lt; n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (matrix[i][j] &gt; mid) &#123;</span><br><span class="line">                i--;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                j++;</span><br><span class="line">                num += i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> num &gt;= k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/ytRDSA" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/02/07/ytRDSA.png" alt="ytRDSA.png"></a></p>
+<p>大意就是给定一个数组 nums，让我们判断，能否改变 nums 中至多一个数字，使其为非递减数列</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>算法流程</strong></p>
+<ul>
+<li>遍历数组找到第一个元素 nums[i] 满足 nums[i] &gt; nums[i + 1]，若找不到的话，则说明 nums 已经是非递减数列，直接返回 true</li>
+<li>此时有 nums[0: i] 为非递减数列，nums[i] &gt; nums[i + 1]，再对数组 nums[i + 2: len - 1] 部分进行判断，若该部分不是非递减的，则直接返回 false，不可能改变至多一个数字使 nums 为非递减数列</li>
+<li>若 nums[i + 2: len - 1] 部分也是非递减数列，那么再进行考虑，考虑两种情况，此时 nums[0: i] 为非递减数列，nums[i + 2: len - 1] 也是非递减数列，nums[i] &gt; nums[i + 1]，想让 nums 是非递减数列，可以考虑改变 nums[i] 或 nums[i + 1]<ul>
+<li>若 nums[i] &lt;= nums[i + 2]，则该情况下是 nums[i + 1] 小了，改变 nums[i + 1] 即可让 nums 为非递减数列，返回 true 即可</li>
+<li>若 nums[i - 1] &lt;= nums[i + 1] 且 nums[i + 1] &lt;= nums[i + 2]，则该情况下是 nums[i] 大了，改变 nums[i] 即可让 nums 为非递减数列即可，返回 true 即可</li>
+<li>若不满足上述两种情况中的任意一种，则不能改变至多一个数字使 nums 为非递减数列，返回 false</li>
+</ul>
+</li>
+</ul>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>注意：实现代码时要考虑 i 为 0 或 i 为 len - 2 的特殊情况</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">checkPossibility</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] &lt;= nums[i + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (i == len - <span class="number">2</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">2</span>; j &lt; len - <span class="number">1</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[j] &gt; nums[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span> &amp;&amp; nums[<span class="number">1</span>] &lt;= nums[<span class="number">2</span>]) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[i] &lt;= nums[i + <span class="number">2</span>]) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[i + <span class="number">1</span>] &lt;= nums[i + <span class="number">2</span>] &amp;&amp; nums[i - <span class="number">1</span>] &lt;= nums[i + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -500,8 +506,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/01/最长重复子数组/" rel="next" title="最长重复子数组">
-                <i class="fa fa-chevron-left"></i> 最长重复子数组
+              <a href="/2021/02/06/可获得的最大点数/" rel="next" title="可获得的最大点数">
+                <i class="fa fa-chevron-left"></i> 可获得的最大点数
               </a>
             
           </div>
@@ -509,10 +515,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/03/将有序数组转化为二叉搜索树/" rel="prev" title="将有序数组转化为二叉搜索树">
-                将有序数组转化为二叉搜索树 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -651,7 +653,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
