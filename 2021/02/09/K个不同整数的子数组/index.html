@@ -94,17 +94,19 @@
 
 
 
-  <meta name="description" content="一种十分方便的python字符串格式化方法：f-string">
+  <meta name="description" content="LeetCode每日一题，992.  Subarrays With K Different Integers">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python格式化字符串f-string的简单使用">
-<meta property="og:url" content="http://yoursite.com/2019/08/11/Python格式化字符串f-string的简单实用/index.html">
+<meta property="og:title" content="K个不同整数的子数组">
+<meta property="og:url" content="http://yoursite.com/2021/02/09/K个不同整数的子数组/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="一种十分方便的python字符串格式化方法：f-string">
+<meta property="og:description" content="LeetCode每日一题，992.  Subarrays With K Different Integers">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-06T12:36:30.674Z">
+<meta property="og:image" content="https://s3.ax1x.com/2021/02/09/yav2gs.png">
+<meta property="og:updated_time" content="2021-02-09T08:14:26.044Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python格式化字符串f-string的简单使用">
-<meta name="twitter:description" content="一种十分方便的python字符串格式化方法：f-string">
+<meta name="twitter:title" content="K个不同整数的子数组">
+<meta name="twitter:description" content="LeetCode每日一题，992.  Subarrays With K Different Integers">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/02/09/yav2gs.png">
 
 
 
@@ -112,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/08/11/Python格式化字符串f-string的简单实用/">
+  <link rel="canonical" href="http://yoursite.com/2021/02/09/K个不同整数的子数组/">
 
 
 
@@ -122,7 +124,7 @@
   };
 </script>
 
-  <title>Python格式化字符串f-string的简单使用 | Morichina</title>
+  <title>K个不同整数的子数组 | Morichina</title>
   
 
 
@@ -349,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/11/Python格式化字符串f-string的简单实用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/09/K个不同整数的子数组/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -366,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python格式化字符串f-string的简单使用
+          <h1 class="post-title" itemprop="name headline">K个不同整数的子数组
 
               
             
@@ -392,23 +394,13 @@
                 
               
 
-              <time title="创建时间：2019-08-11 10:32:10" itemprop="dateCreated datePublished" datetime="2019-08-11T10:32:10+08:00">2019-08-11</time>
+              <time title="创建时间：2021-02-09 15:40:25 / 修改时间：16:14:26" itemprop="dateCreated datePublished" datetime="2021-02-09T15:40:25+08:00">2021-02-09</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-11-06 20:36:30" itemprop="dateModified" datetime="2019-11-06T20:36:30+08:00">2019-11-06</time>
-              </span>
             
           
 
@@ -433,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.9k</span>
+              <span title="本文字数">2.4k</span>
             </span>
           
 
@@ -464,36 +456,23 @@
       
 
       
-        <p>一种十分方便的python字符串格式化方法：f-string</p>
+        <p>LeetCode每日一题，992.  Subarrays With K Different Integers</p>
 <a id="more"></a>
 
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>f-string，亦称为格式化字符串常量（formatted string literals），是Python3.6新引入的一种字符串格式化方法，该方法源于<a href="https://python.org/dev/peps/pep-0498/" target="_blank" rel="noopener">PEP 498 – Literal String Interpolation</a>，主要目的是使格式化字符串的操作更加简便。f-string在形式上是以 f  或 F 修饰符引领的字符串（f&#39;xxx&#39; 或 F&#39;xxx&#39;)，以大括号 {} 标明被替换的字段；f-string在本质上并不是字符串常量，而是一个在运行时运算求值的表达式：</p>
-<blockquote>
-<p>While other string literals always have a constant value, formatted strings are really expressions evaluated at run time.<br>（与具有恒定值的其它字符串常量不同，格式化字符串实际上是运行时运算求值的表达式。）<br>—— <a href="https://docs.python.org/3/reference/lexical_analysis.html#formatted-string-literals" target="_blank" rel="noopener">Python Documentation</a></p>
-</blockquote>
-<p>f-string在功能方面不逊于传统的<a href="https://docs.python.org/3/library/stdtypes.html#old-string-formatting" target="_blank" rel="noopener">%-formatting语句</a>和<a href="https://docs.python.org/3/library/stdtypes.html#str.format" target="_blank" rel="noopener">str.format()函数</a>，同时<a href="https://mlln.cn/2018/05/19/python3%20f-string%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/" target="_blank" rel="noopener">性能</a>又优于二者，且使用起来也更加简洁明了，因此对于Python3.6及以后的版本，推荐使用f-string进行字符串格式化</p>
-<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>f-string可以起到类似槽函数的效果，用大括号 {} 表示被替换字段，其中直接填入替换内容，例如</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f"<span class="subst">&#123;a&#125;</span>23"</span></span><br><span class="line"><span class="string">'123'</span></span><br></pre></td></tr></table></figure>
+<p>先看题目描述</p>
+<p><a href="https://imgchr.com/i/yav2gs" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/02/09/yav2gs.png" alt="yav2gs.png"></a></p>
+<p>大意就是给定一个数组 A 和整数 K，让我们计算 A 的包含的不同的数字个数恰好是 K 的子数组的个数</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>这题一开始用暴力法做的，结果在一个用例那里跑超时了，于是去看题解，才明白要对题目进行转化，就可以使用滑动窗口来解题了</p>
+<p><strong>滑动窗口</strong></p>
+<p>对比以前我们做过的，使用双指针解决的问题的问法基本都会出现「最小」、「最大」这样的字眼。把「恰好」改成「最多」就可以使用双指针一前一后交替向右的方法完成，这是因为 对于每一个确定的右边界，最多包含 K 种不同整数的左边界是唯一确定的，并且在右边界向右移动的过程中，左边界或者在原来的地方，或者在原来地方的右边</p>
+<p>而「最多存在 K 个不同整数的子区间的个数」与「恰好存在 K 个不同整数的子区间的个数」的差恰好等于「最多存在 K − 1 个不同整数的子区间的个数」</p>
+<p>因此原问题就转换成为求解「最多存在 K 个不同整数的子区间的个数」与 「最多存在 K − 1 个不同整数的子区间的个数」，它们其实是一个问题</p>
+<p>实现一个方法 subarraysWithAtMostKDistinct(A, K)，可以返回数组 A 中至多有 K 个不同数字的子数组的个数，于是 subarraysWithAtMostKDistinct(A, K) - subarraysWithAtMostKDistinct(A, K - 1) 即为所求</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>滑动窗口</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">subarraysWithKDistinct</span><span class="params">(<span class="keyword">int</span>[] A, <span class="keyword">int</span> K)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> subarraysWithAtMostKDistinct(A, K) - subarraysWithAtMostKDistinct(A, K - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">subarraysWithAtMostKDistinct</span><span class="params">(<span class="keyword">int</span>[] A, <span class="keyword">int</span> K)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = A.length;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[] cnt = <span class="keyword">new</span> <span class="keyword">int</span>[len + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">while</span> (right &lt; len) &#123;</span><br><span class="line">            <span class="keyword">int</span> num = A[right];</span><br><span class="line">            <span class="keyword">if</span> (cnt[num] == <span class="number">0</span>) &#123;</span><br><span class="line">                count++;</span><br><span class="line">            &#125;</span><br><span class="line">            cnt[num]++;</span><br><span class="line">            right++;</span><br><span class="line">            <span class="keyword">while</span> (count &gt; K) &#123;</span><br><span class="line">                cnt[A[left]]--;</span><br><span class="line">                <span class="keyword">if</span> (cnt[A[left]] == <span class="number">0</span>) &#123;</span><br><span class="line">                    count--;</span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            ans += right - left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>可以看到在字符串前加了f以后，再使用大括号，大括号里的内容就会自动替换，起到类似槽函数的效果，而前面不加f的话，就没有这个效果</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"&#123;a&#125;23"</span></span><br><span class="line"><span class="string">'&#123;a&#125;23'</span></span><br></pre></td></tr></table></figure>
-
-<p>不加f的话，就得使用槽函数，如下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"&#123;&#125;23"</span>.format(a)</span><br><span class="line"><span class="string">'123'</span></span><br></pre></td></tr></table></figure>
-
-<p>可以看到f-string使用起来更加简洁</p>
-<p>f-string的大括号{}也可以填入表达式或调用函数，Python会求出其结果并返回填入的字符串内</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> math</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f"<span class="subst">&#123;<span class="number">1</span>+<span class="number">2</span>*<span class="number">4</span>&#125;</span>"</span></span><br><span class="line"><span class="string">'9'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f"<span class="subst">&#123;math.pow(<span class="number">4</span>, <span class="number">2</span>)&#125;</span>"</span></span><br><span class="line"><span class="string">'16.0'</span></span><br></pre></td></tr></table></figure>
-
-<p>f-string大括号内所用的引号不能和大括号外的引号定界符冲突，可根据情况灵活切换 &#39; 和 &quot; ：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f'I am <span class="subst">&#123;<span class="string">"Eric"</span>&#125;</span>'</span></span><br><span class="line"><span class="string">'I am Eric'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f'I am <span class="subst">&#123;<span class="string">'Eric'</span>&#125;</span>'</span></span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span></span><br><span class="line">    <span class="string">f'I am <span class="subst">&#123;<span class="string">'Eric'</span>&#125;</span>'</span></span><br><span class="line">                ^</span><br><span class="line">SyntaxError: invalid syntax</span><br></pre></td></tr></table></figure>
-
-<p>f-string大括号内不能使用 \ 转义，事实上不仅如此，f-string大括号内根本就不允许出现 \ ,如果确实需要 \ ，则应首先将包含 \  的内容用一个变量表示，再在f-string大括号内填入变量名：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f"newline: <span class="subst">&#123;ord(<span class="string">'\n'</span>)&#125;</span>"</span></span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span></span><br><span class="line">SyntaxError: f-string expression part cannot include a backslash</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>newline = ord(<span class="string">'\n'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f"newline: <span class="subst">&#123;newline&#125;</span>"</span></span><br><span class="line"><span class="string">'newline: 10'</span></span><br></pre></td></tr></table></figure>
-
-<p>f-string大括号外如果需要显示大括号，则应输入连续两个大括号 ：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f'5 <span class="subst">&#123;<span class="string">"&#123;stars&#125;"</span>&#125;</span>'</span></span><br><span class="line"><span class="string">'5 &#123;stars&#125;'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f'<span class="subst">&#123;&#123;<span class="number">5</span>&#125;</span>&#125; <span class="subst">&#123;<span class="string">"stars"</span>&#125;</span>'</span></span><br><span class="line"><span class="string">'&#123;5&#125; stars'</span></span><br></pre></td></tr></table></figure>
-
+<p><strong>对于 ans += right - left 的理解：以数组 A = [1, 2, 1, 2, 3]，K = 2 为例，初始时 left = 0, right = 0，第一次迭代后 left = 0, right = 1，此时 A[0: 1) 内的不同数字个数是小于等于 K 的，以 A[0] = 1 为右边界的符合要求的子数组只有 right - left = 1 个，是 [1]，于是 ans 加 1；right 接着右移到 left = 0，right = 2， 此时 A[0: 2) 内的不同数字个数是小于等于 K 的，以 A[1] = 2 为右边界的符合要求的子数组有 right - left = 2 个，是 [2]，[1, 2]，于是 ans 再加 2 等于 3；right 再右移到 left = 0，right = 3， 此时 A[0: 3) 内的不同数字个数是小于等于 K 的，以 A[2] = 1 为右边界的符合要求的子数组有 right - left = 3 个，是 [1]，[2, 1]，[1, 2, 1]，于是 ans 再加  3 等于 6；right  就这样右移直至 left = 0，right = 5，此时 A[0: 5) 内的不同数字个数大于 K，将 left 右移到 left = 3，right = 5，这时 A[3: 5) 内的不同数字个数小于等于 K，以 A[4] 为右边界的符合要求的子数组有 right - left = 2 个，于是 ans 再加 2 等于 12。就求出了 A 的最多存在 K 个不同整数的子区间的个数</strong></p>
+<p><strong>注意：这题的关键点有两个，第一个是将原问题转换成为求解「最多存在 K 个不同整数的子区间的个数」与 「最多存在 K − 1 个不同整数的子区间的个数」，从而使用滑动窗口来对问题求解；第二个就是对求解「最多存在 K 个不同整数的子区间的个数」中 ans += right - left 的理解</strong></p>
 
       
     </div>
@@ -524,8 +503,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/30/Python中给函数添加注解/" rel="next" title="Python中给函数添加注解">
-                <i class="fa fa-chevron-left"></i> Python中给函数添加注解
+              <a href="/2021/02/08/最长湍流子数组/" rel="next" title="最长湍流子数组">
+                <i class="fa fa-chevron-left"></i> 最长湍流子数组
               </a>
             
           </div>
@@ -533,10 +512,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/06/由通过小白鼠测试毒试剂的面试题联想到汉明码的校验过程/" rel="prev" title="由通过小白鼠测试毒试剂的面试题联想到汉明码的校验过程">
-                由通过小白鼠测试毒试剂的面试题联想到汉明码的校验过程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -675,7 +650,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用法"><span class="nav-number">2.</span> <span class="nav-text">用法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和思路"><span class="nav-number">1.</span> <span class="nav-text">算法和思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法源码"><span class="nav-number">2.</span> <span class="nav-text">算法源码</span></a></li></ol></div>
             
 
           </div>
