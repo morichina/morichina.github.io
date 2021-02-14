@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，1207. Unique Number of Occurrences">
+  <meta name="description" content="LeetCode每日一题，765.  Couples Holding Hands">
 <meta property="og:type" content="article">
-<meta property="og:title" content="独一无二的出现次数">
-<meta property="og:url" content="http://yoursite.com/2020/10/28/独一无二的出现次数/index.html">
+<meta property="og:title" content="情侣牵手">
+<meta property="og:url" content="http://yoursite.com/2021/02/14/情侣牵手/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，1207. Unique Number of Occurrences">
+<meta property="og:description" content="LeetCode每日一题，765.  Couples Holding Hands">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/10/28/B1LP8f.png">
-<meta property="og:updated_time" content="2020-10-28T06:31:47.177Z">
+<meta property="og:image" content="https://s3.ax1x.com/2021/02/14/yyyqpV.png">
+<meta property="og:updated_time" content="2021-02-14T13:29:30.381Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="独一无二的出现次数">
-<meta name="twitter:description" content="LeetCode每日一题，1207. Unique Number of Occurrences">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/28/B1LP8f.png">
+<meta name="twitter:title" content="情侣牵手">
+<meta name="twitter:description" content="LeetCode每日一题，765.  Couples Holding Hands">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/02/14/yyyqpV.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/10/28/独一无二的出现次数/">
+  <link rel="canonical" href="http://yoursite.com/2021/02/14/情侣牵手/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>独一无二的出现次数 | Morichina</title>
+  <title>情侣牵手 | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/28/独一无二的出现次数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/14/情侣牵手/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">独一无二的出现次数
+          <h1 class="post-title" itemprop="name headline">情侣牵手
 
               
             
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2020-10-28 09:01:16 / 修改时间：14:31:47" itemprop="dateCreated datePublished" datetime="2020-10-28T09:01:16+08:00">2020-10-28</time>
+              <time title="创建时间：2021-02-14 21:15:55 / 修改时间：21:29:30" itemprop="dateCreated datePublished" datetime="2021-02-14T21:15:55+08:00">2021-02-14</time>
             </span>
           
 
@@ -425,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.8k</span>
+              <span title="本文字数">1.3k</span>
             </span>
           
 
@@ -437,7 +437,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">2 分钟</span>
+              <span title="阅读时长">1 分钟</span>
             </span>
           
 
@@ -456,20 +456,21 @@
       
 
       
-        <p>LeetCode每日一题，1207. Unique Number of Occurrences</p>
+        <p>LeetCode每日一题，765.  Couples Holding Hands</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><a href="https://imgchr.com/i/B1LP8f" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/28/B1LP8f.png" alt="B1LP8f.png"></a></p>
-<p>大意就是给定一个数组 arr，让我们判断数组中每个数字中出现的次数是否为唯一的</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>哈希表</strong></p>
-<p>大致思路就是使用两个哈希表，一个哈希表 cnt 存储数组中每个数字对应的出现次数，一个哈希表 map 存储出现次数对应的数字，遍历一次 arr 数组将 cnt 填充好后，然后用 cnt 以数字的出现次数作为 key 值去填充 map，在填充 map 时若出现 key 值已存在的情况，则说明出现了有两个数字的出现次数相同的情况，直接返回 false；若填充完以后也未出现这种情况，则返回 true</p>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">uniqueOccurrences</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        Map&lt;Integer, Integer&gt; cnt = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num : arr) &#123;</span><br><span class="line">                cnt.put(num, cnt.getOrDefault(num, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> key: cnt.keySet()) &#123;</span><br><span class="line">            <span class="keyword">int</span> count = cnt.get(key);</span><br><span class="line">            <span class="keyword">if</span> (!map.containsKey(count)) &#123;</span><br><span class="line">                map.put(count, key);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后去看题解，发现题解使用的是集合，在将存储数组中每个数字对应的出现次数的哈希表填充好以后，题解中代码是将哈希表中的每个 value 值加入到一个集合中，由于集合会自动去重，最后只需判断集合的大小和哈希表的大小是否相等即可</p>
-<p>两个的效率基本是一致的，不过题解的代码中有一些用法和函数是以前没接触过的，例如哈希表的 getOrDefault(x, default)方法，这个方法和 python 中字典的 get 方法是差不多的，就是若 key 中存在 x 的话，则返回其对应的 value 值，否则就返回 default；还有就是哈希表的 entrySet() 方法，这个方法会返回哈希表中的所有键值对 Entry&lt;key, value&gt;，而键值对 Entry 又有相应的 getKey() 和 getValue() 等获取健和获取值的方法</p>
-<p>代码如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">uniqueOccurrences</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        Map&lt;Integer, Integer&gt; occur = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> x : arr) &#123;</span><br><span class="line">            occur.put(x, occur.getOrDefault(x, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        Set&lt;Integer&gt; times = <span class="keyword">new</span> HashSet&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;Integer, Integer&gt; x : occur.entrySet()) &#123;</span><br><span class="line">            times.add(x.getValue());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> times.size() == occur.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>[<a href="https://imgchr.com/i/yyyqpV" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/02/14/yyyqpV.png" alt="yyyqpV.png"></a>](<a href="https://imgchr.com/i/yyy5wj" target="_blank" rel="noopener">https://imgchr.com/i/yyy5wj</a>)</p>
+<p>大意就是 N 对情侣坐在连续的 2N 个座位上，想要每对情侣并肩坐在一起，计算最少需要的交换次数，情侣和座位均按顺序编号</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>并查集</strong></p>
+<p>这题不会，看题解才懂得</p>
+<p>我们将 N 对情侣看做图中的 N 个节点；对于每对相邻的位置，如果是第 i 对与第 j 对坐在了一起，则在 i 号节点与 j 号节点之间连接一条边，代表需要交换这两对情侣的位置</p>
+<p>如果图中形成一个大小为 k 的环，则我们沿着环的方向，进行了 k - 1 次交换后，这 k 对情侣就能够彼此牵手了</p>
+<p>故我们只需要利用并查集求出图中的每个连通分量；对于每个连通分量而言，其大小减 1 就是需要交换的次数</p>
+<p>最后要返回的答案就是情侣对数 - 连通分量个数，即设图中有 N 个节点， n 个连通分量，最后返回 N - n 即可</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>并查集</strong></p>
+<p>并查集中使用了路径压缩</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span>  <span class="keyword">int</span> count;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minSwapsCouples</span><span class="params">(<span class="keyword">int</span>[] row)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> N = row.length / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">this</span>.count = N;</span><br><span class="line">        <span class="keyword">int</span>[] parent = <span class="keyword">new</span> <span class="keyword">int</span>[N];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">            parent[i] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">            union(row[<span class="number">2</span> * i] / <span class="number">2</span>, row[<span class="number">2</span> * i + <span class="number">1</span>] / <span class="number">2</span>, parent);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> N - <span class="keyword">this</span>.count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span>[] parent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x != parent[x]) &#123;</span><br><span class="line">            parent[x] = find(parent[x], parent);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> parent[x];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span>[] parent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> x = find(a, parent);</span><br><span class="line">        <span class="keyword">int</span> y = find(b, parent);</span><br><span class="line">        <span class="keyword">if</span> (x == y) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        parent[y] = x;</span><br><span class="line">        <span class="keyword">this</span>.count--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -501,8 +502,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/10/27/罗马数字转整数/" rel="next" title="罗马数字转整数">
-                <i class="fa fa-chevron-left"></i> 罗马数字转整数
+              <a href="/2021/02/13/找到所有数组中消失的数字/" rel="next" title="找到所有数组中消失的数字">
+                <i class="fa fa-chevron-left"></i> 找到所有数组中消失的数字
               </a>
             
           </div>
@@ -510,10 +511,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/10/28/括号生成/" rel="prev" title="括号生成">
-                括号生成 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
