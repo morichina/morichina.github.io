@@ -94,19 +94,19 @@
 
 
 
-  <meta name="description" content="LeetCode每日一题，330.  Patching Array">
+  <meta name="description" content="LeetCode题目，561.  Array Partition I">
 <meta property="og:type" content="article">
-<meta property="og:title" content="按要求补齐数组">
-<meta property="og:url" content="http://yoursite.com/2020/12/29/按要求补齐数组/index.html">
+<meta property="og:title" content="数组拆分I">
+<meta property="og:url" content="http://yoursite.com/2021/02/16/数组拆分I/index.html">
 <meta property="og:site_name" content="Morichina">
-<meta property="og:description" content="LeetCode每日一题，330.  Patching Array">
+<meta property="og:description" content="LeetCode题目，561.  Array Partition I">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s3.ax1x.com/2020/12/29/rHE6Fe.png">
-<meta property="og:updated_time" content="2020-12-30T07:40:45.703Z">
+<meta property="og:image" content="https://s3.ax1x.com/2021/02/16/ycV2rj.png">
+<meta property="og:updated_time" content="2021-02-16T03:15:25.351Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="按要求补齐数组">
-<meta name="twitter:description" content="LeetCode每日一题，330.  Patching Array">
-<meta name="twitter:image" content="https://s3.ax1x.com/2020/12/29/rHE6Fe.png">
+<meta name="twitter:title" content="数组拆分I">
+<meta name="twitter:description" content="LeetCode题目，561.  Array Partition I">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/02/16/ycV2rj.png">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/12/29/按要求补齐数组/">
+  <link rel="canonical" href="http://yoursite.com/2021/02/16/数组拆分I/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>按要求补齐数组 | Morichina</title>
+  <title>数组拆分I | Morichina</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/29/按要求补齐数组/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/16/数组拆分I/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邓星鹏">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">按要求补齐数组
+          <h1 class="post-title" itemprop="name headline">数组拆分I
 
               
             
@@ -394,23 +394,13 @@
                 
               
 
-              <time title="创建时间：2020-12-29 10:45:03" itemprop="dateCreated datePublished" datetime="2020-12-29T10:45:03+08:00">2020-12-29</time>
+              <time title="创建时间：2021-02-16 10:57:28 / 修改时间：11:15:25" itemprop="dateCreated datePublished" datetime="2021-02-16T10:57:28+08:00">2021-02-16</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-12-30 15:40:45" itemprop="dateModified" datetime="2020-12-30T15:40:45+08:00">2020-12-30</time>
-              </span>
             
           
 
@@ -435,7 +425,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.6k</span>
+              <span title="本文字数">582</span>
             </span>
           
 
@@ -466,33 +456,18 @@
       
 
       
-        <p>LeetCode每日一题，330.  Patching Array</p>
+        <p>LeetCode题目，561.  Array Partition I</p>
 <a id="more"></a>
 
 <p>先看题目描述</p>
-<p><a href="https://imgchr.com/i/rHE6Fe" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/12/29/rHE6Fe.png" alt="rHE6Fe.png"></a></p>
-<p>大意就是给定一个数组 nums 和 一个整数 n，让我们判断若想使 [1，n] 区间内的任何一个数字都可以用 nums 中某几个元素的和来表示，需要在 nums 中添加的元素的最小数量</p>
-<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p>今天这题又不会，连续两天困难题也太绝望了…今天的题和昨天的题都是看题解才明白的，感觉今天这题主要难在数学部分</p>
-<p><strong>贪心算法</strong></p>
-<p>对于正整数 x，如果区间 [1，x - 1] 内的所有数字都已经被覆盖，且 x 在数组中，则区间 [1，2x - 1] 内的所有数字也都被覆盖，证明如下：</p>
-<p>对于任意 1 &lt;= y &lt; x，y 已经被覆盖，x 在数组中，因此 y + x 也被覆盖，区间 [x + 1，2x - 1] (即区间 [1，x - 1] 内的每个数字加上 x 之后得到的区间) 内的所有数字也被覆盖，由此可得区间 [1，2x + 1] 内的所有数字都被覆盖</p>
-<p>假设数字 x 缺失，则至少需要在数组中补充一个小于或等于 x 的数，才能覆盖到 x，否则无法覆盖到 x</p>
-<p>如果区间 [1，x−1] 内的所有数字都已经被覆盖，则从贪心的角度考虑，补充 x 之后即可覆盖到 x，且满足补充的数字个数最少。在补充 x之后，区间 [1，2x−1] 内的所有数字都被覆盖，下一个缺失的数字一定不会小于 2x</p>
-<p>由此可以提出一个贪心的方案。每次找到未被数组 nums 覆盖的最小的整数 x，在数组中补充 x，然后寻找下一个未被覆盖的最小的整数，重复上述步骤直到区间 [1，n] 中的所有数字都被覆盖</p>
-<p>具体实现方面，任何时候都应满足区间 [1，x−1] 内的所有数字都被覆盖。令 x 的初始值为 1，数组下标 index 的初始值为 0，则初始状态下区间 [1，x−1] 为空区间，满足区间内的所有数字都被覆盖。进行如下操作：</p>
-<ul>
-<li>若 index 在数组 nums 的下标范围内且 nums[index] &lt;= x，则更新 x 为 x + nums[index]<ul>
-<li>被覆盖的区间从 [1，x - 1] 扩展到 [1，x + nums[index] - 1]，将 x 的值更新以后，被覆盖的区间为 [1，x - 1]</li>
-</ul>
-</li>
-<li>否则，x 没有被覆盖，根据贪心策略，此时需要在数组 nums 中补充 x，并更新 x 为 2x<ul>
-<li>在数组中补充 x 后，被覆盖的区间从 [1，x - 1] 扩展到 [1，2x - 1]，将 x 的值更新以后，被覆盖的区间为 [1，x - 1]</li>
-</ul>
-</li>
-<li>重复上述操作，直到 x 的值大于 n</li>
-</ul>
-<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>贪心算法</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minPatches</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> patchs = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">long</span> x = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (x &lt;= n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (index &lt; len &amp;&amp; nums[index] &lt;= x) &#123;</span><br><span class="line">                x += nums[index];</span><br><span class="line">                index++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                patchs++;</span><br><span class="line">                x *= <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> patchs;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/ycV2rj" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/02/16/ycV2rj.png" alt="ycV2rj.png"></a></p>
+<p>大意就是给定一个有 2n 个元素的数组 nums，将数组拆分成 n 对，使得每对元素的最小值之和最大，返回该值</p>
+<h2 id="算法和思路"><a href="#算法和思路" class="headerlink" title="算法和思路"></a>算法和思路</h2><p><strong>贪心</strong></p>
+<p>对于数组 nums，我们首先考虑里面的最小值，设为 min，由于 min 是 nums 中最小的，因此无论哪个元素和它放在一对，从这对中选择的数都是 min，即 min 会牺牲掉一个比它大的数，我们肯定希望这种牺牲尽可能小，因此将第二小的元素与 min 放在一对。对于剩下的元素，也是进行相同的考虑。因此我们可以将 nums 按照升序排列，然后选择所有偶数下标的元素，将值相加即可得到答案</p>
+<h2 id="算法源码"><a href="#算法源码" class="headerlink" title="算法源码"></a>算法源码</h2><p><strong>贪心</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">arrayPairSum</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i += <span class="number">2</span>) &#123;</span><br><span class="line">            res += nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
@@ -522,8 +497,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/12/28/买卖股票的最佳时机IV/" rel="next" title="买卖股票的最佳时机IV">
-                <i class="fa fa-chevron-left"></i> 买卖股票的最佳时机IV
+              <a href="/2021/02/14/情侣牵手/" rel="next" title="情侣牵手">
+                <i class="fa fa-chevron-left"></i> 情侣牵手
               </a>
             
           </div>
@@ -531,10 +506,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/12/30/最后一块石头的重量/" rel="prev" title="最后一块石头的重量">
-                最后一块石头的重量 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
